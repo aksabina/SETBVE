@@ -1,4 +1,5 @@
 # Replication Package for SETBVE framework
+[![GitHub](https://img.shields.io/github/license/aksabina/SETBVE-1.0)](./LICENSE)
 
 This repository contains the replication package for the paper (currently under submission to *ACM Transactions on Software Engineering and Methodology* (TOSEM)):
 
