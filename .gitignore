@@ -1,0 +1,31 @@
+# macOS system files
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# macOS folder attributes
+Icon?
+._*
+.Spotlight-V100
+.Trashes
+*.swp
+
+# Julia compiled files and project-specific files
+.julia/
+*.jl.cov
+*.jl.*.cov
+*.ji
+*.dSYM/
+*.DS_Store
+Manifest.toml
+Project.toml
+
+# VS Code (common for Julia users)
+.vscode/
+*.code-workspace
+
+# Jupyter notebooks (if using IJulia)
+.ipynb_checkpoints/
+
+# Misc
+*.log
