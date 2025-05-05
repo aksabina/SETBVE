@@ -14,7 +14,7 @@ This repository is organized into three main components:
 - **framework/**: Includes the implementation of the SETBVE framework
 - **evaluation/**: Provides scripts used to compute and summarize statistics from experimental results after the runs.
 
-Each directory contains a dedicated README with detailed explanations and instructions.
+Each **directory contains a dedicated README** with detailed explanations and instructions.
 
 ## Repository Structure
 
