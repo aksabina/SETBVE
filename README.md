@@ -32,6 +32,9 @@ Each **directory contains a dedicated README** with detailed explanations and in
 |   ├── README.md
 └── README.md               # This file
 ```
+## License
+
+Copyright © 2025 Sabina Akbarova. This work (source code) is licensed under [MIT License](./LICENSE).
 
 ## Contact
 
