@@ -1,4 +1,4 @@
-# Replication Package for "SETBVE: Quality-Diversity Driven Exploration of Software Boundary Behaviors"
+# Replication Package for SETBVE framework
 
 This repository contains the replication package for the paper (currently under submission to *ACM Transactions on Software Engineering and Methodology* (TOSEM)):
 
