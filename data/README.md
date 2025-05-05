@@ -43,3 +43,30 @@ Each SUT folder contains two subfolders:
 This folder contains summary statistics for each experimental run, grouped by configuration, SUT, and runtime.
 
 
+## Column Descriptions (example_archive files)
+
+Each CSV file in `example_archive` contains data on boundary candidates and their associated descriptors. Here's what the columns represent:
+
+- Columns starting with `bd_` (e.g., `bd_in_length_total`, `bd_in_length_var`, `bd_out_length_diff`, `bd_validity_group`): 
+  Behavioral descriptors used in the archive. Refer to the manuscript for detailed calculation methods.
+
+- `boundary_rank`: 
+  - `0` — Top-ranked boundary candidates (analyzed in the paper)
+  - `1` — Other candidates with a positive program derivative
+
+- `fitness`: 
+  The absolute value of the program derivative, used as the quality score (see manuscript for calculation details)
+
+- `fitness_max`: 
+  The highest observed fitness value for the respective archive cell across all runs
+
+- `fitness_ratio_max`: 
+  Relative Program Derivative (RPD), calculated as fitness / fitness_max
+
+- Columns starting with `i1_` and `i2_`: 
+  Represent the pair of input arguments provided to the SUT
+
+- `output1`, `output2`: 
+  The outputs from executing the SUT with the corresponding input pairs
+
+
