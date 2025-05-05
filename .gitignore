@@ -24,8 +24,5 @@ Project.toml
 .vscode/
 *.code-workspace
 
-# Jupyter notebooks (if using IJulia)
-.ipynb_checkpoints/
-
 # Misc
 *.log
