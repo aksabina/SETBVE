@@ -40,7 +40,7 @@ These components can be enabled in various combinations.
 
 ### Running the Framework
 
-To execute the framework, use the following command structure:
+To execute the framework, 1) open a terminal in the project directory e.g., `framework/SETBVE` and 2) use the following command structure:
 
 ```bash
 julia main.jl [sut_name] [duration_in_sec] [emitter_type] [parent_selection] [tracer_budget]
