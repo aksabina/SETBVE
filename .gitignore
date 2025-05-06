@@ -17,10 +17,11 @@ Icon?
 *.ji
 *.dSYM/
 *.DS_Store
-Manifest.toml
-Project.toml
+*.csv
 
 # VS Code (common for Julia users)
+Archive/
+Plots/
 .vscode/
 *.code-workspace
 
