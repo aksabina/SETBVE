@@ -29,7 +29,7 @@ Each tracer folder contains one of the following strategies:
 
 Each strategy folder includes subfolders for SUTs:
 
-- **Common to all strategies:** `BMI`, `Bytecount`, `JuliaDate`, `SolidCircle`
+- **Common to all strategies:** `bmi`, `bytecount`, `date`, `circle`
 - **Exclusive to `Uniform/`:** `cld`, `fld`, `fldmod1`, `max`, `power_by_squaring`, `tailjoin` (Julia Base functions)
 
 ### 🔹 Run Duration
@@ -39,7 +39,7 @@ Each SUT folder contains:
 - **`30 seconds/`** – Short-run data
 - **`600 seconds/`** – Long-run data
 
-> **Note:** Only *one example run* per configuration, SUT, and duration is included due to space constraints. In the full study, each configuration was executed for *20 runs*. The complete dataset is available upon request or can be regenerated using the SETBVE framework.
+> **Note:** Only *one example run* per configuration, SUT, and duration is included due to space constraints. In the full study, each configuration was executed for *20 runs*. The complete dataset is available upon request or can be regenerated using the [SETBVE framework](https://github.com/aksabina/SETBVE/tree/main/framework).
 
 ---
 
@@ -56,7 +56,8 @@ Each CSV in `example_archive` logs details of boundary candidates with the follo
 | Column | Description |
 |--------|-------------|
 | `bd_*` | Behavioral descriptors (e.g., `bd_in_length_total`, `bd_out_length_diff`). See manuscript for calculation details. |
-| `boundary_rank` | `0` = top-ranked (used in analysis); `1` = non-top-ranked with positive program derivative |
+| `boundary_rank` | `0` = program derivative is 1; `1` = program derivative is between 0 and 1; `2` = program derivative is 0 |
+| `curiosity` | Resulting curiosity score after the full run |
 | `fitness` | Absolute program derivative (see manuscript) |
 | `fitness_max` | Maximum fitness observed for the archive cell across all runs |
 | `fitness_ratio_max` | Relative Program Derivative (RPD) = fitness / fitness_max |
