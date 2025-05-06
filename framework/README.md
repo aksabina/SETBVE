@@ -16,8 +16,6 @@ To run the SETBVE framework, ensure the following:
    julia setup.jl
    ```
    
-
-
 ## Usage
 
 > ⚠️ **Warning: Disk Space Usage**  
