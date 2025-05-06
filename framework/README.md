@@ -14,6 +14,8 @@ To run the SETBVE framework, ensure the following:
 
    ```bash
    julia setup.jl
+   ```
+   
 
 
 ## Usage
