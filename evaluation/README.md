@@ -91,3 +91,12 @@ Example:
 ```bash
 julia main.jl bmi
 ```
+---
+
+## Output Files
+
+After running the evaluation, the following directories and files will be generated automatically in the project folder:
+
+- **AggregatedArchive/** – This folder contains processed Archive files.
+- **Plots/** – This folder contains visualizations of pairwise comparisons between methods of discovered archive cells per SUT.
+- **Stats/** – This folder contains the results of evaluations RAC and RPD.

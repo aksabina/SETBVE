@@ -7,6 +7,8 @@ This repository contains the replication package for the paper (currently under 
 
 SETBVE is a black-box **Boundary Value Exploration** framework that applies Quality-Diversity (QD) optimization to discover a wide spectrum of boundary behaviors. 
 
+--- 
+
 ## Overview
 
 This repository is organized into three main components:
@@ -16,6 +18,8 @@ This repository is organized into three main components:
 - **evaluation/**: Provides scripts used to compute and summarize statistics from experimental results after the runs.
 
 Each **directory contains a dedicated README** with detailed explanations and instructions.
+
+--- 
 
 ## Repository Structure
 
@@ -33,10 +37,13 @@ Each **directory contains a dedicated README** with detailed explanations and in
 |   ├── README.md
 └── README.md               # This file
 ```
+
+---
+
 ## License
 
 Copyright © 2025 Sabina Akbarova. This work (source code) is licensed under [MIT License](./LICENSE).
 
 ## Contact
 
-For questions or issues, please contact [sabina.akbarova@chalmers.se].
+For questions or issues, please contact [sabina.akbarova{at}chalmers.se].

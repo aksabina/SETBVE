@@ -1,3 +1,5 @@
+# SETBVE Framework
+
 ## System Requirements
 
 To run the SETBVE framework, ensure the following:
@@ -15,7 +17,9 @@ To run the SETBVE framework, ensure the following:
    ```bash
    julia setup.jl
    ```
-   
+
+---
+
 ## Usage
 
 > ⚠️ **Warning: Disk Space Usage**  
@@ -81,8 +85,9 @@ To modify this, open the `runparameters.jl` file and change the value of the `nu
 ```julia
 number_of_runs = 20  # Change to your desired number
 ```
+---
 
-### Output Files
+## Output Files
 
 After running the framework, the following directories and files will be generated automatically in the project folder:
 
