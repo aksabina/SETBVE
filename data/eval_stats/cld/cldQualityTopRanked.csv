@@ -1,0 +1,7 @@
+Method,TraceBudget,Duration,RPDMean,RPDStd
+AutoBVA,0,30,0.99,0.0
+Uniform,0,30,0.23,0.0
+Uniform,10,30,0.24,0.01
+AutoBVA,0,600,1.0,0.0
+Uniform,0,600,0.39,0.0
+Uniform,10,600,0.39,0.0

@@ -1,0 +1,7 @@
+Method,TraceBudget,Duration,RACmean,RACstd
+AutoBVA,0,30,2.85,0.07
+Uniform,0,30,24.88,0.39
+Uniform,10,30,25.12,0.64
+AutoBVA,0,600,2.58,0.07
+Uniform,0,600,60.6,0.63
+Uniform,10,600,59.96,0.66
