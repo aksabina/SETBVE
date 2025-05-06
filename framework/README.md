@@ -18,6 +18,16 @@ To run the SETBVE framework, ensure the following:
 
 ## Usage
 
+> ⚠️ **Warning: Disk Space Usage**  
+> Each run may generate between **1MB and 100MB** of data, depending on the SUT, run duration, and configuration.  
+> With the default **20 runs**, total storage requirements can become significant. Please ensure you have enough disk space before proceeding.
+
+> ⏱️ **Warning: Execution Time**  
+> The current version of SETBVE runs sequentially and is not parallelized.  
+> A single configuration with a 600-second run will take over 200 minutes to complete all 20 runs. Plan accordingly if you choose long durations.
+
+### Framework Overview
+
 The framework is composed of three main components:
 
 - **Sampler** – generates inputs
@@ -61,3 +71,19 @@ julia main.jl bytecount 30 Bituniform NoSelection 0
 | `Bituniform`, `Random` | `NoSelection`                | `0.1`         | Sampler + Tracer                 |
 | `Mutation`             | `Uniform`, `Fitness`, `Curiosity` | `0`           | Sampler + Explorer               |
 | `Mutation`             | `Uniform`, `Fitness`, `Curiosity` | `0.1`         | Sampler + Explorer + Tracer      |
+
+
+### Configuration
+
+By default, the framework runs each configuration **20 times**.  
+To modify this, open the `runparameters.jl` file and change the value of the `number_of_runs` variable:
+
+```julia
+number_of_runs = 20  # Change to your desired number
+
+### Output Files
+
+After running the framework, the following directories and files will be generated automatically in the project folder:
+
+- **Archive/** – stores the results of each run in CSV format. Each file includes generated inputs, outputs and relevant metadata.
+- **Plots/** – created only for the `bmi` and `circle` SUTs. This folder contains visualizations of a subset of the boundary candidates discovered during the run.
