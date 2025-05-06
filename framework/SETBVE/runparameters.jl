@@ -12,7 +12,7 @@ behavioural_descriptors = Dict(
     "fld" => ["validity_group", "out_length_diff", "in_length_var", "in_length_total"],
 )
 bituniform_init_budget_ratio = 0.1
-number_of_runs = 30
+number_of_runs = 20
 
 
 
