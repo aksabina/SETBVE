@@ -1,0 +1,35 @@
+year,month,day,output,outputtype,datatype,metric,n_year,n_month,n_day,n_output,n_outputtype,n_datatype,count
+3567767838033745,-1,398838576518,"ArgumentError(""Month: -1 out of range (1:12)"")",error,ArgumentError,1.0,3567767838033745,0,398838576518,"ArgumentError(""Month: 0 out of range (1:12)"")",error,ArgumentError,1
+4102506,0,0,"ArgumentError(""Month: 0 out of range (1:12)"")",error,ArgumentError,2.0,4102506,1,0,"ArgumentError(""Day: 0 out of range (1:31)"")",error,ArgumentError,1
+7187,0,218394,"ArgumentError(""Month: 0 out of range (1:12)"")",error,ArgumentError,3.0,7187,1,218394,"ArgumentError(""Day: 218394 out of range (1:31)"")",error,ArgumentError,1
+2780,2,-1,"ArgumentError(""Day: -1 out of range (1:29)"")",error,ArgumentError,1.0,2780,2,0,"ArgumentError(""Day: 0 out of range (1:29)"")",error,ArgumentError,1
+1077,99,1015,"ArgumentError(""Month: 99 out of range (1:12)"")",error,ArgumentError,1.0,1077,100,1015,"ArgumentError(""Month: 100 out of range (1:12)"")",error,ArgumentError,1
+125,-1,211,"ArgumentError(""Month: -1 out of range (1:12)"")",error,ArgumentError,1.0,125,0,211,"ArgumentError(""Month: 0 out of range (1:12)"")",error,ArgumentError,1
+24,-100,7001,"ArgumentError(""Month: -100 out of range (1:12)"")",error,ArgumentError,1.0,24,-99,7001,"ArgumentError(""Month: -99 out of range (1:12)"")",error,ArgumentError,1
+11,0,0,"ArgumentError(""Month: 0 out of range (1:12)"")",error,ArgumentError,2.0,11,1,0,"ArgumentError(""Day: 0 out of range (1:31)"")",error,ArgumentError,1
+5,0,60,"ArgumentError(""Month: 0 out of range (1:12)"")",error,ArgumentError,1.0,5,1,60,"ArgumentError(""Day: 60 out of range (1:31)"")",error,ArgumentError,1
+1,0,3529621,"ArgumentError(""Month: 0 out of range (1:12)"")",error,ArgumentError,4.0,1,1,3529621,"ArgumentError(""Day: 3529621 out of range (1:31)"")",error,ArgumentError,1
+1,0,51,"ArgumentError(""Month: 0 out of range (1:12)"")",error,ArgumentError,1.0,1,1,51,"ArgumentError(""Day: 51 out of range (1:31)"")",error,ArgumentError,1
+1,0,-5,"ArgumentError(""Month: 0 out of range (1:12)"")",error,ArgumentError,1.0,1,1,-5,"ArgumentError(""Day: -5 out of range (1:31)"")",error,ArgumentError,1
+0,999999999,19451684,"ArgumentError(""Month: 999999999 out of range (1:12)"")",error,ArgumentError,1.0,0,1000000000,19451684,"ArgumentError(""Month: 1000000000 out of range (1:12)"")",error,ArgumentError,1
+0,999999,1122,"ArgumentError(""Month: 999999 out of range (1:12)"")",error,ArgumentError,1.0,0,1000000,1122,"ArgumentError(""Month: 1000000 out of range (1:12)"")",error,ArgumentError,1
+0,-10,3,"ArgumentError(""Month: -10 out of range (1:12)"")",error,ArgumentError,1.0,0,-9,3,"ArgumentError(""Month: -9 out of range (1:12)"")",error,ArgumentError,1
+0,-10,2,"ArgumentError(""Month: -10 out of range (1:12)"")",error,ArgumentError,1.0,0,-9,2,"ArgumentError(""Month: -9 out of range (1:12)"")",error,ArgumentError,1
+-1,-10,38,"ArgumentError(""Month: -10 out of range (1:12)"")",error,ArgumentError,1.0,-1,-9,38,"ArgumentError(""Month: -9 out of range (1:12)"")",error,ArgumentError,1
+-1,-1000000000,-6295,"ArgumentError(""Month: -1000000000 out of range (1:12)"")",error,ArgumentError,1.0,-1,-999999999,-6295,"ArgumentError(""Month: -999999999 out of range (1:12)"")",error,ArgumentError,1
+-27,0,0,"ArgumentError(""Month: 0 out of range (1:12)"")",error,ArgumentError,2.0,-27,1,0,"ArgumentError(""Day: 0 out of range (1:31)"")",error,ArgumentError,1
+-47,0,-430,"ArgumentError(""Month: 0 out of range (1:12)"")",error,ArgumentError,1.0,-47,1,-430,"ArgumentError(""Day: -430 out of range (1:31)"")",error,ArgumentError,1
+-25471786932,-10000000,0,"ArgumentError(""Month: -10000000 out of range (1:12)"")",error,ArgumentError,1.0,-25471786932,-9999999,0,"ArgumentError(""Month: -9999999 out of range (1:12)"")",error,ArgumentError,1
+-9784086561049,999999999999999,1,"ArgumentError(""Month: 999999999999999 out of range (1:12)"")",error,ArgumentError,1.0,-9784086561049,1000000000000000,1,"ArgumentError(""Month: 1000000000000000 out of range (1:12)"")",error,ArgumentError,1
+158465772,0,1,"ArgumentError(""Month: 0 out of range (1:12)"")",error,ArgumentError,30.0,158465772,1,1,158465772-01-01,valid,Dates.Date,1
+55836,0,1,"ArgumentError(""Month: 0 out of range (1:12)"")",error,ArgumentError,34.0,55836,1,1,55836-01-01,valid,Dates.Date,1
+41039,1,0,"ArgumentError(""Day: 0 out of range (1:31)"")",error,ArgumentError,32.0,41039,1,1,41039-01-01,valid,Dates.Date,1
+3339,4,0,"ArgumentError(""Day: 0 out of range (1:30)"")",error,ArgumentError,33.0,3339,4,1,3339-04-01,valid,Dates.Date,1
+255,3,0,"ArgumentError(""Day: 0 out of range (1:31)"")",error,ArgumentError,33.0,255,3,1,0255-03-01,valid,Dates.Date,1
+18,12,0,"ArgumentError(""Day: 0 out of range (1:31)"")",error,ArgumentError,33.0,18,12,1,0018-12-01,valid,Dates.Date,1
+17,0,1,"ArgumentError(""Month: 0 out of range (1:12)"")",error,ArgumentError,35.0,17,1,1,0017-01-01,valid,Dates.Date,1
+2,1,0,"ArgumentError(""Day: 0 out of range (1:31)"")",error,ArgumentError,33.0,2,1,1,0002-01-01,valid,Dates.Date,1
+0,0,19,"ArgumentError(""Month: 0 out of range (1:12)"")",error,ArgumentError,35.0,0,1,19,0000-01-19,valid,Dates.Date,1
+0,0,1,"ArgumentError(""Month: 0 out of range (1:12)"")",error,ArgumentError,35.0,0,1,1,0000-01-01,valid,Dates.Date,1
+-1611429294137,0,1,"ArgumentError(""Month: 0 out of range (1:12)"")",error,ArgumentError,25.0,-1611429294137,1,1,-1611429294137-01-01,valid,Dates.Date,1
+-1,2,3,-0001-02-03,valid,Dates.Date,1.0,0,2,3,0000-02-03,valid,Dates.Date,1

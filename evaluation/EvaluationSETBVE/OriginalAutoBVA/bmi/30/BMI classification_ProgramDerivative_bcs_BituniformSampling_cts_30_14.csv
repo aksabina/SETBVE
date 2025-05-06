@@ -1,0 +1,141 @@
+h,w,output,outputtype,datatype,metric,n_h,n_w,n_output,n_outputtype,n_datatype,count
+103,-1,"DomainError(""Height or Weight cannot be negative."", """")",error,DomainError,44.0,103,0,Underweight,valid,String,2
+102,-1,"DomainError(""Height or Weight cannot be negative."", """")",error,DomainError,44.0,102,0,Underweight,valid,String,2
+14,-1,"DomainError(""Height or Weight cannot be negative."", """")",error,DomainError,44.0,14,0,Underweight,valid,String,2
+11,-1,"DomainError(""Height or Weight cannot be negative."", """")",error,DomainError,44.0,11,0,Underweight,valid,String,3
+8,-1,"DomainError(""Height or Weight cannot be negative."", """")",error,DomainError,44.0,8,0,Underweight,valid,String,3
+5,-1,"DomainError(""Height or Weight cannot be negative."", """")",error,DomainError,44.0,5,0,Underweight,valid,String,3
+3,-1,"DomainError(""Height or Weight cannot be negative."", """")",error,DomainError,44.0,3,0,Underweight,valid,String,4
+2,-1,"DomainError(""Height or Weight cannot be negative."", """")",error,DomainError,44.0,2,0,Underweight,valid,String,4
+1,-1,"DomainError(""Height or Weight cannot be negative."", """")",error,DomainError,44.0,1,0,Underweight,valid,String,23
+0,-1,"DomainError(""Height or Weight cannot be negative."", """")",error,DomainError,41.0,0,0,Severely obese,valid,String,5
+-1,7,"DomainError(""Height or Weight cannot be negative."", """")",error,DomainError,41.0,0,7,Severely obese,valid,String,2
+-1,4,"DomainError(""Height or Weight cannot be negative."", """")",error,DomainError,41.0,0,4,Severely obese,valid,String,2
+-1,3,"DomainError(""Height or Weight cannot be negative."", """")",error,DomainError,41.0,0,3,Severely obese,valid,String,3
+-1,1,"DomainError(""Height or Weight cannot be negative."", """")",error,DomainError,41.0,0,1,Severely obese,valid,String,11
+-1,0,"DomainError(""Height or Weight cannot be negative."", """")",error,DomainError,41.0,0,0,Severely obese,valid,String,26
+3370794682952407740,-1,"DomainError(""Height or Weight cannot be negative."", """")",error,DomainError,44.0,3370794682952407740,0,Underweight,valid,String,1
+730166975610,-1,"DomainError(""Height or Weight cannot be negative."", """")",error,DomainError,44.0,730166975610,0,Underweight,valid,String,1
+909003684,-1,"DomainError(""Height or Weight cannot be negative."", """")",error,DomainError,44.0,909003684,0,Underweight,valid,String,1
+733816995,-1,"DomainError(""Height or Weight cannot be negative."", """")",error,DomainError,44.0,733816995,0,Underweight,valid,String,1
+275501319,-1,"DomainError(""Height or Weight cannot be negative."", """")",error,DomainError,44.0,275501319,0,Underweight,valid,String,1
+261482609,-1,"DomainError(""Height or Weight cannot be negative."", """")",error,DomainError,44.0,261482609,0,Underweight,valid,String,1
+254220532,-1,"DomainError(""Height or Weight cannot be negative."", """")",error,DomainError,44.0,254220532,0,Underweight,valid,String,1
+28293440,-1,"DomainError(""Height or Weight cannot be negative."", """")",error,DomainError,44.0,28293440,0,Underweight,valid,String,1
+23675241,-1,"DomainError(""Height or Weight cannot be negative."", """")",error,DomainError,44.0,23675241,0,Underweight,valid,String,1
+21716543,-1,"DomainError(""Height or Weight cannot be negative."", """")",error,DomainError,44.0,21716543,0,Underweight,valid,String,1
+18700973,-1,"DomainError(""Height or Weight cannot be negative."", """")",error,DomainError,44.0,18700973,0,Underweight,valid,String,1
+7797692,-1,"DomainError(""Height or Weight cannot be negative."", """")",error,DomainError,44.0,7797692,0,Underweight,valid,String,1
+5914435,-1,"DomainError(""Height or Weight cannot be negative."", """")",error,DomainError,44.0,5914435,0,Underweight,valid,String,1
+1196326,-1,"DomainError(""Height or Weight cannot be negative."", """")",error,DomainError,44.0,1196326,0,Underweight,valid,String,1
+722706,-1,"DomainError(""Height or Weight cannot be negative."", """")",error,DomainError,44.0,722706,0,Underweight,valid,String,1
+479510,-1,"DomainError(""Height or Weight cannot be negative."", """")",error,DomainError,44.0,479510,0,Underweight,valid,String,1
+433828,-1,"DomainError(""Height or Weight cannot be negative."", """")",error,DomainError,44.0,433828,0,Underweight,valid,String,1
+378896,-1,"DomainError(""Height or Weight cannot be negative."", """")",error,DomainError,44.0,378896,0,Underweight,valid,String,1
+296405,-1,"DomainError(""Height or Weight cannot be negative."", """")",error,DomainError,44.0,296405,0,Underweight,valid,String,1
+61220,-1,"DomainError(""Height or Weight cannot be negative."", """")",error,DomainError,44.0,61220,0,Underweight,valid,String,1
+49239,-1,"DomainError(""Height or Weight cannot be negative."", """")",error,DomainError,44.0,49239,0,Underweight,valid,String,1
+12633,-1,"DomainError(""Height or Weight cannot be negative."", """")",error,DomainError,44.0,12633,0,Underweight,valid,String,1
+7725,-1,"DomainError(""Height or Weight cannot be negative."", """")",error,DomainError,44.0,7725,0,Underweight,valid,String,1
+4868,-1,"DomainError(""Height or Weight cannot be negative."", """")",error,DomainError,44.0,4868,0,Underweight,valid,String,1
+2911,-1,"DomainError(""Height or Weight cannot be negative."", """")",error,DomainError,44.0,2911,0,Underweight,valid,String,1
+2420,-1,"DomainError(""Height or Weight cannot be negative."", """")",error,DomainError,44.0,2420,0,Underweight,valid,String,1
+2370,-1,"DomainError(""Height or Weight cannot be negative."", """")",error,DomainError,44.0,2370,0,Underweight,valid,String,1
+1977,-1,"DomainError(""Height or Weight cannot be negative."", """")",error,DomainError,44.0,1977,0,Underweight,valid,String,1
+1773,-1,"DomainError(""Height or Weight cannot be negative."", """")",error,DomainError,44.0,1773,0,Underweight,valid,String,1
+581,-1,"DomainError(""Height or Weight cannot be negative."", """")",error,DomainError,44.0,581,0,Underweight,valid,String,1
+546,-1,"DomainError(""Height or Weight cannot be negative."", """")",error,DomainError,44.0,546,0,Underweight,valid,String,1
+538,-1,"DomainError(""Height or Weight cannot be negative."", """")",error,DomainError,44.0,538,0,Underweight,valid,String,1
+478,-1,"DomainError(""Height or Weight cannot be negative."", """")",error,DomainError,44.0,478,0,Underweight,valid,String,1
+422,-1,"DomainError(""Height or Weight cannot be negative."", """")",error,DomainError,44.0,422,0,Underweight,valid,String,1
+382,-1,"DomainError(""Height or Weight cannot be negative."", """")",error,DomainError,44.0,382,0,Underweight,valid,String,1
+127,-1,"DomainError(""Height or Weight cannot be negative."", """")",error,DomainError,44.0,127,0,Underweight,valid,String,1
+123,-1,"DomainError(""Height or Weight cannot be negative."", """")",error,DomainError,44.0,123,0,Underweight,valid,String,1
+122,-1,"DomainError(""Height or Weight cannot be negative."", """")",error,DomainError,44.0,122,0,Underweight,valid,String,1
+74,-1,"DomainError(""Height or Weight cannot be negative."", """")",error,DomainError,44.0,74,0,Underweight,valid,String,1
+72,-1,"DomainError(""Height or Weight cannot be negative."", """")",error,DomainError,44.0,72,0,Underweight,valid,String,1
+55,-1,"DomainError(""Height or Weight cannot be negative."", """")",error,DomainError,44.0,55,0,Underweight,valid,String,1
+51,-1,"DomainError(""Height or Weight cannot be negative."", """")",error,DomainError,44.0,51,0,Underweight,valid,String,1
+46,-1,"DomainError(""Height or Weight cannot be negative."", """")",error,DomainError,44.0,46,0,Underweight,valid,String,1
+23,-1,"DomainError(""Height or Weight cannot be negative."", """")",error,DomainError,44.0,23,0,Underweight,valid,String,1
+18,-1,"DomainError(""Height or Weight cannot be negative."", """")",error,DomainError,44.0,18,0,Underweight,valid,String,1
+13,-1,"DomainError(""Height or Weight cannot be negative."", """")",error,DomainError,44.0,13,0,Underweight,valid,String,1
+12,-1,"DomainError(""Height or Weight cannot be negative."", """")",error,DomainError,44.0,12,0,Underweight,valid,String,1
+7,-1,"DomainError(""Height or Weight cannot be negative."", """")",error,DomainError,44.0,7,0,Underweight,valid,String,1
+6,-1,"DomainError(""Height or Weight cannot be negative."", """")",error,DomainError,44.0,6,0,Underweight,valid,String,1
+4,-1,"DomainError(""Height or Weight cannot be negative."", """")",error,DomainError,44.0,4,0,Underweight,valid,String,1
+-1,215973498398306260,"DomainError(""Height or Weight cannot be negative."", """")",error,DomainError,41.0,0,215973498398306260,Severely obese,valid,String,1
+-1,4836984695678691,"DomainError(""Height or Weight cannot be negative."", """")",error,DomainError,41.0,0,4836984695678691,Severely obese,valid,String,1
+-1,5610103153332,"DomainError(""Height or Weight cannot be negative."", """")",error,DomainError,41.0,0,5610103153332,Severely obese,valid,String,1
+-1,554890011,"DomainError(""Height or Weight cannot be negative."", """")",error,DomainError,41.0,0,554890011,Severely obese,valid,String,1
+-1,232453937,"DomainError(""Height or Weight cannot be negative."", """")",error,DomainError,41.0,0,232453937,Severely obese,valid,String,1
+-1,226547963,"DomainError(""Height or Weight cannot be negative."", """")",error,DomainError,41.0,0,226547963,Severely obese,valid,String,1
+-1,14710818,"DomainError(""Height or Weight cannot be negative."", """")",error,DomainError,41.0,0,14710818,Severely obese,valid,String,1
+-1,2162462,"DomainError(""Height or Weight cannot be negative."", """")",error,DomainError,41.0,0,2162462,Severely obese,valid,String,1
+-1,66851,"DomainError(""Height or Weight cannot be negative."", """")",error,DomainError,41.0,0,66851,Severely obese,valid,String,1
+-1,35849,"DomainError(""Height or Weight cannot be negative."", """")",error,DomainError,41.0,0,35849,Severely obese,valid,String,1
+-1,28719,"DomainError(""Height or Weight cannot be negative."", """")",error,DomainError,41.0,0,28719,Severely obese,valid,String,1
+-1,13603,"DomainError(""Height or Weight cannot be negative."", """")",error,DomainError,41.0,0,13603,Severely obese,valid,String,1
+-1,13388,"DomainError(""Height or Weight cannot be negative."", """")",error,DomainError,41.0,0,13388,Severely obese,valid,String,1
+-1,7191,"DomainError(""Height or Weight cannot be negative."", """")",error,DomainError,41.0,0,7191,Severely obese,valid,String,1
+-1,4622,"DomainError(""Height or Weight cannot be negative."", """")",error,DomainError,41.0,0,4622,Severely obese,valid,String,1
+-1,4415,"DomainError(""Height or Weight cannot be negative."", """")",error,DomainError,41.0,0,4415,Severely obese,valid,String,1
+-1,2557,"DomainError(""Height or Weight cannot be negative."", """")",error,DomainError,41.0,0,2557,Severely obese,valid,String,1
+-1,2491,"DomainError(""Height or Weight cannot be negative."", """")",error,DomainError,41.0,0,2491,Severely obese,valid,String,1
+-1,1592,"DomainError(""Height or Weight cannot be negative."", """")",error,DomainError,41.0,0,1592,Severely obese,valid,String,1
+-1,528,"DomainError(""Height or Weight cannot be negative."", """")",error,DomainError,41.0,0,528,Severely obese,valid,String,1
+-1,447,"DomainError(""Height or Weight cannot be negative."", """")",error,DomainError,41.0,0,447,Severely obese,valid,String,1
+-1,187,"DomainError(""Height or Weight cannot be negative."", """")",error,DomainError,41.0,0,187,Severely obese,valid,String,1
+-1,167,"DomainError(""Height or Weight cannot be negative."", """")",error,DomainError,41.0,0,167,Severely obese,valid,String,1
+-1,121,"DomainError(""Height or Weight cannot be negative."", """")",error,DomainError,41.0,0,121,Severely obese,valid,String,1
+-1,120,"DomainError(""Height or Weight cannot be negative."", """")",error,DomainError,41.0,0,120,Severely obese,valid,String,1
+-1,118,"DomainError(""Height or Weight cannot be negative."", """")",error,DomainError,41.0,0,118,Severely obese,valid,String,1
+-1,115,"DomainError(""Height or Weight cannot be negative."", """")",error,DomainError,41.0,0,115,Severely obese,valid,String,1
+-1,48,"DomainError(""Height or Weight cannot be negative."", """")",error,DomainError,41.0,0,48,Severely obese,valid,String,1
+-1,29,"DomainError(""Height or Weight cannot be negative."", """")",error,DomainError,41.0,0,29,Severely obese,valid,String,1
+-1,21,"DomainError(""Height or Weight cannot be negative."", """")",error,DomainError,41.0,0,21,Severely obese,valid,String,1
+-1,16,"DomainError(""Height or Weight cannot be negative."", """")",error,DomainError,41.0,0,16,Severely obese,valid,String,1
+-1,9,"DomainError(""Height or Weight cannot be negative."", """")",error,DomainError,41.0,0,9,Severely obese,valid,String,1
+-1,2,"DomainError(""Height or Weight cannot be negative."", """")",error,DomainError,41.0,0,2,Severely obese,valid,String,1
+118,42,Severely obese,valid,String,9.0,119,42,Obese,valid,String,2
+63,12,Severely obese,valid,String,9.0,64,12,Obese,valid,String,2
+48,7,Severely obese,valid,String,9.0,49,7,Obese,valid,String,2
+40,3,Normal,valid,String,5.0,41,3,Underweight,valid,String,2
+25,2,Severely obese,valid,String,9.0,26,2,Obese,valid,String,3
+23,1,Normal,valid,String,8.0,23,2,Severely obese,valid,String,2
+15,0,Underweight,valid,String,3.0,15,1,Severely obese,valid,String,2
+5,0,Underweight,valid,String,3.0,5,1,Severely obese,valid,String,2
+3,0,Underweight,valid,String,3.0,3,1,Severely obese,valid,String,2
+1,0,Underweight,valid,String,3.0,1,1,Severely obese,valid,String,8
+1280346359,4909663970112598,Severely obese,valid,String,9.0,1280346360,4909663970112598,Obese,valid,String,1
+601976,668584146,Normal,valid,String,5.0,601977,668584146,Underweight,valid,String,1
+141969,37186339,Normal,valid,String,5.0,141970,37186339,Underweight,valid,String,1
+59805,10712389,Severely obese,valid,String,9.0,59806,10712389,Obese,valid,String,1
+9557,273593,Severely obese,valid,String,9.0,9558,273593,Obese,valid,String,1
+2083,8006,Normal,valid,String,5.0,2084,8006,Underweight,valid,String,1
+1970,11633,Severely obese,valid,String,9.0,1971,11633,Obese,valid,String,1
+1684,8495,Severely obese,valid,String,9.0,1685,8495,Obese,valid,String,1
+1667,8332,Severely obese,valid,String,9.0,1668,8332,Obese,valid,String,1
+862,2228,Severely obese,valid,String,9.0,863,2228,Obese,valid,String,1
+845,2142,Severely obese,valid,String,9.0,846,2142,Obese,valid,String,1
+656,794,Normal,valid,String,5.0,657,794,Underweight,valid,String,1
+503,468,Normal,valid,String,5.0,504,468,Underweight,valid,String,1
+502,465,Normal,valid,String,5.0,503,465,Underweight,valid,String,1
+454,618,Severely obese,valid,String,9.0,455,618,Obese,valid,String,1
+400,481,Severely obese,valid,String,9.0,401,481,Obese,valid,String,1
+393,286,Normal,valid,String,5.0,394,286,Underweight,valid,String,1
+361,300,Overweight,valid,String,4.0,362,300,Normal,valid,String,1
+197,117,Severely obese,valid,String,9.0,198,117,Obese,valid,String,1
+178,95,Severely obese,valid,String,9.0,179,95,Obese,valid,String,1
+121,44,Severely obese,valid,String,9.0,122,44,Obese,valid,String,1
+119,43,Severely obese,valid,String,9.0,120,43,Obese,valid,String,1
+81,20,Severely obese,valid,String,9.0,82,20,Obese,valid,String,1
+73,10,Normal,valid,String,5.0,74,10,Underweight,valid,String,1
+60,11,Severely obese,valid,String,9.0,61,11,Obese,valid,String,1
+28,2,Obese,valid,String,5.0,29,2,Overweight,valid,String,1
+28,1,Underweight,valid,String,6.0,28,2,Obese,valid,String,1
+18,1,Severely obese,valid,String,9.0,19,1,Obese,valid,String,1
+12,0,Underweight,valid,String,3.0,12,1,Severely obese,valid,String,1
+6,0,Underweight,valid,String,3.0,6,1,Severely obese,valid,String,1
+4,0,Underweight,valid,String,3.0,4,1,Severely obese,valid,String,1
+2,0,Underweight,valid,String,3.0,2,1,Severely obese,valid,String,1

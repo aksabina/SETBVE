@@ -1,0 +1,1436 @@
+x,y,output,outputtype,datatype,metric,n_x,n_y,n_output,n_outputtype,n_datatype,count
+340193935936694982218212775339280607649,-10000,"InexactError(:check_top_bit, UInt128, -10000)",error,InexactError,1.0,340193935936694982218212775339280607649,-9999,"InexactError(:check_top_bit, UInt128, -9999)",error,InexactError,1
+337751267129740834003640161209361964873,-100,"InexactError(:check_top_bit, UInt128, -100)",error,InexactError,1.0,337751267129740834003640161209361964873,-99,"InexactError(:check_top_bit, UInt128, -99)",error,InexactError,1
+336861492736306527539960445732115955042,-100000000,"InexactError(:check_top_bit, UInt128, -100000000)",error,InexactError,1.0,336861492736306527539960445732115955042,-99999999,"InexactError(:check_top_bit, UInt128, -99999999)",error,InexactError,1
+335498174973699573105688572176313926510,-10000,"InexactError(:check_top_bit, UInt128, -10000)",error,InexactError,1.0,335498174973699573105688572176313926510,-9999,"InexactError(:check_top_bit, UInt128, -9999)",error,InexactError,1
+332660658369477036221328195841841997560,-100,"InexactError(:check_top_bit, UInt128, -100)",error,InexactError,1.0,332660658369477036221328195841841997560,-99,"InexactError(:check_top_bit, UInt128, -99)",error,InexactError,1
+330809078381981717372515493161867022716,-10000,"InexactError(:check_top_bit, UInt128, -10000)",error,InexactError,1.0,330809078381981717372515493161867022716,-9999,"InexactError(:check_top_bit, UInt128, -9999)",error,InexactError,1
+323968254078017966897394717580852322454,-10000,"InexactError(:check_top_bit, UInt128, -10000)",error,InexactError,1.0,323968254078017966897394717580852322454,-9999,"InexactError(:check_top_bit, UInt128, -9999)",error,InexactError,1
+313487706540859171094222174803114785430,-100,"InexactError(:check_top_bit, UInt128, -100)",error,InexactError,1.0,313487706540859171094222174803114785430,-99,"InexactError(:check_top_bit, UInt128, -99)",error,InexactError,1
+310964295346002955096774178759266316401,-10000,"InexactError(:check_top_bit, UInt128, -10000)",error,InexactError,1.0,310964295346002955096774178759266316401,-9999,"InexactError(:check_top_bit, UInt128, -9999)",error,InexactError,1
+300729965356093327916377724884303259481,-10000,"InexactError(:check_top_bit, UInt128, -10000)",error,InexactError,1.0,300729965356093327916377724884303259481,-9999,"InexactError(:check_top_bit, UInt128, -9999)",error,InexactError,1
+297999958591303153648976001688935184714,-1000000000,"InexactError(:check_top_bit, UInt128, -1000000000)",error,InexactError,1.0,297999958591303153648976001688935184714,-999999999,"InexactError(:check_top_bit, UInt128, -999999999)",error,InexactError,1
+297975402389842101210164952102296068865,-10000,"InexactError(:check_top_bit, UInt128, -10000)",error,InexactError,1.0,297975402389842101210164952102296068865,-9999,"InexactError(:check_top_bit, UInt128, -9999)",error,InexactError,1
+285757939041782589833758623448340353694,-10,"InexactError(:check_top_bit, UInt128, -10)",error,InexactError,1.0,285757939041782589833758623448340353694,-9,"InexactError(:check_top_bit, UInt128, -9)",error,InexactError,1
+280985673711886083166431540356076467338,-10,"InexactError(:check_top_bit, UInt128, -10)",error,InexactError,1.0,280985673711886083166431540356076467338,-9,"InexactError(:check_top_bit, UInt128, -9)",error,InexactError,1
+279806338919538595335494296808714277027,-10000,"InexactError(:check_top_bit, UInt128, -10000)",error,InexactError,1.0,279806338919538595335494296808714277027,-9999,"InexactError(:check_top_bit, UInt128, -9999)",error,InexactError,1
+279753195828001468139774408216297913539,-10000,"InexactError(:check_top_bit, UInt128, -10000)",error,InexactError,1.0,279753195828001468139774408216297913539,-9999,"InexactError(:check_top_bit, UInt128, -9999)",error,InexactError,1
+279027950728984342457662836847327272176,-10000,"InexactError(:check_top_bit, UInt128, -10000)",error,InexactError,1.0,279027950728984342457662836847327272176,-9999,"InexactError(:check_top_bit, UInt128, -9999)",error,InexactError,1
+252806310568632831235077673558997051613,-100000000,"InexactError(:check_top_bit, UInt128, -100000000)",error,InexactError,1.0,252806310568632831235077673558997051613,-99999999,"InexactError(:check_top_bit, UInt128, -99999999)",error,InexactError,1
+240857835163967725761257299189730166058,-10000,"InexactError(:check_top_bit, UInt128, -10000)",error,InexactError,1.0,240857835163967725761257299189730166058,-9999,"InexactError(:check_top_bit, UInt128, -9999)",error,InexactError,1
+237918575196960956953772062622385129531,-10000,"InexactError(:check_top_bit, UInt128, -10000)",error,InexactError,1.0,237918575196960956953772062622385129531,-9999,"InexactError(:check_top_bit, UInt128, -9999)",error,InexactError,1
+236490113023803607422573315943770490109,-1000,"InexactError(:check_top_bit, UInt128, -1000)",error,InexactError,1.0,236490113023803607422573315943770490109,-999,"InexactError(:check_top_bit, UInt128, -999)",error,InexactError,1
+235927974507770253855344434399255137908,-10,"InexactError(:check_top_bit, UInt128, -10)",error,InexactError,1.0,235927974507770253855344434399255137908,-9,"InexactError(:check_top_bit, UInt128, -9)",error,InexactError,1
+234018323824293365582002815329181569523,-10000,"InexactError(:check_top_bit, UInt128, -10000)",error,InexactError,1.0,234018323824293365582002815329181569523,-9999,"InexactError(:check_top_bit, UInt128, -9999)",error,InexactError,1
+231211802442114428918569523367212078855,-10,"InexactError(:check_top_bit, UInt128, -10)",error,InexactError,1.0,231211802442114428918569523367212078855,-9,"InexactError(:check_top_bit, UInt128, -9)",error,InexactError,1
+229682930814771212449342434662697880566,-10000,"InexactError(:check_top_bit, UInt128, -10000)",error,InexactError,1.0,229682930814771212449342434662697880566,-9999,"InexactError(:check_top_bit, UInt128, -9999)",error,InexactError,1
+227459603659131841273212421683726408348,-1000000000,"InexactError(:check_top_bit, UInt128, -1000000000)",error,InexactError,1.0,227459603659131841273212421683726408348,-999999999,"InexactError(:check_top_bit, UInt128, -999999999)",error,InexactError,1
+227295154969694886753856219803051994442,-1000000000000000000,"InexactError(:check_top_bit, UInt128, -1000000000000000000)",error,InexactError,1.0,227295154969694886753856219803051994442,-999999999999999999,"InexactError(:check_top_bit, UInt128, -999999999999999999)",error,InexactError,1
+216967873282961618637785700835689924577,-1000000000,"InexactError(:check_top_bit, UInt128, -1000000000)",error,InexactError,1.0,216967873282961618637785700835689924577,-999999999,"InexactError(:check_top_bit, UInt128, -999999999)",error,InexactError,1
+209614853161909967302025339150133008227,-1000000000,"InexactError(:check_top_bit, UInt128, -1000000000)",error,InexactError,1.0,209614853161909967302025339150133008227,-999999999,"InexactError(:check_top_bit, UInt128, -999999999)",error,InexactError,1
+209000300613815441905773147483229184548,-1000000000,"InexactError(:check_top_bit, UInt128, -1000000000)",error,InexactError,1.0,209000300613815441905773147483229184548,-999999999,"InexactError(:check_top_bit, UInt128, -999999999)",error,InexactError,1
+206148207423394540858617609832398368906,-100,"InexactError(:check_top_bit, UInt128, -100)",error,InexactError,1.0,206148207423394540858617609832398368906,-99,"InexactError(:check_top_bit, UInt128, -99)",error,InexactError,1
+198350921200435846462139776109728799301,-100,"InexactError(:check_top_bit, UInt128, -100)",error,InexactError,1.0,198350921200435846462139776109728799301,-99,"InexactError(:check_top_bit, UInt128, -99)",error,InexactError,1
+182559446217631715562961010426093264139,-1000000000,"InexactError(:check_top_bit, UInt128, -1000000000)",error,InexactError,1.0,182559446217631715562961010426093264139,-999999999,"InexactError(:check_top_bit, UInt128, -999999999)",error,InexactError,1
+168783307070967796961143294626450186516,-10,"InexactError(:check_top_bit, UInt128, -10)",error,InexactError,1.0,168783307070967796961143294626450186516,-9,"InexactError(:check_top_bit, UInt128, -9)",error,InexactError,1
+166595144767603715045694473304676909645,-1000000000,"InexactError(:check_top_bit, UInt128, -1000000000)",error,InexactError,1.0,166595144767603715045694473304676909645,-999999999,"InexactError(:check_top_bit, UInt128, -999999999)",error,InexactError,1
+163342028684745171996782961716224106253,-100,"InexactError(:check_top_bit, UInt128, -100)",error,InexactError,1.0,163342028684745171996782961716224106253,-99,"InexactError(:check_top_bit, UInt128, -99)",error,InexactError,1
+155590722977320442079032227859459308796,-10,"InexactError(:check_top_bit, UInt128, -10)",error,InexactError,1.0,155590722977320442079032227859459308796,-9,"InexactError(:check_top_bit, UInt128, -9)",error,InexactError,1
+151352427932747306806922139405835928616,-100000000000000000,"InexactError(:check_top_bit, UInt128, -100000000000000000)",error,InexactError,1.0,151352427932747306806922139405835928616,-99999999999999999,"InexactError(:check_top_bit, UInt128, -99999999999999999)",error,InexactError,1
+151018300165994799567861399600407702602,-10,"InexactError(:check_top_bit, UInt128, -10)",error,InexactError,1.0,151018300165994799567861399600407702602,-9,"InexactError(:check_top_bit, UInt128, -9)",error,InexactError,1
+138473027451089625187636971492908109328,-10000,"InexactError(:check_top_bit, UInt128, -10000)",error,InexactError,1.0,138473027451089625187636971492908109328,-9999,"InexactError(:check_top_bit, UInt128, -9999)",error,InexactError,1
+133840545877632167324473681247449224274,-10,"InexactError(:check_top_bit, UInt128, -10)",error,InexactError,1.0,133840545877632167324473681247449224274,-9,"InexactError(:check_top_bit, UInt128, -9)",error,InexactError,1
+132892872983770297986955082590274001555,-100000000,"InexactError(:check_top_bit, UInt128, -100000000)",error,InexactError,1.0,132892872983770297986955082590274001555,-99999999,"InexactError(:check_top_bit, UInt128, -99999999)",error,InexactError,1
+131033759489471458238746118754870641842,-1000000000,"InexactError(:check_top_bit, UInt128, -1000000000)",error,InexactError,1.0,131033759489471458238746118754870641842,-999999999,"InexactError(:check_top_bit, UInt128, -999999999)",error,InexactError,1
+123983702691458925219204732030976373426,-10000,"InexactError(:check_top_bit, UInt128, -10000)",error,InexactError,1.0,123983702691458925219204732030976373426,-9999,"InexactError(:check_top_bit, UInt128, -9999)",error,InexactError,1
+117910956735552479465662196741337072176,-1000,"InexactError(:check_top_bit, UInt128, -1000)",error,InexactError,1.0,117910956735552479465662196741337072176,-999,"InexactError(:check_top_bit, UInt128, -999)",error,InexactError,1
+116053567140748145647003404677168034668,-10000,"InexactError(:check_top_bit, UInt128, -10000)",error,InexactError,1.0,116053567140748145647003404677168034668,-9999,"InexactError(:check_top_bit, UInt128, -9999)",error,InexactError,1
+114260883227132785290323594255950318448,-100000000,"InexactError(:check_top_bit, UInt128, -100000000)",error,InexactError,1.0,114260883227132785290323594255950318448,-99999999,"InexactError(:check_top_bit, UInt128, -99999999)",error,InexactError,1
+110031560005301904861877830108821003194,-10,"InexactError(:check_top_bit, UInt128, -10)",error,InexactError,1.0,110031560005301904861877830108821003194,-9,"InexactError(:check_top_bit, UInt128, -9)",error,InexactError,1
+108553587475648157578877295682595144028,-10000,"InexactError(:check_top_bit, UInt128, -10000)",error,InexactError,1.0,108553587475648157578877295682595144028,-9999,"InexactError(:check_top_bit, UInt128, -9999)",error,InexactError,1
+101176703774628358673337125367865066940,-10,"InexactError(:check_top_bit, UInt128, -10)",error,InexactError,1.0,101176703774628358673337125367865066940,-9,"InexactError(:check_top_bit, UInt128, -9)",error,InexactError,1
+95122949089843087983289059658491148839,-1000,"InexactError(:check_top_bit, UInt128, -1000)",error,InexactError,1.0,95122949089843087983289059658491148839,-999,"InexactError(:check_top_bit, UInt128, -999)",error,InexactError,1
+94823434450023807596840353919039533005,-1000000000,"InexactError(:check_top_bit, UInt128, -1000000000)",error,InexactError,1.0,94823434450023807596840353919039533005,-999999999,"InexactError(:check_top_bit, UInt128, -999999999)",error,InexactError,1
+93267916136415675629918612676181538764,-100000000,"InexactError(:check_top_bit, UInt128, -100000000)",error,InexactError,1.0,93267916136415675629918612676181538764,-99999999,"InexactError(:check_top_bit, UInt128, -99999999)",error,InexactError,1
+85884459036156747863871540576845414177,-1000000000,"InexactError(:check_top_bit, UInt128, -1000000000)",error,InexactError,1.0,85884459036156747863871540576845414177,-999999999,"InexactError(:check_top_bit, UInt128, -999999999)",error,InexactError,1
+83631576668204883907489168845727945442,-100000000,"InexactError(:check_top_bit, UInt128, -100000000)",error,InexactError,1.0,83631576668204883907489168845727945442,-99999999,"InexactError(:check_top_bit, UInt128, -99999999)",error,InexactError,1
+82456149483560648784907416087315400486,-1000,"InexactError(:check_top_bit, UInt128, -1000)",error,InexactError,1.0,82456149483560648784907416087315400486,-999,"InexactError(:check_top_bit, UInt128, -999)",error,InexactError,1
+73341702386774462236897585996217821750,-100000000,"InexactError(:check_top_bit, UInt128, -100000000)",error,InexactError,1.0,73341702386774462236897585996217821750,-99999999,"InexactError(:check_top_bit, UInt128, -99999999)",error,InexactError,1
+64588554179212093694919365177562934081,-100,"InexactError(:check_top_bit, UInt128, -100)",error,InexactError,1.0,64588554179212093694919365177562934081,-99,"InexactError(:check_top_bit, UInt128, -99)",error,InexactError,1
+62917687144749228006477827115110348097,-10000,"InexactError(:check_top_bit, UInt128, -10000)",error,InexactError,1.0,62917687144749228006477827115110348097,-9999,"InexactError(:check_top_bit, UInt128, -9999)",error,InexactError,1
+62684730025539195512566812052007970213,-100,"InexactError(:check_top_bit, UInt128, -100)",error,InexactError,1.0,62684730025539195512566812052007970213,-99,"InexactError(:check_top_bit, UInt128, -99)",error,InexactError,1
+61071957084328764417616662159398641669,-100,"InexactError(:check_top_bit, UInt128, -100)",error,InexactError,1.0,61071957084328764417616662159398641669,-99,"InexactError(:check_top_bit, UInt128, -99)",error,InexactError,1
+60570184432432686009130694509844755305,-1000000000,"InexactError(:check_top_bit, UInt128, -1000000000)",error,InexactError,1.0,60570184432432686009130694509844755305,-999999999,"InexactError(:check_top_bit, UInt128, -999999999)",error,InexactError,1
+37637472639143829580472982381728138628,-10000,"InexactError(:check_top_bit, UInt128, -10000)",error,InexactError,1.0,37637472639143829580472982381728138628,-9999,"InexactError(:check_top_bit, UInt128, -9999)",error,InexactError,1
+33935368246978773988297659196507685183,-1000,"InexactError(:check_top_bit, UInt128, -1000)",error,InexactError,1.0,33935368246978773988297659196507685183,-999,"InexactError(:check_top_bit, UInt128, -999)",error,InexactError,1
+23465944931977043132461778215164313096,-10,"InexactError(:check_top_bit, UInt128, -10)",error,InexactError,1.0,23465944931977043132461778215164313096,-9,"InexactError(:check_top_bit, UInt128, -9)",error,InexactError,1
+20890359965823715682756118585902272210,-10,"InexactError(:check_top_bit, UInt128, -10)",error,InexactError,1.0,20890359965823715682756118585902272210,-9,"InexactError(:check_top_bit, UInt128, -9)",error,InexactError,1
+17656240269319809957258974364775909919,-100,"InexactError(:check_top_bit, UInt128, -100)",error,InexactError,1.0,17656240269319809957258974364775909919,-99,"InexactError(:check_top_bit, UInt128, -99)",error,InexactError,1
+14245617323458047482253386528531885534,-10000000,"InexactError(:check_top_bit, UInt128, -10000000)",error,InexactError,1.0,14245617323458047482253386528531885534,-9999999,"InexactError(:check_top_bit, UInt128, -9999999)",error,InexactError,1
+10415403059896526867515021608336250667,-10000,"InexactError(:check_top_bit, UInt128, -10000)",error,InexactError,1.0,10415403059896526867515021608336250667,-9999,"InexactError(:check_top_bit, UInt128, -9999)",error,InexactError,1
+10242479775433224220604965141314550463,-100,"InexactError(:check_top_bit, UInt128, -100)",error,InexactError,1.0,10242479775433224220604965141314550463,-99,"InexactError(:check_top_bit, UInt128, -99)",error,InexactError,1
+18084978406692650722,-100,"InexactError(:check_top_bit, UInt64, -100)",error,InexactError,1.0,18084978406692650722,-99,"InexactError(:check_top_bit, UInt64, -99)",error,InexactError,1
+17906791190660609993,-100000000,"InexactError(:check_top_bit, UInt64, -100000000)",error,InexactError,1.0,17906791190660609993,-99999999,"InexactError(:check_top_bit, UInt64, -99999999)",error,InexactError,1
+17454807974281680472,-10,"InexactError(:check_top_bit, UInt64, -10)",error,InexactError,1.0,17454807974281680472,-9,"InexactError(:check_top_bit, UInt64, -9)",error,InexactError,1
+16349783061574387395,-1000000000000000000,"InexactError(:check_top_bit, UInt64, -1000000000000000000)",error,InexactError,1.0,16349783061574387395,-999999999999999999,"InexactError(:check_top_bit, UInt64, -999999999999999999)",error,InexactError,1
+16313613001462255615,-100000000,"InexactError(:check_top_bit, UInt64, -100000000)",error,InexactError,1.0,16313613001462255615,-99999999,"InexactError(:check_top_bit, UInt64, -99999999)",error,InexactError,1
+16186246259993615831,-1000000000,"InexactError(:check_top_bit, UInt64, -1000000000)",error,InexactError,1.0,16186246259993615831,-999999999,"InexactError(:check_top_bit, UInt64, -999999999)",error,InexactError,1
+15244836556959936447,-1000000000,"InexactError(:check_top_bit, UInt64, -1000000000)",error,InexactError,1.0,15244836556959936447,-999999999,"InexactError(:check_top_bit, UInt64, -999999999)",error,InexactError,1
+15149690158657245343,-1000000000,"InexactError(:check_top_bit, UInt64, -1000000000)",error,InexactError,1.0,15149690158657245343,-999999999,"InexactError(:check_top_bit, UInt64, -999999999)",error,InexactError,1
+14886721892853184403,-10000,"InexactError(:check_top_bit, UInt64, -10000)",error,InexactError,1.0,14886721892853184403,-9999,"InexactError(:check_top_bit, UInt64, -9999)",error,InexactError,1
+14879285909248966009,-1000000000,"InexactError(:check_top_bit, UInt64, -1000000000)",error,InexactError,1.0,14879285909248966009,-999999999,"InexactError(:check_top_bit, UInt64, -999999999)",error,InexactError,1
+14505208977635550684,-1000000000,"InexactError(:check_top_bit, UInt64, -1000000000)",error,InexactError,1.0,14505208977635550684,-999999999,"InexactError(:check_top_bit, UInt64, -999999999)",error,InexactError,1
+14390148396585547627,-10000,"InexactError(:check_top_bit, UInt64, -10000)",error,InexactError,1.0,14390148396585547627,-9999,"InexactError(:check_top_bit, UInt64, -9999)",error,InexactError,1
+13860274463737453060,-100000000,"InexactError(:check_top_bit, UInt64, -100000000)",error,InexactError,1.0,13860274463737453060,-99999999,"InexactError(:check_top_bit, UInt64, -99999999)",error,InexactError,1
+13512170582335649001,-1000000000,"InexactError(:check_top_bit, UInt64, -1000000000)",error,InexactError,1.0,13512170582335649001,-999999999,"InexactError(:check_top_bit, UInt64, -999999999)",error,InexactError,1
+12881572445146524045,-1000,"InexactError(:check_top_bit, UInt64, -1000)",error,InexactError,1.0,12881572445146524045,-999,"InexactError(:check_top_bit, UInt64, -999)",error,InexactError,1
+12484525201363800081,-1000000000,"InexactError(:check_top_bit, UInt64, -1000000000)",error,InexactError,1.0,12484525201363800081,-999999999,"InexactError(:check_top_bit, UInt64, -999999999)",error,InexactError,1
+12427031698907415846,-10000,"InexactError(:check_top_bit, UInt64, -10000)",error,InexactError,1.0,12427031698907415846,-9999,"InexactError(:check_top_bit, UInt64, -9999)",error,InexactError,1
+12094480163248091132,-100000000,"InexactError(:check_top_bit, UInt64, -100000000)",error,InexactError,1.0,12094480163248091132,-99999999,"InexactError(:check_top_bit, UInt64, -99999999)",error,InexactError,1
+12022694552444946265,-1000000000,"InexactError(:check_top_bit, UInt64, -1000000000)",error,InexactError,1.0,12022694552444946265,-999999999,"InexactError(:check_top_bit, UInt64, -999999999)",error,InexactError,1
+11849565405278581137,-100,"InexactError(:check_top_bit, UInt64, -100)",error,InexactError,1.0,11849565405278581137,-99,"InexactError(:check_top_bit, UInt64, -99)",error,InexactError,1
+11815691315449360970,-100,"InexactError(:check_top_bit, UInt64, -100)",error,InexactError,1.0,11815691315449360970,-99,"InexactError(:check_top_bit, UInt64, -99)",error,InexactError,1
+11598453496940180668,-10000,"InexactError(:check_top_bit, UInt64, -10000)",error,InexactError,1.0,11598453496940180668,-9999,"InexactError(:check_top_bit, UInt64, -9999)",error,InexactError,1
+11487346026818729235,-10000,"InexactError(:check_top_bit, UInt64, -10000)",error,InexactError,1.0,11487346026818729235,-9999,"InexactError(:check_top_bit, UInt64, -9999)",error,InexactError,1
+11161869346317855097,-100,"InexactError(:check_top_bit, UInt64, -100)",error,InexactError,1.0,11161869346317855097,-99,"InexactError(:check_top_bit, UInt64, -99)",error,InexactError,1
+10974366435518660252,-100,"InexactError(:check_top_bit, UInt64, -100)",error,InexactError,1.0,10974366435518660252,-99,"InexactError(:check_top_bit, UInt64, -99)",error,InexactError,1
+10616320429083122357,-10,"InexactError(:check_top_bit, UInt64, -10)",error,InexactError,1.0,10616320429083122357,-9,"InexactError(:check_top_bit, UInt64, -9)",error,InexactError,1
+10172826075200028885,-10,"InexactError(:check_top_bit, UInt64, -10)",error,InexactError,1.0,10172826075200028885,-9,"InexactError(:check_top_bit, UInt64, -9)",error,InexactError,1
+9849375004089960544,-10,"InexactError(:check_top_bit, UInt64, -10)",error,InexactError,1.0,9849375004089960544,-9,"InexactError(:check_top_bit, UInt64, -9)",error,InexactError,1
+9744099313105879426,-100,"InexactError(:check_top_bit, UInt64, -100)",error,InexactError,1.0,9744099313105879426,-99,"InexactError(:check_top_bit, UInt64, -99)",error,InexactError,1
+9330504418248558411,-10000,"InexactError(:check_top_bit, UInt64, -10000)",error,InexactError,1.0,9330504418248558411,-9999,"InexactError(:check_top_bit, UInt64, -9999)",error,InexactError,1
+8868628688032090378,-100000000,"InexactError(:check_top_bit, UInt64, -100000000)",error,InexactError,1.0,8868628688032090378,-99999999,"InexactError(:check_top_bit, UInt64, -99999999)",error,InexactError,1
+8611742263310809234,-1000,"InexactError(:check_top_bit, UInt64, -1000)",error,InexactError,1.0,8611742263310809234,-999,"InexactError(:check_top_bit, UInt64, -999)",error,InexactError,1
+8411862208474786362,-10,"InexactError(:check_top_bit, UInt64, -10)",error,InexactError,1.0,8411862208474786362,-9,"InexactError(:check_top_bit, UInt64, -9)",error,InexactError,1
+8289987614066565649,-10,"InexactError(:check_top_bit, UInt64, -10)",error,InexactError,1.0,8289987614066565649,-9,"InexactError(:check_top_bit, UInt64, -9)",error,InexactError,1
+7964155290720598084,-1000000000000000000,"InexactError(:check_top_bit, UInt64, -1000000000000000000)",error,InexactError,1.0,7964155290720598084,-999999999999999999,"InexactError(:check_top_bit, UInt64, -999999999999999999)",error,InexactError,1
+7816926789687396986,-1000000000,"InexactError(:check_top_bit, UInt64, -1000000000)",error,InexactError,1.0,7816926789687396986,-999999999,"InexactError(:check_top_bit, UInt64, -999999999)",error,InexactError,1
+7687236668643204160,-10,"InexactError(:check_top_bit, UInt64, -10)",error,InexactError,1.0,7687236668643204160,-9,"InexactError(:check_top_bit, UInt64, -9)",error,InexactError,1
+7609571721714469663,-10,"InexactError(:check_top_bit, UInt64, -10)",error,InexactError,1.0,7609571721714469663,-9,"InexactError(:check_top_bit, UInt64, -9)",error,InexactError,1
+7468967822927497120,-1000000000,"InexactError(:check_top_bit, UInt64, -1000000000)",error,InexactError,1.0,7468967822927497120,-999999999,"InexactError(:check_top_bit, UInt64, -999999999)",error,InexactError,1
+7199465922395092439,-1000,"InexactError(:check_top_bit, UInt64, -1000)",error,InexactError,1.0,7199465922395092439,-999,"InexactError(:check_top_bit, UInt64, -999)",error,InexactError,1
+6417698731808004400,-10,"InexactError(:check_top_bit, UInt64, -10)",error,InexactError,1.0,6417698731808004400,-9,"InexactError(:check_top_bit, UInt64, -9)",error,InexactError,1
+5926802728839374302,-10000,"InexactError(:check_top_bit, UInt64, -10000)",error,InexactError,1.0,5926802728839374302,-9999,"InexactError(:check_top_bit, UInt64, -9999)",error,InexactError,1
+5593799802076363236,-10,"InexactError(:check_top_bit, UInt64, -10)",error,InexactError,1.0,5593799802076363236,-9,"InexactError(:check_top_bit, UInt64, -9)",error,InexactError,1
+5153080687199739723,-100,"InexactError(:check_top_bit, UInt64, -100)",error,InexactError,1.0,5153080687199739723,-99,"InexactError(:check_top_bit, UInt64, -99)",error,InexactError,1
+5145377587022381454,-100000000,"InexactError(:check_top_bit, UInt64, -100000000)",error,InexactError,1.0,5145377587022381454,-99999999,"InexactError(:check_top_bit, UInt64, -99999999)",error,InexactError,1
+4668029254019888718,-10,"InexactError(:check_top_bit, UInt64, -10)",error,InexactError,1.0,4668029254019888718,-9,"InexactError(:check_top_bit, UInt64, -9)",error,InexactError,1
+4458645399844857152,-10000,"InexactError(:check_top_bit, UInt64, -10000)",error,InexactError,1.0,4458645399844857152,-9999,"InexactError(:check_top_bit, UInt64, -9999)",error,InexactError,1
+3832785510211906356,-10,"InexactError(:check_top_bit, UInt64, -10)",error,InexactError,1.0,3832785510211906356,-9,"InexactError(:check_top_bit, UInt64, -9)",error,InexactError,1
+3775235257180617889,-1000000000,"InexactError(:check_top_bit, UInt64, -1000000000)",error,InexactError,1.0,3775235257180617889,-999999999,"InexactError(:check_top_bit, UInt64, -999999999)",error,InexactError,1
+3431739055161717876,-1000000000,"InexactError(:check_top_bit, UInt64, -1000000000)",error,InexactError,1.0,3431739055161717876,-999999999,"InexactError(:check_top_bit, UInt64, -999999999)",error,InexactError,1
+3368456181676516583,-100000000,"InexactError(:check_top_bit, UInt64, -100000000)",error,InexactError,1.0,3368456181676516583,-99999999,"InexactError(:check_top_bit, UInt64, -99999999)",error,InexactError,1
+2509196168343738893,-10000,"InexactError(:check_top_bit, UInt64, -10000)",error,InexactError,1.0,2509196168343738893,-9999,"InexactError(:check_top_bit, UInt64, -9999)",error,InexactError,1
+2501791314451257947,-100000000,"InexactError(:check_top_bit, UInt64, -100000000)",error,InexactError,1.0,2501791314451257947,-99999999,"InexactError(:check_top_bit, UInt64, -99999999)",error,InexactError,1
+2353404626069855610,-10000,"InexactError(:check_top_bit, UInt64, -10000)",error,InexactError,1.0,2353404626069855610,-9999,"InexactError(:check_top_bit, UInt64, -9999)",error,InexactError,1
+2263362550511948319,-10000,"InexactError(:check_top_bit, UInt64, -10000)",error,InexactError,1.0,2263362550511948319,-9999,"InexactError(:check_top_bit, UInt64, -9999)",error,InexactError,1
+1541187913912768482,-1000000000,"InexactError(:check_top_bit, UInt64, -1000000000)",error,InexactError,1.0,1541187913912768482,-999999999,"InexactError(:check_top_bit, UInt64, -999999999)",error,InexactError,1
+1280628313575083620,-100,"InexactError(:check_top_bit, UInt64, -100)",error,InexactError,1.0,1280628313575083620,-99,"InexactError(:check_top_bit, UInt64, -99)",error,InexactError,1
+1159339924022893392,-10,"InexactError(:check_top_bit, UInt64, -10)",error,InexactError,1.0,1159339924022893392,-9,"InexactError(:check_top_bit, UInt64, -9)",error,InexactError,1
+1101363290175534586,-10000,"InexactError(:check_top_bit, UInt64, -10000)",error,InexactError,1.0,1101363290175534586,-9999,"InexactError(:check_top_bit, UInt64, -9999)",error,InexactError,1
+894123144868561954,-100000000,"InexactError(:check_top_bit, UInt64, -100000000)",error,InexactError,1.0,894123144868561954,-99999999,"InexactError(:check_top_bit, UInt64, -99999999)",error,InexactError,1
+576245469065501914,-10000,"InexactError(:check_top_bit, UInt64, -10000)",error,InexactError,1.0,576245469065501914,-9999,"InexactError(:check_top_bit, UInt64, -9999)",error,InexactError,1
+71370962841981945,-100,"InexactError(:check_top_bit, UInt64, -100)",error,InexactError,1.0,71370962841981945,-99,"InexactError(:check_top_bit, UInt64, -99)",error,InexactError,1
+-10,338691238642364179692411668885396755588,"InexactError(:check_top_bit, UInt128, -10)",error,InexactError,1.0,-9,338691238642364179692411668885396755588,"InexactError(:check_top_bit, UInt128, -9)",error,InexactError,1
+-10,274470552632023167201508889361278750608,"InexactError(:check_top_bit, UInt128, -10)",error,InexactError,1.0,-9,274470552632023167201508889361278750608,"InexactError(:check_top_bit, UInt128, -9)",error,InexactError,1
+-10,253790204116349317043134128169081647584,"InexactError(:check_top_bit, UInt128, -10)",error,InexactError,1.0,-9,253790204116349317043134128169081647584,"InexactError(:check_top_bit, UInt128, -9)",error,InexactError,1
+-10,220924284156677802743792975842054863030,"InexactError(:check_top_bit, UInt128, -10)",error,InexactError,1.0,-9,220924284156677802743792975842054863030,"InexactError(:check_top_bit, UInt128, -9)",error,InexactError,1
+-10,208335473892489620497905458272368888455,"InexactError(:check_top_bit, UInt128, -10)",error,InexactError,1.0,-9,208335473892489620497905458272368888455,"InexactError(:check_top_bit, UInt128, -9)",error,InexactError,1
+-10,194661975678536755308809275314239924353,"InexactError(:check_top_bit, UInt128, -10)",error,InexactError,1.0,-9,194661975678536755308809275314239924353,"InexactError(:check_top_bit, UInt128, -9)",error,InexactError,1
+-10,120045074480160709900795131771514488824,"InexactError(:check_top_bit, UInt128, -10)",error,InexactError,1.0,-9,120045074480160709900795131771514488824,"InexactError(:check_top_bit, UInt128, -9)",error,InexactError,1
+-10,114778360896398012712539306952300205422,"InexactError(:check_top_bit, UInt128, -10)",error,InexactError,1.0,-9,114778360896398012712539306952300205422,"InexactError(:check_top_bit, UInt128, -9)",error,InexactError,1
+-10,104303995413017400094336975384197824070,"InexactError(:check_top_bit, UInt128, -10)",error,InexactError,1.0,-9,104303995413017400094336975384197824070,"InexactError(:check_top_bit, UInt128, -9)",error,InexactError,1
+-10,98949572949405282696300063224874026744,"InexactError(:check_top_bit, UInt128, -10)",error,InexactError,1.0,-9,98949572949405282696300063224874026744,"InexactError(:check_top_bit, UInt128, -9)",error,InexactError,1
+-10,64002198066157104339381423417853109691,"InexactError(:check_top_bit, UInt128, -10)",error,InexactError,1.0,-9,64002198066157104339381423417853109691,"InexactError(:check_top_bit, UInt128, -9)",error,InexactError,1
+-10,35544967660177919033480149974027406623,"InexactError(:check_top_bit, UInt128, -10)",error,InexactError,1.0,-9,35544967660177919033480149974027406623,"InexactError(:check_top_bit, UInt128, -9)",error,InexactError,1
+-10,4599803612421122185856046788544425134,"InexactError(:check_top_bit, UInt128, -10)",error,InexactError,1.0,-9,4599803612421122185856046788544425134,"InexactError(:check_top_bit, UInt128, -9)",error,InexactError,1
+-10,15927366372964285682,"InexactError(:check_top_bit, UInt64, -10)",error,InexactError,1.0,-9,15927366372964285682,"InexactError(:check_top_bit, UInt64, -9)",error,InexactError,1
+-10,15030424986086219302,"InexactError(:check_top_bit, UInt64, -10)",error,InexactError,1.0,-9,15030424986086219302,"InexactError(:check_top_bit, UInt64, -9)",error,InexactError,1
+-10,12531670429833473840,"InexactError(:check_top_bit, UInt64, -10)",error,InexactError,1.0,-9,12531670429833473840,"InexactError(:check_top_bit, UInt64, -9)",error,InexactError,1
+-10,10803212711878976543,"InexactError(:check_top_bit, UInt64, -10)",error,InexactError,1.0,-9,10803212711878976543,"InexactError(:check_top_bit, UInt64, -9)",error,InexactError,1
+-10,10587313408974865948,"InexactError(:check_top_bit, UInt64, -10)",error,InexactError,1.0,-9,10587313408974865948,"InexactError(:check_top_bit, UInt64, -9)",error,InexactError,1
+-10,9854465356871437897,"InexactError(:check_top_bit, UInt64, -10)",error,InexactError,1.0,-9,9854465356871437897,"InexactError(:check_top_bit, UInt64, -9)",error,InexactError,1
+-10,7477029836905067643,"InexactError(:check_top_bit, UInt64, -10)",error,InexactError,1.0,-9,7477029836905067643,"InexactError(:check_top_bit, UInt64, -9)",error,InexactError,1
+-10,5956536380395520527,"InexactError(:check_top_bit, UInt64, -10)",error,InexactError,1.0,-9,5956536380395520527,"InexactError(:check_top_bit, UInt64, -9)",error,InexactError,1
+-10,3918175835773526240,"InexactError(:check_top_bit, UInt64, -10)",error,InexactError,1.0,-9,3918175835773526240,"InexactError(:check_top_bit, UInt64, -9)",error,InexactError,1
+-10,962464504417253408,"InexactError(:check_top_bit, UInt64, -10)",error,InexactError,1.0,-9,962464504417253408,"InexactError(:check_top_bit, UInt64, -9)",error,InexactError,1
+-100,330309916424887802943460286796230242058,"InexactError(:check_top_bit, UInt128, -100)",error,InexactError,1.0,-99,330309916424887802943460286796230242058,"InexactError(:check_top_bit, UInt128, -99)",error,InexactError,1
+-100,309881132829415723834208204202001304051,"InexactError(:check_top_bit, UInt128, -100)",error,InexactError,1.0,-99,309881132829415723834208204202001304051,"InexactError(:check_top_bit, UInt128, -99)",error,InexactError,1
+-100,299944148301667982932696188242344901272,"InexactError(:check_top_bit, UInt128, -100)",error,InexactError,1.0,-99,299944148301667982932696188242344901272,"InexactError(:check_top_bit, UInt128, -99)",error,InexactError,1
+-100,294751887852970094198020340987433434992,"InexactError(:check_top_bit, UInt128, -100)",error,InexactError,1.0,-99,294751887852970094198020340987433434992,"InexactError(:check_top_bit, UInt128, -99)",error,InexactError,1
+-100,262779714202742211285400376529926987692,"InexactError(:check_top_bit, UInt128, -100)",error,InexactError,1.0,-99,262779714202742211285400376529926987692,"InexactError(:check_top_bit, UInt128, -99)",error,InexactError,1
+-100,254934723816610019962696167907506677841,"InexactError(:check_top_bit, UInt128, -100)",error,InexactError,1.0,-99,254934723816610019962696167907506677841,"InexactError(:check_top_bit, UInt128, -99)",error,InexactError,1
+-100,247242528417195957860573066110538240703,"InexactError(:check_top_bit, UInt128, -100)",error,InexactError,1.0,-99,247242528417195957860573066110538240703,"InexactError(:check_top_bit, UInt128, -99)",error,InexactError,1
+-100,230708382243364070262648320320126843467,"InexactError(:check_top_bit, UInt128, -100)",error,InexactError,1.0,-99,230708382243364070262648320320126843467,"InexactError(:check_top_bit, UInt128, -99)",error,InexactError,1
+-100,222751989358348845399202400970899591599,"InexactError(:check_top_bit, UInt128, -100)",error,InexactError,1.0,-99,222751989358348845399202400970899591599,"InexactError(:check_top_bit, UInt128, -99)",error,InexactError,1
+-100,191116764976848162494382197154739320867,"InexactError(:check_top_bit, UInt128, -100)",error,InexactError,1.0,-99,191116764976848162494382197154739320867,"InexactError(:check_top_bit, UInt128, -99)",error,InexactError,1
+-100,181903006748990416758425352208580980735,"InexactError(:check_top_bit, UInt128, -100)",error,InexactError,1.0,-99,181903006748990416758425352208580980735,"InexactError(:check_top_bit, UInt128, -99)",error,InexactError,1
+-100,141660546095035302079930302565331956039,"InexactError(:check_top_bit, UInt128, -100)",error,InexactError,1.0,-99,141660546095035302079930302565331956039,"InexactError(:check_top_bit, UInt128, -99)",error,InexactError,1
+-100,127020841264798612656610188010114058558,"InexactError(:check_top_bit, UInt128, -100)",error,InexactError,1.0,-99,127020841264798612656610188010114058558,"InexactError(:check_top_bit, UInt128, -99)",error,InexactError,1
+-100,49344918505395954554644688771454011837,"InexactError(:check_top_bit, UInt128, -100)",error,InexactError,1.0,-99,49344918505395954554644688771454011837,"InexactError(:check_top_bit, UInt128, -99)",error,InexactError,1
+-100,18418313960945930724,"InexactError(:check_top_bit, UInt64, -100)",error,InexactError,1.0,-99,18418313960945930724,"InexactError(:check_top_bit, UInt64, -99)",error,InexactError,1
+-100,18024871072980332417,"InexactError(:check_top_bit, UInt64, -100)",error,InexactError,1.0,-99,18024871072980332417,"InexactError(:check_top_bit, UInt64, -99)",error,InexactError,1
+-100,17539933444350523641,"InexactError(:check_top_bit, UInt64, -100)",error,InexactError,1.0,-99,17539933444350523641,"InexactError(:check_top_bit, UInt64, -99)",error,InexactError,1
+-100,16841373998821811125,"InexactError(:check_top_bit, UInt64, -100)",error,InexactError,1.0,-99,16841373998821811125,"InexactError(:check_top_bit, UInt64, -99)",error,InexactError,1
+-100,13415451944974230703,"InexactError(:check_top_bit, UInt64, -100)",error,InexactError,1.0,-99,13415451944974230703,"InexactError(:check_top_bit, UInt64, -99)",error,InexactError,1
+-100,12303367362525216982,"InexactError(:check_top_bit, UInt64, -100)",error,InexactError,1.0,-99,12303367362525216982,"InexactError(:check_top_bit, UInt64, -99)",error,InexactError,1
+-100,11731203957069906135,"InexactError(:check_top_bit, UInt64, -100)",error,InexactError,1.0,-99,11731203957069906135,"InexactError(:check_top_bit, UInt64, -99)",error,InexactError,1
+-100,11222058519543979533,"InexactError(:check_top_bit, UInt64, -100)",error,InexactError,1.0,-99,11222058519543979533,"InexactError(:check_top_bit, UInt64, -99)",error,InexactError,1
+-100,9256942229727098627,"InexactError(:check_top_bit, UInt64, -100)",error,InexactError,1.0,-99,9256942229727098627,"InexactError(:check_top_bit, UInt64, -99)",error,InexactError,1
+-100,8580781600648619235,"InexactError(:check_top_bit, UInt64, -100)",error,InexactError,1.0,-99,8580781600648619235,"InexactError(:check_top_bit, UInt64, -99)",error,InexactError,1
+-100,8054179149554054373,"InexactError(:check_top_bit, UInt64, -100)",error,InexactError,1.0,-99,8054179149554054373,"InexactError(:check_top_bit, UInt64, -99)",error,InexactError,1
+-100,5992005067450356050,"InexactError(:check_top_bit, UInt64, -100)",error,InexactError,1.0,-99,5992005067450356050,"InexactError(:check_top_bit, UInt64, -99)",error,InexactError,1
+-100,4653240426917434427,"InexactError(:check_top_bit, UInt64, -100)",error,InexactError,1.0,-99,4653240426917434427,"InexactError(:check_top_bit, UInt64, -99)",error,InexactError,1
+-100,4370557384953592003,"InexactError(:check_top_bit, UInt64, -100)",error,InexactError,1.0,-99,4370557384953592003,"InexactError(:check_top_bit, UInt64, -99)",error,InexactError,1
+-100,3779311449182018443,"InexactError(:check_top_bit, UInt64, -100)",error,InexactError,1.0,-99,3779311449182018443,"InexactError(:check_top_bit, UInt64, -99)",error,InexactError,1
+-100,697431111012389518,"InexactError(:check_top_bit, UInt64, -100)",error,InexactError,1.0,-99,697431111012389518,"InexactError(:check_top_bit, UInt64, -99)",error,InexactError,1
+-1000,338820923972017992207516561323983569010,"InexactError(:check_top_bit, UInt128, -1000)",error,InexactError,1.0,-999,338820923972017992207516561323983569010,"InexactError(:check_top_bit, UInt128, -999)",error,InexactError,1
+-1000,174790075704966452549032742482606947748,"InexactError(:check_top_bit, UInt128, -1000)",error,InexactError,1.0,-999,174790075704966452549032742482606947748,"InexactError(:check_top_bit, UInt128, -999)",error,InexactError,1
+-1000,140667203231243589870261044059766856895,"InexactError(:check_top_bit, UInt128, -1000)",error,InexactError,1.0,-999,140667203231243589870261044059766856895,"InexactError(:check_top_bit, UInt128, -999)",error,InexactError,1
+-1000,92647718576098513928084998718846681870,"InexactError(:check_top_bit, UInt128, -1000)",error,InexactError,1.0,-999,92647718576098513928084998718846681870,"InexactError(:check_top_bit, UInt128, -999)",error,InexactError,1
+-1000,17630865390686180152,"InexactError(:check_top_bit, UInt64, -1000)",error,InexactError,1.0,-999,17630865390686180152,"InexactError(:check_top_bit, UInt64, -999)",error,InexactError,1
+-1000,10736782184546862515,"InexactError(:check_top_bit, UInt64, -1000)",error,InexactError,1.0,-999,10736782184546862515,"InexactError(:check_top_bit, UInt64, -999)",error,InexactError,1
+-1000,7920993670583776438,"InexactError(:check_top_bit, UInt64, -1000)",error,InexactError,1.0,-999,7920993670583776438,"InexactError(:check_top_bit, UInt64, -999)",error,InexactError,1
+-10000,320649401443870521849686462379848666787,"InexactError(:check_top_bit, UInt128, -10000)",error,InexactError,1.0,-9999,320649401443870521849686462379848666787,"InexactError(:check_top_bit, UInt128, -9999)",error,InexactError,1
+-10000,316759855609632270981194397398998410328,"InexactError(:check_top_bit, UInt128, -10000)",error,InexactError,1.0,-9999,316759855609632270981194397398998410328,"InexactError(:check_top_bit, UInt128, -9999)",error,InexactError,1
+-10000,308035997011142011338770272657006269015,"InexactError(:check_top_bit, UInt128, -10000)",error,InexactError,1.0,-9999,308035997011142011338770272657006269015,"InexactError(:check_top_bit, UInt128, -9999)",error,InexactError,1
+-10000,283471780917512161739085657244579163090,"InexactError(:check_top_bit, UInt128, -10000)",error,InexactError,1.0,-9999,283471780917512161739085657244579163090,"InexactError(:check_top_bit, UInt128, -9999)",error,InexactError,1
+-10000,270494916094167210306731352200923291267,"InexactError(:check_top_bit, UInt128, -10000)",error,InexactError,1.0,-9999,270494916094167210306731352200923291267,"InexactError(:check_top_bit, UInt128, -9999)",error,InexactError,1
+-10000,206809188042772226294478767784407468828,"InexactError(:check_top_bit, UInt128, -10000)",error,InexactError,1.0,-9999,206809188042772226294478767784407468828,"InexactError(:check_top_bit, UInt128, -9999)",error,InexactError,1
+-10000,201801954169421910475764023249419095960,"InexactError(:check_top_bit, UInt128, -10000)",error,InexactError,1.0,-9999,201801954169421910475764023249419095960,"InexactError(:check_top_bit, UInt128, -9999)",error,InexactError,1
+-10000,166206276237049657160114358686355796389,"InexactError(:check_top_bit, UInt128, -10000)",error,InexactError,1.0,-9999,166206276237049657160114358686355796389,"InexactError(:check_top_bit, UInt128, -9999)",error,InexactError,1
+-10000,118558676465383614616878235430809316691,"InexactError(:check_top_bit, UInt128, -10000)",error,InexactError,1.0,-9999,118558676465383614616878235430809316691,"InexactError(:check_top_bit, UInt128, -9999)",error,InexactError,1
+-10000,90099727313676377513522671085341832970,"InexactError(:check_top_bit, UInt128, -10000)",error,InexactError,1.0,-9999,90099727313676377513522671085341832970,"InexactError(:check_top_bit, UInt128, -9999)",error,InexactError,1
+-10000,68588956857566554114411589962872581755,"InexactError(:check_top_bit, UInt128, -10000)",error,InexactError,1.0,-9999,68588956857566554114411589962872581755,"InexactError(:check_top_bit, UInt128, -9999)",error,InexactError,1
+-10000,65865607239439452442886021124215844382,"InexactError(:check_top_bit, UInt128, -10000)",error,InexactError,1.0,-9999,65865607239439452442886021124215844382,"InexactError(:check_top_bit, UInt128, -9999)",error,InexactError,1
+-10000,35228792406422983113149217765046809652,"InexactError(:check_top_bit, UInt128, -10000)",error,InexactError,1.0,-9999,35228792406422983113149217765046809652,"InexactError(:check_top_bit, UInt128, -9999)",error,InexactError,1
+-10000,17844232231054812511,"InexactError(:check_top_bit, UInt64, -10000)",error,InexactError,1.0,-9999,17844232231054812511,"InexactError(:check_top_bit, UInt64, -9999)",error,InexactError,1
+-10000,16650485283937114068,"InexactError(:check_top_bit, UInt64, -10000)",error,InexactError,1.0,-9999,16650485283937114068,"InexactError(:check_top_bit, UInt64, -9999)",error,InexactError,1
+-10000,16373037577729392118,"InexactError(:check_top_bit, UInt64, -10000)",error,InexactError,1.0,-9999,16373037577729392118,"InexactError(:check_top_bit, UInt64, -9999)",error,InexactError,1
+-10000,15806260468762172948,"InexactError(:check_top_bit, UInt64, -10000)",error,InexactError,1.0,-9999,15806260468762172948,"InexactError(:check_top_bit, UInt64, -9999)",error,InexactError,1
+-10000,14265218948613450475,"InexactError(:check_top_bit, UInt64, -10000)",error,InexactError,1.0,-9999,14265218948613450475,"InexactError(:check_top_bit, UInt64, -9999)",error,InexactError,1
+-10000,13268731478008814001,"InexactError(:check_top_bit, UInt64, -10000)",error,InexactError,1.0,-9999,13268731478008814001,"InexactError(:check_top_bit, UInt64, -9999)",error,InexactError,1
+-10000,12669395438562679965,"InexactError(:check_top_bit, UInt64, -10000)",error,InexactError,1.0,-9999,12669395438562679965,"InexactError(:check_top_bit, UInt64, -9999)",error,InexactError,1
+-10000,11756371690192289231,"InexactError(:check_top_bit, UInt64, -10000)",error,InexactError,1.0,-9999,11756371690192289231,"InexactError(:check_top_bit, UInt64, -9999)",error,InexactError,1
+-10000,6744302742911569638,"InexactError(:check_top_bit, UInt64, -10000)",error,InexactError,1.0,-9999,6744302742911569638,"InexactError(:check_top_bit, UInt64, -9999)",error,InexactError,1
+-10000,5952322311590034784,"InexactError(:check_top_bit, UInt64, -10000)",error,InexactError,1.0,-9999,5952322311590034784,"InexactError(:check_top_bit, UInt64, -9999)",error,InexactError,1
+-10000,1534602720812277678,"InexactError(:check_top_bit, UInt64, -10000)",error,InexactError,1.0,-9999,1534602720812277678,"InexactError(:check_top_bit, UInt64, -9999)",error,InexactError,1
+-10000,137455989340527499,"InexactError(:check_top_bit, UInt64, -10000)",error,InexactError,1.0,-9999,137455989340527499,"InexactError(:check_top_bit, UInt64, -9999)",error,InexactError,1
+-10000000,298887995754338734729614450809784283602,"InexactError(:check_top_bit, UInt128, -10000000)",error,InexactError,1.0,-9999999,298887995754338734729614450809784283602,"InexactError(:check_top_bit, UInt128, -9999999)",error,InexactError,1
+-10000000,15225312936575809538,"InexactError(:check_top_bit, UInt64, -10000000)",error,InexactError,1.0,-9999999,15225312936575809538,"InexactError(:check_top_bit, UInt64, -9999999)",error,InexactError,1
+-10000000,442315323732148539,"InexactError(:check_top_bit, UInt64, -10000000)",error,InexactError,1.0,-9999999,442315323732148539,"InexactError(:check_top_bit, UInt64, -9999999)",error,InexactError,1
+-100000000,307894873121594930325314745450830820682,"InexactError(:check_top_bit, UInt128, -100000000)",error,InexactError,1.0,-99999999,307894873121594930325314745450830820682,"InexactError(:check_top_bit, UInt128, -99999999)",error,InexactError,1
+-100000000,216513607946552168416068254611021395718,"InexactError(:check_top_bit, UInt128, -100000000)",error,InexactError,1.0,-99999999,216513607946552168416068254611021395718,"InexactError(:check_top_bit, UInt128, -99999999)",error,InexactError,1
+-100000000,178769032056901435203045093399649172271,"InexactError(:check_top_bit, UInt128, -100000000)",error,InexactError,1.0,-99999999,178769032056901435203045093399649172271,"InexactError(:check_top_bit, UInt128, -99999999)",error,InexactError,1
+-100000000,15816790837354415282303580639258048152,"InexactError(:check_top_bit, UInt128, -100000000)",error,InexactError,1.0,-99999999,15816790837354415282303580639258048152,"InexactError(:check_top_bit, UInt128, -99999999)",error,InexactError,1
+-100000000,16969637066730465182,"InexactError(:check_top_bit, UInt64, -100000000)",error,InexactError,1.0,-99999999,16969637066730465182,"InexactError(:check_top_bit, UInt64, -99999999)",error,InexactError,1
+-100000000,16181943547946315483,"InexactError(:check_top_bit, UInt64, -100000000)",error,InexactError,1.0,-99999999,16181943547946315483,"InexactError(:check_top_bit, UInt64, -99999999)",error,InexactError,1
+-100000000,13395379526317490336,"InexactError(:check_top_bit, UInt64, -100000000)",error,InexactError,1.0,-99999999,13395379526317490336,"InexactError(:check_top_bit, UInt64, -99999999)",error,InexactError,1
+-100000000,13355691438715297577,"InexactError(:check_top_bit, UInt64, -100000000)",error,InexactError,1.0,-99999999,13355691438715297577,"InexactError(:check_top_bit, UInt64, -99999999)",error,InexactError,1
+-100000000,4561223599608247574,"InexactError(:check_top_bit, UInt64, -100000000)",error,InexactError,1.0,-99999999,4561223599608247574,"InexactError(:check_top_bit, UInt64, -99999999)",error,InexactError,1
+-100000000,4091009541922640751,"InexactError(:check_top_bit, UInt64, -100000000)",error,InexactError,1.0,-99999999,4091009541922640751,"InexactError(:check_top_bit, UInt64, -99999999)",error,InexactError,1
+-100000000,3630132200875564676,"InexactError(:check_top_bit, UInt64, -100000000)",error,InexactError,1.0,-99999999,3630132200875564676,"InexactError(:check_top_bit, UInt64, -99999999)",error,InexactError,1
+-100000000,2920601048124206782,"InexactError(:check_top_bit, UInt64, -100000000)",error,InexactError,1.0,-99999999,2920601048124206782,"InexactError(:check_top_bit, UInt64, -99999999)",error,InexactError,1
+-100000000,1168953830710011759,"InexactError(:check_top_bit, UInt64, -100000000)",error,InexactError,1.0,-99999999,1168953830710011759,"InexactError(:check_top_bit, UInt64, -99999999)",error,InexactError,1
+-100000000,683754280928903107,"InexactError(:check_top_bit, UInt64, -100000000)",error,InexactError,1.0,-99999999,683754280928903107,"InexactError(:check_top_bit, UInt64, -99999999)",error,InexactError,1
+-1000000000,324538177749481131833205328965933800116,"InexactError(:check_top_bit, UInt128, -1000000000)",error,InexactError,1.0,-999999999,324538177749481131833205328965933800116,"InexactError(:check_top_bit, UInt128, -999999999)",error,InexactError,1
+-1000000000,321706880012274739681259491072648543036,"InexactError(:check_top_bit, UInt128, -1000000000)",error,InexactError,1.0,-999999999,321706880012274739681259491072648543036,"InexactError(:check_top_bit, UInt128, -999999999)",error,InexactError,1
+-1000000000,317435609790554138539872031746448850297,"InexactError(:check_top_bit, UInt128, -1000000000)",error,InexactError,1.0,-999999999,317435609790554138539872031746448850297,"InexactError(:check_top_bit, UInt128, -999999999)",error,InexactError,1
+-1000000000,292454341576383253116803278301418204763,"InexactError(:check_top_bit, UInt128, -1000000000)",error,InexactError,1.0,-999999999,292454341576383253116803278301418204763,"InexactError(:check_top_bit, UInt128, -999999999)",error,InexactError,1
+-1000000000,286326002458394135008716191679653857668,"InexactError(:check_top_bit, UInt128, -1000000000)",error,InexactError,1.0,-999999999,286326002458394135008716191679653857668,"InexactError(:check_top_bit, UInt128, -999999999)",error,InexactError,1
+-1000000000,254107237397223288656900494324660834523,"InexactError(:check_top_bit, UInt128, -1000000000)",error,InexactError,1.0,-999999999,254107237397223288656900494324660834523,"InexactError(:check_top_bit, UInt128, -999999999)",error,InexactError,1
+-1000000000,248722462281703381422386329333873992095,"InexactError(:check_top_bit, UInt128, -1000000000)",error,InexactError,1.0,-999999999,248722462281703381422386329333873992095,"InexactError(:check_top_bit, UInt128, -999999999)",error,InexactError,1
+-1000000000,242693203920192724206178646792325196456,"InexactError(:check_top_bit, UInt128, -1000000000)",error,InexactError,1.0,-999999999,242693203920192724206178646792325196456,"InexactError(:check_top_bit, UInt128, -999999999)",error,InexactError,1
+-1000000000,237624670603481153776209896874184224676,"InexactError(:check_top_bit, UInt128, -1000000000)",error,InexactError,1.0,-999999999,237624670603481153776209896874184224676,"InexactError(:check_top_bit, UInt128, -999999999)",error,InexactError,1
+-1000000000,230944171005743544730914709234268764149,"InexactError(:check_top_bit, UInt128, -1000000000)",error,InexactError,1.0,-999999999,230944171005743544730914709234268764149,"InexactError(:check_top_bit, UInt128, -999999999)",error,InexactError,1
+-1000000000,230122252751300192013256753463517185767,"InexactError(:check_top_bit, UInt128, -1000000000)",error,InexactError,1.0,-999999999,230122252751300192013256753463517185767,"InexactError(:check_top_bit, UInt128, -999999999)",error,InexactError,1
+-1000000000,218035309600605391217569506967759043091,"InexactError(:check_top_bit, UInt128, -1000000000)",error,InexactError,1.0,-999999999,218035309600605391217569506967759043091,"InexactError(:check_top_bit, UInt128, -999999999)",error,InexactError,1
+-1000000000,206043001538325371906948316987114411874,"InexactError(:check_top_bit, UInt128, -1000000000)",error,InexactError,1.0,-999999999,206043001538325371906948316987114411874,"InexactError(:check_top_bit, UInt128, -999999999)",error,InexactError,1
+-1000000000,197381476798301852779982419563676624689,"InexactError(:check_top_bit, UInt128, -1000000000)",error,InexactError,1.0,-999999999,197381476798301852779982419563676624689,"InexactError(:check_top_bit, UInt128, -999999999)",error,InexactError,1
+-1000000000,160299640580566181571229215111797253797,"InexactError(:check_top_bit, UInt128, -1000000000)",error,InexactError,1.0,-999999999,160299640580566181571229215111797253797,"InexactError(:check_top_bit, UInt128, -999999999)",error,InexactError,1
+-1000000000,150684782877055603696802412038904775685,"InexactError(:check_top_bit, UInt128, -1000000000)",error,InexactError,1.0,-999999999,150684782877055603696802412038904775685,"InexactError(:check_top_bit, UInt128, -999999999)",error,InexactError,1
+-1000000000,130511837721152910698266145391169399192,"InexactError(:check_top_bit, UInt128, -1000000000)",error,InexactError,1.0,-999999999,130511837721152910698266145391169399192,"InexactError(:check_top_bit, UInt128, -999999999)",error,InexactError,1
+-1000000000,97096594948275271605990552078068954511,"InexactError(:check_top_bit, UInt128, -1000000000)",error,InexactError,1.0,-999999999,97096594948275271605990552078068954511,"InexactError(:check_top_bit, UInt128, -999999999)",error,InexactError,1
+-1000000000,95158422431440234771696551513789646122,"InexactError(:check_top_bit, UInt128, -1000000000)",error,InexactError,1.0,-999999999,95158422431440234771696551513789646122,"InexactError(:check_top_bit, UInt128, -999999999)",error,InexactError,1
+-1000000000,95052975151035416590477713434571604090,"InexactError(:check_top_bit, UInt128, -1000000000)",error,InexactError,1.0,-999999999,95052975151035416590477713434571604090,"InexactError(:check_top_bit, UInt128, -999999999)",error,InexactError,1
+-1000000000,87118198313899521692200719424008745545,"InexactError(:check_top_bit, UInt128, -1000000000)",error,InexactError,1.0,-999999999,87118198313899521692200719424008745545,"InexactError(:check_top_bit, UInt128, -999999999)",error,InexactError,1
+-1000000000,62026205478456251353189120840334489689,"InexactError(:check_top_bit, UInt128, -1000000000)",error,InexactError,1.0,-999999999,62026205478456251353189120840334489689,"InexactError(:check_top_bit, UInt128, -999999999)",error,InexactError,1
+-1000000000,46719219410822050996168268162626193094,"InexactError(:check_top_bit, UInt128, -1000000000)",error,InexactError,1.0,-999999999,46719219410822050996168268162626193094,"InexactError(:check_top_bit, UInt128, -999999999)",error,InexactError,1
+-1000000000,9321997575631588768856672454419753080,"InexactError(:check_top_bit, UInt128, -1000000000)",error,InexactError,1.0,-999999999,9321997575631588768856672454419753080,"InexactError(:check_top_bit, UInt128, -999999999)",error,InexactError,1
+-1000000000,17922353276455042206,"InexactError(:check_top_bit, UInt64, -1000000000)",error,InexactError,1.0,-999999999,17922353276455042206,"InexactError(:check_top_bit, UInt64, -999999999)",error,InexactError,1
+-1000000000,16203967720724707359,"InexactError(:check_top_bit, UInt64, -1000000000)",error,InexactError,1.0,-999999999,16203967720724707359,"InexactError(:check_top_bit, UInt64, -999999999)",error,InexactError,1
+-1000000000,15804399397644709604,"InexactError(:check_top_bit, UInt64, -1000000000)",error,InexactError,1.0,-999999999,15804399397644709604,"InexactError(:check_top_bit, UInt64, -999999999)",error,InexactError,1
+-1000000000,15417264198484238262,"InexactError(:check_top_bit, UInt64, -1000000000)",error,InexactError,1.0,-999999999,15417264198484238262,"InexactError(:check_top_bit, UInt64, -999999999)",error,InexactError,1
+-1000000000,15077809709143395795,"InexactError(:check_top_bit, UInt64, -1000000000)",error,InexactError,1.0,-999999999,15077809709143395795,"InexactError(:check_top_bit, UInt64, -999999999)",error,InexactError,1
+-1000000000,14156608309076488368,"InexactError(:check_top_bit, UInt64, -1000000000)",error,InexactError,1.0,-999999999,14156608309076488368,"InexactError(:check_top_bit, UInt64, -999999999)",error,InexactError,1
+-1000000000,13574555803926005854,"InexactError(:check_top_bit, UInt64, -1000000000)",error,InexactError,1.0,-999999999,13574555803926005854,"InexactError(:check_top_bit, UInt64, -999999999)",error,InexactError,1
+-1000000000,12100101049408161719,"InexactError(:check_top_bit, UInt64, -1000000000)",error,InexactError,1.0,-999999999,12100101049408161719,"InexactError(:check_top_bit, UInt64, -999999999)",error,InexactError,1
+-1000000000,10237770858801286640,"InexactError(:check_top_bit, UInt64, -1000000000)",error,InexactError,1.0,-999999999,10237770858801286640,"InexactError(:check_top_bit, UInt64, -999999999)",error,InexactError,1
+-1000000000,9949188215306059835,"InexactError(:check_top_bit, UInt64, -1000000000)",error,InexactError,1.0,-999999999,9949188215306059835,"InexactError(:check_top_bit, UInt64, -999999999)",error,InexactError,1
+-1000000000,9423966532489044088,"InexactError(:check_top_bit, UInt64, -1000000000)",error,InexactError,1.0,-999999999,9423966532489044088,"InexactError(:check_top_bit, UInt64, -999999999)",error,InexactError,1
+-1000000000,8428602168872735948,"InexactError(:check_top_bit, UInt64, -1000000000)",error,InexactError,1.0,-999999999,8428602168872735948,"InexactError(:check_top_bit, UInt64, -999999999)",error,InexactError,1
+-1000000000,5494573812465654529,"InexactError(:check_top_bit, UInt64, -1000000000)",error,InexactError,1.0,-999999999,5494573812465654529,"InexactError(:check_top_bit, UInt64, -999999999)",error,InexactError,1
+-1000000000,5446260732407464105,"InexactError(:check_top_bit, UInt64, -1000000000)",error,InexactError,1.0,-999999999,5446260732407464105,"InexactError(:check_top_bit, UInt64, -999999999)",error,InexactError,1
+-1000000000,4736544087063030035,"InexactError(:check_top_bit, UInt64, -1000000000)",error,InexactError,1.0,-999999999,4736544087063030035,"InexactError(:check_top_bit, UInt64, -999999999)",error,InexactError,1
+-1000000000,2238100274007257115,"InexactError(:check_top_bit, UInt64, -1000000000)",error,InexactError,1.0,-999999999,2238100274007257115,"InexactError(:check_top_bit, UInt64, -999999999)",error,InexactError,1
+-100000000000000000,14469817922997261565564201997223253760,"InexactError(:check_top_bit, UInt128, -100000000000000000)",error,InexactError,1.0,-99999999999999999,14469817922997261565564201997223253760,"InexactError(:check_top_bit, UInt128, -99999999999999999)",error,InexactError,1
+-1000000000000000000,66026932580405814826430295638705720241,"InexactError(:check_top_bit, UInt128, -1000000000000000000)",error,InexactError,1.0,-999999999999999999,66026932580405814826430295638705720241,"InexactError(:check_top_bit, UInt128, -999999999999999999)",error,InexactError,1
+-1000000000000000000,16386676424815827718,"InexactError(:check_top_bit, UInt64, -1000000000000000000)",error,InexactError,1.0,-999999999999999999,16386676424815827718,"InexactError(:check_top_bit, UInt64, -999999999999999999)",error,InexactError,1
+340074800281056682934521986973233264093,-1,"InexactError(:check_top_bit, UInt128, -1)",error,InexactError,2.0,340074800281056682934521986973233264093,0,340074800281056682934521986973233264093,valid,UInt128,1
+338966762768614511302945942083906283507,-1,"InexactError(:check_top_bit, UInt128, -1)",error,InexactError,2.0,338966762768614511302945942083906283507,0,338966762768614511302945942083906283507,valid,UInt128,1
+331903149786133129968072715832540596689,-1,"InexactError(:check_top_bit, UInt128, -1)",error,InexactError,2.0,331903149786133129968072715832540596689,0,331903149786133129968072715832540596689,valid,UInt128,1
+331395780544960184630358173995222045937,-1,"InexactError(:check_top_bit, UInt128, -1)",error,InexactError,2.0,331395780544960184630358173995222045937,0,331395780544960184630358173995222045937,valid,UInt128,1
+325571651225963996801812535704837013183,-1,"InexactError(:check_top_bit, UInt128, -1)",error,InexactError,2.0,325571651225963996801812535704837013183,0,325571651225963996801812535704837013183,valid,UInt128,1
+314993015355589950214579099287746137842,-1,"InexactError(:check_top_bit, UInt128, -1)",error,InexactError,2.0,314993015355589950214579099287746137842,0,314993015355589950214579099287746137842,valid,UInt128,1
+312767505544836746781336323303473232951,-1,"InexactError(:check_top_bit, UInt128, -1)",error,InexactError,2.0,312767505544836746781336323303473232951,0,312767505544836746781336323303473232951,valid,UInt128,1
+303283400763265615839131897080784354697,-1,"InexactError(:check_top_bit, UInt128, -1)",error,InexactError,2.0,303283400763265615839131897080784354697,0,303283400763265615839131897080784354697,valid,UInt128,1
+299662298875321941089723806149756153698,-1,"InexactError(:check_top_bit, UInt128, -1)",error,InexactError,2.0,299662298875321941089723806149756153698,0,299662298875321941089723806149756153698,valid,UInt128,1
+291675505401304314694243534898678513406,-1,"InexactError(:check_top_bit, UInt128, -1)",error,InexactError,2.0,291675505401304314694243534898678513406,0,291675505401304314694243534898678513406,valid,UInt128,1
+287753137785399033679919244769571882276,-1,"InexactError(:check_top_bit, UInt128, -1)",error,InexactError,2.0,287753137785399033679919244769571882276,0,287753137785399033679919244769571882276,valid,UInt128,1
+286441575731109014393919510446990909418,-1,"InexactError(:check_top_bit, UInt128, -1)",error,InexactError,2.0,286441575731109014393919510446990909418,0,286441575731109014393919510446990909418,valid,UInt128,1
+266409718550069065579914156772564162830,-1,"InexactError(:check_top_bit, UInt128, -1)",error,InexactError,2.0,266409718550069065579914156772564162830,0,266409718550069065579914156772564162830,valid,UInt128,1
+252879472077335661084882335111527867685,-1,"InexactError(:check_top_bit, UInt128, -1)",error,InexactError,2.0,252879472077335661084882335111527867685,0,252879472077335661084882335111527867685,valid,UInt128,1
+238481407898352849673042069772940052744,-1,"InexactError(:check_top_bit, UInt128, -1)",error,InexactError,2.0,238481407898352849673042069772940052744,0,238481407898352849673042069772940052744,valid,UInt128,1
+211426328525375723356658730921143542027,-1,"InexactError(:check_top_bit, UInt128, -1)",error,InexactError,2.0,211426328525375723356658730921143542027,0,211426328525375723356658730921143542027,valid,UInt128,1
+177237318046588487829016268468931580657,-1,"InexactError(:check_top_bit, UInt128, -1)",error,InexactError,2.0,177237318046588487829016268468931580657,0,177237318046588487829016268468931580657,valid,UInt128,1
+152007135376704940461520663150330117129,-1,"InexactError(:check_top_bit, UInt128, -1)",error,InexactError,2.0,152007135376704940461520663150330117129,0,152007135376704940461520663150330117129,valid,UInt128,1
+133415565244045454548272822791933394511,-1,"InexactError(:check_top_bit, UInt128, -1)",error,InexactError,2.0,133415565244045454548272822791933394511,0,133415565244045454548272822791933394511,valid,UInt128,1
+131388209863764753751062300148863632785,-1,"InexactError(:check_top_bit, UInt128, -1)",error,InexactError,2.0,131388209863764753751062300148863632785,0,131388209863764753751062300148863632785,valid,UInt128,1
+123778381948858933397502810339151866771,-1,"InexactError(:check_top_bit, UInt128, -1)",error,InexactError,2.0,123778381948858933397502810339151866771,0,123778381948858933397502810339151866771,valid,UInt128,1
+107560976863840446399488326010178635027,-1,"InexactError(:check_top_bit, UInt128, -1)",error,InexactError,2.0,107560976863840446399488326010178635027,0,107560976863840446399488326010178635027,valid,UInt128,1
+89338406895360197740086319030910241856,-1,"InexactError(:check_top_bit, UInt128, -1)",error,InexactError,3.0,89338406895360197740086319030910241856,0,89338406895360197740086319030910241856,valid,UInt128,1
+75618433658076270156043149771756018733,-1,"InexactError(:check_top_bit, UInt128, -1)",error,InexactError,3.0,75618433658076270156043149771756018733,0,75618433658076270156043149771756018733,valid,UInt128,1
+71910538128686928064724960765246492309,-1,"InexactError(:check_top_bit, UInt128, -1)",error,InexactError,3.0,71910538128686928064724960765246492309,0,71910538128686928064724960765246492309,valid,UInt128,1
+61707631315561912420055653814407325977,-1,"InexactError(:check_top_bit, UInt128, -1)",error,InexactError,3.0,61707631315561912420055653814407325977,0,61707631315561912420055653814407325977,valid,UInt128,1
+58572795688962008765103311142560231786,-1,"InexactError(:check_top_bit, UInt128, -1)",error,InexactError,3.0,58572795688962008765103311142560231786,0,58572795688962008765103311142560231786,valid,UInt128,1
+34716794251181051288678356458783980974,-1,"InexactError(:check_top_bit, UInt128, -1)",error,InexactError,3.0,34716794251181051288678356458783980974,0,34716794251181051288678356458783980974,valid,UInt128,1
+33674410177013873738676567332116282029,-1,"InexactError(:check_top_bit, UInt128, -1)",error,InexactError,3.0,33674410177013873738676567332116282029,0,33674410177013873738676567332116282029,valid,UInt128,1
+28542589488427265393957379611425481860,-1,"InexactError(:check_top_bit, UInt128, -1)",error,InexactError,3.0,28542589488427265393957379611425481860,0,28542589488427265393957379611425481860,valid,UInt128,1
+13933388943614186329113770920739844600,-1,"InexactError(:check_top_bit, UInt128, -1)",error,InexactError,3.0,13933388943614186329113770920739844600,0,13933388943614186329113770920739844600,valid,UInt128,1
+2689016794136893676922883422807301428,-1,"InexactError(:check_top_bit, UInt128, -1)",error,InexactError,4.0,2689016794136893676922883422807301428,0,2689016794136893676922883422807301428,valid,UInt128,1
+16863717930838073262,-1,"InexactError(:check_top_bit, UInt64, -1)",error,InexactError,20.0,16863717930838073262,0,16863717930838073262,valid,UInt64,1
+15877027547704925427,-1,"InexactError(:check_top_bit, UInt64, -1)",error,InexactError,20.0,15877027547704925427,0,15877027547704925427,valid,UInt64,1
+15724663303486670457,-1,"InexactError(:check_top_bit, UInt64, -1)",error,InexactError,20.0,15724663303486670457,0,15724663303486670457,valid,UInt64,1
+15638367270232155101,-1,"InexactError(:check_top_bit, UInt64, -1)",error,InexactError,20.0,15638367270232155101,0,15638367270232155101,valid,UInt64,1
+15213440520555419770,-1,"InexactError(:check_top_bit, UInt64, -1)",error,InexactError,20.0,15213440520555419770,0,15213440520555419770,valid,UInt64,1
+15035456649945753144,-1,"InexactError(:check_top_bit, UInt64, -1)",error,InexactError,20.0,15035456649945753144,0,15035456649945753144,valid,UInt64,1
+14861993771978355956,-1,"InexactError(:check_top_bit, UInt64, -1)",error,InexactError,20.0,14861993771978355956,0,14861993771978355956,valid,UInt64,1
+13488503498450316535,-1,"InexactError(:check_top_bit, UInt64, -1)",error,InexactError,20.0,13488503498450316535,0,13488503498450316535,valid,UInt64,1
+13405653775847512062,-1,"InexactError(:check_top_bit, UInt64, -1)",error,InexactError,20.0,13405653775847512062,0,13405653775847512062,valid,UInt64,1
+13342532458681631626,-1,"InexactError(:check_top_bit, UInt64, -1)",error,InexactError,20.0,13342532458681631626,0,13342532458681631626,valid,UInt64,1
+12925801261730536995,-1,"InexactError(:check_top_bit, UInt64, -1)",error,InexactError,20.0,12925801261730536995,0,12925801261730536995,valid,UInt64,1
+12880538716915907453,-1,"InexactError(:check_top_bit, UInt64, -1)",error,InexactError,20.0,12880538716915907453,0,12880538716915907453,valid,UInt64,1
+12801552228626354751,-1,"InexactError(:check_top_bit, UInt64, -1)",error,InexactError,20.0,12801552228626354751,0,12801552228626354751,valid,UInt64,1
+12007596794220760421,-1,"InexactError(:check_top_bit, UInt64, -1)",error,InexactError,20.0,12007596794220760421,0,12007596794220760421,valid,UInt64,1
+11892761662946895392,-1,"InexactError(:check_top_bit, UInt64, -1)",error,InexactError,20.0,11892761662946895392,0,11892761662946895392,valid,UInt64,1
+11337484949001785897,-1,"InexactError(:check_top_bit, UInt64, -1)",error,InexactError,20.0,11337484949001785897,0,11337484949001785897,valid,UInt64,1
+11082276685268623777,-1,"InexactError(:check_top_bit, UInt64, -1)",error,InexactError,20.0,11082276685268623777,0,11082276685268623777,valid,UInt64,1
+11017800324295855689,-1,"InexactError(:check_top_bit, UInt64, -1)",error,InexactError,20.0,11017800324295855689,0,11017800324295855689,valid,UInt64,1
+10553822046795098139,-1,"InexactError(:check_top_bit, UInt64, -1)",error,InexactError,20.0,10553822046795098139,0,10553822046795098139,valid,UInt64,1
+10498312418641030036,-1,"InexactError(:check_top_bit, UInt64, -1)",error,InexactError,20.0,10498312418641030036,0,10498312418641030036,valid,UInt64,1
+8838429278860714277,-1,"InexactError(:check_top_bit, UInt64, -1)",error,InexactError,21.0,8838429278860714277,0,8838429278860714277,valid,UInt64,1
+7137109049485230005,-1,"InexactError(:check_top_bit, UInt64, -1)",error,InexactError,21.0,7137109049485230005,0,7137109049485230005,valid,UInt64,1
+6403408159022067070,-1,"InexactError(:check_top_bit, UInt64, -1)",error,InexactError,21.0,6403408159022067070,0,6403408159022067070,valid,UInt64,1
+6039286024418690576,-1,"InexactError(:check_top_bit, UInt64, -1)",error,InexactError,21.0,6039286024418690576,0,6039286024418690576,valid,UInt64,1
+5464562059944085160,-1,"InexactError(:check_top_bit, UInt64, -1)",error,InexactError,21.0,5464562059944085160,0,5464562059944085160,valid,UInt64,1
+4599263146079381297,-1,"InexactError(:check_top_bit, UInt64, -1)",error,InexactError,21.0,4599263146079381297,0,4599263146079381297,valid,UInt64,1
+3534613942715100277,-1,"InexactError(:check_top_bit, UInt64, -1)",error,InexactError,21.0,3534613942715100277,0,3534613942715100277,valid,UInt64,1
+3207537294324042318,-1,"InexactError(:check_top_bit, UInt64, -1)",error,InexactError,21.0,3207537294324042318,0,3207537294324042318,valid,UInt64,1
+2884002423589727241,-1,"InexactError(:check_top_bit, UInt64, -1)",error,InexactError,21.0,2884002423589727241,0,2884002423589727241,valid,UInt64,1
+2637821556492622410,-1,"InexactError(:check_top_bit, UInt64, -1)",error,InexactError,21.0,2637821556492622410,0,2637821556492622410,valid,UInt64,1
+2568403373770644577,-1,"InexactError(:check_top_bit, UInt64, -1)",error,InexactError,21.0,2568403373770644577,0,2568403373770644577,valid,UInt64,1
+2484361527808289816,-1,"InexactError(:check_top_bit, UInt64, -1)",error,InexactError,21.0,2484361527808289816,0,2484361527808289816,valid,UInt64,1
+1738458039336871702,-1,"InexactError(:check_top_bit, UInt64, -1)",error,InexactError,21.0,1738458039336871702,0,1738458039336871702,valid,UInt64,1
+1044775230222770311,-1,"InexactError(:check_top_bit, UInt64, -1)",error,InexactError,21.0,1044775230222770311,0,1044775230222770311,valid,UInt64,1
+567691161332551682,-1,"InexactError(:check_top_bit, UInt64, -1)",error,InexactError,22.0,567691161332551682,0,567691161332551682,valid,UInt64,1
+-1,334389336483494878468344285425428148282,"InexactError(:check_top_bit, UInt128, -1)",error,InexactError,2.0,0,334389336483494878468344285425428148282,334389336483494878468344285425428148282,valid,UInt128,1
+-1,329754131156137523057309142951155703559,"InexactError(:check_top_bit, UInt128, -1)",error,InexactError,2.0,0,329754131156137523057309142951155703559,329754131156137523057309142951155703559,valid,UInt128,1
+-1,324271801627157109737406484524363072305,"InexactError(:check_top_bit, UInt128, -1)",error,InexactError,2.0,0,324271801627157109737406484524363072305,324271801627157109737406484524363072305,valid,UInt128,1
+-1,316588740394067659847713810467224685662,"InexactError(:check_top_bit, UInt128, -1)",error,InexactError,2.0,0,316588740394067659847713810467224685662,316588740394067659847713810467224685662,valid,UInt128,1
+-1,310547106136598672264469781307598853292,"InexactError(:check_top_bit, UInt128, -1)",error,InexactError,2.0,0,310547106136598672264469781307598853292,310547106136598672264469781307598853292,valid,UInt128,1
+-1,296306792936608694271111329621796966565,"InexactError(:check_top_bit, UInt128, -1)",error,InexactError,2.0,0,296306792936608694271111329621796966565,296306792936608694271111329621796966565,valid,UInt128,1
+-1,270873251048387942170530195094499625307,"InexactError(:check_top_bit, UInt128, -1)",error,InexactError,2.0,0,270873251048387942170530195094499625307,270873251048387942170530195094499625307,valid,UInt128,1
+-1,269632856349526426002049605356273260674,"InexactError(:check_top_bit, UInt128, -1)",error,InexactError,2.0,0,269632856349526426002049605356273260674,269632856349526426002049605356273260674,valid,UInt128,1
+-1,253040165314823688678484654126856641248,"InexactError(:check_top_bit, UInt128, -1)",error,InexactError,2.0,0,253040165314823688678484654126856641248,253040165314823688678484654126856641248,valid,UInt128,1
+-1,222367990325687132322792153560869175525,"InexactError(:check_top_bit, UInt128, -1)",error,InexactError,2.0,0,222367990325687132322792153560869175525,222367990325687132322792153560869175525,valid,UInt128,1
+-1,217238617400556330811643845521456440666,"InexactError(:check_top_bit, UInt128, -1)",error,InexactError,2.0,0,217238617400556330811643845521456440666,217238617400556330811643845521456440666,valid,UInt128,1
+-1,208637021264158233705166569435298354372,"InexactError(:check_top_bit, UInt128, -1)",error,InexactError,2.0,0,208637021264158233705166569435298354372,208637021264158233705166569435298354372,valid,UInt128,1
+-1,208412995794749966332323787880681277490,"InexactError(:check_top_bit, UInt128, -1)",error,InexactError,2.0,0,208412995794749966332323787880681277490,208412995794749966332323787880681277490,valid,UInt128,1
+-1,196315019409553848478569465537758369312,"InexactError(:check_top_bit, UInt128, -1)",error,InexactError,2.0,0,196315019409553848478569465537758369312,196315019409553848478569465537758369312,valid,UInt128,1
+-1,196246759492509211433022816361569389293,"InexactError(:check_top_bit, UInt128, -1)",error,InexactError,2.0,0,196246759492509211433022816361569389293,196246759492509211433022816361569389293,valid,UInt128,1
+-1,192630059614452174597584873515223706268,"InexactError(:check_top_bit, UInt128, -1)",error,InexactError,2.0,0,192630059614452174597584873515223706268,192630059614452174597584873515223706268,valid,UInt128,1
+-1,190419385524216252577321039565427214161,"InexactError(:check_top_bit, UInt128, -1)",error,InexactError,2.0,0,190419385524216252577321039565427214161,190419385524216252577321039565427214161,valid,UInt128,1
+-1,190285099229314077008528885167588684185,"InexactError(:check_top_bit, UInt128, -1)",error,InexactError,2.0,0,190285099229314077008528885167588684185,190285099229314077008528885167588684185,valid,UInt128,1
+-1,190126793730876272745659950946938242877,"InexactError(:check_top_bit, UInt128, -1)",error,InexactError,2.0,0,190126793730876272745659950946938242877,190126793730876272745659950946938242877,valid,UInt128,1
+-1,173315779768214536870332850200697456025,"InexactError(:check_top_bit, UInt128, -1)",error,InexactError,2.0,0,173315779768214536870332850200697456025,173315779768214536870332850200697456025,valid,UInt128,1
+-1,168044892667442233754581109093691082333,"InexactError(:check_top_bit, UInt128, -1)",error,InexactError,2.0,0,168044892667442233754581109093691082333,168044892667442233754581109093691082333,valid,UInt128,1
+-1,162095246225350049285186138987149630922,"InexactError(:check_top_bit, UInt128, -1)",error,InexactError,2.0,0,162095246225350049285186138987149630922,162095246225350049285186138987149630922,valid,UInt128,1
+-1,147698447030961752252069694570756118153,"InexactError(:check_top_bit, UInt128, -1)",error,InexactError,2.0,0,147698447030961752252069694570756118153,147698447030961752252069694570756118153,valid,UInt128,1
+-1,140248811129109560655245069200331226767,"InexactError(:check_top_bit, UInt128, -1)",error,InexactError,2.0,0,140248811129109560655245069200331226767,140248811129109560655245069200331226767,valid,UInt128,1
+-1,131442144231676036718692602911418943087,"InexactError(:check_top_bit, UInt128, -1)",error,InexactError,2.0,0,131442144231676036718692602911418943087,131442144231676036718692602911418943087,valid,UInt128,1
+-1,122137356926215550990353984880053560699,"InexactError(:check_top_bit, UInt128, -1)",error,InexactError,2.0,0,122137356926215550990353984880053560699,122137356926215550990353984880053560699,valid,UInt128,1
+-1,110508558697762021379953683970233986663,"InexactError(:check_top_bit, UInt128, -1)",error,InexactError,2.0,0,110508558697762021379953683970233986663,110508558697762021379953683970233986663,valid,UInt128,1
+-1,106763033158803794970970749831178709937,"InexactError(:check_top_bit, UInt128, -1)",error,InexactError,2.0,0,106763033158803794970970749831178709937,106763033158803794970970749831178709937,valid,UInt128,1
+-1,103310321368077733328301547379724977051,"InexactError(:check_top_bit, UInt128, -1)",error,InexactError,2.0,0,103310321368077733328301547379724977051,103310321368077733328301547379724977051,valid,UInt128,1
+-1,90360094760576778328812652884907648392,"InexactError(:check_top_bit, UInt128, -1)",error,InexactError,3.0,0,90360094760576778328812652884907648392,90360094760576778328812652884907648392,valid,UInt128,1
+-1,86592679041395621518568943034955729373,"InexactError(:check_top_bit, UInt128, -1)",error,InexactError,3.0,0,86592679041395621518568943034955729373,86592679041395621518568943034955729373,valid,UInt128,1
+-1,78514885502307990464850815052772778182,"InexactError(:check_top_bit, UInt128, -1)",error,InexactError,3.0,0,78514885502307990464850815052772778182,78514885502307990464850815052772778182,valid,UInt128,1
+-1,74354959033746594358329680049605348624,"InexactError(:check_top_bit, UInt128, -1)",error,InexactError,3.0,0,74354959033746594358329680049605348624,74354959033746594358329680049605348624,valid,UInt128,1
+-1,59546930386710608968426900531217501207,"InexactError(:check_top_bit, UInt128, -1)",error,InexactError,3.0,0,59546930386710608968426900531217501207,59546930386710608968426900531217501207,valid,UInt128,1
+-1,38268353005538991551659180068097545992,"InexactError(:check_top_bit, UInt128, -1)",error,InexactError,3.0,0,38268353005538991551659180068097545992,38268353005538991551659180068097545992,valid,UInt128,1
+-1,32154329316233263161924549552154731465,"InexactError(:check_top_bit, UInt128, -1)",error,InexactError,3.0,0,32154329316233263161924549552154731465,32154329316233263161924549552154731465,valid,UInt128,1
+-1,22772492242527129803821560707934767358,"InexactError(:check_top_bit, UInt128, -1)",error,InexactError,3.0,0,22772492242527129803821560707934767358,22772492242527129803821560707934767358,valid,UInt128,1
+-1,20606164413435835453916960865180988784,"InexactError(:check_top_bit, UInt128, -1)",error,InexactError,3.0,0,20606164413435835453916960865180988784,20606164413435835453916960865180988784,valid,UInt128,1
+-1,10887386853339995143255553435427771563,"InexactError(:check_top_bit, UInt128, -1)",error,InexactError,3.0,0,10887386853339995143255553435427771563,10887386853339995143255553435427771563,valid,UInt128,1
+-1,10602357912883461879184211431782028124,"InexactError(:check_top_bit, UInt128, -1)",error,InexactError,3.0,0,10602357912883461879184211431782028124,10602357912883461879184211431782028124,valid,UInt128,1
+-1,18404707297091844085,"InexactError(:check_top_bit, UInt64, -1)",error,InexactError,20.0,0,18404707297091844085,18404707297091844085,valid,UInt64,1
+-1,18000899795347640598,"InexactError(:check_top_bit, UInt64, -1)",error,InexactError,20.0,0,18000899795347640598,18000899795347640598,valid,UInt64,1
+-1,17641319176867518965,"InexactError(:check_top_bit, UInt64, -1)",error,InexactError,20.0,0,17641319176867518965,17641319176867518965,valid,UInt64,1
+-1,17439018494818225565,"InexactError(:check_top_bit, UInt64, -1)",error,InexactError,20.0,0,17439018494818225565,17439018494818225565,valid,UInt64,1
+-1,17210585219967252080,"InexactError(:check_top_bit, UInt64, -1)",error,InexactError,20.0,0,17210585219967252080,17210585219967252080,valid,UInt64,1
+-1,16696024613697113119,"InexactError(:check_top_bit, UInt64, -1)",error,InexactError,20.0,0,16696024613697113119,16696024613697113119,valid,UInt64,1
+-1,16691209948356888381,"InexactError(:check_top_bit, UInt64, -1)",error,InexactError,20.0,0,16691209948356888381,16691209948356888381,valid,UInt64,1
+-1,16316792099493827995,"InexactError(:check_top_bit, UInt64, -1)",error,InexactError,20.0,0,16316792099493827995,16316792099493827995,valid,UInt64,1
+-1,16142848776415253696,"InexactError(:check_top_bit, UInt64, -1)",error,InexactError,20.0,0,16142848776415253696,16142848776415253696,valid,UInt64,1
+-1,15816821087417019468,"InexactError(:check_top_bit, UInt64, -1)",error,InexactError,20.0,0,15816821087417019468,15816821087417019468,valid,UInt64,1
+-1,15342612016377614138,"InexactError(:check_top_bit, UInt64, -1)",error,InexactError,20.0,0,15342612016377614138,15342612016377614138,valid,UInt64,1
+-1,14056883292827532730,"InexactError(:check_top_bit, UInt64, -1)",error,InexactError,20.0,0,14056883292827532730,14056883292827532730,valid,UInt64,1
+-1,13951898293996282926,"InexactError(:check_top_bit, UInt64, -1)",error,InexactError,20.0,0,13951898293996282926,13951898293996282926,valid,UInt64,1
+-1,13698621731091346558,"InexactError(:check_top_bit, UInt64, -1)",error,InexactError,20.0,0,13698621731091346558,13698621731091346558,valid,UInt64,1
+-1,13496758889252615193,"InexactError(:check_top_bit, UInt64, -1)",error,InexactError,20.0,0,13496758889252615193,13496758889252615193,valid,UInt64,1
+-1,13382731201448173086,"InexactError(:check_top_bit, UInt64, -1)",error,InexactError,20.0,0,13382731201448173086,13382731201448173086,valid,UInt64,1
+-1,13363703972443383777,"InexactError(:check_top_bit, UInt64, -1)",error,InexactError,20.0,0,13363703972443383777,13363703972443383777,valid,UInt64,1
+-1,13261240759952275594,"InexactError(:check_top_bit, UInt64, -1)",error,InexactError,20.0,0,13261240759952275594,13261240759952275594,valid,UInt64,1
+-1,12932946586454398161,"InexactError(:check_top_bit, UInt64, -1)",error,InexactError,20.0,0,12932946586454398161,12932946586454398161,valid,UInt64,1
+-1,12679039747343055543,"InexactError(:check_top_bit, UInt64, -1)",error,InexactError,20.0,0,12679039747343055543,12679039747343055543,valid,UInt64,1
+-1,11791878729363377032,"InexactError(:check_top_bit, UInt64, -1)",error,InexactError,20.0,0,11791878729363377032,11791878729363377032,valid,UInt64,1
+-1,11762116107819153016,"InexactError(:check_top_bit, UInt64, -1)",error,InexactError,20.0,0,11762116107819153016,11762116107819153016,valid,UInt64,1
+-1,11684132953271704977,"InexactError(:check_top_bit, UInt64, -1)",error,InexactError,20.0,0,11684132953271704977,11684132953271704977,valid,UInt64,1
+-1,11426351117935283970,"InexactError(:check_top_bit, UInt64, -1)",error,InexactError,20.0,0,11426351117935283970,11426351117935283970,valid,UInt64,1
+-1,10903909564218894519,"InexactError(:check_top_bit, UInt64, -1)",error,InexactError,20.0,0,10903909564218894519,10903909564218894519,valid,UInt64,1
+-1,10518105487256763962,"InexactError(:check_top_bit, UInt64, -1)",error,InexactError,20.0,0,10518105487256763962,10518105487256763962,valid,UInt64,1
+-1,9208599496433197687,"InexactError(:check_top_bit, UInt64, -1)",error,InexactError,21.0,0,9208599496433197687,9208599496433197687,valid,UInt64,1
+-1,9136473342682926091,"InexactError(:check_top_bit, UInt64, -1)",error,InexactError,21.0,0,9136473342682926091,9136473342682926091,valid,UInt64,1
+-1,8566048418132590210,"InexactError(:check_top_bit, UInt64, -1)",error,InexactError,21.0,0,8566048418132590210,8566048418132590210,valid,UInt64,1
+-1,8425404926150270875,"InexactError(:check_top_bit, UInt64, -1)",error,InexactError,21.0,0,8425404926150270875,8425404926150270875,valid,UInt64,1
+-1,8096868570472866095,"InexactError(:check_top_bit, UInt64, -1)",error,InexactError,21.0,0,8096868570472866095,8096868570472866095,valid,UInt64,1
+-1,7888379509170990429,"InexactError(:check_top_bit, UInt64, -1)",error,InexactError,21.0,0,7888379509170990429,7888379509170990429,valid,UInt64,1
+-1,7525619299130645019,"InexactError(:check_top_bit, UInt64, -1)",error,InexactError,21.0,0,7525619299130645019,7525619299130645019,valid,UInt64,1
+-1,7250700095178279051,"InexactError(:check_top_bit, UInt64, -1)",error,InexactError,21.0,0,7250700095178279051,7250700095178279051,valid,UInt64,1
+-1,6986800707812385515,"InexactError(:check_top_bit, UInt64, -1)",error,InexactError,21.0,0,6986800707812385515,6986800707812385515,valid,UInt64,1
+-1,6757897286898460352,"InexactError(:check_top_bit, UInt64, -1)",error,InexactError,21.0,0,6757897286898460352,6757897286898460352,valid,UInt64,1
+-1,5921485518454073048,"InexactError(:check_top_bit, UInt64, -1)",error,InexactError,21.0,0,5921485518454073048,5921485518454073048,valid,UInt64,1
+-1,5675463319391631913,"InexactError(:check_top_bit, UInt64, -1)",error,InexactError,21.0,0,5675463319391631913,5675463319391631913,valid,UInt64,1
+-1,4966826930258152865,"InexactError(:check_top_bit, UInt64, -1)",error,InexactError,21.0,0,4966826930258152865,4966826930258152865,valid,UInt64,1
+-1,4456317981771884351,"InexactError(:check_top_bit, UInt64, -1)",error,InexactError,21.0,0,4456317981771884351,4456317981771884351,valid,UInt64,1
+-1,4313698473600629912,"InexactError(:check_top_bit, UInt64, -1)",error,InexactError,21.0,0,4313698473600629912,4313698473600629912,valid,UInt64,1
+-1,4186347002136957428,"InexactError(:check_top_bit, UInt64, -1)",error,InexactError,21.0,0,4186347002136957428,4186347002136957428,valid,UInt64,1
+-1,4094723575344114523,"InexactError(:check_top_bit, UInt64, -1)",error,InexactError,21.0,0,4094723575344114523,4094723575344114523,valid,UInt64,1
+-1,3859647671173903830,"InexactError(:check_top_bit, UInt64, -1)",error,InexactError,21.0,0,3859647671173903830,3859647671173903830,valid,UInt64,1
+-1,3559288654420571286,"InexactError(:check_top_bit, UInt64, -1)",error,InexactError,21.0,0,3559288654420571286,3559288654420571286,valid,UInt64,1
+-1,3541780477776621494,"InexactError(:check_top_bit, UInt64, -1)",error,InexactError,21.0,0,3541780477776621494,3541780477776621494,valid,UInt64,1
+-1,3301080346287728072,"InexactError(:check_top_bit, UInt64, -1)",error,InexactError,21.0,0,3301080346287728072,3301080346287728072,valid,UInt64,1
+-1,2982896356837744444,"InexactError(:check_top_bit, UInt64, -1)",error,InexactError,21.0,0,2982896356837744444,2982896356837744444,valid,UInt64,1
+-1,2546020044971100389,"InexactError(:check_top_bit, UInt64, -1)",error,InexactError,21.0,0,2546020044971100389,2546020044971100389,valid,UInt64,1
+-1,129158556714582264,"InexactError(:check_top_bit, UInt64, -1)",error,InexactError,22.0,0,129158556714582264,129158556714582264,valid,UInt64,1
+-1,123247259524004593,"InexactError(:check_top_bit, UInt64, -1)",error,InexactError,22.0,0,123247259524004593,123247259524004593,valid,UInt64,1
+999999999,true,999999999,valid,Int64,1.0,1000000000,true,1000000000,valid,Int64,11
+999999999,true,999999999,valid,UInt32,1.0,1000000000,true,1000000000,valid,UInt32,9
+999999999,false,999999999,valid,Int64,1.0,1000000000,false,1000000000,valid,Int64,4
+999999999,false,999999999,valid,UInt32,1.0,1000000000,false,1000000000,valid,UInt32,6
+999999999,-102,999999999,valid,Int64,1.0,1000000000,-102,1000000000,valid,Int64,2
+99999999,true,99999999,valid,UInt32,1.0,100000000,true,100000000,valid,UInt32,2
+99999999,true,99999999,valid,Int64,1.0,100000000,true,100000000,valid,Int64,5
+99999999,false,99999999,valid,Int64,1.0,100000000,false,100000000,valid,Int64,3
+9999,64,9999,valid,Int64,1.0,10000,64,10000,valid,Int64,2
+9999,15,9999,valid,Int64,1.0,10000,15,10000,valid,Int64,2
+9999,true,9999,valid,Int64,1.0,10000,true,10000,valid,Int64,4
+9999,true,9999,valid,UInt16,1.0,10000,true,10000,valid,UInt16,5
+9999,false,9999,valid,Int64,1.0,10000,false,10000,valid,Int64,7
+9999,false,9999,valid,UInt16,1.0,10000,false,10000,valid,UInt16,5
+999,false,999,valid,Int64,1.0,1000,false,1000,valid,Int64,2
+168,999999999,999999999,valid,UInt32,1.0,168,1000000000,1000000000,valid,UInt32,2
+123,999,999,valid,Int64,1.0,123,1000,1000,valid,Int64,2
+120,9999,9999,valid,Int64,1.0,120,10000,10000,valid,Int64,2
+99,64,99,valid,Int64,1.0,100,64,100,valid,Int64,2
+99,59,99,valid,Int64,1.0,100,59,100,valid,Int64,2
+99,47,99,valid,UInt8,1.0,100,47,100,valid,UInt8,2
+99,46,99,valid,Int64,1.0,100,46,100,valid,Int64,2
+99,39,99,valid,Int64,1.0,100,39,100,valid,Int64,3
+99,35,99,valid,Int64,1.0,100,35,100,valid,Int64,2
+99,25,99,valid,Int64,1.0,100,25,100,valid,Int64,2
+99,14,99,valid,Int64,1.0,100,14,100,valid,Int64,2
+99,12,99,valid,Int64,1.0,100,12,100,valid,Int64,2
+99,true,99,valid,Int64,1.0,100,true,100,valid,Int64,3
+99,true,99,valid,UInt8,1.0,100,true,100,valid,UInt8,3
+99,false,99,valid,Int64,1.0,100,false,100,valid,Int64,9
+99,false,99,valid,UInt8,1.0,100,false,100,valid,UInt8,10
+88,99,99,valid,Int64,1.0,88,100,100,valid,Int64,3
+86,999999999,999999999,valid,Int64,1.0,86,1000000000,1000000000,valid,Int64,2
+78,999999999,999999999,valid,Int64,1.0,78,1000000000,1000000000,valid,Int64,2
+26,9999,9999,valid,UInt16,1.0,26,10000,10000,valid,UInt16,2
+9,6,9,valid,Int64,1.0,10,6,10,valid,Int64,2
+9,true,9,valid,Int64,1.0,10,true,10,valid,Int64,28
+9,false,9,valid,Int64,1.0,10,false,10,valid,Int64,24
+9,false,9,valid,UInt8,1.0,10,false,10,valid,UInt8,4
+true,999999999,999999999,valid,Int64,1.0,true,1000000000,1000000000,valid,Int64,3
+true,999999999,999999999,valid,UInt32,1.0,true,1000000000,1000000000,valid,UInt32,6
+true,9999,9999,valid,Int64,1.0,true,10000,10000,valid,Int64,11
+true,9999,9999,valid,UInt16,1.0,true,10000,10000,valid,UInt16,11
+true,999,999,valid,Int64,1.0,true,1000,1000,valid,Int64,2
+true,999,999,valid,UInt16,1.0,true,1000,1000,valid,UInt16,2
+true,99,99,valid,UInt8,1.0,true,100,100,valid,UInt8,5
+true,99,99,valid,Int64,1.0,true,100,100,valid,Int64,5
+true,9,9,valid,Int64,1.0,true,10,10,valid,Int64,41
+true,9,9,valid,UInt8,1.0,true,10,10,valid,UInt8,2
+false,999999999,999999999,valid,Int64,1.0,false,1000000000,1000000000,valid,Int64,8
+false,999999999,999999999,valid,UInt32,1.0,false,1000000000,1000000000,valid,UInt32,7
+false,9999,9999,valid,UInt16,1.0,false,10000,10000,valid,UInt16,10
+false,9999,9999,valid,Int64,1.0,false,10000,10000,valid,Int64,6
+false,999,999,valid,Int64,1.0,false,1000,1000,valid,Int64,5
+false,99,99,valid,Int64,1.0,false,100,100,valid,Int64,8
+false,99,99,valid,UInt8,1.0,false,100,100,valid,UInt8,4
+false,9,9,valid,UInt8,1.0,false,10,10,valid,UInt8,3
+false,9,9,valid,Int64,1.0,false,10,10,valid,Int64,35
+false,false,false,valid,Bool,1.0,true,false,true,valid,Bool,48
+false,false,false,valid,Bool,1.0,false,true,true,valid,Bool,36
+-17,999,999,valid,Int64,1.0,-17,1000,1000,valid,Int64,2
+-33,-10,-10,valid,Int64,1.0,-33,-9,-9,valid,Int64,2
+-81,999,999,valid,Int64,1.0,-81,1000,1000,valid,Int64,2
+-89,999999999,999999999,valid,Int64,1.0,-89,1000000000,1000000000,valid,Int64,2
+9,-489310090853019546,9,valid,Int64,1.0,10,-489310090853019546,10,valid,Int64,1
+80,999999999,999999999,valid,Int64,1.0,80,1000000000,1000000000,valid,Int64,1
+-10161,-1000,-1000,valid,Int64,1.0,-10161,-999,-999,valid,Int64,1
+-1,-30821,-1,valid,Int64,1.0,0,-30821,0,valid,Int64,1
+9,-13234,9,valid,Int64,1.0,10,-13234,10,valid,Int64,1
+223,999,999,valid,Int64,1.0,223,1000,1000,valid,Int64,1
+-33822292279375417324225155225476976587,-1000,-1000,valid,Int128,1.0,-33822292279375417324225155225476976587,-999,-999,valid,Int128,1
+-1269223941,-100,-100,valid,Int64,1.0,-1269223941,-99,-99,valid,Int64,1
+-4034636219566394428,9999,9999,valid,Int64,1.0,-4034636219566394428,10000,10000,valid,Int64,1
+-1418678476,99,99,valid,Int64,1.0,-1418678476,100,100,valid,Int64,1
+99,-13423,99,valid,Int64,1.0,100,-13423,100,valid,Int64,1
+-24168977309672108551977707110455746762,-10,-10,valid,Int128,1.0,-24168977309672108551977707110455746762,-9,-9,valid,Int128,1
+99,73,99,valid,Int64,1.0,100,73,100,valid,Int64,1
+-117,999999999,999999999,valid,Int64,1.0,-117,1000000000,1000000000,valid,Int64,1
+-144746380416370607542538404409315249903,-10,-10,valid,Int128,1.0,-144746380416370607542538404409315249903,-9,-9,valid,Int128,1
+80,9999,9999,valid,Int64,1.0,80,10000,10000,valid,Int64,1
+-10,-6345935261666365949,-10,valid,Int64,1.0,-9,-6345935261666365949,-9,valid,Int64,1
+107,999,999,valid,Int64,1.0,107,1000,1000,valid,Int64,1
+-868840930,-100000000,-100000000,valid,Int64,1.0,-868840930,-99999999,-99999999,valid,Int64,1
+-455057841484830535,999,999,valid,Int64,1.0,-455057841484830535,1000,1000,valid,Int64,1
+9999,218,9999,valid,Int64,1.0,10000,218,10000,valid,Int64,1
+193,99999999,99999999,valid,Int64,1.0,193,100000000,100000000,valid,Int64,1
+4,999999999,999999999,valid,Int64,1.0,4,1000000000,1000000000,valid,Int64,1
+195,9999,9999,valid,UInt16,1.0,195,10000,10000,valid,UInt16,1
+9,-64,9,valid,Int64,1.0,10,-64,10,valid,Int64,1
+96,99,99,valid,Int64,1.0,96,100,100,valid,Int64,1
+-5628591134382380796,-10,-10,valid,Int64,1.0,-5628591134382380796,-9,-9,valid,Int64,1
+999999999,-82,999999999,valid,Int64,1.0,1000000000,-82,1000000000,valid,Int64,1
+-136966798743426042543152649158802881110,-10,-10,valid,Int128,1.0,-136966798743426042543152649158802881110,-9,-9,valid,Int128,1
+-10000,-2133278359,-10000,valid,Int64,1.0,-9999,-2133278359,-9999,valid,Int64,1
+9999,100,9999,valid,Int64,1.0,10000,100,10000,valid,Int64,1
+999999999,11,999999999,valid,Int64,1.0,1000000000,11,1000000000,valid,Int64,1
+99,-253607285744864233,99,valid,Int64,1.0,100,-253607285744864233,100,valid,Int64,1
+-185411302,99,99,valid,Int64,1.0,-185411302,100,100,valid,Int64,1
+-70,999999999,999999999,valid,Int64,1.0,-70,1000000000,1000000000,valid,Int64,1
+-2617697125496659318,9,9,valid,Int64,1.0,-2617697125496659318,10,10,valid,Int64,1
+-9004101372055036203,99,99,valid,Int64,1.0,-9004101372055036203,100,100,valid,Int64,1
+-7415663692651706705,999,999,valid,Int64,1.0,-7415663692651706705,1000,1000,valid,Int64,1
+999999999,-987009363,999999999,valid,Int64,1.0,1000000000,-987009363,1000000000,valid,Int64,1
+999,102,999,valid,UInt16,1.0,1000,102,1000,valid,UInt16,1
+14534,999999999,999999999,valid,Int64,1.0,14534,1000000000,1000000000,valid,Int64,1
+999999999,96,999999999,valid,Int64,1.0,1000000000,96,1000000000,valid,Int64,1
+999999999,-97,999999999,valid,Int64,1.0,1000000000,-97,1000000000,valid,Int64,1
+9999999,208,9999999,valid,UInt32,1.0,10000000,208,10000000,valid,UInt32,1
+99999999,-870,99999999,valid,Int64,1.0,100000000,-870,100000000,valid,Int64,1
+-152326140953391075749414730900846338559,-1000000000,-1000000000,valid,Int128,1.0,-152326140953391075749414730900846338559,-999999999,-999999999,valid,Int128,1
+93,99,99,valid,UInt8,1.0,93,100,100,valid,UInt8,1
+-1000000000,-7017898242462671352,-1000000000,valid,Int64,1.0,-999999999,-7017898242462671352,-999999999,valid,Int64,1
+-5783030758385621139412597891402606638,999999999,999999999,valid,Int128,1.0,-5783030758385621139412597891402606638,1000000000,1000000000,valid,Int128,1
+99,-7063534192224911519,99,valid,Int64,1.0,100,-7063534192224911519,100,valid,Int64,1
+51122,9999999999999999,9999999999999999,valid,UInt64,1.0,51122,10000000000000000,10000000000000000,valid,UInt64,1
+-17284,99,99,valid,Int64,1.0,-17284,100,100,valid,Int64,1
+22416,99999999,99999999,valid,Int64,1.0,22416,100000000,100000000,valid,Int64,1
+55194,99999,99999,valid,Int64,1.0,55194,100000,100000,valid,Int64,1
+81,999999999,999999999,valid,UInt32,1.0,81,1000000000,1000000000,valid,UInt32,1
+999999999,94,999999999,valid,UInt32,1.0,1000000000,94,1000000000,valid,UInt32,1
+99999999,-5286239089612735998,99999999,valid,Int64,1.0,100000000,-5286239089612735998,100000000,valid,Int64,1
+-3960621120350270753,-10000,-10000,valid,Int64,1.0,-3960621120350270753,-9999,-9999,valid,Int64,1
+99,-24,99,valid,Int64,1.0,100,-24,100,valid,Int64,1
+-1803087095,-1000000000,-1000000000,valid,Int64,1.0,-1803087095,-999999999,-999999999,valid,Int64,1
+750763739,999999999999999999,999999999999999999,valid,Int64,1.0,750763739,1000000000000000000,1000000000000000000,valid,Int64,1
+999999999,-8367,999999999,valid,Int64,1.0,1000000000,-8367,1000000000,valid,Int64,1
+30103,999999999,999999999,valid,Int64,1.0,30103,1000000000,1000000000,valid,Int64,1
+-15535,9,9,valid,Int64,1.0,-15535,10,10,valid,Int64,1
+999999999,16430,999999999,valid,Int64,1.0,1000000000,16430,1000000000,valid,Int64,1
+9999,127,9999,valid,Int64,1.0,10000,127,10000,valid,Int64,1
+-100,-2002723115,-100,valid,Int64,1.0,-99,-2002723115,-99,valid,Int64,1
+-4459,-10,-10,valid,Int64,1.0,-4459,-9,-9,valid,Int64,1
+9999,216,9999,valid,UInt16,1.0,10000,216,10000,valid,UInt16,1
+99999999,-903918058,99999999,valid,Int64,1.0,100000000,-903918058,100000000,valid,Int64,1
+999999999,-78085665210231074902668399239505574772,999999999,valid,Int128,1.0,1000000000,-78085665210231074902668399239505574772,1000000000,valid,Int128,1
+-66381161505254790839678238330988206276,9999,9999,valid,Int128,1.0,-66381161505254790839678238330988206276,10000,10000,valid,Int128,1
+99999,10809,99999,valid,Int64,1.0,100000,10809,100000,valid,Int64,1
+325899117,999999999,999999999,valid,Int64,1.0,325899117,1000000000,1000000000,valid,Int64,1
+99,-1629050978,99,valid,Int64,1.0,100,-1629050978,100,valid,Int64,1
+999,154,999,valid,Int64,1.0,1000,154,1000,valid,Int64,1
+99,-573053848009872492,99,valid,Int64,1.0,100,-573053848009872492,100,valid,Int64,1
+108,9999,9999,valid,UInt16,1.0,108,10000,10000,valid,UInt16,1
+9999,3365,9999,valid,Int64,1.0,10000,3365,10000,valid,Int64,1
+99,-62530258657393525362156042189297893054,99,valid,Int128,1.0,100,-62530258657393525362156042189297893054,100,valid,Int128,1
+99,34,99,valid,Int64,1.0,100,34,100,valid,Int64,1
+-108,9,9,valid,Int64,1.0,-108,10,10,valid,Int64,1
+9,-9650219603048650370571846555054426987,9,valid,Int128,1.0,10,-9650219603048650370571846555054426987,10,valid,Int128,1
+-29100,-100,-100,valid,Int64,1.0,-29100,-99,-99,valid,Int64,1
+99,-1205484009,99,valid,Int64,1.0,100,-1205484009,100,valid,Int64,1
+-165404973,-100,-100,valid,Int64,1.0,-165404973,-99,-99,valid,Int64,1
+-22,-10,-10,valid,Int64,1.0,-22,-9,-9,valid,Int64,1
+-117715595115105541664878410926997418140,-1000000000,-1000000000,valid,Int128,1.0,-117715595115105541664878410926997418140,-999999999,-999999999,valid,Int128,1
+-3142,99999,99999,valid,Int64,1.0,-3142,100000,100000,valid,Int64,1
+-1000000000,-1815413472366574387,-1000000000,valid,Int64,1.0,-999999999,-1815413472366574387,-999999999,valid,Int64,1
+18,999999999,999999999,valid,Int64,1.0,18,1000000000,1000000000,valid,Int64,1
+-103,9999,9999,valid,Int64,1.0,-103,10000,10000,valid,Int64,1
+52,99,99,valid,Int64,1.0,52,100,100,valid,Int64,1
+86,99,99,valid,Int64,1.0,86,100,100,valid,Int64,1
+-31751,-10000,-10000,valid,Int64,1.0,-31751,-9999,-9999,valid,Int64,1
+999999999,-1753059990,999999999,valid,Int64,1.0,1000000000,-1753059990,1000000000,valid,Int64,1
+99999,40674,99999,valid,Int64,1.0,100000,40674,100000,valid,Int64,1
+31576,99999,99999,valid,Int64,1.0,31576,100000,100000,valid,Int64,1
+99999,19296,99999,valid,Int64,1.0,100000,19296,100000,valid,Int64,1
+-1,-1069121549,-1,valid,Int64,1.0,0,-1069121549,0,valid,Int64,1
+999999999,-32614,999999999,valid,Int64,1.0,1000000000,-32614,1000000000,valid,Int64,1
+-100,-28555,-100,valid,Int64,1.0,-99,-28555,-99,valid,Int64,1
+95,999999999,999999999,valid,UInt32,1.0,95,1000000000,1000000000,valid,UInt32,1
+9999,-1672095128464215444630366141254158232,9999,valid,Int128,1.0,10000,-1672095128464215444630366141254158232,10000,valid,Int128,1
+99,70,99,valid,Int64,1.0,100,70,100,valid,Int64,1
+255,99999999,99999999,valid,Int64,1.0,255,100000000,100000000,valid,Int64,1
+99,-21286294239066145134732758851384568190,99,valid,Int128,1.0,100,-21286294239066145134732758851384568190,100,valid,Int128,1
+999,252,999,valid,Int64,1.0,1000,252,1000,valid,Int64,1
+47299,99999,99999,valid,Int64,1.0,47299,100000,100000,valid,Int64,1
+-154677203,-10000,-10000,valid,Int64,1.0,-154677203,-9999,-9999,valid,Int64,1
+9999,-72572189259654926889249509687296582355,9999,valid,Int128,1.0,10000,-72572189259654926889249509687296582355,10000,valid,Int128,1
+-10000,-14440,-10000,valid,Int64,1.0,-9999,-14440,-9999,valid,Int64,1
+999999999,-6791355924770800300,999999999,valid,Int64,1.0,1000000000,-6791355924770800300,1000000000,valid,Int64,1
+-1386506605,-10000,-10000,valid,Int64,1.0,-1386506605,-9999,-9999,valid,Int64,1
+9999,139,9999,valid,UInt16,1.0,10000,139,10000,valid,UInt16,1
+-10,-94462010045091401597300308205318495129,-10,valid,Int128,1.0,-9,-94462010045091401597300308205318495129,-9,valid,Int128,1
+9,-5187,9,valid,Int64,1.0,10,-5187,10,valid,Int64,1
+-6753623046456432281,9,9,valid,Int64,1.0,-6753623046456432281,10,10,valid,Int64,1
+999,-83,999,valid,Int64,1.0,1000,-83,1000,valid,Int64,1
+-1000,-6527243005348671853063539268087954561,-1000,valid,Int128,1.0,-999,-6527243005348671853063539268087954561,-999,valid,Int128,1
+-157405035034658056103171660458597665200,99,99,valid,Int128,1.0,-157405035034658056103171660458597665200,100,100,valid,Int128,1
+43560,999999999,999999999,valid,UInt32,1.0,43560,1000000000,1000000000,valid,UInt32,1
+99999999,9664,99999999,valid,Int64,1.0,100000000,9664,100000000,valid,Int64,1
+999999999,-22045,999999999,valid,Int64,1.0,1000000000,-22045,1000000000,valid,Int64,1
+9999,7777,9999,valid,Int64,1.0,10000,7777,10000,valid,Int64,1
+-22,999,999,valid,Int64,1.0,-22,1000,1000,valid,Int64,1
+200,9999,9999,valid,Int64,1.0,200,10000,10000,valid,Int64,1
+99999999,173,99999999,valid,Int64,1.0,100000000,173,100000000,valid,Int64,1
+999999999,-5538013161078845490,999999999,valid,Int64,1.0,1000000000,-5538013161078845490,1000000000,valid,Int64,1
+99,-114165342584473294954388784869360607192,99,valid,Int128,1.0,100,-114165342584473294954388784869360607192,100,valid,Int128,1
+-7767941151470617108,9999,9999,valid,Int64,1.0,-7767941151470617108,10000,10000,valid,Int64,1
+-129057254471167009810246944518021539047,-10,-10,valid,Int128,1.0,-129057254471167009810246944518021539047,-9,-9,valid,Int128,1
+999999999,78,999999999,valid,UInt32,1.0,1000000000,78,1000000000,valid,UInt32,1
+-6321,-100,-100,valid,Int64,1.0,-6321,-99,-99,valid,Int64,1
+-1000,-18887,-1000,valid,Int64,1.0,-999,-18887,-999,valid,Int64,1
+-21042,9,9,valid,Int64,1.0,-21042,10,10,valid,Int64,1
+198,9999,9999,valid,UInt16,1.0,198,10000,10000,valid,UInt16,1
+-2096776948,999999999,999999999,valid,Int64,1.0,-2096776948,1000000000,1000000000,valid,Int64,1
+99,74,99,valid,Int64,1.0,100,74,100,valid,Int64,1
+9999,5617,9999,valid,Int64,1.0,10000,5617,10000,valid,Int64,1
+-30932353181197003029193188071693367086,-1000000000,-1000000000,valid,Int128,1.0,-30932353181197003029193188071693367086,-999999999,-999999999,valid,Int128,1
+118,9999,9999,valid,UInt16,1.0,118,10000,10000,valid,UInt16,1
+9999,97,9999,valid,Int64,1.0,10000,97,10000,valid,Int64,1
+999,-29,999,valid,Int64,1.0,1000,-29,1000,valid,Int64,1
+99999,24882,99999,valid,Int64,1.0,100000,24882,100000,valid,Int64,1
+-347739210,-1000,-1000,valid,Int64,1.0,-347739210,-999,-999,valid,Int64,1
+999999999,39,999999999,valid,Int64,1.0,1000000000,39,1000000000,valid,Int64,1
+11411,999999999,999999999,valid,Int64,1.0,11411,1000000000,1000000000,valid,Int64,1
+241,9999,9999,valid,Int64,1.0,241,10000,10000,valid,Int64,1
+-8148126341392488020,9,9,valid,Int64,1.0,-8148126341392488020,10,10,valid,Int64,1
+-1063935203,99,99,valid,Int64,1.0,-1063935203,100,100,valid,Int64,1
+-6962505338173249794,-100,-100,valid,Int64,1.0,-6962505338173249794,-99,-99,valid,Int64,1
+-104805771828293827453794088916287090053,9999,9999,valid,Int128,1.0,-104805771828293827453794088916287090053,10000,10000,valid,Int128,1
+9999999999999999999,23120,9999999999999999999,valid,UInt64,1.0,10000000000000000000,23120,10000000000000000000,valid,UInt64,1
+-100000000,-1097025201,-100000000,valid,Int64,1.0,-99999999,-1097025201,-99999999,valid,Int64,1
+-16060,9,9,valid,Int64,1.0,-16060,10,10,valid,Int64,1
+782,99999999,99999999,valid,Int64,1.0,782,100000000,100000000,valid,Int64,1
+999,164,999,valid,Int64,1.0,1000,164,1000,valid,Int64,1
+-10,-1390662972,-10,valid,Int64,1.0,-9,-1390662972,-9,valid,Int64,1
+-19031,99,99,valid,Int64,1.0,-19031,100,100,valid,Int64,1
+251,99999999,99999999,valid,Int64,1.0,251,100000000,100000000,valid,Int64,1
+582439926,999999999,999999999,valid,UInt32,1.0,582439926,1000000000,1000000000,valid,UInt32,1
+-871866042379791279,-10000,-10000,valid,Int64,1.0,-871866042379791279,-9999,-9999,valid,Int64,1
+true,9999999999999999999,9999999999999999999,valid,UInt64,1.0,true,10000000000000000000,10000000000000000000,valid,UInt64,1
+4353,9999,9999,valid,Int64,1.0,4353,10000,10000,valid,Int64,1
+999999999,5101,999999999,valid,Int64,1.0,1000000000,5101,1000000000,valid,Int64,1
+99999999,false,99999999,valid,UInt32,1.0,100000000,false,100000000,valid,UInt32,1
+999999999,176,999999999,valid,Int64,1.0,1000000000,176,1000000000,valid,Int64,1
+9999,3439,9999,valid,Int64,1.0,10000,3439,10000,valid,Int64,1
+99,-26870,99,valid,Int64,1.0,100,-26870,100,valid,Int64,1
+-13,9999999,9999999,valid,Int64,1.0,-13,10000000,10000000,valid,Int64,1
+-779694553,99999999,99999999,valid,Int64,1.0,-779694553,100000000,100000000,valid,Int64,1
+-4490001192165423895,-1000000000,-1000000000,valid,Int64,1.0,-4490001192165423895,-999999999,-999999999,valid,Int64,1
+999999999,128,999999999,valid,Int64,1.0,1000000000,128,1000000000,valid,Int64,1
+999999999,-21931,999999999,valid,Int64,1.0,1000000000,-21931,1000000000,valid,Int64,1
+99999,17647,99999,valid,Int64,1.0,100000,17647,100000,valid,Int64,1
+-1000,-7403,-1000,valid,Int64,1.0,-999,-7403,-999,valid,Int64,1
+999999999,-17598,999999999,valid,Int64,1.0,1000000000,-17598,1000000000,valid,Int64,1
+999999999,11338,999999999,valid,UInt32,1.0,1000000000,11338,1000000000,valid,UInt32,1
+9999,-16563,9999,valid,Int64,1.0,10000,-16563,10000,valid,Int64,1
+-10,-5659435549073288085114020925051708629,-10,valid,Int128,1.0,-9,-5659435549073288085114020925051708629,-9,valid,Int128,1
+25142,99999,99999,valid,Int64,1.0,25142,100000,100000,valid,Int64,1
+-8,99,99,valid,Int64,1.0,-8,100,100,valid,Int64,1
+999999999,54,999999999,valid,UInt32,1.0,1000000000,54,1000000000,valid,UInt32,1
+-77952296675471662773543139925096116160,-10,-10,valid,Int128,1.0,-77952296675471662773543139925096116160,-9,-9,valid,Int128,1
+9,-40345272918751951462253976224826549474,9,valid,Int128,1.0,10,-40345272918751951462253976224826549474,10,valid,Int128,1
+99999999,43803,99999999,valid,Int64,1.0,100000000,43803,100000000,valid,Int64,1
+229,9999,9999,valid,Int64,1.0,229,10000,10000,valid,Int64,1
+9999,46,9999,valid,Int64,1.0,10000,46,10000,valid,Int64,1
+36523,99999999,99999999,valid,Int64,1.0,36523,100000000,100000000,valid,Int64,1
+-1938757767,-10000,-10000,valid,Int64,1.0,-1938757767,-9999,-9999,valid,Int64,1
+99999999,58,99999999,valid,Int64,1.0,100000000,58,100000000,valid,Int64,1
+-8646628003983583573,-10,-10,valid,Int64,1.0,-8646628003983583573,-9,-9,valid,Int64,1
+-1824859566,999999999,999999999,valid,Int64,1.0,-1824859566,1000000000,1000000000,valid,Int64,1
+181,999999999,999999999,valid,UInt32,1.0,181,1000000000,1000000000,valid,UInt32,1
+7,999999999,999999999,valid,Int64,1.0,7,1000000000,1000000000,valid,Int64,1
+99,-3708,99,valid,Int64,1.0,100,-3708,100,valid,Int64,1
+-1649186606,-10000,-10000,valid,Int64,1.0,-1649186606,-9999,-9999,valid,Int64,1
+9999,50,9999,valid,UInt16,1.0,10000,50,10000,valid,UInt16,1
+65014,99999999,99999999,valid,UInt32,1.0,65014,100000000,100000000,valid,UInt32,1
+999999999,28450,999999999,valid,UInt32,1.0,1000000000,28450,1000000000,valid,UInt32,1
+14,99999999,99999999,valid,Int64,1.0,14,100000000,100000000,valid,Int64,1
+40,99999999,99999999,valid,Int64,1.0,40,100000000,100000000,valid,Int64,1
+99,-160422518004337710175127927931826569339,99,valid,Int128,1.0,100,-160422518004337710175127927931826569339,100,valid,Int128,1
+999999999,10093780,999999999,valid,UInt32,1.0,1000000000,10093780,1000000000,valid,UInt32,1
+-2131672685,999999999,999999999,valid,Int64,1.0,-2131672685,1000000000,1000000000,valid,Int64,1
+999999999,55,999999999,valid,UInt32,1.0,1000000000,55,1000000000,valid,UInt32,1
+-100,-2586,-100,valid,Int64,1.0,-99,-2586,-99,valid,Int64,1
+-100,-7081,-100,valid,Int64,1.0,-99,-7081,-99,valid,Int64,1
+9999,5,9999,valid,UInt16,1.0,10000,5,10000,valid,UInt16,1
+-1728023099,9999,9999,valid,Int64,1.0,-1728023099,10000,10000,valid,Int64,1
+99999999,22284,99999999,valid,UInt32,1.0,100000000,22284,100000000,valid,UInt32,1
+-1581515752473672700,99,99,valid,Int64,1.0,-1581515752473672700,100,100,valid,Int64,1
+9,-2614315614493338390,9,valid,Int64,1.0,10,-2614315614493338390,10,valid,Int64,1
+20040,999999999,999999999,valid,Int64,1.0,20040,1000000000,1000000000,valid,Int64,1
+-124,999999999,999999999,valid,Int64,1.0,-124,1000000000,1000000000,valid,Int64,1
+-10000,-6721532944083006126,-10000,valid,Int64,1.0,-9999,-6721532944083006126,-9999,valid,Int64,1
+98,9999,9999,valid,Int64,1.0,98,10000,10000,valid,Int64,1
+9,-888269341,9,valid,Int64,1.0,10,-888269341,10,valid,Int64,1
+999999999999999999,true,999999999999999999,valid,Int64,1.0,1000000000000000000,true,1000000000000000000,valid,Int64,1
+-10000,-1026351383,-10000,valid,Int64,1.0,-9999,-1026351383,-9999,valid,Int64,1
+999,148,999,valid,Int64,1.0,1000,148,1000,valid,Int64,1
+-100000000,-39699123620417263586552924554721988155,-100000000,valid,Int128,1.0,-99999999,-39699123620417263586552924554721988155,-99999999,valid,Int128,1
+17967,999999999,999999999,valid,UInt32,1.0,17967,1000000000,1000000000,valid,UInt32,1
+142,999999999,999999999,valid,UInt32,1.0,142,1000000000,1000000000,valid,UInt32,1
+-10,-24265,-10,valid,Int64,1.0,-9,-24265,-9,valid,Int64,1
+248,999,999,valid,Int64,1.0,248,1000,1000,valid,Int64,1
+999999999,102,999999999,valid,UInt32,1.0,1000000000,102,1000000000,valid,UInt32,1
+99,-19951,99,valid,Int64,1.0,100,-19951,100,valid,Int64,1
+-6649484370714779513,-1000,-1000,valid,Int64,1.0,-6649484370714779513,-999,-999,valid,Int64,1
+9999,42,9999,valid,Int64,1.0,10000,42,10000,valid,Int64,1
+183,999999999,999999999,valid,Int64,1.0,183,1000000000,1000000000,valid,Int64,1
+3775338318,9999999999999999,9999999999999999,valid,UInt64,1.0,3775338318,10000000000000000,10000000000000000,valid,UInt64,1
+-30729,9999,9999,valid,Int64,1.0,-30729,10000,10000,valid,Int64,1
+-1514036395,-100000000,-100000000,valid,Int64,1.0,-1514036395,-99999999,-99999999,valid,Int64,1
+9999,-47,9999,valid,Int64,1.0,10000,-47,10000,valid,Int64,1
+-72460094,999999999,999999999,valid,Int64,1.0,-72460094,1000000000,1000000000,valid,Int64,1
+19803,99999,99999,valid,Int64,1.0,19803,100000,100000,valid,Int64,1
+-119474876982978374863495164971770845373,9999,9999,valid,Int128,1.0,-119474876982978374863495164971770845373,10000,10000,valid,Int128,1
+99,61,99,valid,Int64,1.0,100,61,100,valid,Int64,1
+-120,999999999,999999999,valid,Int64,1.0,-120,1000000000,1000000000,valid,Int64,1
+9999,9564,9999,valid,UInt16,1.0,10000,9564,10000,valid,UInt16,1
+999999999,17794,999999999,valid,Int64,1.0,1000000000,17794,1000000000,valid,Int64,1
+99999999,-3095586379304394458,99999999,valid,Int64,1.0,100000000,-3095586379304394458,100000000,valid,Int64,1
+99,-7460508962659319596,99,valid,Int64,1.0,100,-7460508962659319596,100,valid,Int64,1
+999999999,200,999999999,valid,UInt32,1.0,1000000000,200,1000000000,valid,UInt32,1
+60434,999999999,999999999,valid,Int64,1.0,60434,1000000000,1000000000,valid,Int64,1
+29465,999999999,999999999,valid,Int64,1.0,29465,1000000000,1000000000,valid,Int64,1
+-1759710093,999999999,999999999,valid,Int64,1.0,-1759710093,1000000000,1000000000,valid,Int64,1
+486,999999999,999999999,valid,UInt32,1.0,486,1000000000,1000000000,valid,UInt32,1
+-9,9,9,valid,Int64,1.0,-9,10,10,valid,Int64,1
+39,99999999,99999999,valid,Int64,1.0,39,100000000,100000000,valid,Int64,1
+999999999,27023,999999999,valid,Int64,1.0,1000000000,27023,1000000000,valid,Int64,1
+-16463,-10000,-10000,valid,Int64,1.0,-16463,-9999,-9999,valid,Int64,1
+-1421717916,9999,9999,valid,Int64,1.0,-1421717916,10000,10000,valid,Int64,1
+999999999,-3100412915807669520,999999999,valid,Int64,1.0,1000000000,-3100412915807669520,1000000000,valid,Int64,1
+9999,-880038770,9999,valid,Int64,1.0,10000,-880038770,10000,valid,Int64,1
+13114,999999999,999999999,valid,Int64,1.0,13114,1000000000,1000000000,valid,Int64,1
+9999,4263,9999,valid,Int64,1.0,10000,4263,10000,valid,Int64,1
+999999999,-7874760558630976040,999999999,valid,Int64,1.0,1000000000,-7874760558630976040,1000000000,valid,Int64,1
+9,-101800999329766075963412627643332868774,9,valid,Int128,1.0,10,-101800999329766075963412627643332868774,10,valid,Int128,1
+-310730722106865766,9999,9999,valid,Int64,1.0,-310730722106865766,10000,10000,valid,Int64,1
+-28876761354313636878062085781811599377,9,9,valid,Int128,1.0,-28876761354313636878062085781811599377,10,10,valid,Int128,1
+-6821909958993522583,9999,9999,valid,Int64,1.0,-6821909958993522583,10000,10000,valid,Int64,1
+-24660,99,99,valid,Int64,1.0,-24660,100,100,valid,Int64,1
+999999999,-104,999999999,valid,Int64,1.0,1000000000,-104,1000000000,valid,Int64,1
+-30262676934607274180709864126803460776,-1000000000,-1000000000,valid,Int128,1.0,-30262676934607274180709864126803460776,-999999999,-999999999,valid,Int128,1
+99999999,-5657383519276068079,99999999,valid,Int64,1.0,100000000,-5657383519276068079,100000000,valid,Int64,1
+-134956805764740966483219453888061078274,-10000,-10000,valid,Int128,1.0,-134956805764740966483219453888061078274,-9999,-9999,valid,Int128,1
+107,999999999,999999999,valid,Int64,1.0,107,1000000000,1000000000,valid,Int64,1
+-67370561720017236884532139653342755355,9,9,valid,Int128,1.0,-67370561720017236884532139653342755355,10,10,valid,Int128,1
+-5311855890534248827,9999,9999,valid,Int64,1.0,-5311855890534248827,10000,10000,valid,Int64,1
+99,-43,99,valid,Int64,1.0,100,-43,100,valid,Int64,1
+99,-118778608478384474776270840786675691107,99,valid,Int128,1.0,100,-118778608478384474776270840786675691107,100,valid,Int128,1
+17815,99999,99999,valid,Int64,1.0,17815,100000,100000,valid,Int64,1
+-6417,-10,-10,valid,Int64,1.0,-6417,-9,-9,valid,Int64,1
+9999,15,9999,valid,UInt16,1.0,10000,15,10000,valid,UInt16,1
+-5476165024295821932,99999999,99999999,valid,Int64,1.0,-5476165024295821932,100000000,100000000,valid,Int64,1
+9,-105685978500290909848384293429010374454,9,valid,Int128,1.0,10,-105685978500290909848384293429010374454,10,valid,Int128,1
+9999,-62,9999,valid,Int64,1.0,10000,-62,10000,valid,Int64,1
+9999,47,9999,valid,Int64,1.0,10000,47,10000,valid,Int64,1
+-38602771673830001620310816284013706969,99,99,valid,Int128,1.0,-38602771673830001620310816284013706969,100,100,valid,Int128,1
+9999,-163262614000716284441360122134326789583,9999,valid,Int128,1.0,10000,-163262614000716284441360122134326789583,10000,valid,Int128,1
+false,9999999,9999999,valid,UInt32,1.0,false,10000000,10000000,valid,UInt32,1
+99,60,99,valid,UInt8,1.0,100,60,100,valid,UInt8,1
+9,-85674520882141457435494473450097979076,9,valid,Int128,1.0,10,-85674520882141457435494473450097979076,10,valid,Int128,1
+-1,-28674,-1,valid,Int64,1.0,0,-28674,0,valid,Int64,1
+99999999,48177,99999999,valid,Int64,1.0,100000000,48177,100000000,valid,Int64,1
+-795089411,9,9,valid,Int64,1.0,-795089411,10,10,valid,Int64,1
+-10000,-1767267626466225499,-10000,valid,Int64,1.0,-9999,-1767267626466225499,-9999,valid,Int64,1
+-100,-1361,-100,valid,Int64,1.0,-99,-1361,-99,valid,Int64,1
+-5779,99999,99999,valid,Int64,1.0,-5779,100000,100000,valid,Int64,1
+-27904,-10000,-10000,valid,Int64,1.0,-27904,-9999,-9999,valid,Int64,1
+99999,13546,99999,valid,Int64,1.0,100000,13546,100000,valid,Int64,1
+9999,153,9999,valid,Int64,1.0,10000,153,10000,valid,Int64,1
+-3118894235692480619,999999999,999999999,valid,Int64,1.0,-3118894235692480619,1000000000,1000000000,valid,Int64,1
+9999,7201,9999,valid,Int64,1.0,10000,7201,10000,valid,Int64,1
+-10000,-201467034,-10000,valid,Int64,1.0,-9999,-201467034,-9999,valid,Int64,1
+-5002300595242734584,-1,-1,valid,Int64,1.0,-5002300595242734584,0,0,valid,Int64,1
+16799654,99999999,99999999,valid,Int64,1.0,16799654,100000000,100000000,valid,Int64,1
+999,-53,999,valid,Int64,1.0,1000,-53,1000,valid,Int64,1
+999,124,999,valid,Int64,1.0,1000,124,1000,valid,Int64,1
+2006,99999999,99999999,valid,Int64,1.0,2006,100000000,100000000,valid,Int64,1
+-57,9999,9999,valid,Int64,1.0,-57,10000,10000,valid,Int64,1
+-31332,-10000,-10000,valid,Int64,1.0,-31332,-9999,-9999,valid,Int64,1
+9825,9999,9999,valid,Int64,1.0,9825,10000,10000,valid,Int64,1
+30789,9999999,9999999,valid,Int64,1.0,30789,10000000,10000000,valid,Int64,1
+62851,999999999,999999999,valid,Int64,1.0,62851,1000000000,1000000000,valid,Int64,1
+-10,-130667424,-10,valid,Int64,1.0,-9,-130667424,-9,valid,Int64,1
+999999999,15502,999999999,valid,Int64,1.0,1000000000,15502,1000000000,valid,Int64,1
+99,-1566,99,valid,Int64,1.0,100,-1566,100,valid,Int64,1
+999999,-30055,999999,valid,Int64,1.0,1000000,-30055,1000000,valid,Int64,1
+-44784017357775669641026111565200791478,99,99,valid,Int128,1.0,-44784017357775669641026111565200791478,100,100,valid,Int128,1
+999999999,-16643,999999999,valid,Int64,1.0,1000000000,-16643,1000000000,valid,Int64,1
+18890,999999999,999999999,valid,Int64,1.0,18890,1000000000,1000000000,valid,Int64,1
+99999999,-3,99999999,valid,Int64,1.0,100000000,-3,100000000,valid,Int64,1
+-10,-1310032197,-10,valid,Int64,1.0,-9,-1310032197,-9,valid,Int64,1
+-18350,99,99,valid,Int64,1.0,-18350,100,100,valid,Int64,1
+9999,-51096104413796627844930616104620972224,9999,valid,Int128,1.0,10000,-51096104413796627844930616104620972224,10000,valid,Int128,1
+-156283979894998564326545850035460678230,99999999,99999999,valid,Int128,1.0,-156283979894998564326545850035460678230,100000000,100000000,valid,Int128,1
+-1000000000,-2958424357360671794,-1000000000,valid,Int64,1.0,-999999999,-2958424357360671794,-999999999,valid,Int64,1
+9999,107,9999,valid,Int64,1.0,10000,107,10000,valid,Int64,1
+-35250670095138401178359750244603261809,99,99,valid,Int128,1.0,-35250670095138401178359750244603261809,100,100,valid,Int128,1
+999999999,2,999999999,valid,Int64,1.0,1000000000,2,1000000000,valid,Int64,1
+38939,99999,99999,valid,Int64,1.0,38939,100000,100000,valid,Int64,1
+-1550243133,-10000,-10000,valid,Int64,1.0,-1550243133,-9999,-9999,valid,Int64,1
+-892387195,-100000000,-100000000,valid,Int64,1.0,-892387195,-99999999,-99999999,valid,Int64,1
+-30692,999999,999999,valid,Int64,1.0,-30692,1000000,1000000,valid,Int64,1
+999999999,195,999999999,valid,Int64,1.0,1000000000,195,1000000000,valid,Int64,1
+9999,27,9999,valid,UInt16,1.0,10000,27,10000,valid,UInt16,1
+20,9999,9999,valid,Int64,1.0,20,10000,10000,valid,Int64,1
+-10,-97,-10,valid,Int64,1.0,-9,-97,-9,valid,Int64,1
+36360,999999999,999999999,valid,UInt32,1.0,36360,1000000000,1000000000,valid,UInt32,1
+-10,-91213605505026490426559498961744694784,-10,valid,Int128,1.0,-9,-91213605505026490426559498961744694784,-9,valid,Int128,1
+999,120,999,valid,Int64,1.0,1000,120,1000,valid,Int64,1
+99,44,99,valid,Int64,1.0,100,44,100,valid,Int64,1
+-15981,99,99,valid,Int64,1.0,-15981,100,100,valid,Int64,1
+-23383,999999999,999999999,valid,Int64,1.0,-23383,1000000000,1000000000,valid,Int64,1
+99,42,99,valid,Int64,1.0,100,42,100,valid,Int64,1
+-10000,-1871700337157197505,-10000,valid,Int64,1.0,-9999,-1871700337157197505,-9999,valid,Int64,1
+-3679248115833241953,9999,9999,valid,Int64,1.0,-3679248115833241953,10000,10000,valid,Int64,1
+999999999,-8149464425094686508,999999999,valid,Int64,1.0,1000000000,-8149464425094686508,1000000000,valid,Int64,1
+99999,16513,99999,valid,Int64,1.0,100000,16513,100000,valid,Int64,1
+-13,99,99,valid,Int64,1.0,-13,100,100,valid,Int64,1
+-32,999,999,valid,Int64,1.0,-32,1000,1000,valid,Int64,1
+46911,99999999,99999999,valid,Int64,1.0,46911,100000000,100000000,valid,Int64,1
+999,81,999,valid,Int64,1.0,1000,81,1000,valid,Int64,1
+999999999999999999,205,999999999999999999,valid,UInt64,1.0,1000000000000000000,205,1000000000000000000,valid,UInt64,1
+9999,-307,9999,valid,Int64,1.0,10000,-307,10000,valid,Int64,1
+99999999,55613,99999999,valid,Int64,1.0,100000000,55613,100000000,valid,Int64,1
+999999999,253,999999999,valid,Int64,1.0,1000000000,253,1000000000,valid,Int64,1
+-2090027469,999999999,999999999,valid,Int64,1.0,-2090027469,1000000000,1000000000,valid,Int64,1
+999,-37,999,valid,Int64,1.0,1000,-37,1000,valid,Int64,1
+-498773975,-100000000,-100000000,valid,Int64,1.0,-498773975,-99999999,-99999999,valid,Int64,1
+159,9999,9999,valid,UInt16,1.0,159,10000,10000,valid,UInt16,1
+999999999,-7014356383840035490,999999999,valid,Int64,1.0,1000000000,-7014356383840035490,1000000000,valid,Int64,1
+-10000,-57938592832103243577875864607151916099,-10000,valid,Int128,1.0,-9999,-57938592832103243577875864607151916099,-9999,valid,Int128,1
+99999999,18907,99999999,valid,Int64,1.0,100000000,18907,100000000,valid,Int64,1
+99999999,89,99999999,valid,Int64,1.0,100000000,89,100000000,valid,Int64,1
+-10,-166565435374025895902672119486933501918,-10,valid,Int128,1.0,-9,-166565435374025895902672119486933501918,-9,valid,Int128,1
+9999,68,9999,valid,UInt16,1.0,10000,68,10000,valid,UInt16,1
+-1927020858,999999999,999999999,valid,Int64,1.0,-1927020858,1000000000,1000000000,valid,Int64,1
+-17741426453307942132212210499235877850,99,99,valid,Int128,1.0,-17741426453307942132212210499235877850,100,100,valid,Int128,1
+-118020662750530238774410788008217818453,9999,9999,valid,Int128,1.0,-118020662750530238774410788008217818453,10000,10000,valid,Int128,1
+-10000,-945915346,-10000,valid,Int64,1.0,-9999,-945915346,-9999,valid,Int64,1
+999999999,435663822,999999999,valid,Int64,1.0,1000000000,435663822,1000000000,valid,Int64,1
+-1000,-1238915233690701315,-1000,valid,Int64,1.0,-999,-1238915233690701315,-999,valid,Int64,1
+-1000000000,-1519031297,-1000000000,valid,Int64,1.0,-999999999,-1519031297,-999999999,valid,Int64,1
+9999,-138248721873059766332707108497015694054,9999,valid,Int128,1.0,10000,-138248721873059766332707108497015694054,10000,valid,Int128,1
+-13880,99,99,valid,Int64,1.0,-13880,100,100,valid,Int64,1
+-13419,-10,-10,valid,Int64,1.0,-13419,-9,-9,valid,Int64,1
+9999,-146223201307911628784339906066456987544,9999,valid,Int128,1.0,10000,-146223201307911628784339906066456987544,10000,valid,Int128,1
+-712568402,-100,-100,valid,Int64,1.0,-712568402,-99,-99,valid,Int64,1
+87,999999999,999999999,valid,Int64,1.0,87,1000000000,1000000000,valid,Int64,1
+999,true,999,valid,Int64,1.0,1000,true,1000,valid,Int64,1
+99,-58,99,valid,Int64,1.0,100,-58,100,valid,Int64,1
+2139,999999999,999999999,valid,UInt32,1.0,2139,1000000000,1000000000,valid,UInt32,1
+-100,-770153890,-100,valid,Int64,1.0,-99,-770153890,-99,valid,Int64,1
+999,170,999,valid,Int64,1.0,1000,170,1000,valid,Int64,1
+-100,-1585708585,-100,valid,Int64,1.0,-99,-1585708585,-99,valid,Int64,1
+-92,-10,-10,valid,Int64,1.0,-92,-9,-9,valid,Int64,1
+221,999999999,999999999,valid,UInt32,1.0,221,1000000000,1000000000,valid,UInt32,1
+999999999,-112392751833883442802371280120458210070,999999999,valid,Int128,1.0,1000000000,-112392751833883442802371280120458210070,1000000000,valid,Int128,1
+-10000,-43085853,-10000,valid,Int64,1.0,-9999,-43085853,-9999,valid,Int64,1
+-167108859392832227041027523967936002020,999,999,valid,Int128,1.0,-167108859392832227041027523967936002020,1000,1000,valid,Int128,1
+-1609960140091256891,99,99,valid,Int64,1.0,-1609960140091256891,100,100,valid,Int64,1
+99999999,6644,99999999,valid,UInt32,1.0,100000000,6644,100000000,valid,UInt32,1
+99,31,99,valid,Int64,1.0,100,31,100,valid,Int64,1
+99,-3931,99,valid,Int64,1.0,100,-3931,100,valid,Int64,1
+999999999,117,999999999,valid,Int64,1.0,1000000000,117,1000000000,valid,Int64,1
+15,999999999,999999999,valid,Int64,1.0,15,1000000000,1000000000,valid,Int64,1
+-42201772748648907401421376556097893995,-1000000000,-1000000000,valid,Int128,1.0,-42201772748648907401421376556097893995,-999999999,-999999999,valid,Int128,1
+-1000000000,-1021579134729318619,-1000000000,valid,Int64,1.0,-999999999,-1021579134729318619,-999999999,valid,Int64,1
+999999999,3,999999999,valid,Int64,1.0,1000000000,3,1000000000,valid,Int64,1
+99999,58715,99999,valid,Int64,1.0,100000,58715,100000,valid,Int64,1
+-102082,9,9,valid,Int64,1.0,-102082,10,10,valid,Int64,1
+99,-6660009927688172456,99,valid,Int64,1.0,100,-6660009927688172456,100,valid,Int64,1
+-10,-73,-10,valid,Int64,1.0,-9,-73,-9,valid,Int64,1
+9999999999999999,57260,9999999999999999,valid,Int64,1.0,10000000000000000,57260,10000000000000000,valid,Int64,1
+864923312,999999999,999999999,valid,Int64,1.0,864923312,1000000000,1000000000,valid,Int64,1
+99,-3571355072793258812,99,valid,Int64,1.0,100,-3571355072793258812,100,valid,Int64,1
+9967,99999999,99999999,valid,Int64,1.0,9967,100000000,100000000,valid,Int64,1
+96,99999999,99999999,valid,Int64,1.0,96,100000000,100000000,valid,Int64,1
+999999999,187,999999999,valid,UInt32,1.0,1000000000,187,1000000000,valid,UInt32,1
+999999999,-32823890,999999999,valid,Int64,1.0,1000000000,-32823890,1000000000,valid,Int64,1
+3460,999999999,999999999,valid,Int64,1.0,3460,1000000000,1000000000,valid,Int64,1
+999999999,234493192,999999999,valid,Int64,1.0,1000000000,234493192,1000000000,valid,Int64,1
+999999,24116,999999,valid,Int64,1.0,1000000,24116,1000000,valid,Int64,1
+9,-13051,9,valid,Int64,1.0,10,-13051,10,valid,Int64,1
+9,-6152,9,valid,Int64,1.0,10,-6152,10,valid,Int64,1
+99,32,99,valid,Int64,1.0,100,32,100,valid,Int64,1
+5,9,9,valid,Int64,1.0,5,10,10,valid,Int64,1
+999999999,243849892,999999999,valid,Int64,1.0,1000000000,243849892,1000000000,valid,Int64,1
+99,33,99,valid,Int64,1.0,100,33,100,valid,Int64,1
+53,999999999,999999999,valid,Int64,1.0,53,1000000000,1000000000,valid,Int64,1
+-152225185554592539435188448158245704764,999999999,999999999,valid,Int128,1.0,-152225185554592539435188448158245704764,1000000000,1000000000,valid,Int128,1
+-93070056319793147501131645134304508048,9999,9999,valid,Int128,1.0,-93070056319793147501131645134304508048,10000,10000,valid,Int128,1
+9,-16862,9,valid,Int64,1.0,10,-16862,10,valid,Int64,1
+9999,-447749524,9999,valid,Int64,1.0,10000,-447749524,10000,valid,Int64,1
+146,9999,9999,valid,Int64,1.0,146,10000,10000,valid,Int64,1
+99999999,96727920,99999999,valid,Int64,1.0,100000000,96727920,100000000,valid,Int64,1
+-5645098810922442786,-1000000000,-1000000000,valid,Int64,1.0,-5645098810922442786,-999999999,-999999999,valid,Int64,1
+-213011919,999999999,999999999,valid,Int64,1.0,-213011919,1000000000,1000000000,valid,Int64,1
+-2046227763,99,99,valid,Int64,1.0,-2046227763,100,100,valid,Int64,1
+9,-2249886460790008066,9,valid,Int64,1.0,10,-2249886460790008066,10,valid,Int64,1
+999,236,999,valid,Int64,1.0,1000,236,1000,valid,Int64,1
+188,999999999,999999999,valid,UInt32,1.0,188,1000000000,1000000000,valid,UInt32,1
+9,-877808959,9,valid,Int64,1.0,10,-877808959,10,valid,Int64,1
+11,99,99,valid,Int64,1.0,11,100,100,valid,Int64,1
+-1803748612,-10,-10,valid,Int64,1.0,-1803748612,-9,-9,valid,Int64,1
+99999,13212,99999,valid,Int64,1.0,100000,13212,100000,valid,Int64,1
+82,99999999,99999999,valid,Int64,1.0,82,100000000,100000000,valid,Int64,1
+9999,151,9999,valid,Int64,1.0,10000,151,10000,valid,Int64,1
+99,50,99,valid,Int64,1.0,100,50,100,valid,Int64,1
+-10000000,-1553099236,-10000000,valid,Int64,1.0,-9999999,-1553099236,-9999999,valid,Int64,1
+-103620743972621455538042479827924776938,999999999,999999999,valid,Int128,1.0,-103620743972621455538042479827924776938,1000000000,1000000000,valid,Int128,1
+99,40,99,valid,Int64,1.0,100,40,100,valid,Int64,1
+99999999,47,99999999,valid,Int64,1.0,100000000,47,100000000,valid,Int64,1
+203,99999999,99999999,valid,Int64,1.0,203,100000000,100000000,valid,Int64,1
+-10,-658255507205626084,-10,valid,Int64,1.0,-9,-658255507205626084,-9,valid,Int64,1
+43194,999999999,999999999,valid,UInt32,1.0,43194,1000000000,1000000000,valid,UInt32,1
+-6763404196413078915,9999,9999,valid,Int64,1.0,-6763404196413078915,10000,10000,valid,Int64,1
+-13277,999999,999999,valid,Int64,1.0,-13277,1000000,1000000,valid,Int64,1
+-5383176278578965166,-10,-10,valid,Int64,1.0,-5383176278578965166,-9,-9,valid,Int64,1
+64721,999999999,999999999,valid,Int64,1.0,64721,1000000000,1000000000,valid,Int64,1
+999999999,52352,999999999,valid,Int64,1.0,1000000000,52352,1000000000,valid,Int64,1
+201,9999,9999,valid,UInt16,1.0,201,10000,10000,valid,UInt16,1
+-121,99,99,valid,Int64,1.0,-121,100,100,valid,Int64,1
+-109046403279689359381461033329327781536,999,999,valid,Int128,1.0,-109046403279689359381461033329327781536,1000,1000,valid,Int128,1
+-3429841081849045389,99,99,valid,Int64,1.0,-3429841081849045389,100,100,valid,Int64,1
+99999999,-37,99999999,valid,Int64,1.0,100000000,-37,100000000,valid,Int64,1
+-8525383325044359715,-10,-10,valid,Int64,1.0,-8525383325044359715,-9,-9,valid,Int64,1
+225,9999,9999,valid,UInt16,1.0,225,10000,10000,valid,UInt16,1
+9999,124,9999,valid,Int64,1.0,10000,124,10000,valid,Int64,1
+318,999999999,999999999,valid,Int64,1.0,318,1000000000,1000000000,valid,Int64,1
+129,9999,9999,valid,UInt16,1.0,129,10000,10000,valid,UInt16,1
+99,-23189,99,valid,Int64,1.0,100,-23189,100,valid,Int64,1
+999999999,-130825570739374179617277936193021517130,999999999,valid,Int128,1.0,1000000000,-130825570739374179617277936193021517130,1000000000,valid,Int128,1
+999999999,20,999999999,valid,UInt32,1.0,1000000000,20,1000000000,valid,UInt32,1
+9,9999999,9999999,valid,Int64,1.0,9,10000000,10000000,valid,Int64,1
+999,231,999,valid,Int64,1.0,1000,231,1000,valid,Int64,1
+-2471,999999999,999999999,valid,Int64,1.0,-2471,1000000000,1000000000,valid,Int64,1
+-12436,-10000,-10000,valid,Int64,1.0,-12436,-9999,-9999,valid,Int64,1
+84,9999,9999,valid,Int64,1.0,84,10000,10000,valid,Int64,1
+999,-51,999,valid,Int64,1.0,1000,-51,1000,valid,Int64,1
+9,-133512193952269491414902568515866146804,9,valid,Int128,1.0,10,-133512193952269491414902568515866146804,10,valid,Int128,1
+-10000,-32107,-10000,valid,Int64,1.0,-9999,-32107,-9999,valid,Int64,1
+9999,-156730305816630906155910439316092647819,9999,valid,Int128,1.0,10000,-156730305816630906155910439316092647819,10000,valid,Int128,1
+-10000000,-420646517225971406009007013323898507,-10000000,valid,Int128,1.0,-9999999,-420646517225971406009007013323898507,-9999999,valid,Int128,1
+-425277484954699697,9,9,valid,Int64,1.0,-425277484954699697,10,10,valid,Int64,1
+52,999999999,999999999,valid,Int64,1.0,52,1000000000,1000000000,valid,Int64,1
+-563090670,99,99,valid,Int64,1.0,-563090670,100,100,valid,Int64,1
+-18395,99,99,valid,Int64,1.0,-18395,100,100,valid,Int64,1
+-10,-9631,-10,valid,Int64,1.0,-9,-9631,-9,valid,Int64,1
+19765,99999,99999,valid,Int64,1.0,19765,100000,100000,valid,Int64,1
+999999,-19180,999999,valid,Int64,1.0,1000000,-19180,1000000,valid,Int64,1
+-30,999,999,valid,Int64,1.0,-30,1000,1000,valid,Int64,1
+-80814852691695469936193585082628726128,-100,-100,valid,Int128,1.0,-80814852691695469936193585082628726128,-99,-99,valid,Int128,1
+-1000,-652521775,-1000,valid,Int64,1.0,-999,-652521775,-999,valid,Int64,1
+-149817083424943740588462036755991381817,999999999,999999999,valid,Int128,1.0,-149817083424943740588462036755991381817,1000000000,1000000000,valid,Int128,1
+-10000,-2125477224752192453,-10000,valid,Int64,1.0,-9999,-2125477224752192453,-9999,valid,Int64,1
+-29053,-100,-100,valid,Int64,1.0,-29053,-99,-99,valid,Int64,1
+999999999,-3005195984587303430,999999999,valid,Int64,1.0,1000000000,-3005195984587303430,1000000000,valid,Int64,1
+99,-6947020523648918739,99,valid,Int64,1.0,100,-6947020523648918739,100,valid,Int64,1
+99,-30,99,valid,Int64,1.0,100,-30,100,valid,Int64,1
+99,96,99,valid,Int64,1.0,100,96,100,valid,Int64,1
+99999999,-7047,99999999,valid,Int64,1.0,100000000,-7047,100000000,valid,Int64,1
+-4766760875080806972,9,9,valid,Int64,1.0,-4766760875080806972,10,10,valid,Int64,1
+9999,-9212701141969944078,9999,valid,Int64,1.0,10000,-9212701141969944078,10000,valid,Int64,1
+-173118032,9999,9999,valid,Int64,1.0,-173118032,10000,10000,valid,Int64,1
+252965692,999999999,999999999,valid,Int64,1.0,252965692,1000000000,1000000000,valid,Int64,1
+999999999,24486,999999999,valid,Int64,1.0,1000000000,24486,1000000000,valid,Int64,1
+5,999999999,999999999,valid,Int64,1.0,5,1000000000,1000000000,valid,Int64,1
+6,999999999,999999999,valid,Int64,1.0,6,1000000000,1000000000,valid,Int64,1
+999999999,64675,999999999,valid,Int64,1.0,1000000000,64675,1000000000,valid,Int64,1
+-61,-10,-10,valid,Int64,1.0,-61,-9,-9,valid,Int64,1
+999999999,751949544,999999999,valid,Int64,1.0,1000000000,751949544,1000000000,valid,Int64,1
+-8676280800160487653,99,99,valid,Int64,1.0,-8676280800160487653,100,100,valid,Int64,1
+837624710,999999999,999999999,valid,Int64,1.0,837624710,1000000000,1000000000,valid,Int64,1
+999999999,-26455367006367201159523685011019295805,999999999,valid,Int128,1.0,1000000000,-26455367006367201159523685011019295805,1000000000,valid,Int128,1
+-26463,999999,999999,valid,Int64,1.0,-26463,1000000,1000000,valid,Int64,1
+99,-142159037602993564498069929146706556799,99,valid,Int128,1.0,100,-142159037602993564498069929146706556799,100,valid,Int128,1
+-10,-88,-10,valid,Int64,1.0,-9,-88,-9,valid,Int64,1
+-120201039,-10,-10,valid,Int64,1.0,-120201039,-9,-9,valid,Int64,1
+999999999,-1219322108,999999999,valid,Int64,1.0,1000000000,-1219322108,1000000000,valid,Int64,1
+-7679104157695057977,-1000000000,-1000000000,valid,Int64,1.0,-7679104157695057977,-999999999,-999999999,valid,Int64,1
+9999,-44612714,9999,valid,Int64,1.0,10000,-44612714,10000,valid,Int64,1
+61239,999999999,999999999,valid,UInt32,1.0,61239,1000000000,1000000000,valid,UInt32,1
+-1102377685,9,9,valid,Int64,1.0,-1102377685,10,10,valid,Int64,1
+-1000000000,-81044437389453716727109343064675396061,-1000000000,valid,Int128,1.0,-999999999,-81044437389453716727109343064675396061,-999999999,valid,Int128,1
+-43,-10,-10,valid,Int64,1.0,-43,-9,-9,valid,Int64,1
+50,999,999,valid,Int64,1.0,50,1000,1000,valid,Int64,1
+-101784708540723078571752993887867322440,-100000000,-100000000,valid,Int128,1.0,-101784708540723078571752993887867322440,-99999999,-99999999,valid,Int128,1
+99,-16867,99,valid,Int64,1.0,100,-16867,100,valid,Int64,1
+99999999,21239,99999999,valid,Int64,1.0,100000000,21239,100000000,valid,Int64,1
+-1000000000,-7668698754937952759,-1000000000,valid,Int64,1.0,-999999999,-7668698754937952759,-999999999,valid,Int64,1
+-1000000000,-1552735653657947461,-1000000000,valid,Int64,1.0,-999999999,-1552735653657947461,-999999999,valid,Int64,1
+-10000,-26860,-10000,valid,Int64,1.0,-9999,-26860,-9999,valid,Int64,1
+-23927391,9999,9999,valid,Int64,1.0,-23927391,10000,10000,valid,Int64,1
+999999999,40890,999999999,valid,Int64,1.0,1000000000,40890,1000000000,valid,Int64,1
+63,9999,9999,valid,Int64,1.0,63,10000,10000,valid,Int64,1
+9,-48,9,valid,Int64,1.0,10,-48,10,valid,Int64,1
+31897,99999999,99999999,valid,Int64,1.0,31897,100000000,100000000,valid,Int64,1
+-10000,-128057871334377113606621170954270257721,-10000,valid,Int128,1.0,-9999,-128057871334377113606621170954270257721,-9999,valid,Int128,1
+-100,-548117404,-100,valid,Int64,1.0,-99,-548117404,-99,valid,Int64,1
+-114,-10,-10,valid,Int64,1.0,-114,-9,-9,valid,Int64,1
+-330367001,9999,9999,valid,Int64,1.0,-330367001,10000,10000,valid,Int64,1
+-10000,-16485,-10000,valid,Int64,1.0,-9999,-16485,-9999,valid,Int64,1
+17665,99999999,99999999,valid,Int64,1.0,17665,100000000,100000000,valid,Int64,1
+999,103,999,valid,Int64,1.0,1000,103,1000,valid,Int64,1
+999999999,236,999999999,valid,UInt32,1.0,1000000000,236,1000000000,valid,UInt32,1
+9999,5455,9999,valid,Int64,1.0,10000,5455,10000,valid,Int64,1
+99,-14957,99,valid,Int64,1.0,100,-14957,100,valid,Int64,1
+99,-30901,99,valid,Int64,1.0,100,-30901,100,valid,Int64,1
+-16143,99,99,valid,Int64,1.0,-16143,100,100,valid,Int64,1
+209,99999999,99999999,valid,Int64,1.0,209,100000000,100000000,valid,Int64,1
+-100,-48723237187123069556384723953392567180,-100,valid,Int128,1.0,-99,-48723237187123069556384723953392567180,-99,valid,Int128,1
+99999999,-32589,99999999,valid,Int64,1.0,100000000,-32589,100000000,valid,Int64,1
+99,-5848,99,valid,Int64,1.0,100,-5848,100,valid,Int64,1
+9999,181,9999,valid,UInt16,1.0,10000,181,10000,valid,UInt16,1
+-2102854799,9,9,valid,Int64,1.0,-2102854799,10,10,valid,Int64,1
+234,9999,9999,valid,Int64,1.0,234,10000,10000,valid,Int64,1
+99,55,99,valid,Int64,1.0,100,55,100,valid,Int64,1
+9999,-6502529222745203414,9999,valid,Int64,1.0,10000,-6502529222745203414,10000,valid,Int64,1
+9999,2425,9999,valid,Int64,1.0,10000,2425,10000,valid,Int64,1
+-26908,999999,999999,valid,Int64,1.0,-26908,1000000,1000000,valid,Int64,1
+21124,99999,99999,valid,Int64,1.0,21124,100000,100000,valid,Int64,1
+-1530954289,-100000000,-100000000,valid,Int64,1.0,-1530954289,-99999999,-99999999,valid,Int64,1
+99999999,109,99999999,valid,UInt32,1.0,100000000,109,100000000,valid,UInt32,1
+9999,-101,9999,valid,Int64,1.0,10000,-101,10000,valid,Int64,1
+-11631,99999999,99999999,valid,Int64,1.0,-11631,100000000,100000000,valid,Int64,1
+-25700,-10000,-10000,valid,Int64,1.0,-25700,-9999,-9999,valid,Int64,1
+162,999,999,valid,UInt16,1.0,162,1000,1000,valid,UInt16,1
+-19,999,999,valid,Int64,1.0,-19,1000,1000,valid,Int64,1
+99,-120407178230569341626861399550127887376,99,valid,Int128,1.0,100,-120407178230569341626861399550127887376,100,valid,Int128,1
+9,5,9,valid,Int64,1.0,10,5,10,valid,Int64,1
+999999999,-93,999999999,valid,Int64,1.0,1000000000,-93,1000000000,valid,Int64,1
+-54,9999,9999,valid,Int64,1.0,-54,10000,10000,valid,Int64,1
+999999999,-20442,999999999,valid,Int64,1.0,1000000000,-20442,1000000000,valid,Int64,1
+-1281942660,99,99,valid,Int64,1.0,-1281942660,100,100,valid,Int64,1
+999,-148164323039282050926211422748535468597,999,valid,Int128,1.0,1000,-148164323039282050926211422748535468597,1000,valid,Int128,1
+-448578218,999,999,valid,Int64,1.0,-448578218,1000,1000,valid,Int64,1
+-4848150158915143671,-10,-10,valid,Int64,1.0,-4848150158915143671,-9,-9,valid,Int64,1
+67,99,99,valid,UInt8,1.0,67,100,100,valid,UInt8,1
+18061,999999999,999999999,valid,Int64,1.0,18061,1000000000,1000000000,valid,Int64,1
+150,999999999,999999999,valid,UInt32,1.0,150,1000000000,1000000000,valid,UInt32,1
+7292,9999,9999,valid,Int64,1.0,7292,10000,10000,valid,Int64,1
+999999999,42594,999999999,valid,UInt32,1.0,1000000000,42594,1000000000,valid,UInt32,1
+999999999,34,999999999,valid,Int64,1.0,1000000000,34,1000000000,valid,Int64,1
+3848,999999999,999999999,valid,Int64,1.0,3848,1000000000,1000000000,valid,Int64,1
+59,9999,9999,valid,Int64,1.0,59,10000,10000,valid,Int64,1
+999999999,189,999999999,valid,Int64,1.0,1000000000,189,1000000000,valid,Int64,1
+-44166936541018376449703343641911579905,-10,-10,valid,Int128,1.0,-44166936541018376449703343641911579905,-9,-9,valid,Int128,1
+-5685437350829373523,999999999,999999999,valid,Int64,1.0,-5685437350829373523,1000000000,1000000000,valid,Int64,1
+-9128776917560262632,-100000000,-100000000,valid,Int64,1.0,-9128776917560262632,-99999999,-99999999,valid,Int64,1
+9999,-1289979604624679884,9999,valid,Int64,1.0,10000,-1289979604624679884,10000,valid,Int64,1
+61,999999999,999999999,valid,Int64,1.0,61,1000000000,1000000000,valid,Int64,1
+999999999,-2527982645023145337,999999999,valid,Int64,1.0,1000000000,-2527982645023145337,1000000000,valid,Int64,1
+99,60,99,valid,Int64,1.0,100,60,100,valid,Int64,1
+9999,146,9999,valid,Int64,1.0,10000,146,10000,valid,Int64,1
+-23864,9,9,valid,Int64,1.0,-23864,10,10,valid,Int64,1
+999999999,44548808,999999999,valid,Int64,1.0,1000000000,44548808,1000000000,valid,Int64,1
+81,99,99,valid,Int64,1.0,81,100,100,valid,Int64,1
+-1161205772363546568,9999,9999,valid,Int64,1.0,-1161205772363546568,10000,10000,valid,Int64,1
+-10,-1584687665,-10,valid,Int64,1.0,-9,-1584687665,-9,valid,Int64,1
+99999999,4,99999999,valid,Int64,1.0,100000000,4,100000000,valid,Int64,1
+-145369500859242744432427712795164986685,9999,9999,valid,Int128,1.0,-145369500859242744432427712795164986685,10000,10000,valid,Int128,1
+-144767187343650004170588740296515013964,99999999,99999999,valid,Int128,1.0,-144767187343650004170588740296515013964,100000000,100000000,valid,Int128,1
+-1,-1316208845,-1,valid,Int64,1.0,0,-1316208845,0,valid,Int64,1
+999999999,138762899,999999999,valid,Int64,1.0,1000000000,138762899,1000000000,valid,Int64,1
+99999999,-3746790253960767930,99999999,valid,Int64,1.0,100000000,-3746790253960767930,100000000,valid,Int64,1
+9999,147,9999,valid,UInt16,1.0,10000,147,10000,valid,UInt16,1
+999999999,27096,999999999,valid,Int64,1.0,1000000000,27096,1000000000,valid,Int64,1
+-1000,-3049406273293518447,-1000,valid,Int64,1.0,-999,-3049406273293518447,-999,valid,Int64,1
+-1400637505608785639,-1000000000,-1000000000,valid,Int64,1.0,-1400637505608785639,-999999999,-999999999,valid,Int64,1
+-32,99,99,valid,Int64,1.0,-32,100,100,valid,Int64,1
+999,-7204771056881345892,999,valid,Int64,1.0,1000,-7204771056881345892,1000,valid,Int64,1
+9,-6113,9,valid,Int64,1.0,10,-6113,10,valid,Int64,1
+-1000000000,-1679489374,-1000000000,valid,Int64,1.0,-999999999,-1679489374,-999999999,valid,Int64,1
+40174,99999999,99999999,valid,Int64,1.0,40174,100000000,100000000,valid,Int64,1
+146,99999999,99999999,valid,Int64,1.0,146,100000000,100000000,valid,Int64,1
+99,26,99,valid,UInt8,1.0,100,26,100,valid,UInt8,1
+-935461717,-100000000,-100000000,valid,Int64,1.0,-935461717,-99999999,-99999999,valid,Int64,1
+-10,-1179,-10,valid,Int64,1.0,-9,-1179,-9,valid,Int64,1
+-10,-283329466,-10,valid,Int64,1.0,-9,-283329466,-9,valid,Int64,1
+999999999,35,999999999,valid,Int64,1.0,1000000000,35,1000000000,valid,Int64,1
+-1000,-28169,-1000,valid,Int64,1.0,-999,-28169,-999,valid,Int64,1
+999999999,73,999999999,valid,Int64,1.0,1000000000,73,1000000000,valid,Int64,1
+-10000,-9167481925619031367,-10000,valid,Int64,1.0,-9999,-9167481925619031367,-9999,valid,Int64,1
+-100,-111867465687742966774182898926497972640,-100,valid,Int128,1.0,-99,-111867465687742966774182898926497972640,-99,valid,Int128,1
+-7895775378785995783,9999,9999,valid,Int64,1.0,-7895775378785995783,10000,10000,valid,Int64,1
+-1575246412,-1000000000,-1000000000,valid,Int64,1.0,-1575246412,-999999999,-999999999,valid,Int64,1
+-1567598726,99,99,valid,Int64,1.0,-1567598726,100,100,valid,Int64,1
+-1229696678,-10,-10,valid,Int64,1.0,-1229696678,-9,-9,valid,Int64,1
+-10000,-70762318167103085711688007935593929846,-10000,valid,Int128,1.0,-9999,-70762318167103085711688007935593929846,-9999,valid,Int128,1
+9,-15426328598991872335180810469172103506,9,valid,Int128,1.0,10,-15426328598991872335180810469172103506,10,valid,Int128,1
+999999999,58,999999999,valid,Int64,1.0,1000000000,58,1000000000,valid,Int64,1
+999999999,44,999999999,valid,UInt32,1.0,1000000000,44,1000000000,valid,UInt32,1
+99999999,93,99999999,valid,Int64,1.0,100000000,93,100000000,valid,Int64,1
+-138020980001826631416994067704157583267,-100,-100,valid,Int128,1.0,-138020980001826631416994067704157583267,-99,-99,valid,Int128,1
+999999999,212,999999999,valid,Int64,1.0,1000000000,212,1000000000,valid,Int64,1
+9722,999999999,999999999,valid,Int64,1.0,9722,1000000000,1000000000,valid,Int64,1
+99,-289830624,99,valid,Int64,1.0,100,-289830624,100,valid,Int64,1
+-57473003433170425675863417374372571586,9999,9999,valid,Int128,1.0,-57473003433170425675863417374372571586,10000,10000,valid,Int128,1
+9999,254,9999,valid,UInt16,1.0,10000,254,10000,valid,UInt16,1
+-146970050301632708983978129365481840537,-1000000000,-1000000000,valid,Int128,1.0,-146970050301632708983978129365481840537,-999999999,-999999999,valid,Int128,1
+-86,-10,-10,valid,Int64,1.0,-86,-9,-9,valid,Int64,1
+-4195765912131435434593467520766741017,9,9,valid,Int128,1.0,-4195765912131435434593467520766741017,10,10,valid,Int128,1
+-1111769789,-100,-100,valid,Int64,1.0,-1111769789,-99,-99,valid,Int64,1
+99,-35967240737356544161605266565153504099,99,valid,Int128,1.0,100,-35967240737356544161605266565153504099,100,valid,Int128,1
+99,-4336210615904976954,99,valid,Int64,1.0,100,-4336210615904976954,100,valid,Int64,1
+13292,99999,99999,valid,Int64,1.0,13292,100000,100000,valid,Int64,1
+49867,9999999,9999999,valid,UInt32,1.0,49867,10000000,10000000,valid,UInt32,1
+-99791836724088166237935027281927378146,999999999,999999999,valid,Int128,1.0,-99791836724088166237935027281927378146,1000000000,1000000000,valid,Int128,1
+99,9999,9999,valid,Int64,1.0,99,10000,10000,valid,Int64,1
+18,9999999,9999999,valid,Int64,1.0,18,10000000,10000000,valid,Int64,1
+17047,999999999,999999999,valid,Int64,1.0,17047,1000000000,1000000000,valid,Int64,1
+-141209916065822588603339857724630919069,-10,-10,valid,Int128,1.0,-141209916065822588603339857724630919069,-9,-9,valid,Int128,1
+999,-2653899149493947659,999,valid,Int64,1.0,1000,-2653899149493947659,1000,valid,Int64,1
+217,999,999,valid,Int64,1.0,217,1000,1000,valid,Int64,1
+67,999999999,999999999,valid,Int64,1.0,67,1000000000,1000000000,valid,Int64,1
+999999999,-6639667444161530466,999999999,valid,Int64,1.0,1000000000,-6639667444161530466,1000000000,valid,Int64,1
+134,99999999,99999999,valid,Int64,1.0,134,100000000,100000000,valid,Int64,1
+-100000000,-476128219,-100000000,valid,Int64,1.0,-99999999,-476128219,-99999999,valid,Int64,1
+-1,-6289193821024102852,-1,valid,Int64,1.0,0,-6289193821024102852,0,valid,Int64,1
+-42104435682015668155411582716789139657,999999999,999999999,valid,Int128,1.0,-42104435682015668155411582716789139657,1000000000,1000000000,valid,Int128,1
+9999,79,9999,valid,Int64,1.0,10000,79,10000,valid,Int64,1
+35,9999,9999,valid,Int64,1.0,35,10000,10000,valid,Int64,1
+9999,-32,9999,valid,Int64,1.0,10000,-32,10000,valid,Int64,1
+99,-82316764069844955659848960947495188456,99,valid,Int128,1.0,100,-82316764069844955659848960947495188456,100,valid,Int128,1
+-82,999,999,valid,Int64,1.0,-82,1000,1000,valid,Int64,1
+99,-21318,99,valid,Int64,1.0,100,-21318,100,valid,Int64,1
+999999999,-2002195209,999999999,valid,Int64,1.0,1000000000,-2002195209,1000000000,valid,Int64,1
+95,99,99,valid,Int64,1.0,95,100,100,valid,Int64,1
+999999999,760,999999999,valid,Int64,1.0,1000000000,760,1000000000,valid,Int64,1
+-12439,-10,-10,valid,Int64,1.0,-12439,-9,-9,valid,Int64,1
+false,99999999,99999999,valid,UInt32,1.0,false,100000000,100000000,valid,UInt32,1
+400848225,999999999,999999999,valid,UInt32,1.0,400848225,1000000000,1000000000,valid,UInt32,1
+99,-89,99,valid,Int64,1.0,100,-89,100,valid,Int64,1
+6,9999,9999,valid,Int64,1.0,6,10000,10000,valid,Int64,1
+-10000,-25568,-10000,valid,Int64,1.0,-9999,-25568,-9999,valid,Int64,1
+999999999,-519907808,999999999,valid,Int64,1.0,1000000000,-519907808,1000000000,valid,Int64,1
+99,-683371593,99,valid,Int64,1.0,100,-683371593,100,valid,Int64,1
+99,-6169049658231730098,99,valid,Int64,1.0,100,-6169049658231730098,100,valid,Int64,1
+-7184963367026084308,-10000,-10000,valid,Int64,1.0,-7184963367026084308,-9999,-9999,valid,Int64,1
+-27628720,999999999,999999999,valid,Int64,1.0,-27628720,1000000000,1000000000,valid,Int64,1
+-18371742,9999,9999,valid,Int64,1.0,-18371742,10000,10000,valid,Int64,1
+99999999,83,99999999,valid,Int64,1.0,100000000,83,100000000,valid,Int64,1
+31289,999999999,999999999,valid,Int64,1.0,31289,1000000000,1000000000,valid,Int64,1
+9999,-129014080,9999,valid,Int64,1.0,10000,-129014080,10000,valid,Int64,1
+3368614426,9999999999999999999,9999999999999999999,valid,UInt64,1.0,3368614426,10000000000000000000,10000000000000000000,valid,UInt64,1
+99,27,99,valid,Int64,1.0,100,27,100,valid,Int64,1
+-1464599025579731198,-100,-100,valid,Int64,1.0,-1464599025579731198,-99,-99,valid,Int64,1
+-1217546687,99999999999999999,99999999999999999,valid,Int64,1.0,-1217546687,100000000000000000,100000000000000000,valid,Int64,1
+-2045930288351001984,-10,-10,valid,Int64,1.0,-2045930288351001984,-9,-9,valid,Int64,1
+-157157387006435928763616440021544554314,999999999,999999999,valid,Int128,1.0,-157157387006435928763616440021544554314,1000000000,1000000000,valid,Int128,1
+99,-1376614879,99,valid,Int64,1.0,100,-1376614879,100,valid,Int64,1
+999999999,-906430369391788539,999999999,valid,Int64,1.0,1000000000,-906430369391788539,1000000000,valid,Int64,1
+24,99,99,valid,Int64,1.0,24,100,100,valid,Int64,1
+9,-14932,9,valid,Int64,1.0,10,-14932,10,valid,Int64,1
+999999999,3724,999999999,valid,Int64,1.0,1000000000,3724,1000000000,valid,Int64,1
+-100,-1913395846,-100,valid,Int64,1.0,-99,-1913395846,-99,valid,Int64,1
+-10,-65656696719556083573446305333245414864,-10,valid,Int128,1.0,-9,-65656696719556083573446305333245414864,-9,valid,Int128,1
+99,-44852858901666770921251229592437583925,99,valid,Int128,1.0,100,-44852858901666770921251229592437583925,100,valid,Int128,1
+-1102870169,-1000000000,-1000000000,valid,Int64,1.0,-1102870169,-999999999,-999999999,valid,Int64,1
+230,999,999,valid,Int64,1.0,230,1000,1000,valid,Int64,1
+61,9999,9999,valid,UInt16,1.0,61,10000,10000,valid,UInt16,1
+999999999,-1966825088,999999999,valid,Int64,1.0,1000000000,-1966825088,1000000000,valid,Int64,1
+9999,-59,9999,valid,Int64,1.0,10000,-59,10000,valid,Int64,1
+9999,-1100787606,9999,valid,Int64,1.0,10000,-1100787606,10000,valid,Int64,1
+-50,9999,9999,valid,Int64,1.0,-50,10000,10000,valid,Int64,1
+-101,-10,-10,valid,Int64,1.0,-101,-9,-9,valid,Int64,1
+999999999,-6212265702301149036,999999999,valid,Int64,1.0,1000000000,-6212265702301149036,1000000000,valid,Int64,1
+-50736305445154816384036049511894013135,9999999999999999,9999999999999999,valid,Int128,1.0,-50736305445154816384036049511894013135,10000000000000000,10000000000000000,valid,Int128,1
+-8180586229211522387,99999999,99999999,valid,Int64,1.0,-8180586229211522387,100000000,100000000,valid,Int64,1
+-10000000,-957436926,-10000000,valid,Int64,1.0,-9999999,-957436926,-9999999,valid,Int64,1
+-7231,99,99,valid,Int64,1.0,-7231,100,100,valid,Int64,1
+999999999,559716043,999999999,valid,Int64,1.0,1000000000,559716043,1000000000,valid,Int64,1
+9,-1988704757,9,valid,Int64,1.0,10,-1988704757,10,valid,Int64,1
+99999999,-2514384883619171319,99999999,valid,Int64,1.0,100000000,-2514384883619171319,100000000,valid,Int64,1
+-8591,-1000,-1000,valid,Int64,1.0,-8591,-999,-999,valid,Int64,1
+-10,-95,-10,valid,Int64,1.0,-9,-95,-9,valid,Int64,1
+31275,9999999,9999999,valid,UInt32,1.0,31275,10000000,10000000,valid,UInt32,1
+99,-3575323776090889635,99,valid,Int64,1.0,100,-3575323776090889635,100,valid,Int64,1
+97,999999999,999999999,valid,UInt32,1.0,97,1000000000,1000000000,valid,UInt32,1
+999999,-31371,999999,valid,Int64,1.0,1000000,-31371,1000000,valid,Int64,1
+999999999,160,999999999,valid,UInt32,1.0,1000000000,160,1000000000,valid,UInt32,1
+99,-10,99,valid,Int64,1.0,100,-10,100,valid,Int64,1
+99,73,99,valid,UInt8,1.0,100,73,100,valid,UInt8,1
+999,178,999,valid,Int64,1.0,1000,178,1000,valid,Int64,1
+99999999,-90797630991237082260802165216951336287,99999999,valid,Int128,1.0,100000000,-90797630991237082260802165216951336287,100000000,valid,Int128,1
+999999999,-8268535399375197745,999999999,valid,Int64,1.0,1000000000,-8268535399375197745,1000000000,valid,Int64,1
+-170276939,9999,9999,valid,Int64,1.0,-170276939,10000,10000,valid,Int64,1
+92,99,99,valid,Int64,1.0,92,100,100,valid,Int64,1
+9,-88,9,valid,Int64,1.0,10,-88,10,valid,Int64,1
+-1000,-14080,-1000,valid,Int64,1.0,-999,-14080,-999,valid,Int64,1
+-45809157178491869406041705355215136930,999999999,999999999,valid,Int128,1.0,-45809157178491869406041705355215136930,1000000000,1000000000,valid,Int128,1
+-90092452725763080859932748537679232916,9999,9999,valid,Int128,1.0,-90092452725763080859932748537679232916,10000,10000,valid,Int128,1
+99,-2732263527143335010,99,valid,Int64,1.0,100,-2732263527143335010,100,valid,Int64,1
+18787,999999999,999999999,valid,Int64,1.0,18787,1000000000,1000000000,valid,Int64,1
+99,-7138125681773462077,99,valid,Int64,1.0,100,-7138125681773462077,100,valid,Int64,1
+99999999,-28330,99999999,valid,Int64,1.0,100000000,-28330,100000000,valid,Int64,1
+999999999,-65608403123437948487447756537404142241,999999999,valid,Int128,1.0,1000000000,-65608403123437948487447756537404142241,1000000000,valid,Int128,1
+-10,-3555046326068281609,-10,valid,Int64,1.0,-9,-3555046326068281609,-9,valid,Int64,1
+-12730,999999999,999999999,valid,Int64,1.0,-12730,1000000000,1000000000,valid,Int64,1
+99,-3355422630793137804,99,valid,Int64,1.0,100,-3355422630793137804,100,valid,Int64,1
+99999999,23575,99999999,valid,Int64,1.0,100000000,23575,100000000,valid,Int64,1
+99999999,-63265021471672122869165318796407304658,99999999,valid,Int128,1.0,100000000,-63265021471672122869165318796407304658,100000000,valid,Int128,1
+-58,-10,-10,valid,Int64,1.0,-58,-9,-9,valid,Int64,1
+-1000000000,-7909266247396343086,-1000000000,valid,Int64,1.0,-999999999,-7909266247396343086,-999999999,valid,Int64,1
+9999,-1320936932,9999,valid,Int64,1.0,10000,-1320936932,10000,valid,Int64,1
+244,999999999,999999999,valid,UInt32,1.0,244,1000000000,1000000000,valid,UInt32,1
+-10,-15194,-10,valid,Int64,1.0,-9,-15194,-9,valid,Int64,1
+-31463,99,99,valid,Int64,1.0,-31463,100,100,valid,Int64,1
+999999999,-6631774965824350524,999999999,valid,Int64,1.0,1000000000,-6631774965824350524,1000000000,valid,Int64,1
+21427,99999999,99999999,valid,Int64,1.0,21427,100000000,100000000,valid,Int64,1
+18,9999,9999,valid,Int64,1.0,18,10000,10000,valid,Int64,1
+-252207722750749561,-1000,-1000,valid,Int64,1.0,-252207722750749561,-999,-999,valid,Int64,1
+-20719724693717304041527606768247710640,9,9,valid,Int128,1.0,-20719724693717304041527606768247710640,10,10,valid,Int128,1
+3594,999999999,999999999,valid,Int64,1.0,3594,1000000000,1000000000,valid,Int64,1
+-100,-4114756037717770236,-100,valid,Int64,1.0,-99,-4114756037717770236,-99,valid,Int64,1
+-3182404236100608401,-10000,-10000,valid,Int64,1.0,-3182404236100608401,-9999,-9999,valid,Int64,1
+-6,999999999,999999999,valid,Int64,1.0,-6,1000000000,1000000000,valid,Int64,1
+-1000,-29887,-1000,valid,Int64,1.0,-999,-29887,-999,valid,Int64,1
+99,12,99,valid,UInt8,1.0,100,12,100,valid,UInt8,1
+9999,-823143325,9999,valid,Int64,1.0,10000,-823143325,10000,valid,Int64,1
+169,999999999,999999999,valid,Int64,1.0,169,1000000000,1000000000,valid,Int64,1
+75,999999999,999999999,valid,Int64,1.0,75,1000000000,1000000000,valid,Int64,1
+-113,-100,-100,valid,Int64,1.0,-113,-99,-99,valid,Int64,1
+39655,99999999,99999999,valid,Int64,1.0,39655,100000000,100000000,valid,Int64,1
+-10312,-100,-100,valid,Int64,1.0,-10312,-99,-99,valid,Int64,1
+21303,999999999,999999999,valid,Int64,1.0,21303,1000000000,1000000000,valid,Int64,1
+999999999999999999,false,999999999999999999,valid,Int64,1.0,1000000000000000000,false,1000000000000000000,valid,Int64,1
+-10000,-3526154540558623862232703225889296573,-10000,valid,Int128,1.0,-9999,-3526154540558623862232703225889296573,-9999,valid,Int128,1
+999999999,-89,999999999,valid,Int64,1.0,1000000000,-89,1000000000,valid,Int64,1
+-3953105521569000415,9,9,valid,Int64,1.0,-3953105521569000415,10,10,valid,Int64,1
+-18322,999999,999999,valid,Int64,1.0,-18322,1000000,1000000,valid,Int64,1
+-1819535741,-1000000000,-1000000000,valid,Int64,1.0,-1819535741,-999999999,-999999999,valid,Int64,1
+-81,99999999,99999999,valid,Int64,1.0,-81,100000000,100000000,valid,Int64,1
+-10,-5112288192070460917,-10,valid,Int64,1.0,-9,-5112288192070460917,-9,valid,Int64,1
+-100,-12789,-100,valid,Int64,1.0,-99,-12789,-99,valid,Int64,1
+652414155,999999999,999999999,valid,Int64,1.0,652414155,1000000000,1000000000,valid,Int64,1
+99999999,-2181583695713990654,99999999,valid,Int64,1.0,100000000,-2181583695713990654,100000000,valid,Int64,1
+-75718408446187117593073382764820465033,99,99,valid,Int128,1.0,-75718408446187117593073382764820465033,100,100,valid,Int128,1
+-25766,99,99,valid,Int64,1.0,-25766,100,100,valid,Int64,1
+9999,116,9999,valid,UInt16,1.0,10000,116,10000,valid,UInt16,1
+9999,-4513034734755283388,9999,valid,Int64,1.0,10000,-4513034734755283388,10000,valid,Int64,1
+9999,5,9999,valid,Int64,1.0,10000,5,10000,valid,Int64,1
+89,99,99,valid,Int64,1.0,89,100,100,valid,Int64,1
+-100000000,-147749376354767150482361812282459405971,-100000000,valid,Int128,1.0,-99999999,-147749376354767150482361812282459405971,-99999999,valid,Int128,1
+56654,99999,99999,valid,Int64,1.0,56654,100000,100000,valid,Int64,1
+-119,9999,9999,valid,Int64,1.0,-119,10000,10000,valid,Int64,1
+-125132394979947449653169939198354807071,99,99,valid,Int128,1.0,-125132394979947449653169939198354807071,100,100,valid,Int128,1
+999999999,-118,999999999,valid,Int64,1.0,1000000000,-118,1000000000,valid,Int64,1
+-6155161798133084631,-10000,-10000,valid,Int64,1.0,-6155161798133084631,-9999,-9999,valid,Int64,1
+-10,-66881480304788684265060020151440036186,-10,valid,Int128,1.0,-9,-66881480304788684265060020151440036186,-9,valid,Int128,1
+21932,999999999,999999999,valid,Int64,1.0,21932,1000000000,1000000000,valid,Int64,1
+-10,-22819,-10,valid,Int64,1.0,-9,-22819,-9,valid,Int64,1
+-1465437425,99999999,99999999,valid,Int64,1.0,-1465437425,100000000,100000000,valid,Int64,1
+9,-13258,9,valid,Int64,1.0,10,-13258,10,valid,Int64,1
+-10,-31,-10,valid,Int64,1.0,-9,-31,-9,valid,Int64,1
+-2440732020205186711,99999999,99999999,valid,Int64,1.0,-2440732020205186711,100000000,100000000,valid,Int64,1
+999999999,44999,999999999,valid,Int64,1.0,1000000000,44999,1000000000,valid,Int64,1
+-7720175870623370405,99,99,valid,Int64,1.0,-7720175870623370405,100,100,valid,Int64,1
+99999999,-572865999858575893,99999999,valid,Int64,1.0,100000000,-572865999858575893,100000000,valid,Int64,1
+99,-6719,99,valid,Int64,1.0,100,-6719,100,valid,Int64,1
+9,-1666371973,9,valid,Int64,1.0,10,-1666371973,10,valid,Int64,1
+-1746984971,-100,-100,valid,Int64,1.0,-1746984971,-99,-99,valid,Int64,1
+38,99,99,valid,Int64,1.0,38,100,100,valid,Int64,1
+175,999999999,999999999,valid,Int64,1.0,175,1000000000,1000000000,valid,Int64,1
+-10,-148631820689886761819715740219962928939,-10,valid,Int128,1.0,-9,-148631820689886761819715740219962928939,-9,valid,Int128,1
+-3,99999999,99999999,valid,Int64,1.0,-3,100000000,100000000,valid,Int64,1
+47299,99999999,99999999,valid,Int64,1.0,47299,100000000,100000000,valid,Int64,1
+99,-1795,99,valid,Int64,1.0,100,-1795,100,valid,Int64,1
+-34795479397345501290712422141916852088,9999,9999,valid,Int128,1.0,-34795479397345501290712422141916852088,10000,10000,valid,Int128,1
+9999,103,9999,valid,Int64,1.0,10000,103,10000,valid,Int64,1
+106,999999999,999999999,valid,Int64,1.0,106,1000000000,1000000000,valid,Int64,1
+-7504,-1000,-1000,valid,Int64,1.0,-7504,-999,-999,valid,Int64,1
+99,-4646038498566312236,99,valid,Int64,1.0,100,-4646038498566312236,100,valid,Int64,1
+9,-3407295669371106644,9,valid,Int64,1.0,10,-3407295669371106644,10,valid,Int64,1
+-10,-116,-10,valid,Int64,1.0,-9,-116,-9,valid,Int64,1
+999999999,143,999999999,valid,UInt32,1.0,1000000000,143,1000000000,valid,UInt32,1
+-70781302289095911276618793054587539310,-100000000,-100000000,valid,Int128,1.0,-70781302289095911276618793054587539310,-99999999,-99999999,valid,Int128,1
+-9768,-100,-100,valid,Int64,1.0,-9768,-99,-99,valid,Int64,1
+901537072,999999999,999999999,valid,Int64,1.0,901537072,1000000000,1000000000,valid,Int64,1
+99999999,-40059991111392763500397552520492649504,99999999,valid,Int128,1.0,100000000,-40059991111392763500397552520492649504,100000000,valid,Int128,1
+999999999,184,999999999,valid,UInt32,1.0,1000000000,184,1000000000,valid,UInt32,1
+999999999,25059,999999999,valid,Int64,1.0,1000000000,25059,1000000000,valid,Int64,1
+999999999,-1128430238,999999999,valid,Int64,1.0,1000000000,-1128430238,1000000000,valid,Int64,1
+172,99999999,99999999,valid,Int64,1.0,172,100000000,100000000,valid,Int64,1
+-100,-32209,-100,valid,Int64,1.0,-99,-32209,-99,valid,Int64,1
+9,4,9,valid,Int64,1.0,10,4,10,valid,Int64,1
+99,-29524,99,valid,Int64,1.0,100,-29524,100,valid,Int64,1
+9,-60,9,valid,Int64,1.0,10,-60,10,valid,Int64,1
+99,-342742495039020008,99,valid,Int64,1.0,100,-342742495039020008,100,valid,Int64,1
+999999,-29874,999999,valid,Int64,1.0,1000000,-29874,1000000,valid,Int64,1
+99999999,-74,99999999,valid,Int64,1.0,100000000,-74,100000000,valid,Int64,1
+99,45,99,valid,Int64,1.0,100,45,100,valid,Int64,1
+254,99999999,99999999,valid,Int64,1.0,254,100000000,100000000,valid,Int64,1
+1069,99999999,99999999,valid,UInt32,1.0,1069,100000000,100000000,valid,UInt32,1
+222,999999999,999999999,valid,UInt32,1.0,222,1000000000,1000000000,valid,UInt32,1
+9999,-22665,9999,valid,Int64,1.0,10000,-22665,10000,valid,Int64,1
+99,82,99,valid,Int64,1.0,100,82,100,valid,Int64,1
+99999999,49524,99999999,valid,Int64,1.0,100000000,49524,100000000,valid,Int64,1
+194,999,999,valid,Int64,1.0,194,1000,1000,valid,Int64,1
+99999,-3445,99999,valid,Int64,1.0,100000,-3445,100000,valid,Int64,1
+-146641176727032286906317574015873694956,999999999,999999999,valid,Int128,1.0,-146641176727032286906317574015873694956,1000000000,1000000000,valid,Int128,1
+-1,-150829343450725354661706342097844696325,-1,valid,Int128,1.0,0,-150829343450725354661706342097844696325,0,valid,Int128,1
+-1000000000,-1515142749,-1000000000,valid,Int64,1.0,-999999999,-1515142749,-999999999,valid,Int64,1
+9,-440816258,9,valid,Int64,1.0,10,-440816258,10,valid,Int64,1
+999999999,581018372,999999999,valid,Int64,1.0,1000000000,581018372,1000000000,valid,Int64,1
+914,9999,9999,valid,Int64,1.0,914,10000,10000,valid,Int64,1
+99999999,159,99999999,valid,Int64,1.0,100000000,159,100000000,valid,Int64,1
+99999999,15997,99999999,valid,Int64,1.0,100000000,15997,100000000,valid,Int64,1
+-75509912639402116175946399971354897570,-100,-100,valid,Int128,1.0,-75509912639402116175946399971354897570,-99,-99,valid,Int128,1
+-58160588594643709393290239369269439424,9999,9999,valid,Int128,1.0,-58160588594643709393290239369269439424,10000,10000,valid,Int128,1
+-13,9999,9999,valid,Int64,1.0,-13,10000,10000,valid,Int64,1
+1768,999999999,999999999,valid,Int64,1.0,1768,1000000000,1000000000,valid,Int64,1
+999999999,63,999999999,valid,Int64,1.0,1000000000,63,1000000000,valid,Int64,1
+-8769914098737780952,99,99,valid,Int64,1.0,-8769914098737780952,100,100,valid,Int64,1
+9999,-23888,9999,valid,Int64,1.0,10000,-23888,10000,valid,Int64,1
+-1000000000,-19708463737888223319782959613780286382,-1000000000,valid,Int128,1.0,-999999999,-19708463737888223319782959613780286382,-999999999,valid,Int128,1
+99999999,32157,99999999,valid,Int64,1.0,100000000,32157,100000000,valid,Int64,1
+-100000000,-934629045,-100000000,valid,Int64,1.0,-99999999,-934629045,-99999999,valid,Int64,1
+99,-8400811686347926421,99,valid,Int64,1.0,100,-8400811686347926421,100,valid,Int64,1
+99,97,99,valid,Int64,1.0,100,97,100,valid,Int64,1
+999999999,-4321767498067908544606068501589585701,999999999,valid,Int128,1.0,1000000000,-4321767498067908544606068501589585701,1000000000,valid,Int128,1
+9,-31032,9,valid,Int64,1.0,10,-31032,10,valid,Int64,1
+9999,7114,9999,valid,UInt16,1.0,10000,7114,10000,valid,UInt16,1
+99999,11315,99999,valid,Int64,1.0,100000,11315,100000,valid,Int64,1
+-158434211798339568952596690589176587766,-10,-10,valid,Int128,1.0,-158434211798339568952596690589176587766,-9,-9,valid,Int128,1
+-26616,99,99,valid,Int64,1.0,-26616,100,100,valid,Int64,1
+99999,-1696,99999,valid,Int64,1.0,100000,-1696,100000,valid,Int64,1
+-10,-991520457,-10,valid,Int64,1.0,-9,-991520457,-9,valid,Int64,1
+137,999,999,valid,Int64,1.0,137,1000,1000,valid,Int64,1
+false,99999999,99999999,valid,Int64,1.0,false,100000000,100000000,valid,Int64,1
+45,99,99,valid,UInt8,1.0,45,100,100,valid,UInt8,1
+999,9,999,valid,Int64,1.0,1000,9,1000,valid,Int64,1
+-1634084731,9999,9999,valid,Int64,1.0,-1634084731,10000,10000,valid,Int64,1
+99999999,25,99999999,valid,Int64,1.0,100000000,25,100000000,valid,Int64,1
+-14096,999999999,999999999,valid,Int64,1.0,-14096,1000000000,1000000000,valid,Int64,1
+9,8,9,valid,Int64,1.0,10,8,10,valid,Int64,1
+-10,-5702821960006593772,-10,valid,Int64,1.0,-9,-5702821960006593772,-9,valid,Int64,1
+3,9,9,valid,Int64,1.0,3,10,10,valid,Int64,1
+99,-4144835537202768436,99,valid,Int64,1.0,100,-4144835537202768436,100,valid,Int64,1
+16520,99999999,99999999,valid,Int64,1.0,16520,100000000,100000000,valid,Int64,1
+999999999,26175,999999999,valid,Int64,1.0,1000000000,26175,1000000000,valid,Int64,1
+-2105502838,-1000000000,-1000000000,valid,Int64,1.0,-2105502838,-999999999,-999999999,valid,Int64,1
+-6962,999999999,999999999,valid,Int64,1.0,-6962,1000000000,1000000000,valid,Int64,1
+-8649601578790312464,-100,-100,valid,Int64,1.0,-8649601578790312464,-99,-99,valid,Int64,1
+999999999,1799,999999999,valid,Int64,1.0,1000000000,1799,1000000000,valid,Int64,1
+99999999,15836,99999999,valid,Int64,1.0,100000000,15836,100000000,valid,Int64,1
+-3790,99,99,valid,Int64,1.0,-3790,100,100,valid,Int64,1
+-4245003699478993691,-1000000000,-1000000000,valid,Int64,1.0,-4245003699478993691,-999999999,-999999999,valid,Int64,1
+true,99999999,99999999,valid,UInt32,1.0,true,100000000,100000000,valid,UInt32,1
+81,9999,9999,valid,UInt16,1.0,81,10000,10000,valid,UInt16,1
+-165309475636096456789193765027965276044,9999,9999,valid,Int128,1.0,-165309475636096456789193765027965276044,10000,10000,valid,Int128,1
+-10,-7965,-10,valid,Int64,1.0,-9,-7965,-9,valid,Int64,1
+99,-9108415911277724557,99,valid,Int64,1.0,100,-9108415911277724557,100,valid,Int64,1
+999,113,999,valid,Int64,1.0,1000,113,1000,valid,Int64,1
+9999,251,9999,valid,UInt16,1.0,10000,251,10000,valid,UInt16,1
+-50,999,999,valid,Int64,1.0,-50,1000,1000,valid,Int64,1
+-156591895465075893631494331227982111811,-100,-100,valid,Int128,1.0,-156591895465075893631494331227982111811,-99,-99,valid,Int128,1
+99,94,99,valid,Int64,1.0,100,94,100,valid,Int64,1
+9,-1118409036,9,valid,Int64,1.0,10,-1118409036,10,valid,Int64,1
+-10,-8404,-10,valid,Int64,1.0,-9,-8404,-9,valid,Int64,1
+99,-12427,99,valid,Int64,1.0,100,-12427,100,valid,Int64,1
+-3524379790367832611,-1000,-1000,valid,Int64,1.0,-3524379790367832611,-999,-999,valid,Int64,1
+99,-37359184098756925911111291659680724113,99,valid,Int128,1.0,100,-37359184098756925911111291659680724113,100,valid,Int128,1
+-103,-100,-100,valid,Int64,1.0,-103,-99,-99,valid,Int64,1
+117,999,999,valid,Int64,1.0,117,1000,1000,valid,Int64,1
+62,99,99,valid,Int64,1.0,62,100,100,valid,Int64,1
+99,-28115,99,valid,Int64,1.0,100,-28115,100,valid,Int64,1
+99999,38664,99999,valid,Int64,1.0,100000,38664,100000,valid,Int64,1
+999999999,514693916,999999999,valid,Int64,1.0,1000000000,514693916,1000000000,valid,Int64,1
+-1000,-477139196,-1000,valid,Int64,1.0,-999,-477139196,-999,valid,Int64,1
+99,-142915015271030840109539465055527801101,99,valid,Int128,1.0,100,-142915015271030840109539465055527801101,100,valid,Int128,1
+9999,4254,9999,valid,Int64,1.0,10000,4254,10000,valid,Int64,1
+-70442588084012914952723059203095637933,-100,-100,valid,Int128,1.0,-70442588084012914952723059203095637933,-99,-99,valid,Int128,1
+99,94,99,valid,UInt8,1.0,100,94,100,valid,UInt8,1
+9999,-15461674521272362165795429943769111611,9999,valid,Int128,1.0,10000,-15461674521272362165795429943769111611,10000,valid,Int128,1
+-1000000000,-4102698900728007309,-1000000000,valid,Int64,1.0,-999999999,-4102698900728007309,-999999999,valid,Int64,1
+999999999,151,999999999,valid,Int64,1.0,1000000000,151,1000000000,valid,Int64,1
+99,-1285992924,99,valid,Int64,1.0,100,-1285992924,100,valid,Int64,1
+99,-7033930943986090293,99,valid,Int64,1.0,100,-7033930943986090293,100,valid,Int64,1
+99,-6461203762324244188,99,valid,Int64,1.0,100,-6461203762324244188,100,valid,Int64,1
+99999999,3552,99999999,valid,Int64,1.0,100000000,3552,100000000,valid,Int64,1
+85,9999,9999,valid,Int64,1.0,85,10000,10000,valid,Int64,1
+159,99999999,99999999,valid,Int64,1.0,159,100000000,100000000,valid,Int64,1
+-113,99,99,valid,Int64,1.0,-113,100,100,valid,Int64,1
+99,-96421219246833197216016892972542975714,99,valid,Int128,1.0,100,-96421219246833197216016892972542975714,100,valid,Int128,1
+99,-14697,99,valid,Int64,1.0,100,-14697,100,valid,Int64,1
+12641,999999999,999999999,valid,Int64,1.0,12641,1000000000,1000000000,valid,Int64,1
+-1000,-30600,-1000,valid,Int64,1.0,-999,-30600,-999,valid,Int64,1
+-1892827267,-100000000,-100000000,valid,Int64,1.0,-1892827267,-99999999,-99999999,valid,Int64,1
+-10,-1560215528,-10,valid,Int64,1.0,-9,-1560215528,-9,valid,Int64,1
+-31289,-1000,-1000,valid,Int64,1.0,-31289,-999,-999,valid,Int64,1
+999999999,23021,999999999,valid,Int64,1.0,1000000000,23021,1000000000,valid,Int64,1
+116,999,999,valid,Int64,1.0,116,1000,1000,valid,Int64,1
+99,-67400275001924239065517105670799290028,99,valid,Int128,1.0,100,-67400275001924239065517105670799290028,100,valid,Int128,1
+true,99999999,99999999,valid,Int64,1.0,true,100000000,100000000,valid,Int64,1
+-1,-10628,-1,valid,Int64,1.0,0,-10628,0,valid,Int64,1
+999999999,410419189,999999999,valid,Int64,1.0,1000000000,410419189,1000000000,valid,Int64,1
+999999999,-8497462283280212419,999999999,valid,Int64,1.0,1000000000,-8497462283280212419,1000000000,valid,Int64,1
+26,99,99,valid,Int64,1.0,26,100,100,valid,Int64,1
+999999999,-37,999999999,valid,Int64,1.0,1000000000,-37,1000000000,valid,Int64,1
+34359,99999999,99999999,valid,Int64,1.0,34359,100000000,100000000,valid,Int64,1
+999,146,999,valid,Int64,1.0,1000,146,1000,valid,Int64,1
+34598,999999999,999999999,valid,UInt32,1.0,34598,1000000000,1000000000,valid,UInt32,1
+99,84,99,valid,UInt8,1.0,100,84,100,valid,UInt8,1
+999999999,4444,999999999,valid,Int64,1.0,1000000000,4444,1000000000,valid,Int64,1
+999999999,8502,999999999,valid,Int64,1.0,1000000000,8502,1000000000,valid,Int64,1
+-110485439738537596824441458703599686048,9,9,valid,Int128,1.0,-110485439738537596824441458703599686048,10,10,valid,Int128,1
+999999999,32170,999999999,valid,UInt32,1.0,1000000000,32170,1000000000,valid,UInt32,1
+99,37,99,valid,Int64,1.0,100,37,100,valid,Int64,1
+-17125,-10000,-10000,valid,Int64,1.0,-17125,-9999,-9999,valid,Int64,1
