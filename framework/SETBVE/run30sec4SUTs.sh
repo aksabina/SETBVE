@@ -1,6 +1,6 @@
 #!/bin/bash
 
-SUTS=("bytecount" "bmi" "circle" "date")
+SUTS=("bmi" "bytecount" "circle" "date")
 TIMELIMIT=30
 
 for SUT in "${SUTS[@]}"; do
