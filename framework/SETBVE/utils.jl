@@ -384,6 +384,11 @@ function save_archive_to_csv(Archive::AbstractArchive, behavioural_descriptors::
     df = DataFrames.sort(df, :fitness, rev=true)
 
     #save_large_df_in_chunks(df, output_filename, 10000)
+
+    if local_search_budget_ratio!=0
+        return df
+    end
+    
     create_dir_if_not_exists(output_filename)
     CSV.write(output_filename, df) 
 
