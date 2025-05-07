@@ -252,8 +252,8 @@ function calculate_localsearch_dims(df::DataFrame, start_row::Int, column_names:
         margin = max(UInt128(1), UInt128(round(0.1 * median_val)))  #margin is at least 1
         val = to_signed_unsigned_Int(current_solution[i])  # convert one of the arguments of the complete solution
 
-        raw_lower = val - BigInt(median_val) - margin 
-        raw_upper = val + BigInt(median_val) + margin
+        raw_lower = val - round(BigInt, median_val) - margin 
+        raw_upper = val + round(BigInt, median_val) + margin
        
         if raw_lower <= UInt128(typemax(Int128))
             lower_bound = max(typemin(Int128) + 1, Int128(raw_lower))
