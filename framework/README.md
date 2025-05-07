@@ -20,7 +20,43 @@ To run the SETBVE framework, ensure the following:
 
 ---
 
-## Usage
+## Reproducing Results (For Researchers)
+
+> ⚠️ **Warning: Disk Space Usage**  
+> Running all `run*.sh` scripts will generate approximately **50 GB** of data.  
+> Please ensure sufficient disk space is available before proceeding.
+
+> ⏱️ **Warning: Execution Time**    
+> These scripts run the SETBVE framework on 10 SUTs:  
+> - **4 SUTs** (bytecount, bmi, circle, date) with **9 SETBVE configurations** each  
+>   → Scripts: `run30sec4SUTs.sh`, `run600sec4SUTs.sh`  
+> - **6 SUTs** (cld, fld, fldmod1, max, power_by_squaring, tailjoin) with **2 SETBVE configurations** each  
+>   → Scripts: `run30sec6SUTs.sh`, `run600sec6SUTs.sh`  
+>
+> Each configuration is executed 20 times for either **30 seconds** or **600 seconds** per run.  
+>
+> Estimated total time:  
+> - **30-second runs** (`run30sec4SUTs.sh` + `run30sec6SUTs.sh`): ~8 hours  
+> - **600-second runs** (`run600sec4SUTs.sh` + `run600sec6SUTs.sh`): ~160 hours  
+>
+> Please plan your time accordingly.
+
+### ▶️ Running the Experiment
+
+1. **Make the script executable** (only needed once):
+   ```bash
+   chmod +x run30sec4SUTs.sh
+   ```
+
+2. **Run the script**:
+   ```bash
+   ./run30sec4SUTs.sh
+   ```
+
+> 💡 Repeat the steps for other scripts: `run30sec6SUTs.sh`, `run600sec4SUTs.sh` and `run600sec6SUTs.sh`.
+
+---
+## Using the Framework (For Practitioners)
 
 > ⚠️ **Warning: Disk Space Usage**  
 > Each run may generate between **1MB and 100MB** of data, depending on the SUT, run duration, and configuration.  
