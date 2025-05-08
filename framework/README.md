@@ -11,7 +11,7 @@ To run the SETBVE framework, ensure the following:
 ### Required Packages Installation Steps
 
 1. Clone or download this repository.
-2. Open a terminal in the project directory, e.g., `framework/SETBVE`.
+2. Open a terminal in the project directory, (e.i. `framework/SETBVE`).
 3. Run the setup script to install all required packages:
 
    ```bash
@@ -42,13 +42,13 @@ To run the SETBVE framework, ensure the following:
 > Please plan your time accordingly.
 
 ### ▶️ Running the Experiment
-
-1. **Make the script executable** (only needed once):
+1. **Navigate to directory** `framework/SETBVE`
+2. **Make the script executable** (only needed once):
    ```bash
    chmod +x run30sec4SUTs.sh
    ```
 
-2. **Run the script**:
+3. **Run the script**:
    ```bash
    ./run30sec4SUTs.sh
    ```
@@ -78,7 +78,7 @@ These components can be enabled in various combinations.
 
 ### Running the Framework
 
-To execute the framework, 1) open a terminal in the project directory e.g., `framework/SETBVE` and 2) use the following command structure:
+To execute the framework, 1) open a terminal in the project directory (e.i. `framework/SETBVE`) and 2) use the following command structure:
 
 ```bash
 julia main.jl [sut_name] [duration_in_sec] [emitter_type] [parent_selection] [tracer_budget]
