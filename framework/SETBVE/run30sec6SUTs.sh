@@ -1,5 +1,5 @@
 #!/bin/bash
-
+set -e
 SUTS=("cld" "fld" "fldmod1" "max" "power_by_squaring" "tailjoin")
 TIMELIMIT=30
 

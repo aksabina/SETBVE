@@ -1,5 +1,5 @@
 #!/bin/bash
-
+set -e
 SUTS=("bmi" "bytecount" "circle" "date")
 TIMELIMIT=600
 
