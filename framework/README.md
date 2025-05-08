@@ -23,7 +23,7 @@ To run the SETBVE framework, ensure the following:
 ## Reproducing Results (For Researchers)
 
 > ⚠️ **Warning: Disk Space Usage**  
-> Running all `run*.sh` scripts will generate approximately **50 GB** of data.  
+> Running all `run*.sh` scripts will generate approximately **20 GB** of data.  
 > Please ensure sufficient disk space is available before proceeding.
 
 > ⏱️ **Warning: Execution Time**    
