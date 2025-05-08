@@ -35,7 +35,7 @@ rename_autobva_files, preprocess_autobva_df,
 save_archive_coverage,
 
 # plots.jl
-plot_heatmap_paiwise_cells, plot_qd_scatter,
+plot_heatmap_paiwise_cells,
 
 
 # quality_metrics.jl 

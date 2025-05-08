@@ -46,13 +46,11 @@ This folder contains results from all SETBVE configurations per SUT. Without it,
 
 ### How to Obtain the Archive Folder
 
-#### ✅ Recommended
+1. Go to [SETBVE dataset](https://doi.org/10.5281/zenodo.15364606).
+2. Download the file `Archive.zip` (9 GB compressed, 20 GB uncompressed).
+3. Extract `Archive.zip` and move the resulting `Archive` folder into the `evaluation/EvaluationSETBVE/` directory.
 
-1. Visit: [🔗 Zenodo link]
-2. Download `SETBVEdataset.zip`
-3. Extract the contents of the  `SETBVEdataset.zip` and place the `Archive` folder into the `evaluation/EvaluationSETBVE/` directory.
-
-Your folder structure should look like:
+Your directory structure should look like:
 
 ```
 evaluation/
@@ -63,14 +61,6 @@ evaluation/
         ├── 0%Tracer/
         ├── 10%Tracer/
 ```
-
-#### ⚙️ Alternative (Manual)
-
-After completing all experiments for all SETBVE configurations using the framework project (`framework/SETBVE/`), manually copy the resulting `Archive/` folder into the evaluation directory.
-
-> ⚠️ This approach is error-prone because it requires running the experiments using different SETBVE configurations. Using the Zenodo archive is recommended to ensure completeness.
-
----
 
 ## ▶️ Running the Evaluation
 
