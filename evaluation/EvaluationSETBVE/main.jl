@@ -1,3 +1,7 @@
+using Pkg
+Pkg.activate(@__DIR__)      # activates the folder where the file lives
+Pkg.instantiate()  
+
 include("EvaluationSETBVE.jl")
 using .EvaluationSETBVE
 
