@@ -5,7 +5,7 @@ The **complete dataset** is available to download here: [SETBVE dataset](https:/
 
 ---
 
-## 📁 example_archive/
+## 📁 example_data/
 
 This folder captures detailed archive data organized by:
 
@@ -41,9 +41,9 @@ Each SUT folder contains:
 
 ---
 
-## 📊 Column Descriptions (`example_archive` CSV files)
+## 📊 Column Descriptions (`example_data` CSV files)
 
-Each CSV in `example_archive` logs details of boundary candidates with the following columns:
+Each CSV in `example_data` logs details of boundary candidates with the following columns:
 
 | Column | Description |
 |--------|-------------|
