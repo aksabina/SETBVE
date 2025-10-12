@@ -11,8 +11,27 @@ total_args_num = Dict(
     "max" => 4,
     "cld" => 4,
     "fldmod1" => 4,
-    "fld" => 4
-)
+    "fld" => 4,
+    "factorial" => 2,
+    "float" => 2,
+    "isodd" => 2,
+    "count_zeros" => 2,
+    "digits" => 2, 
+    "hton" => 2, 
+    "div" => 4, 
+    "mul_prod" => 4,
+    "rem" => 4,
+    "first" => 4,
+    "copysign" => 4,
+    "invmod" => 4,
+    "minmax" => 4,
+    "gcd" => 4,
+    "range" => 6,
+    "fma" => 6,
+    "muladd" => 6,
+    "xor" => 6,
+    "promote" => 6,
+    "powermod" => 6)
 
 # SUTs
 circle_center_x, circle_center_y = 0, 0
