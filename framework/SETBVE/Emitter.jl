@@ -58,22 +58,25 @@ function ask(e::BitUniformRandomEmitter)
 end
 
 function ask(e::BitUniformVectorRandomEmitter)
-    # Pick types (tuples avoid allocating like arrays do)
-    len_ty = rand((Bool, UInt8))
-    el_ty = rand(datatypes)
+    solution_vector = Any[]
+    for _ in 1:e.arg_number
+        length_type = rand((Bool, UInt8))
+        elements_type = rand(datatypes)
 
-    # Sample sizes and element bounds
-    arr_len = bitlogsample(len_ty)
-    lo = bitlogsample(el_ty)
-    hi = bitlogsample(el_ty)
-    lo, hi = minmax(lo, hi)  # ensures lo ≤ hi 
+        # Sample sizes and element bounds
+        arr_len = bitlogsample(length_type)
+        lo = bitlogsample(elements_type)
+        hi = bitlogsample(elements_type)
+        lo, hi = minmax(lo, hi)  # ensures lo ≤ hi 
 
-    # Build data
-    arr = rand(lo:hi, arr_len)
-    pos = bitlogsample(len_ty)  # sampled from same type as length
-    println("Generated array of length $arr_len with elements in $arr and position $pos")
+        # Build data
+        arr = rand(lo:hi, arr_len)
+        push!(solution_vector, arr)
+    end
+    
+
     return Dict(
-        "solution" => Any[arr, pos],
+        "solution" => solution_vector,
         "curiosity" => 0.0,
     )
 end

@@ -1,7 +1,7 @@
 module SETBVE
 using StatsBase, Random, Base.Threads
 using Statistics
-using StringDistances
+using StringDistances, InformationDistances
 using Printf, Plots
 using Distances, Dates, CSV, DataFrames, ProgressMeter, Base
 
@@ -45,7 +45,7 @@ default_parent_id,
 sut_functions_dic,
 
 # distances.jl
-distance_jaccard,
+distance_jaccard, distance_ncd,
 
 # Archive.jl
 IntGridArchive,

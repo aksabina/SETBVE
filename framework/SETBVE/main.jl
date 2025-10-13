@@ -1,6 +1,6 @@
 using Pkg
-Pkg.activate(@__DIR__)      # activates the folder where the file lives
-Pkg.instantiate()  
+#Pkg.activate(@__DIR__)      # activates the folder where the file lives
+#Pkg.instantiate()  
 
 include("SETBVE.jl")
 using .SETBVE
@@ -42,7 +42,7 @@ for run_num in 1:number_of_runs
     optimizer = (optimizer === nothing) ? DefaultOptimizer(batch_size, archive, emitter, evaluator) : error("Optimiser must be empty at the beginning of a loop")
     
     if emitterInit === nothing
-        if sut_name == "element_at_position"
+        if sut_name == "element_at_position" || sut_name == "normalize"
             emitterInit = BitUniformVectorRandomEmitter(
                 total_args_num[sut_name],
                 default_parent_id,

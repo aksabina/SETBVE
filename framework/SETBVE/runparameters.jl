@@ -30,7 +30,8 @@ behavioural_descriptors = Dict(
     "xor" => ["validity_group", "out_length_diff", "in_length_var", "in_length_total"],
     "promote" => ["validity_group", "out_length_diff", "in_length_var", "in_length_total"],
     "powermod" => ["validity_group", "out_length_diff", "in_length_var", "in_length_total"],
-    "element_at_position" => ["validity_group", "out_length_diff", "in_array_length_var", "in_array_length_total"] # Try array length and something from semantics 
+    "element_at_position" => ["validity_group", "out_length_diff", "in_array_length_var", "in_array_length_total"], # Try something from semantics 
+    "normalize" => ["validity_group", "out_length_diff", "in_array_length_var", "in_array_length_total"] # Try something from semantics
 )
 bituniform_init_budget_ratio = 0.1
 number_of_runs = 25

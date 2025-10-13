@@ -108,13 +108,20 @@ end
 #     return fitness
 # end
 
-function calculate_pd(i1::Vector{<:Any}, i2::Vector{<:Any}, output1, output2)
-    i1, i2 = map(BigInt, i1), map(BigInt, i2)  # convert to BigInt before squaring in euclidean
+# Minimal predicate: treat Tuples and any AbstractArray as "array-like"
+@inline is_arraylike(x) = x isa AbstractArray || x isa Tuple
 
-    input_distance = euclidean(i1, i2)
+function calculate_pd(i1::Vector{<:Any}, i2::Vector{<:Any}, output1, output2)
+    if is_arraylike(i1[1]) && is_arraylike(i2[1])
+        input_distance = distance_ncd(i1[1], i2[1])
+    else
+        # Default: standard distance on full input vectors
+        i1b, i2b = map(BigInt, i1), map(BigInt, i2)
+        input_distance = euclidean(i1b, i2b)
+    end
+
     output_distance = distance_jaccard(output1, output2)
     fitness = input_distance != 0 ? output_distance / input_distance : 0
-    #i1, i2 = map(to_signed_unsigned_Int, i1), map(to_signed_unsigned_Int, i2)
     return fitness
 end
 

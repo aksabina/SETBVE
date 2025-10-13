@@ -1,4 +1,5 @@
-using Printf
+using Printf, LinearAlgebra
+
 function sut_circle(args_vec::AbstractVector{<:Any})
     x, y = Integer(args_vec[1]), Integer(args_vec[2])
 
@@ -227,6 +228,11 @@ function sut_element_at_position(args_vec::AbstractVector{<:Any})
 end
 
 
+function sut_normalize(args_vec::AbstractVector{<:Any})
+    vec = args_vec[1]
+    return LinearAlgebra.normalize(vec)
+end
+
 sut_functions_dic = Dict(
     "circle" => sut_circle,
     "date" => sut_date,
@@ -259,6 +265,7 @@ sut_functions_dic = Dict(
     "xor" => sut_xor,
     "promote" => sut_promote,
     "powermod" => sut_powermod,
-    "element_at_position" => sut_element_at_position
+    "element_at_position" => sut_element_at_position,
+    "normalize" => sut_normalize
 )
 

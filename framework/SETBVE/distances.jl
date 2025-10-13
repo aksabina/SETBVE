@@ -1,4 +1,4 @@
-using StringDistances
+using StringDistances, InformationDistances
 
 distance_stringlength(o1, o2) =
     abs(length(string(o1)) - length(string(o2)))
@@ -7,4 +7,9 @@ distance_stringlength(o1, o2) =
 distance_jaccard(o1, o2; gram=2) = begin
     adjusted_gram = length(string(o1)) == 1 ? 1 : gram
     StringDistances.Jaccard(adjusted_gram)(string(o1), string(o2))
+end
+
+function distance_ncd(i1, i2)
+    d = NormalizedCompressionDistance()
+    return d(string(i1), string(i2))
 end

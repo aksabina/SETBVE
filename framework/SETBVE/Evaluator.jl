@@ -25,6 +25,8 @@ function evaluate(e::Evaluator, sut_name::String, solution::Dict{String,Any}, be
     "out_length_diff" => Any[output1, output2],
     "in_length_total" => Any[i1, i2],
     "in_length_var" => Any[i1, i2],
+    "in_array_length_total" => Any[i1, i2],
+    "in_array_length_var" => Any[i1, i2],
     "i1_1_bits" => Any[i1[1]],
     "i2_1_bits" => Any[i2[1]])
 
