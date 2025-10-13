@@ -32,7 +32,18 @@ for run_num in 1:number_of_runs
     evaluator = (evaluator === nothing) ? Evaluator() : error("Evaluator must be empty at the beginning of a loop")
 
     if emitter_type == "Mutation"
-        emitter = (emitter === nothing) ? MutateEmitter(archive, bias_column, default_parent_id, default_parent_id) : error("Emitter must be empty at the beginning of a loop")
+        if emitter !== nothing
+            error("Emitter must be empty at the beginning of a loop")
+        end
+
+        if sut_name == "normalize"
+            # use the vector-specific emitter
+            emitter = MutateVectorEmitter(archive, bias_column, default_parent_id, default_parent_id)
+        else
+            # fallback to the generic one
+            emitter = MutateEmitter(archive, bias_column, default_parent_id, default_parent_id)
+        end
+    
     elseif emitter_type == "Bituniform"
         emitter = (emitter === nothing) ? BitUniformRandomEmitter(total_args_num[sut_name], default_parent_id, default_parent_id) : error("Emitter must be empty at the beginning of a loop")
     elseif emitter_type == "Random"

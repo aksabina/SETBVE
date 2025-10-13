@@ -32,14 +32,12 @@ function evaluate(e::Evaluator, sut_name::String, solution::Dict{String,Any}, be
 
     fs = Float64[-fitness]  # invert the fitnesses so we can minimize => maximize PD
     bd_values = []
-
-
+    
     for bd in behav_descriptors
         func = behav_desc_functions_dic[bd]
         args = bd_fun_args[bd]
         push!(bd_values, func(args))
     end
-
 
     return fs, bd_values
 end

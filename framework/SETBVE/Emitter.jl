@@ -39,6 +39,14 @@ mutable struct MutateEmitter <: AbstractEmitter{S}
 end
 
 
+mutable struct MutateVectorEmitter <: AbstractEmitter{S}
+    archive::AbstractArchive
+    bias_column::String
+    parent1_idx::Integer
+    parent2_idx::Integer
+end
+
+
 mutable struct LocalSearchEmitter <: AbstractEmitter{S}
     i_column_names::Vector{String}
     duration_per_row_ms::Integer
@@ -122,6 +130,21 @@ function ask(e::MutateEmitter)
 end
 
 
+function ask(e::MutateVectorEmitter)
+    parent_idx = sample(e.archive, 1, e.bias_column)[1]
+    solution = deepcopy(e.archive.cells[parent_idx][1]["solution"])
+    solution = Any[solution...]
+
+    # mutate one random position
+    solution = vector_mutation(solution)
+
+    e.parent1_idx = parent_idx
+    e.parent2_idx = 0  # this mutation uses one parent only
+
+    return Dict("solution" => solution, "curiosity" => 0.0)
+end
+
+
 function ask(e::LocalSearchEmitter)
     neighbor_solutions = local_search(e.duration_per_row_ms, e.sut_name, e.search_area_dims, e.max_distance)
     neighbors_df = DataFrame([Symbol(col) => [] for col in e.i_column_names])
@@ -144,6 +167,7 @@ tell!(e::BitUniformVectorRandomEmitter) = nothing
 tell!(e::RandomEmitter) = nothing
 tell!(e::CrossoverAndMutateEmitter) = nothing
 tell!(e::MutateEmitter) = nothing
+tell!(e::MutateVectorEmitter) = nothing
 tell!(e::LocalSearchEmitter) = nothing
 
 

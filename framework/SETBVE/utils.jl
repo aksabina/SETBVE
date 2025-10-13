@@ -315,6 +315,86 @@ function shrink_move_mutation(solution::Vector{<:Any})::Vector{<:Any}
     return full_solution
 end
 
+# ========== Mutation Helper Functions ==========
+
+function deleteArrayElement!(arr::Vector{<:Any}, pos::Integer)
+    deleteat!(arr, pos)
+end
+
+function duplicateArrayElement!(arr::Vector{<:Any}, pos::Integer)
+    insert!(arr, pos + 1, arr[pos])
+end
+
+function applyElementOp!(arr::Vector{<:Any}, pos::Integer)
+    # simple integer operator: +1, -1, or random small change
+    delta = rand((-1, 0, 1))
+    arr[pos] += delta
+end
+
+function addElement!(arr::Vector{<:Any})
+    # choose a random integer to add
+    push!(arr, bitlogsample(rand(datatypes)))
+end
+
+function vector_mutation(solution::Vector{<:Any})::Vector{<:Any}
+    i1, i2 = extract_i1_i2(solution)
+    # Assume i1[1], i2[1] are the integer arrays
+    vec1 = copy(i1[1])
+    vec2 = copy(i2[1])
+
+    vec1 = Vector{Any}(vec1)   # copies elements and promotes to Any
+    vec2 = Vector{Any}(vec2)
+
+    # Step 1: decide which array(s) to mutate
+    # options: mutate vec1 only, vec2 only, or both
+    choice = rand(1:3)
+    mutate_vec1 = (choice == 1 || choice == 3)
+    mutate_vec2 = (choice == 2 || choice == 3)
+
+    # Step 2: for each selected, if empty, add element and return
+    if mutate_vec1 && isempty(vec1)
+        addElement!(vec1)
+        full_solution = [vec1, vec2]
+        return full_solution
+    end
+    if mutate_vec2 && isempty(vec2)
+        addElement!(vec2)
+        full_solution = [vec1, vec2]
+        return full_solution
+    end
+
+    # Step 3: now both selected (if chosen) are non-empty, continue normal ops
+    # Define possible ops
+    ops = (:delete, :duplicate, :apply)
+    op = rand(ops)
+
+    if mutate_vec1 && !isempty(vec1)
+        pos = rand(1:length(vec1))
+        if op == :delete
+            deleteArrayElement!(vec1, pos)
+        elseif op == :duplicate
+            duplicateArrayElement!(vec1, pos)
+        elseif op == :apply
+            applyElementOp!(vec1, pos)
+        end
+    end
+
+    if mutate_vec2 && !isempty(vec2)
+        pos = rand(1:length(vec2))
+        if op == :delete
+            deleteArrayElement!(vec2, pos)
+        elseif op == :duplicate
+            duplicateArrayElement!(vec2, pos)
+        elseif op == :apply
+            applyElementOp!(vec2, pos)
+        end
+    end
+
+    # Step 4: combine to full solution
+    full_solution = [vec1, vec2] # [i1, i2] where i1 and i2 are vectors of Any
+    return full_solution
+end
+
 function create_dir_if_not_exists(filepath::String)
     last_slash_index = findlast('/', filepath)
     dirpath = filepath[1:last_slash_index]
@@ -361,27 +441,36 @@ function save_archive_to_csv(Archive::AbstractArchive, behavioural_descriptors::
     end
 
     if sut_function !== nothing
-        # Dynamically collect column names for i1
         i1_columns = filter(col -> startswith(string(col), "i1_"), names(df))
-
-        #Apply transform for i1 (with unknown number of arguments)
-        transform!(df, i1_columns => ByRow((args...) -> try
-            string(sut_function(map(to_signed_unsigned_Int,collect(args))))
-        catch e
-            string(e)
-        end) => :output1)
-
-
-        # Dynamically collect column names for i1_2
         i2_columns = filter(col -> startswith(string(col), "i2_"), names(df))
 
-        #Apply transform for i1_2 (with unknown number of arguments)
-        transform!(df, i2_columns => ByRow((args...) -> try
-            string(sut_function(map(to_signed_unsigned_Int, collect(args))))
-        catch e
-            string(e)
-        end) => :output2)
+        if sut_name == "normalize"
+            # For normalize: use raw args (no signed/unsigned conversion)
+            transform!(df, i1_columns => ByRow((args...) -> try
+                string(sut_function(collect(args)))
+            catch e
+                string(e)
+            end) => :output1)
 
+            transform!(df, i2_columns => ByRow((args...) -> try
+                string(sut_function(collect(args)))
+            catch e
+                string(e)
+            end) => :output2)
+        else
+            # For all other SUTs: do the signed/unsigned conversion
+            transform!(df, i1_columns => ByRow((args...) -> try
+                string(sut_function(map(to_signed_unsigned_Int, collect(args))))
+            catch e
+                string(e)
+            end) => :output1)
+
+            transform!(df, i2_columns => ByRow((args...) -> try
+                string(sut_function(map(to_signed_unsigned_Int, collect(args))))
+            catch e
+                string(e)
+            end) => :output2)
+        end
     else
         error("Unknown sut_name: $sut_name")
     end
