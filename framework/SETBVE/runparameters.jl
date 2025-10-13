@@ -29,7 +29,8 @@ behavioural_descriptors = Dict(
     "muladd" => ["validity_group", "out_length_diff", "in_length_var", "in_length_total"],
     "xor" => ["validity_group", "out_length_diff", "in_length_var", "in_length_total"],
     "promote" => ["validity_group", "out_length_diff", "in_length_var", "in_length_total"],
-    "powermod" => ["validity_group", "out_length_diff", "in_length_var", "in_length_total"]
+    "powermod" => ["validity_group", "out_length_diff", "in_length_var", "in_length_total"],
+    "element_at_position" => ["validity_group", "out_length_diff", "in_length_var", "in_length_total"] # Try array length and something from semantics 
 )
 bituniform_init_budget_ratio = 0.1
 number_of_runs = 25

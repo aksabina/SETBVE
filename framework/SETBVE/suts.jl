@@ -221,7 +221,10 @@ function sut_powermod(args_vec::AbstractVector{<:Any})
     return Base.powermod(arg1, arg2, arg3)
 end
 
-
+function sut_element_at_position(args_vec::AbstractVector{<:Any})
+    arr, pos = args_vec[1], Integer(args_vec[2])
+    return arr[pos]
+end
 
 
 sut_functions_dic = Dict(
@@ -255,6 +258,7 @@ sut_functions_dic = Dict(
     "muladd" => sut_muladd,
     "xor" => sut_xor,
     "promote" => sut_promote,
-    "powermod" => sut_powermod
+    "powermod" => sut_powermod,
+    "element_at_position" => sut_element_at_position
 )
 

@@ -41,7 +41,24 @@ for run_num in 1:number_of_runs
 
     optimizer = (optimizer === nothing) ? DefaultOptimizer(batch_size, archive, emitter, evaluator) : error("Optimiser must be empty at the beginning of a loop")
     
-    emitterInit = (emitterInit === nothing) ? BitUniformRandomEmitter(total_args_num[sut_name], default_parent_id, default_parent_id) : error("EmitterInit must be empty at the beginning of a loop")
+    if emitterInit === nothing
+        if sut_name == "element_at_position"
+            emitterInit = BitUniformVectorRandomEmitter(
+                total_args_num[sut_name],
+                default_parent_id,
+                default_parent_id
+            )
+        else
+            emitterInit = BitUniformRandomEmitter(
+                total_args_num[sut_name],
+                default_parent_id,
+                default_parent_id
+            )
+        end
+    else
+        error("EmitterInit must be empty at the beginning of a loop")
+    end
+    
     optimiserInit = (optimiserInit === nothing) ? DefaultOptimizer(batch_size, archive, emitterInit, evaluator) : error("OptimiserInit must be empty at the beginning of a loop")
 
     start_time = time() * 1_000_000  # microseconds

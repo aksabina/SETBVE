@@ -69,6 +69,7 @@ DefaultOptimizer,
 
 # Emitter.jl
 BitUniformRandomEmitter,
+BitUniformVectorRandomEmitter,
 emit_solutions, ask, 
 MutateEmitter, 
 LocalSearchEmitter, 

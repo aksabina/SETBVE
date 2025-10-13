@@ -31,7 +31,8 @@ total_args_num = Dict(
     "muladd" => 6,
     "xor" => 6,
     "promote" => 6,
-    "powermod" => 6)
+    "powermod" => 6, 
+    "element_at_position" => 4)
 
 # SUTs
 circle_center_x, circle_center_y = 0, 0

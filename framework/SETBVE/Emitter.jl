@@ -11,6 +11,12 @@ struct BitUniformRandomEmitter <: AbstractEmitter{S}
     parent2_idx::Int8
 end
 
+struct BitUniformVectorRandomEmitter <: AbstractEmitter{S}
+    arg_number::Int8
+    parent1_idx::Int8
+    parent2_idx::Int8
+end
+
 struct RandomEmitter <: AbstractEmitter{S} 
     arg_number::Int8
     parent1_idx::Int8
@@ -49,6 +55,27 @@ function ask(e::BitUniformRandomEmitter)
         push!(solution_vector, bitlogsample(datatype))
     end
     return Dict("solution" => solution_vector, "curiosity" => 0.0)
+end
+
+function ask(e::BitUniformVectorRandomEmitter)
+    # Pick types (tuples avoid allocating like arrays do)
+    len_ty = rand((Bool, UInt8))
+    el_ty = rand(datatypes)
+
+    # Sample sizes and element bounds
+    arr_len = bitlogsample(len_ty)
+    lo = bitlogsample(el_ty)
+    hi = bitlogsample(el_ty)
+    lo, hi = minmax(lo, hi)  # ensures lo ≤ hi 
+
+    # Build data
+    arr = rand(lo:hi, arr_len)
+    pos = bitlogsample(len_ty)  # sampled from same type as length
+    println("Generated array of length $arr_len with elements in $arr and position $pos")
+    return Dict(
+        "solution" => Any[arr, pos],
+        "curiosity" => 0.0,
+    )
 end
 
 function ask(e::RandomEmitter)
@@ -110,6 +137,7 @@ end
 
 
 tell!(e::BitUniformRandomEmitter) = nothing
+tell!(e::BitUniformVectorRandomEmitter) = nothing
 tell!(e::RandomEmitter) = nothing
 tell!(e::CrossoverAndMutateEmitter) = nothing
 tell!(e::MutateEmitter) = nothing
