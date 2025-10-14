@@ -72,7 +72,7 @@ BitUniformRandomEmitter,
 BitUniformVectorRandomEmitter,
 emit_solutions, ask, 
 MutateEmitter, MutateVectorEmitter,
-LocalSearchEmitter, 
+LocalSearchEmitter, LocalSearchVectorEmitter,
 RandomEmitter,
 
 # BehavioralDescriptor.jl

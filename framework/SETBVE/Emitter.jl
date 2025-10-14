@@ -56,6 +56,15 @@ mutable struct LocalSearchEmitter <: AbstractEmitter{S}
 end
 
 
+mutable struct LocalSearchVectorEmitter <: AbstractEmitter{S}
+    i_column_names::Vector{String}
+    duration_per_row_ms::Integer
+    sut_name::String
+    ncd_threshold::Float64
+    current_solution::Vector{Any}
+end
+
+
 function ask(e::BitUniformRandomEmitter)
     solution_vector = Integer[]
     for _ in 1:e.arg_number
@@ -160,6 +169,25 @@ function ask(e::LocalSearchEmitter)
     return neighbors_df
 end 
 
+function ask(e::LocalSearchVectorEmitter)
+    neighbor_solutions = local_vector_search(e.duration_per_row_ms, e.sut_name, e.ncd_threshold, e.current_solution)
+    
+    
+    
+    neighbors_df = DataFrame([Symbol(col) => [] for col in e.i_column_names])
+
+    for neighbor in neighbor_solutions
+        new_row = Dict{Any,Any}()
+        for (i, arg) in enumerate(neighbor)
+            new_row[e.i_column_names[i]] = arg
+        end
+        append!(neighbors_df, DataFrame(new_row))
+    end
+
+    return neighbors_df
+end
+
+
 
 
 tell!(e::BitUniformRandomEmitter) = nothing
@@ -169,6 +197,7 @@ tell!(e::CrossoverAndMutateEmitter) = nothing
 tell!(e::MutateEmitter) = nothing
 tell!(e::MutateVectorEmitter) = nothing
 tell!(e::LocalSearchEmitter) = nothing
+tell!(e::LocalSearchVectorEmitter) = nothing
 
 
 

@@ -164,6 +164,21 @@ function generate_solutions_within_ranges(ranges)
     return solutions
 end
 
+function generate_solutions_within_ncd_range(starting_point, ncd_threshold::Float64)
+    solutions = Vector{Vector{Any}}()
+
+    for _ in 1:local_search_neighbors_num
+        # Generate one solution vector by randomly selecting a value within each range
+        candidate = vector_mutation(deepcopy(starting_point))   # candidate is of a format [i1, i2] where i1 and i2 are vectors of Any
+        candidate = Any[Vector{Any}(el) for el in candidate] # convert datatype to have it the same as starting point
+        dist = distance_ncd(candidate, starting_point)
+        if dist <= ncd_threshold. && dist != 0.0
+            push!(solutions, candidate)
+        end
+    end
+    return solutions
+end
+
 function calculate_objective(generated_solution, sampled_solution, max_distance, sut_name)
     # the objective is a weighted sum of fitness and distance between solution and random solution 
 
@@ -221,6 +236,43 @@ function local_search(duration_in_millis::Integer, sut_name::String, search_area
     #println("Best solutions: ", best_solutions_list)
     return best_solutions_list 
 end  
+
+
+function local_vector_search(duration_in_millis::Integer, sut_name::String, ncd_threshold::Float64, current_solution::Vector{Any})
+
+    #init random solutions within the search area 
+    best_solutions_list = generate_solutions_within_ncd_range(current_solution, ncd_threshold)
+
+    # Hill Climber on total fitness and total distance between points 
+    start_time = time() * 1_000_000  # milliseconds
+    while (time() * 1_000_000 - start_time) <= duration_in_millis  # run for n milliseconds
+        old_solution = rand(best_solutions_list)
+        new_solution = shrink_move_mutation(old_solution)
+        sampled_solution = rand(best_solutions_list)  # random one to calculate the distance with 
+        if sampled_solution == old_solution
+            sampled_solution = rand(best_solutions_list)  # sample again because we need a different one 
+        end
+
+        # Evaluate new solution
+        old_objective = calculate_objective(old_solution, sampled_solution, max_distance, sut_name)
+        new_objective = calculate_objective(new_solution, sampled_solution, max_distance, sut_name)
+
+        # Check if the new solution is better (based on both objectives)
+        if new_objective > old_objective
+            #printstyled("$(old_objective) => $(new_objective)\n"; color=:green)
+            # Replace the old solution in the list with the new solution
+            for i in 1:length(best_solutions_list)
+                if best_solutions_list[i] == old_solution
+                    best_solutions_list[i] = new_solution
+                    break  # Exit loop after replacing the old solution
+                end
+            end
+
+        end
+    end
+    #println("Best solutions: ", best_solutions_list)
+    return best_solutions_list
+end
 
 
 function calculate_localsearch_dims(df::DataFrame, start_row::Int, column_names::Vector{String}, current_solution)
@@ -285,37 +337,26 @@ function calculate_localsearch_dims(df::DataFrame, start_row::Int, column_names:
 end
 
 
-function get_ncd_threshold_for_local_search(df::DataFrame, start_row::Int, column_names::Vector{String}, current_solution)
-    # Initialize a dictionary to store the deltas for each column
-    deltas = Dict{String,Vector{Any}}()
-
-    # Create an empty vector for each column's deltas
-    for col in column_names
-        deltas[col] = []
+function get_ncd_threshold_for_local_search(df::DataFrame, start_row::Int, column_names::Vector{String})
+    # 1) Build combined column name and create it if absent.
+    combo_col = Symbol(join(column_names, "__") * "__combined")
+    if !(combo_col in names(df))
+        df[!, combo_col] = [Vector{Any}([row[Symbol(c)] for c in column_names]) for row in eachrow(df)]
     end
 
-    df_length = nrow(df)
-    # Loop through the rows to calculate deltas
-    for i in start_row:min(df_length - 1, (start_row + local_search_delta_calc_rows - 2))
-        for col in column_names
-            # Calculate deltas for each column between consecutive rows
-            a = df[i+1, col]
-            b = df[i, col]
-            diff = distance_ncd(a, b)
-            push!(deltas[col], diff)
+    # 2) Collect NCD deltas on the combined column over the desired window.
+    deltas = Float64[]
+    df_len = nrow(df)
+    stop_row = min(df_len - 1, start_row + local_search_delta_calc_rows - 2)
+    if start_row <= stop_row
+        for i in start_row:stop_row
+            a = df[i+1, combo_col]  # Vector{Any} like [col1, col2]
+            b = df[i, combo_col]
+            push!(deltas, distance_ncd(a, b))
         end
     end
 
-    # Calculate the median of the deltas for each column
-    medians = Dict{String,Any}()
-    for col in column_names
-        medians[col] = median(deltas[col])
-    end
-
-    println("NCD deltas: ", deltas)
-    println("NCD medians: ", medians)
-
-    return medians
+    return median(deltas)
 end
 
 function get_relative_random_step(i1::Vector{<:Any}, i2::Vector{<:Any})
@@ -620,9 +661,6 @@ function append_archive_with_local_search_sols(df::DataFrame, local_search_df::D
     df = unique(df, i_columns)
     df = DataFrames.sort(df, :fitness, rev=true)
 
-
-    #println("Saving local search df")
-    #save_large_df_in_chunks(df, output_filename, 10000)
     create_dir_if_not_exists(output_filename)
     CSV.write(output_filename, df) 
     return df
@@ -649,8 +687,8 @@ function local_search_iteration(group_name, first_row, rows_num_local_search, so
             total_rows += 1
         else
             # todo add implementation for normalize
-            dic_ncd_threshold = get_ncd_threshold_for_local_search(sorted_df, row_num, i_columns, current_solution) 
-            
+            ncd_threshold = get_ncd_threshold_for_local_search(sorted_df, row_num, i_columns) 
+            emitter = LocalSearchVectorEmitter(i_columns, round(Int, duration_ms_per_row), sut_name, ncd_threshold, current_solution)
             total_rows += 1
             append!(local_search_dataframe, ask(emitter))
         end
