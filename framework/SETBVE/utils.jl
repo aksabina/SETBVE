@@ -285,6 +285,39 @@ function calculate_localsearch_dims(df::DataFrame, start_row::Int, column_names:
 end
 
 
+function get_ncd_threshold_for_local_search(df::DataFrame, start_row::Int, column_names::Vector{String}, current_solution)
+    # Initialize a dictionary to store the deltas for each column
+    deltas = Dict{String,Vector{Any}}()
+
+    # Create an empty vector for each column's deltas
+    for col in column_names
+        deltas[col] = []
+    end
+
+    df_length = nrow(df)
+    # Loop through the rows to calculate deltas
+    for i in start_row:min(df_length - 1, (start_row + local_search_delta_calc_rows - 2))
+        for col in column_names
+            # Calculate deltas for each column between consecutive rows
+            a = df[i+1, col]
+            b = df[i, col]
+            diff = distance_ncd(a, b)
+            push!(deltas[col], diff)
+        end
+    end
+
+    # Calculate the median of the deltas for each column
+    medians = Dict{String,Any}()
+    for col in column_names
+        medians[col] = median(deltas[col])
+    end
+
+    println("NCD deltas: ", deltas)
+    println("NCD medians: ", medians)
+
+    return medians
+end
+
 function get_relative_random_step(i1::Vector{<:Any}, i2::Vector{<:Any})
     i1 = map(BigInt, i1)
     i2 = map(BigInt, i2)
@@ -605,13 +638,22 @@ function local_search_iteration(group_name, first_row, rows_num_local_search, so
     for row_num in first_row:(min(rows_num_local_search+first_row-1, nrow(sorted_df)-1))  # iterate for rows_num_local_search or until the end of the dataframe
         current_solution = collect(sorted_df[row_num, i_columns])  # convert to a vector [i1_1, i1_2, i2_1, i2_2]
 
-        search_area_dims = calculate_localsearch_dims(sorted_df, row_num, i_columns, current_solution)
-        max_distance = max_distance_inside_search_area(search_area_dims)
+        if sut_name!="normalize"
+            
+            search_area_dims = calculate_localsearch_dims(sorted_df, row_num, i_columns, current_solution)
+            max_distance = max_distance_inside_search_area(search_area_dims)
 
-        emitter = LocalSearchEmitter(i_columns, round(Int, duration_ms_per_row), sut_name, search_area_dims, max_distance)
-        append!(local_search_dataframe, ask(emitter))
+            emitter = LocalSearchEmitter(i_columns, round(Int, duration_ms_per_row), sut_name, search_area_dims, max_distance)
+            append!(local_search_dataframe, ask(emitter))
 
-        total_rows += 1
+            total_rows += 1
+        else
+            # todo add implementation for normalize
+            dic_ncd_threshold = get_ncd_threshold_for_local_search(sorted_df, row_num, i_columns, current_solution) 
+            
+            total_rows += 1
+            append!(local_search_dataframe, ask(emitter))
+        end
     end
 
     return total_rows, local_search_dataframe
