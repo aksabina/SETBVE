@@ -185,8 +185,6 @@ function ask(e::LocalSearchVectorEmitter)
         push!(neighbors_df, row)
     end
 
-    CSV.write("debug_neighbors.csv", neighbors_df)  # Debugging line
-
     return neighbors_df
 end
 

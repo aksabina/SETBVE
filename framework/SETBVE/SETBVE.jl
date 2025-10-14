@@ -76,7 +76,7 @@ LocalSearchEmitter, LocalSearchVectorEmitter,
 RandomEmitter,
 
 # BehavioralDescriptor.jl
-behav_desc_functions_dic,
+behav_desc_functions_dic, var_array_length, var_input_length, total_array_length, total_input_length, output_length_diff, num_exceptions,
 
 # Evaluator.jl
 Evaluator, Evaluation,

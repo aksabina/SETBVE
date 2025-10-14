@@ -248,7 +248,12 @@ end
 function local_vector_search(duration_in_millis::Integer, sut_name::String, ncd_threshold::Float64, current_solution::Vector{Any})
 
     #init random solutions within the search area 
+    
     best_solutions_list = generate_solutions_within_ncd_range(current_solution, ncd_threshold)
+    if isempty(best_solutions_list)
+        printstyled("Could not search locally around $current_solution\n"; color=:red, bold=true)
+        return [current_solution] 
+    end
 
     # Hill Climber on total fitness and total distance between points 
     start_time = time() * 1_000_000  # milliseconds
@@ -587,8 +592,6 @@ function append_archive_with_local_search_sols(df::DataFrame, local_search_df::D
     sut_function = sut_functions_dic[sut_name]
     
     output_filename = "$(dir_archive)$(round(Int,local_search_budget_ratio*100))%Tracer/$(bias_column)/$(sut_name)/$(emitter_type)/$(duration)/Archive$(sut_name)$(emitter_type)$(bias_column)$(duration)withTracer_$(run_num).csv"
-    #println("Appending local search df")
-    
     n_rows = nrow(local_search_df)
 
     # Preallocate columns (this minimizes DataFrame modifications during the loop)
@@ -599,8 +602,14 @@ function append_archive_with_local_search_sols(df::DataFrame, local_search_df::D
     elseif "bd_oan" in names(df)
         local_search_df[!, :bd_oan] = fill(0, n_rows)
     end
-    local_search_df[!, :bd_in_length_total] = fill(0, n_rows)
-    local_search_df[!, :bd_in_length_var] = fill(0, n_rows)
+    if "bd_in_length_total" in names(df)
+        local_search_df[!, :bd_in_length_total] = fill(0, n_rows)
+        local_search_df[!, :bd_in_length_var] = fill(0, n_rows)
+    elseif "bd_in_array_length_total" in names(df)
+        local_search_df[!, :bd_in_array_length_total] = fill(0, n_rows)
+        local_search_df[!, :bd_in_array_length_var] = fill(0, n_rows)
+    end
+    
     local_search_df[!, :output1] = fill("default_value", n_rows)
     local_search_df[!, :output2] = fill("default_value", n_rows)
     local_search_df[!, :curiosity] = fill(0.0, n_rows)
@@ -619,24 +628,28 @@ function append_archive_with_local_search_sols(df::DataFrame, local_search_df::D
     for row_idx in 1:n_rows
         row = local_search_df[row_idx, :]
 
+        # helper: apply conversion only if sut_name ≠ "normalize"
+        conv(x) = sut_name == "normalize" ? x : to_signed_unsigned_Int(x)
+
         if "i1_3" in names(df) 
-            i1 = Any[to_signed_unsigned_Int(row.i1_1), to_signed_unsigned_Int(row.i1_2), to_signed_unsigned_Int(row.i1_3)]
-            i2 = Any[to_signed_unsigned_Int(row.i2_1), to_signed_unsigned_Int(row.i2_2), to_signed_unsigned_Int(row.i2_3)]  
+            i1 = Any[conv(row.i1_1), conv(row.i1_2), conv(row.i1_3)]
+            i2 = Any[conv(row.i2_1), conv(row.i2_2), conv(row.i2_3)]
         elseif "i1_2" in names(df) 
-            i1 = Any[to_signed_unsigned_Int(row.i1_1), to_signed_unsigned_Int(row.i1_2)]
-            i2 = Any[to_signed_unsigned_Int(row.i2_1), to_signed_unsigned_Int(row.i2_2)]
+            i1 = Any[conv(row.i1_1), conv(row.i1_2)]
+            i2 = Any[conv(row.i2_1), conv(row.i2_2)]
         else
-            i1 = Any[to_signed_unsigned_Int(row.i1_1)]
-            i2 = Any[to_signed_unsigned_Int(row.i2_1)]
+            i1 = Any[conv(row.i1_1)]
+            i2 = Any[conv(row.i2_1)]
         end
 
         output1 = safe_sut_function(i1)
         output2 = safe_sut_function(i2)
 
         # Compute distances and fitness
-        i1 = map(BigInt, i1)
-        i2 = map(BigInt, i2)
-        input_distance = euclidean(i1, i2)
+        convert_if_needed(x) = sut_name == "normalize" ? x : map(BigInt, x)
+        i1 = convert_if_needed(i1)
+        i2 = convert_if_needed(i2)
+        input_distance = sut_name != "normalize" ? euclidean(i1, i2) : distance_ncd(i1, i2)
         output_distance = distance_jaccard(output1, output2)
         fitness = input_distance != 0 ? output_distance / input_distance : 0
 
@@ -650,9 +663,15 @@ function append_archive_with_local_search_sols(df::DataFrame, local_search_df::D
         elseif "bd_out_length_diff" in names(local_search_df)
             local_search_df.bd_out_length_diff[row_idx] = output_length_diff([string(output1), string(output2)])
         end
+
+        if "bd_in_array_length_total" in names(local_search_df)
+            local_search_df.bd_in_array_length_total[row_idx] = total_array_length([i1, i2])
+            local_search_df.bd_in_array_length_var[row_idx] = var_array_length([i1, i2])
+        elseif "bd_in_length_total" in names(local_search_df)
+            local_search_df.bd_in_length_total[row_idx] = total_input_length([i1, i2])
+            local_search_df.bd_in_length_var[row_idx] = var_input_length([i1, i2])
+        end
     
-        local_search_df.bd_in_length_total[row_idx] = total_input_length([i1, i2])
-        local_search_df.bd_in_length_var[row_idx] = var_input_length([i1, i2])
         local_search_df.output1[row_idx] = string(output1)
         local_search_df.output2[row_idx] = string(output2)
         next!(p)
@@ -662,8 +681,10 @@ function append_archive_with_local_search_sols(df::DataFrame, local_search_df::D
 
     df = vcat(df, local_search_df)
     
-    for col in i_columns
-        df[!, col] .= BigInt.(df[!, col])  # Broadcasting with BigInt constructor
+    if sut_name != "normalize"
+        for col in i_columns
+            df[!, col] .= BigInt.(df[!, col])  # Broadcasting with BigInt constructor
+        end
     end
 
 
