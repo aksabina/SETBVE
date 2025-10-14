@@ -172,7 +172,7 @@ function generate_solutions_within_ncd_range(starting_point, ncd_threshold::Floa
         candidate = vector_mutation(deepcopy(starting_point))   # candidate is of a format [i1, i2] where i1 and i2 are vectors of Any
         candidate = Any[Vector{Any}(el) for el in candidate] # convert datatype to have it the same as starting point
         dist = distance_ncd(candidate, starting_point)
-        if dist <= ncd_threshold. && dist != 0.0
+        if dist <= ncd_threshold && dist > 0.0
             push!(solutions, candidate)
         end
     end
@@ -180,24 +180,31 @@ function generate_solutions_within_ncd_range(starting_point, ncd_threshold::Floa
 end
 
 function calculate_objective(generated_solution, sampled_solution, max_distance, sut_name)
-    # the objective is a weighted sum of fitness and distance between solution and random solution 
+    # Pick preprocessing (arg conversion) and distance metric
+    preprocess = sut_name == "normalize" ? identity : x -> map(to_signed_unsigned_Int, x)
 
-    i1_gen, i2_gen = extract_i1_i2(map(to_signed_unsigned_Int, generated_solution))
-    output1_gen = get_sut_output(i1_gen, sut_name)
-    output2_gen = get_sut_output(i2_gen, sut_name)
-    fitness_gen = calculate_pd(i1_gen, i2_gen, output1_gen, output2_gen)
+    # --- Fitness for generated_solution ---
+    i1_gen, i2_gen = extract_i1_i2(preprocess(generated_solution))
+    out1_gen = get_sut_output(i1_gen, sut_name)
+    out2_gen = get_sut_output(i2_gen, sut_name)
+    fit_gen = calculate_pd(i1_gen, i2_gen, out1_gen, out2_gen)
 
-    i1_sam, i2_sam = extract_i1_i2(map(to_signed_unsigned_Int, sampled_solution))
-    output1_sam = get_sut_output(map(to_signed_unsigned_Int, i1_sam), sut_name)
-    output2_sam = get_sut_output(map(to_signed_unsigned_Int, i2_sam), sut_name)
-    fitness_sam = calculate_pd(map(to_signed_unsigned_Int, i1_sam), map(to_signed_unsigned_Int, i2_sam), output1_sam, output2_sam)
+    # --- Fitness for sampled_solution ---
+    i1_sam, i2_sam = extract_i1_i2(preprocess(sampled_solution))
+    out1_sam = get_sut_output(i1_sam, sut_name)
+    out2_sam = get_sut_output(i2_sam, sut_name)
+    fit_sam = calculate_pd(i1_sam, i2_sam, out1_sam, out2_sam)
 
-    generated_solution = map(BigInt, generated_solution)
-    sampled_solution = map(BigInt, sampled_solution)
+    # --- Distance between full solutions ---
+    distance =
+        if sut_name == "normalize"
+            distance_ncd(generated_solution, sampled_solution)
+        else
+            # keep your original BigInt path for euclidean
+            euclidean(map(BigInt, generated_solution), map(BigInt, sampled_solution))
+        end
 
-    distance = euclidean(generated_solution, sampled_solution)
-
-    return (max_distance*(fitness_gen+fitness_sam)) + distance
+    return (max_distance * (fit_gen + fit_sam)) + distance
 end
 
 
@@ -247,19 +254,19 @@ function local_vector_search(duration_in_millis::Integer, sut_name::String, ncd_
     start_time = time() * 1_000_000  # milliseconds
     while (time() * 1_000_000 - start_time) <= duration_in_millis  # run for n milliseconds
         old_solution = rand(best_solutions_list)
-        new_solution = shrink_move_mutation(old_solution)
+        new_solution = vector_mutation(deepcopy(old_solution))
         sampled_solution = rand(best_solutions_list)  # random one to calculate the distance with 
         if sampled_solution == old_solution
             sampled_solution = rand(best_solutions_list)  # sample again because we need a different one 
         end
 
         # Evaluate new solution
-        old_objective = calculate_objective(old_solution, sampled_solution, max_distance, sut_name)
-        new_objective = calculate_objective(new_solution, sampled_solution, max_distance, sut_name)
+        old_objective = calculate_objective(old_solution, sampled_solution, ncd_threshold*2, sut_name)  # max distance is 2 times the ncd threshold because ncd distance is a radius from the seed (starting point)
+        new_objective = calculate_objective(new_solution, sampled_solution, ncd_threshold*2, sut_name)
 
         # Check if the new solution is better (based on both objectives)
         if new_objective > old_objective
-            #printstyled("$(old_objective) => $(new_objective)\n"; color=:green)
+            printstyled("$(old_objective) => $(new_objective)\n"; color=:green)
             # Replace the old solution in the list with the new solution
             for i in 1:length(best_solutions_list)
                 if best_solutions_list[i] == old_solution
@@ -267,6 +274,8 @@ function local_vector_search(duration_in_millis::Integer, sut_name::String, ncd_
                     break  # Exit loop after replacing the old solution
                 end
             end
+        else
+            printstyled("$(old_objective) !> $(new_objective)\n"; color=:red)
 
         end
     end

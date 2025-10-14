@@ -171,18 +171,21 @@ end
 
 function ask(e::LocalSearchVectorEmitter)
     neighbor_solutions = local_vector_search(e.duration_per_row_ms, e.sut_name, e.ncd_threshold, e.current_solution)
-    
-    
-    
-    neighbors_df = DataFrame([Symbol(col) => [] for col in e.i_column_names])
+
+    # Ensure column names are Symbols
+    col_syms = Symbol.(e.i_column_names)
+
+    # Empty DF with appropriate column names; cells will hold Any (vectors like Any[0])
+    neighbors_df = DataFrame([name => Any[] for name in col_syms])
 
     for neighbor in neighbor_solutions
-        new_row = Dict{Any,Any}()
-        for (i, arg) in enumerate(neighbor)
-            new_row[e.i_column_names[i]] = arg
-        end
-        append!(neighbors_df, DataFrame(new_row))
+        # neighbor is e.g. [Any[0], Any[2,2]]; map elements to columns
+        # Use push! with a NamedTuple to avoid column-order/key issues
+        row = (; (col_syms[i] => neighbor[i] for i in 1:length(col_syms))...)
+        push!(neighbors_df, row)
     end
+
+    CSV.write("debug_neighbors.csv", neighbors_df)  # Debugging line
 
     return neighbors_df
 end
