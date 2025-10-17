@@ -36,7 +36,7 @@ for run_num in 1:number_of_runs
             error("Emitter must be empty at the beginning of a loop")
         end
 
-        if sut_name == "normalize"
+        if occursin("normalize", sut_name)
             # use the vector-specific emitter
             emitter = MutateVectorEmitter(archive, bias_column, default_parent_id, default_parent_id)
         else
@@ -53,7 +53,7 @@ for run_num in 1:number_of_runs
     optimizer = (optimizer === nothing) ? DefaultOptimizer(batch_size, archive, emitter, evaluator) : error("Optimiser must be empty at the beginning of a loop")
     
     if emitterInit === nothing
-        if sut_name == "element_at_position" || sut_name == "normalize"
+        if sut_name == "element_at_position" || occursin("normalize", sut_name)
             emitterInit = BitUniformVectorRandomEmitter(
                 total_args_num[sut_name],
                 default_parent_id,

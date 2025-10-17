@@ -181,7 +181,7 @@ end
 
 function calculate_objective(generated_solution, sampled_solution, max_distance, sut_name)
     # Pick preprocessing (arg conversion) and distance metric
-    preprocess = sut_name == "normalize" ? identity : x -> map(to_signed_unsigned_Int, x)
+    preprocess = occursin("normalize", sut_name) ? identity : x -> map(to_signed_unsigned_Int, x)
 
     # --- Fitness for generated_solution ---
     i1_gen, i2_gen = extract_i1_i2(preprocess(generated_solution))
@@ -197,7 +197,7 @@ function calculate_objective(generated_solution, sampled_solution, max_distance,
 
     # --- Distance between full solutions ---
     distance =
-        if sut_name == "normalize"
+        if occursin("normalize", sut_name)
             distance_ncd(generated_solution, sampled_solution)
         else
             # keep your original BigInt path for euclidean
@@ -414,8 +414,8 @@ function duplicateArrayElement!(arr::Vector{<:Any}, pos::Integer)
 end
 
 function applyElementOp!(arr::Vector{<:Any}, pos::Integer)
-    # simple integer operator: +1, -1, or random small change
-    delta = rand((-1, 0, 1))
+    # simple integer operator: +1, -1 for a random small change
+    delta = rand((-1, 1))
     arr[pos] += delta
 end
 
@@ -532,7 +532,7 @@ function save_archive_to_csv(Archive::AbstractArchive, behavioural_descriptors::
         i1_columns = filter(col -> startswith(string(col), "i1_"), names(df))
         i2_columns = filter(col -> startswith(string(col), "i2_"), names(df))
 
-        if sut_name == "normalize"
+        if occursin("normalize", sut_name)
             # For normalize: use raw args (no signed/unsigned conversion)
             transform!(df, i1_columns => ByRow((args...) -> try
                 string(sut_function(collect(args)))
@@ -629,7 +629,7 @@ function append_archive_with_local_search_sols(df::DataFrame, local_search_df::D
         row = local_search_df[row_idx, :]
 
         # helper: apply conversion only if sut_name ≠ "normalize"
-        conv(x) = sut_name == "normalize" ? x : to_signed_unsigned_Int(x)
+        conv(x) = occursin("normalize", sut_name) ? x : to_signed_unsigned_Int(x)
 
         if "i1_3" in names(df) 
             i1 = Any[conv(row.i1_1), conv(row.i1_2), conv(row.i1_3)]
@@ -646,10 +646,10 @@ function append_archive_with_local_search_sols(df::DataFrame, local_search_df::D
         output2 = safe_sut_function(i2)
 
         # Compute distances and fitness
-        convert_if_needed(x) = sut_name == "normalize" ? x : map(BigInt, x)
+        convert_if_needed(x) = occursin("normalize", sut_name) ? x : map(BigInt, x)
         i1 = convert_if_needed(i1)
         i2 = convert_if_needed(i2)
-        input_distance = sut_name != "normalize" ? euclidean(i1, i2) : distance_ncd(i1, i2)
+        input_distance = occursin("normalize", sut_name) ? distance_ncd(i1, i2) : euclidean(i1, i2) 
         output_distance = distance_jaccard(output1, output2)
         fitness = input_distance != 0 ? output_distance / input_distance : 0
 
@@ -681,7 +681,7 @@ function append_archive_with_local_search_sols(df::DataFrame, local_search_df::D
 
     df = vcat(df, local_search_df)
     
-    if sut_name != "normalize"
+    if !occursin("normalize", sut_name)
         for col in i_columns
             df[!, col] .= BigInt.(df[!, col])  # Broadcasting with BigInt constructor
         end
@@ -706,7 +706,7 @@ function local_search_iteration(group_name, first_row, rows_num_local_search, so
     for row_num in first_row:(min(rows_num_local_search+first_row-1, nrow(sorted_df)-1))  # iterate for rows_num_local_search or until the end of the dataframe
         current_solution = collect(sorted_df[row_num, i_columns])  # convert to a vector [i1_1, i1_2, i2_1, i2_2]
 
-        if sut_name!="normalize"
+        if !occursin("normalize", sut_name)
             
             search_area_dims = calculate_localsearch_dims(sorted_df, row_num, i_columns, current_solution)
             max_distance = max_distance_inside_search_area(search_area_dims)
@@ -716,7 +716,6 @@ function local_search_iteration(group_name, first_row, rows_num_local_search, so
 
             total_rows += 1
         else
-            # todo add implementation for normalize
             ncd_threshold = get_ncd_threshold_for_local_search(sorted_df, row_num, i_columns) 
             emitter = LocalSearchVectorEmitter(i_columns, round(Int, duration_ms_per_row), sut_name, ncd_threshold, current_solution)
             total_rows += 1
