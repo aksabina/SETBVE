@@ -271,7 +271,7 @@ function local_vector_search(duration_in_millis::Integer, sut_name::String, ncd_
 
         # Check if the new solution is better (based on both objectives)
         if new_objective > old_objective
-            printstyled("$(old_objective) => $(new_objective)\n"; color=:green)
+            #printstyled("$(old_objective) => $(new_objective)\n"; color=:green)
             # Replace the old solution in the list with the new solution
             for i in 1:length(best_solutions_list)
                 if best_solutions_list[i] == old_solution
@@ -280,7 +280,7 @@ function local_vector_search(duration_in_millis::Integer, sut_name::String, ncd_
                 end
             end
         else
-            printstyled("$(old_objective) !> $(new_objective)\n"; color=:red)
+            #printstyled("$(old_objective) !> $(new_objective)\n"; color=:red)
 
         end
     end

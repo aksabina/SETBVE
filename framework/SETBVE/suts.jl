@@ -1,4 +1,4 @@
-using Printf, LinearAlgebra
+using Printf, Normalization
 
 function sut_circle(args_vec::AbstractVector{<:Any})
     x, y = Integer(args_vec[1]), Integer(args_vec[2])
@@ -230,7 +230,8 @@ end
 
 function sut_normalize(args_vec::AbstractVector{<:Any})
     vec = args_vec[1]
-    return LinearAlgebra.normalize(vec)
+    normalizer = MinMax(vec)
+    return normalizer(Float64.(vec))
 end
 
 function sut_python_normalizer(args_vec::AbstractVector{<:Any})
@@ -245,6 +246,18 @@ function sut_python_normalizer(args_vec::AbstractVector{<:Any})
     # Step 3: Call the Python function
     normalized_array = py"normalize_array"(vec)
     return normalized_array
+end
+
+function sut_java_normalizer(args_vec::AbstractVector{<:Any})
+    vec = args_vec[1]
+    arr = Float64.(BigInt.(vec))
+    input_str = join(arr, " ")
+    cmd = `java Normalizer $input_str`
+    output = readchomp(cmd)
+    if startswith(output, "Error")
+        return output  # return the error message as-is
+    end
+    return parse.(Float64, split(output))
 end
 
 sut_functions_dic = Dict(
@@ -281,6 +294,7 @@ sut_functions_dic = Dict(
     "powermod" => sut_powermod,
     "element_at_position" => sut_element_at_position,
     "normalize" => sut_normalize,
-    "python_normalize" => sut_python_normalizer
+    "python_normalize" => sut_python_normalizer,
+    "java_normalize" => sut_java_normalizer
 )
 
