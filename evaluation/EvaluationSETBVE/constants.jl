@@ -6,7 +6,7 @@ path_stats = "Stats"
 path_plots = "Plots"
 
 # experimental setup
-list_run_duration = [30, 600]
+list_run_duration = [30]
 top_rank_quantile = 0.99
 
 
