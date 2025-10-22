@@ -25,19 +25,19 @@ function evaluate(e::Evaluator, sut_name::String, solution::Dict{String,Any}, be
     "out_length_diff" => Any[output1, output2],
     "in_length_total" => Any[i1, i2],
     "in_length_var" => Any[i1, i2],
+    "in_array_length_total" => Any[i1, i2],
+    "in_array_length_var" => Any[i1, i2],
     "i1_1_bits" => Any[i1[1]],
     "i2_1_bits" => Any[i2[1]])
 
     fs = Float64[-fitness]  # invert the fitnesses so we can minimize => maximize PD
     bd_values = []
-
-
+    
     for bd in behav_descriptors
         func = behav_desc_functions_dic[bd]
         args = bd_fun_args[bd]
         push!(bd_values, func(args))
     end
-
 
     return fs, bd_values
 end

@@ -11,6 +11,12 @@ struct BitUniformRandomEmitter <: AbstractEmitter{S}
     parent2_idx::Int8
 end
 
+struct BitUniformVectorRandomEmitter <: AbstractEmitter{S}
+    arg_number::Int8
+    parent1_idx::Int8
+    parent2_idx::Int8
+end
+
 struct RandomEmitter <: AbstractEmitter{S} 
     arg_number::Int8
     parent1_idx::Int8
@@ -33,12 +39,29 @@ mutable struct MutateEmitter <: AbstractEmitter{S}
 end
 
 
+mutable struct MutateVectorEmitter <: AbstractEmitter{S}
+    archive::AbstractArchive
+    bias_column::String
+    parent1_idx::Integer
+    parent2_idx::Integer
+end
+
+
 mutable struct LocalSearchEmitter <: AbstractEmitter{S}
     i_column_names::Vector{String}
     duration_per_row_ms::Integer
     sut_name::String
     search_area_dims::Vector{StepRange}
     max_distance::Number
+end
+
+
+mutable struct LocalSearchVectorEmitter <: AbstractEmitter{S}
+    i_column_names::Vector{String}
+    duration_per_row_ms::Integer
+    sut_name::String
+    ncd_threshold::Float64
+    current_solution::Vector{Any}
 end
 
 
@@ -49,6 +72,30 @@ function ask(e::BitUniformRandomEmitter)
         push!(solution_vector, bitlogsample(datatype))
     end
     return Dict("solution" => solution_vector, "curiosity" => 0.0)
+end
+
+function ask(e::BitUniformVectorRandomEmitter)
+    solution_vector = Any[]
+    for _ in 1:e.arg_number
+        length_type = rand((Bool, UInt8))
+        elements_type = rand(datatypes)
+
+        # Sample sizes and element bounds
+        arr_len = bitlogsample(length_type)
+        lo = bitlogsample(elements_type)
+        hi = bitlogsample(elements_type)
+        lo, hi = minmax(lo, hi)  # ensures lo ≤ hi 
+
+        # Build data
+        arr = rand(lo:hi, arr_len)
+        push!(solution_vector, arr)
+    end
+    
+
+    return Dict(
+        "solution" => solution_vector,
+        "curiosity" => 0.0,
+    )
 end
 
 function ask(e::RandomEmitter)
@@ -92,6 +139,21 @@ function ask(e::MutateEmitter)
 end
 
 
+function ask(e::MutateVectorEmitter)
+    parent_idx = sample(e.archive, 1, e.bias_column)[1]
+    solution = deepcopy(e.archive.cells[parent_idx][1]["solution"])
+    solution = Any[solution...]
+
+    # mutate one random position
+    solution = vector_mutation(solution)
+
+    e.parent1_idx = parent_idx
+    e.parent2_idx = 0  # this mutation uses one parent only
+
+    return Dict("solution" => solution, "curiosity" => 0.0)
+end
+
+
 function ask(e::LocalSearchEmitter)
     neighbor_solutions = local_search(e.duration_per_row_ms, e.sut_name, e.search_area_dims, e.max_distance)
     neighbors_df = DataFrame([Symbol(col) => [] for col in e.i_column_names])
@@ -107,13 +169,36 @@ function ask(e::LocalSearchEmitter)
     return neighbors_df
 end 
 
+function ask(e::LocalSearchVectorEmitter)
+    neighbor_solutions = local_vector_search(e.duration_per_row_ms, e.sut_name, e.ncd_threshold, e.current_solution)
+
+    # Ensure column names are Symbols
+    col_syms = Symbol.(e.i_column_names)
+
+    # Empty DF with appropriate column names; cells will hold Any (vectors like Any[0])
+    neighbors_df = DataFrame([name => Any[] for name in col_syms])
+
+    for neighbor in neighbor_solutions
+        # neighbor is e.g. [Any[0], Any[2,2]]; map elements to columns
+        # Use push! with a NamedTuple to avoid column-order/key issues
+        row = (; (col_syms[i] => neighbor[i] for i in 1:length(col_syms))...)
+        push!(neighbors_df, row)
+    end
+
+    return neighbors_df
+end
+
+
 
 
 tell!(e::BitUniformRandomEmitter) = nothing
+tell!(e::BitUniformVectorRandomEmitter) = nothing
 tell!(e::RandomEmitter) = nothing
 tell!(e::CrossoverAndMutateEmitter) = nothing
 tell!(e::MutateEmitter) = nothing
+tell!(e::MutateVectorEmitter) = nothing
 tell!(e::LocalSearchEmitter) = nothing
+tell!(e::LocalSearchVectorEmitter) = nothing
 
 
 

@@ -1,9 +1,10 @@
 module SETBVE
 using StatsBase, Random, Base.Threads
 using Statistics
-using StringDistances
+using StringDistances, InformationDistances
 using Printf, Plots
 using Distances, Dates, CSV, DataFrames, ProgressMeter, Base
+using PyCall
 
 
 include("interfaces.jl")
@@ -45,7 +46,7 @@ default_parent_id,
 sut_functions_dic,
 
 # distances.jl
-distance_jaccard,
+distance_jaccard, distance_ncd,
 
 # Archive.jl
 IntGridArchive,
@@ -57,7 +58,7 @@ bitlogsample, sample,
 lexorderjoin,
 save_archive_to_csv, calculate_localsearch_dims,
 max_distance_inside_search_area, 
-shrink_move_mutation, local_search, local_search_iteration, 
+shrink_move_mutation, local_search, local_search_iteration, vector_mutation,
 replace_errors!, extract_i1_i2, calculate_pd, get_sut_output, 
 append_archive_with_local_search_sols, get_local_search_rows_num_per_validity_group,
 
@@ -69,13 +70,14 @@ DefaultOptimizer,
 
 # Emitter.jl
 BitUniformRandomEmitter,
+BitUniformVectorRandomEmitter,
 emit_solutions, ask, 
-MutateEmitter, 
-LocalSearchEmitter, 
+MutateEmitter, MutateVectorEmitter,
+LocalSearchEmitter, LocalSearchVectorEmitter,
 RandomEmitter,
 
 # BehavioralDescriptor.jl
-behav_desc_functions_dic,
+behav_desc_functions_dic, var_array_length, var_input_length, total_array_length, total_input_length, output_length_diff, num_exceptions,
 
 # Evaluator.jl
 Evaluator, Evaluation,

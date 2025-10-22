@@ -1,6 +1,6 @@
 using Pkg
-Pkg.activate(@__DIR__)      # activates the folder where the file lives
-Pkg.instantiate()  
+#Pkg.activate(@__DIR__)      # activates the folder where the file lives
+#Pkg.instantiate()  
 
 include("SETBVE.jl")
 using .SETBVE
@@ -32,7 +32,18 @@ for run_num in 1:number_of_runs
     evaluator = (evaluator === nothing) ? Evaluator() : error("Evaluator must be empty at the beginning of a loop")
 
     if emitter_type == "Mutation"
-        emitter = (emitter === nothing) ? MutateEmitter(archive, bias_column, default_parent_id, default_parent_id) : error("Emitter must be empty at the beginning of a loop")
+        if emitter !== nothing
+            error("Emitter must be empty at the beginning of a loop")
+        end
+
+        if occursin("normalize", sut_name)
+            # use the vector-specific emitter
+            emitter = MutateVectorEmitter(archive, bias_column, default_parent_id, default_parent_id)
+        else
+            # fallback to the generic one
+            emitter = MutateEmitter(archive, bias_column, default_parent_id, default_parent_id)
+        end
+    
     elseif emitter_type == "Bituniform"
         emitter = (emitter === nothing) ? BitUniformRandomEmitter(total_args_num[sut_name], default_parent_id, default_parent_id) : error("Emitter must be empty at the beginning of a loop")
     elseif emitter_type == "Random"
@@ -41,7 +52,24 @@ for run_num in 1:number_of_runs
 
     optimizer = (optimizer === nothing) ? DefaultOptimizer(batch_size, archive, emitter, evaluator) : error("Optimiser must be empty at the beginning of a loop")
     
-    emitterInit = (emitterInit === nothing) ? BitUniformRandomEmitter(total_args_num[sut_name], default_parent_id, default_parent_id) : error("EmitterInit must be empty at the beginning of a loop")
+    if emitterInit === nothing
+        if sut_name == "element_at_position" || occursin("normalize", sut_name)
+            emitterInit = BitUniformVectorRandomEmitter(
+                total_args_num[sut_name],
+                default_parent_id,
+                default_parent_id
+            )
+        else
+            emitterInit = BitUniformRandomEmitter(
+                total_args_num[sut_name],
+                default_parent_id,
+                default_parent_id
+            )
+        end
+    else
+        error("EmitterInit must be empty at the beginning of a loop")
+    end
+    
     optimiserInit = (optimiserInit === nothing) ? DefaultOptimizer(batch_size, archive, emitterInit, evaluator) : error("OptimiserInit must be empty at the beginning of a loop")
 
     start_time = time() * 1_000_000  # microseconds

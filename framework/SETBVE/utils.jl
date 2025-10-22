@@ -108,13 +108,20 @@ end
 #     return fitness
 # end
 
-function calculate_pd(i1::Vector{<:Any}, i2::Vector{<:Any}, output1, output2)
-    i1, i2 = map(BigInt, i1), map(BigInt, i2)  # convert to BigInt before squaring in euclidean
+# Minimal predicate: treat Tuples and any AbstractArray as "array-like"
+@inline is_arraylike(x) = x isa AbstractArray || x isa Tuple
 
-    input_distance = euclidean(i1, i2)
+function calculate_pd(i1::Vector{<:Any}, i2::Vector{<:Any}, output1, output2)
+    if is_arraylike(i1[1]) && is_arraylike(i2[1])
+        input_distance = distance_ncd(i1[1], i2[1])
+    else
+        # Default: standard distance on full input vectors
+        i1b, i2b = map(BigInt, i1), map(BigInt, i2)
+        input_distance = euclidean(i1b, i2b)
+    end
+
     output_distance = distance_jaccard(output1, output2)
     fitness = input_distance != 0 ? output_distance / input_distance : 0
-    #i1, i2 = map(to_signed_unsigned_Int, i1), map(to_signed_unsigned_Int, i2)
     return fitness
 end
 
@@ -157,25 +164,47 @@ function generate_solutions_within_ranges(ranges)
     return solutions
 end
 
+function generate_solutions_within_ncd_range(starting_point, ncd_threshold::Float64)
+    solutions = Vector{Vector{Any}}()
+
+    for _ in 1:local_search_neighbors_num
+        # Generate one solution vector by randomly selecting a value within each range
+        candidate = vector_mutation(deepcopy(starting_point))   # candidate is of a format [i1, i2] where i1 and i2 are vectors of Any
+        candidate = Any[Vector{Any}(el) for el in candidate] # convert datatype to have it the same as starting point
+        dist = distance_ncd(candidate, starting_point)
+        if dist <= ncd_threshold && dist > 0.0
+            push!(solutions, candidate)
+        end
+    end
+    return solutions
+end
+
 function calculate_objective(generated_solution, sampled_solution, max_distance, sut_name)
-    # the objective is a weighted sum of fitness and distance between solution and random solution 
+    # Pick preprocessing (arg conversion) and distance metric
+    preprocess = occursin("normalize", sut_name) ? identity : x -> map(to_signed_unsigned_Int, x)
 
-    i1_gen, i2_gen = extract_i1_i2(map(to_signed_unsigned_Int, generated_solution))
-    output1_gen = get_sut_output(i1_gen, sut_name)
-    output2_gen = get_sut_output(i2_gen, sut_name)
-    fitness_gen = calculate_pd(i1_gen, i2_gen, output1_gen, output2_gen)
+    # --- Fitness for generated_solution ---
+    i1_gen, i2_gen = extract_i1_i2(preprocess(generated_solution))
+    out1_gen = get_sut_output(i1_gen, sut_name)
+    out2_gen = get_sut_output(i2_gen, sut_name)
+    fit_gen = calculate_pd(i1_gen, i2_gen, out1_gen, out2_gen)
 
-    i1_sam, i2_sam = extract_i1_i2(map(to_signed_unsigned_Int, sampled_solution))
-    output1_sam = get_sut_output(map(to_signed_unsigned_Int, i1_sam), sut_name)
-    output2_sam = get_sut_output(map(to_signed_unsigned_Int, i2_sam), sut_name)
-    fitness_sam = calculate_pd(map(to_signed_unsigned_Int, i1_sam), map(to_signed_unsigned_Int, i2_sam), output1_sam, output2_sam)
+    # --- Fitness for sampled_solution ---
+    i1_sam, i2_sam = extract_i1_i2(preprocess(sampled_solution))
+    out1_sam = get_sut_output(i1_sam, sut_name)
+    out2_sam = get_sut_output(i2_sam, sut_name)
+    fit_sam = calculate_pd(i1_sam, i2_sam, out1_sam, out2_sam)
 
-    generated_solution = map(BigInt, generated_solution)
-    sampled_solution = map(BigInt, sampled_solution)
+    # --- Distance between full solutions ---
+    distance =
+        if occursin("normalize", sut_name)
+            distance_ncd(generated_solution, sampled_solution)
+        else
+            # keep your original BigInt path for euclidean
+            euclidean(map(BigInt, generated_solution), map(BigInt, sampled_solution))
+        end
 
-    distance = euclidean(generated_solution, sampled_solution)
-
-    return (max_distance*(fitness_gen+fitness_sam)) + distance
+    return (max_distance * (fit_gen + fit_sam)) + distance
 end
 
 
@@ -214,6 +243,50 @@ function local_search(duration_in_millis::Integer, sut_name::String, search_area
     #println("Best solutions: ", best_solutions_list)
     return best_solutions_list 
 end  
+
+
+function local_vector_search(duration_in_millis::Integer, sut_name::String, ncd_threshold::Float64, current_solution::Vector{Any})
+
+    #init random solutions within the search area 
+    
+    best_solutions_list = generate_solutions_within_ncd_range(current_solution, ncd_threshold)
+    if isempty(best_solutions_list)
+        printstyled("Could not search locally around $current_solution\n"; color=:red, bold=true)
+        return [current_solution] 
+    end
+
+    # Hill Climber on total fitness and total distance between points 
+    start_time = time() * 1_000_000  # milliseconds
+    while (time() * 1_000_000 - start_time) <= duration_in_millis  # run for n milliseconds
+        old_solution = rand(best_solutions_list)
+        new_solution = vector_mutation(deepcopy(old_solution))
+        sampled_solution = rand(best_solutions_list)  # random one to calculate the distance with 
+        if sampled_solution == old_solution
+            sampled_solution = rand(best_solutions_list)  # sample again because we need a different one 
+        end
+
+        # Evaluate new solution
+        old_objective = calculate_objective(old_solution, sampled_solution, ncd_threshold*2, sut_name)  # max distance is 2 times the ncd threshold because ncd distance is a radius from the seed (starting point)
+        new_objective = calculate_objective(new_solution, sampled_solution, ncd_threshold*2, sut_name)
+
+        # Check if the new solution is better (based on both objectives)
+        if new_objective > old_objective
+            #printstyled("$(old_objective) => $(new_objective)\n"; color=:green)
+            # Replace the old solution in the list with the new solution
+            for i in 1:length(best_solutions_list)
+                if best_solutions_list[i] == old_solution
+                    best_solutions_list[i] = new_solution
+                    break  # Exit loop after replacing the old solution
+                end
+            end
+        else
+            #printstyled("$(old_objective) !> $(new_objective)\n"; color=:red)
+
+        end
+    end
+    #println("Best solutions: ", best_solutions_list)
+    return best_solutions_list
+end
 
 
 function calculate_localsearch_dims(df::DataFrame, start_row::Int, column_names::Vector{String}, current_solution)
@@ -278,6 +351,28 @@ function calculate_localsearch_dims(df::DataFrame, start_row::Int, column_names:
 end
 
 
+function get_ncd_threshold_for_local_search(df::DataFrame, start_row::Int, column_names::Vector{String})
+    # 1) Build combined column name and create it if absent.
+    combo_col = Symbol(join(column_names, "__") * "__combined")
+    if !(combo_col in names(df))
+        df[!, combo_col] = [Vector{Any}([row[Symbol(c)] for c in column_names]) for row in eachrow(df)]
+    end
+
+    # 2) Collect NCD deltas on the combined column over the desired window.
+    deltas = Float64[]
+    df_len = nrow(df)
+    stop_row = min(df_len - 1, start_row + local_search_delta_calc_rows - 2)
+    if start_row <= stop_row
+        for i in start_row:stop_row
+            a = df[i+1, combo_col]  # Vector{Any} like [col1, col2]
+            b = df[i, combo_col]
+            push!(deltas, distance_ncd(a, b))
+        end
+    end
+
+    return median(deltas)
+end
+
 function get_relative_random_step(i1::Vector{<:Any}, i2::Vector{<:Any})
     i1 = map(BigInt, i1)
     i2 = map(BigInt, i2)
@@ -305,6 +400,86 @@ function shrink_move_mutation(solution::Vector{<:Any})::Vector{<:Any}
     end
 
     full_solution[rand_arg] += rand_step
+    return full_solution
+end
+
+# ========== Mutation Helper Functions ==========
+
+function deleteArrayElement!(arr::Vector{<:Any}, pos::Integer)
+    deleteat!(arr, pos)
+end
+
+function duplicateArrayElement!(arr::Vector{<:Any}, pos::Integer)
+    insert!(arr, pos + 1, arr[pos])
+end
+
+function applyElementOp!(arr::Vector{<:Any}, pos::Integer)
+    # simple integer operator: +1, -1 for a random small change
+    delta = rand((-1, 1))
+    arr[pos] += delta
+end
+
+function addElement!(arr::Vector{<:Any})
+    # choose a random integer to add
+    push!(arr, bitlogsample(rand(datatypes)))
+end
+
+function vector_mutation(solution::Vector{<:Any})::Vector{<:Any}
+    i1, i2 = extract_i1_i2(solution)
+    # Assume i1[1], i2[1] are the integer arrays
+    vec1 = copy(i1[1])
+    vec2 = copy(i2[1])
+
+    vec1 = Vector{Any}(vec1)   # copies elements and promotes to Any
+    vec2 = Vector{Any}(vec2)
+
+    # Step 1: decide which array(s) to mutate
+    # options: mutate vec1 only, vec2 only, or both
+    choice = rand(1:3)
+    mutate_vec1 = (choice == 1 || choice == 3)
+    mutate_vec2 = (choice == 2 || choice == 3)
+
+    # Step 2: for each selected, if empty, add element and return
+    if mutate_vec1 && isempty(vec1)
+        addElement!(vec1)
+        full_solution = [vec1, vec2]
+        return full_solution
+    end
+    if mutate_vec2 && isempty(vec2)
+        addElement!(vec2)
+        full_solution = [vec1, vec2]
+        return full_solution
+    end
+
+    # Step 3: now both selected (if chosen) are non-empty, continue normal ops
+    # Define possible ops
+    ops = (:delete, :duplicate, :apply)
+    op = rand(ops)
+
+    if mutate_vec1 && !isempty(vec1)
+        pos = rand(1:length(vec1))
+        if op == :delete
+            deleteArrayElement!(vec1, pos)
+        elseif op == :duplicate
+            duplicateArrayElement!(vec1, pos)
+        elseif op == :apply
+            applyElementOp!(vec1, pos)
+        end
+    end
+
+    if mutate_vec2 && !isempty(vec2)
+        pos = rand(1:length(vec2))
+        if op == :delete
+            deleteArrayElement!(vec2, pos)
+        elseif op == :duplicate
+            duplicateArrayElement!(vec2, pos)
+        elseif op == :apply
+            applyElementOp!(vec2, pos)
+        end
+    end
+
+    # Step 4: combine to full solution
+    full_solution = [vec1, vec2] # [i1, i2] where i1 and i2 are vectors of Any
     return full_solution
 end
 
@@ -354,27 +529,36 @@ function save_archive_to_csv(Archive::AbstractArchive, behavioural_descriptors::
     end
 
     if sut_function !== nothing
-        # Dynamically collect column names for i1
         i1_columns = filter(col -> startswith(string(col), "i1_"), names(df))
-
-        #Apply transform for i1 (with unknown number of arguments)
-        transform!(df, i1_columns => ByRow((args...) -> try
-            string(sut_function(map(to_signed_unsigned_Int,collect(args))))
-        catch e
-            string(e)
-        end) => :output1)
-
-
-        # Dynamically collect column names for i1_2
         i2_columns = filter(col -> startswith(string(col), "i2_"), names(df))
 
-        #Apply transform for i1_2 (with unknown number of arguments)
-        transform!(df, i2_columns => ByRow((args...) -> try
-            string(sut_function(map(to_signed_unsigned_Int, collect(args))))
-        catch e
-            string(e)
-        end) => :output2)
+        if occursin("normalize", sut_name)
+            # For normalize: use raw args (no signed/unsigned conversion)
+            transform!(df, i1_columns => ByRow((args...) -> try
+                string(sut_function(collect(args)))
+            catch e
+                string(e)
+            end) => :output1)
 
+            transform!(df, i2_columns => ByRow((args...) -> try
+                string(sut_function(collect(args)))
+            catch e
+                string(e)
+            end) => :output2)
+        else
+            # For all other SUTs: do the signed/unsigned conversion
+            transform!(df, i1_columns => ByRow((args...) -> try
+                string(sut_function(map(to_signed_unsigned_Int, collect(args))))
+            catch e
+                string(e)
+            end) => :output1)
+
+            transform!(df, i2_columns => ByRow((args...) -> try
+                string(sut_function(map(to_signed_unsigned_Int, collect(args))))
+            catch e
+                string(e)
+            end) => :output2)
+        end
     else
         error("Unknown sut_name: $sut_name")
     end
@@ -408,8 +592,6 @@ function append_archive_with_local_search_sols(df::DataFrame, local_search_df::D
     sut_function = sut_functions_dic[sut_name]
     
     output_filename = "$(dir_archive)$(round(Int,local_search_budget_ratio*100))%Tracer/$(bias_column)/$(sut_name)/$(emitter_type)/$(duration)/Archive$(sut_name)$(emitter_type)$(bias_column)$(duration)withTracer_$(run_num).csv"
-    #println("Appending local search df")
-    
     n_rows = nrow(local_search_df)
 
     # Preallocate columns (this minimizes DataFrame modifications during the loop)
@@ -420,8 +602,14 @@ function append_archive_with_local_search_sols(df::DataFrame, local_search_df::D
     elseif "bd_oan" in names(df)
         local_search_df[!, :bd_oan] = fill(0, n_rows)
     end
-    local_search_df[!, :bd_in_length_total] = fill(0, n_rows)
-    local_search_df[!, :bd_in_length_var] = fill(0, n_rows)
+    if "bd_in_length_total" in names(df)
+        local_search_df[!, :bd_in_length_total] = fill(0, n_rows)
+        local_search_df[!, :bd_in_length_var] = fill(0, n_rows)
+    elseif "bd_in_array_length_total" in names(df)
+        local_search_df[!, :bd_in_array_length_total] = fill(0, n_rows)
+        local_search_df[!, :bd_in_array_length_var] = fill(0, n_rows)
+    end
+    
     local_search_df[!, :output1] = fill("default_value", n_rows)
     local_search_df[!, :output2] = fill("default_value", n_rows)
     local_search_df[!, :curiosity] = fill(0.0, n_rows)
@@ -440,24 +628,28 @@ function append_archive_with_local_search_sols(df::DataFrame, local_search_df::D
     for row_idx in 1:n_rows
         row = local_search_df[row_idx, :]
 
+        # helper: apply conversion only if sut_name ≠ "normalize"
+        conv(x) = occursin("normalize", sut_name) ? x : to_signed_unsigned_Int(x)
+
         if "i1_3" in names(df) 
-            i1 = Any[to_signed_unsigned_Int(row.i1_1), to_signed_unsigned_Int(row.i1_2), to_signed_unsigned_Int(row.i1_3)]
-            i2 = Any[to_signed_unsigned_Int(row.i2_1), to_signed_unsigned_Int(row.i2_2), to_signed_unsigned_Int(row.i2_3)]  
+            i1 = Any[conv(row.i1_1), conv(row.i1_2), conv(row.i1_3)]
+            i2 = Any[conv(row.i2_1), conv(row.i2_2), conv(row.i2_3)]
         elseif "i1_2" in names(df) 
-            i1 = Any[to_signed_unsigned_Int(row.i1_1), to_signed_unsigned_Int(row.i1_2)]
-            i2 = Any[to_signed_unsigned_Int(row.i2_1), to_signed_unsigned_Int(row.i2_2)]
+            i1 = Any[conv(row.i1_1), conv(row.i1_2)]
+            i2 = Any[conv(row.i2_1), conv(row.i2_2)]
         else
-            i1 = Any[to_signed_unsigned_Int(row.i1_1)]
-            i2 = Any[to_signed_unsigned_Int(row.i2_1)]
+            i1 = Any[conv(row.i1_1)]
+            i2 = Any[conv(row.i2_1)]
         end
 
         output1 = safe_sut_function(i1)
         output2 = safe_sut_function(i2)
 
         # Compute distances and fitness
-        i1 = map(BigInt, i1)
-        i2 = map(BigInt, i2)
-        input_distance = euclidean(i1, i2)
+        convert_if_needed(x) = occursin("normalize", sut_name) ? x : map(BigInt, x)
+        i1 = convert_if_needed(i1)
+        i2 = convert_if_needed(i2)
+        input_distance = occursin("normalize", sut_name) ? distance_ncd(i1, i2) : euclidean(i1, i2) 
         output_distance = distance_jaccard(output1, output2)
         fitness = input_distance != 0 ? output_distance / input_distance : 0
 
@@ -471,9 +663,15 @@ function append_archive_with_local_search_sols(df::DataFrame, local_search_df::D
         elseif "bd_out_length_diff" in names(local_search_df)
             local_search_df.bd_out_length_diff[row_idx] = output_length_diff([string(output1), string(output2)])
         end
+
+        if "bd_in_array_length_total" in names(local_search_df)
+            local_search_df.bd_in_array_length_total[row_idx] = total_array_length([i1, i2])
+            local_search_df.bd_in_array_length_var[row_idx] = var_array_length([i1, i2])
+        elseif "bd_in_length_total" in names(local_search_df)
+            local_search_df.bd_in_length_total[row_idx] = total_input_length([i1, i2])
+            local_search_df.bd_in_length_var[row_idx] = var_input_length([i1, i2])
+        end
     
-        local_search_df.bd_in_length_total[row_idx] = total_input_length([i1, i2])
-        local_search_df.bd_in_length_var[row_idx] = var_input_length([i1, i2])
         local_search_df.output1[row_idx] = string(output1)
         local_search_df.output2[row_idx] = string(output2)
         next!(p)
@@ -483,17 +681,16 @@ function append_archive_with_local_search_sols(df::DataFrame, local_search_df::D
 
     df = vcat(df, local_search_df)
     
-    for col in i_columns
-        df[!, col] .= BigInt.(df[!, col])  # Broadcasting with BigInt constructor
+    if !occursin("normalize", sut_name)
+        for col in i_columns
+            df[!, col] .= BigInt.(df[!, col])  # Broadcasting with BigInt constructor
+        end
     end
 
 
     df = unique(df, i_columns)
     df = DataFrames.sort(df, :fitness, rev=true)
 
-
-    #println("Saving local search df")
-    #save_large_df_in_chunks(df, output_filename, 10000)
     create_dir_if_not_exists(output_filename)
     CSV.write(output_filename, df) 
     return df
@@ -509,13 +706,21 @@ function local_search_iteration(group_name, first_row, rows_num_local_search, so
     for row_num in first_row:(min(rows_num_local_search+first_row-1, nrow(sorted_df)-1))  # iterate for rows_num_local_search or until the end of the dataframe
         current_solution = collect(sorted_df[row_num, i_columns])  # convert to a vector [i1_1, i1_2, i2_1, i2_2]
 
-        search_area_dims = calculate_localsearch_dims(sorted_df, row_num, i_columns, current_solution)
-        max_distance = max_distance_inside_search_area(search_area_dims)
+        if !occursin("normalize", sut_name)
+            
+            search_area_dims = calculate_localsearch_dims(sorted_df, row_num, i_columns, current_solution)
+            max_distance = max_distance_inside_search_area(search_area_dims)
 
-        emitter = LocalSearchEmitter(i_columns, round(Int, duration_ms_per_row), sut_name, search_area_dims, max_distance)
-        append!(local_search_dataframe, ask(emitter))
+            emitter = LocalSearchEmitter(i_columns, round(Int, duration_ms_per_row), sut_name, search_area_dims, max_distance)
+            append!(local_search_dataframe, ask(emitter))
 
-        total_rows += 1
+            total_rows += 1
+        else
+            ncd_threshold = get_ncd_threshold_for_local_search(sorted_df, row_num, i_columns) 
+            emitter = LocalSearchVectorEmitter(i_columns, round(Int, duration_ms_per_row), sut_name, ncd_threshold, current_solution)
+            total_rows += 1
+            append!(local_search_dataframe, ask(emitter))
+        end
     end
 
     return total_rows, local_search_dataframe

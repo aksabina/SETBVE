@@ -49,6 +49,16 @@ function total_input_length(args)
     end
 end
 
+function total_array_length(args)
+    return length(args[1][1]) + length(args[2][1])
+end
+
+function var_array_length(args)
+    lengths = [length(args[1][1]),length(args[2][1])]
+    variance_length = Int(floor(Statistics.var(lengths)))
+    return variance_length
+end
+
 function var_input_length(args)
     lengths = [length(string(x)) for x in vcat(Vector{Any}(args[1]), Vector{Any}(args[2]))]
     variance_length = Int(floor(Statistics.var(lengths)))
@@ -63,4 +73,6 @@ behav_desc_functions_dic = Dict(
     "out_length_diff" => output_length_diff, 
     "in_length_total" => total_input_length, 
     "in_length_var" => var_input_length, 
+    "in_array_length_total" => total_array_length,
+    "in_array_length_var" => var_array_length
 )

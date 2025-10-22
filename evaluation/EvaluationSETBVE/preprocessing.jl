@@ -215,302 +215,85 @@ function rename_autobva_files(sut_name::String)
     end
 end
 
+function make_dtypes(args::Vector{Symbol})
+    base_dtypes() = Dict(
+        :output => String,
+        :outputtype => String,
+        :datatype => String,
+        :metric => Float64,
+        :n_output => String,
+        :n_outputtype => String,
+        :n_datatype => String,
+        :count => Int64,
+    )
+
+    d = base_dtypes()
+    for arg in args
+        d[arg] = String
+        d[Symbol(:n_, arg)] = String
+    end
+    return d
+end
+
+# Function that creates mappings for i1_/i2_ arguments automatically
+function make_arg_mapping(args::Vector{Symbol})
+    base_mapping() = Dict(
+        :output => :output1,
+        :outputtype => :output_type,
+        :datatype => :datatype,
+        :metric => :fitness_strlength,
+        :n_output => :output2,
+        :n_outputtype => :n_outputtype,
+        :n_datatype => :n_datatype,
+        :count => :count,
+    )
+    d = base_mapping()
+    for (idx, arg) in enumerate(args)
+        d[arg] = Symbol(:i1_, idx)
+        d[Symbol(:n_, arg)] = Symbol(:i2_, idx)
+    end
+    return d
+end
+
 function preprocess_autobva_df(sut_name::String)
 
-    new_column_names = Dict(
-        "date" => Dict(
-            :year => :i1_3,
-            :month => :i1_2,
-            :day => :i1_1, 
-            :output => :output1, 
-            :outputtype => :output_type, 
-            :datatype => :datatype, 
-            :metric => :fitness_strlength, 
-            :n_year => :i2_3, 
-            :n_month => :i2_2,
-            :n_day => :i2_1, 
-            :n_output => :output2, 
-            :n_outputtype => :n_outputtype, 
-            :n_datatype => :n_datatype, 
-            :count => :count, 
-        ),
+    functions = Dict(
+        "date" => [:year, :month, :day],
+        "circle" => [:x, :y],
+        "bmi" => [:h, :w],
+        "bytecount" => [:bytes],
+        "cld" => [:a, :b],
+        "fld" => [:a, :b],
+        "fldmod1" => [:x, :y],
+        "max" => [:x, :y],
+        "tailjoin" => [:A, :i],
+        "power_by_squaring" => [:x_, :p],
+        "copysign" => [:x, :y],
+        "count_zeros" => [:x],
+        "digits" => [:n],
+        "div" => [:a, :b],
+        "factorial" => [:n],
+        "first" => [:itr, :n],
+        "float" => [:x],
+        "fma" => [:x, :y, :z],
+        "gcd" => [:a, :b],
+        "hton" => [:x],
+        "invmod" => [:n, :m],
+        "isodd" => [:x],
+        "minmax" => [:x, :y],
+        "mul_prod"=> [:x, :y],
+        "muladd" => [:x, :y, :z],
+        "powermod" => [:x, :p, :m],
+        "promote" => [:x, :y, :z],
+        "range" => [:start, :stop, :length],
+        "rem" => [:x, :y],
+        "xor" => [:x, :y, :z])
 
-        "circle" => Dict(
-            :x => :i1_1,
-            :y => :i1_2,
-            :output => :output1, 
-            :outputtype => :output_type, 
-            :datatype => :datatype, 
-            :metric => :fitness_strlength, 
-            :n_x => :i2_1, 
-            :n_y => :i2_2,
-            :n_output => :output2, 
-            :n_outputtype => :n_outputtype, 
-            :n_datatype => :n_datatype, 
-            :count => :count, 
-        ),
-
-        "bmi" => Dict(
-            :h => :i1_1,
-            :w => :i1_2,
-            :output => :output1, 
-            :outputtype => :output_type, 
-            :datatype => :datatype, 
-            :metric => :fitness_strlength, 
-            :n_h => :i2_1, 
-            :n_w => :i2_2,
-            :n_output => :output2, 
-            :n_outputtype => :n_outputtype, 
-            :n_datatype => :n_datatype, 
-            :count => :count, 
-        ),
-
-        "bytecount" => Dict(
-            :bytes => :i1_1,
-            :output => :output1, 
-            :outputtype => :output_type, 
-            :datatype => :datatype, 
-            :metric => :fitness_strlength, 
-            :n_bytes => :i2_1, 
-            :n_output => :output2, 
-            :n_outputtype => :n_outputtype, 
-            :n_datatype => :n_datatype, 
-            :count => :count, 
-        ),
-        "cld" => Dict(
-            :a => :i1_1,
-            :b => :i1_2,
-            :output => :output1, 
-            :outputtype => :output_type, 
-            :datatype => :datatype, 
-            :metric => :fitness_strlength, 
-            :n_a => :i2_1, 
-            :n_b => :i2_2, 
-            :n_output => :output2, 
-            :n_outputtype => :n_outputtype, 
-            :n_datatype => :n_datatype, 
-            :count => :count, 
-        ),
-        "fld" => Dict(
-            :a => :i1_1,
-            :b => :i1_2,
-            :output => :output1, 
-            :outputtype => :output_type, 
-            :datatype => :datatype, 
-            :metric => :fitness_strlength, 
-            :n_a => :i2_1, 
-            :n_b => :i2_2, 
-            :n_output => :output2, 
-            :n_outputtype => :n_outputtype, 
-            :n_datatype => :n_datatype, 
-            :count => :count, 
-        ),
-        "fldmod1" => Dict(
-            :x => :i1_1,
-            :y => :i1_2,
-            :output => :output1, 
-            :outputtype => :output_type, 
-            :datatype => :datatype, 
-            :metric => :fitness_strlength, 
-            :n_x => :i2_1, 
-            :n_y => :i2_2, 
-            :n_output => :output2, 
-            :n_outputtype => :n_outputtype, 
-            :n_datatype => :n_datatype, 
-            :count => :count, 
-        ),
-        "max" => Dict(
-            :x => :i1_1,
-            :y => :i1_2,
-            :output => :output1, 
-            :outputtype => :output_type, 
-            :datatype => :datatype, 
-            :metric => :fitness_strlength, 
-            :n_x => :i2_1, 
-            :n_y => :i2_2, 
-            :n_output => :output2, 
-            :n_outputtype => :n_outputtype, 
-            :n_datatype => :n_datatype, 
-            :count => :count, 
-        ),
-        "tailjoin" => Dict(
-            :A => :i1_1,
-            :i => :i1_2,
-            :output => :output1, 
-            :outputtype => :output_type, 
-            :datatype => :datatype, 
-            :metric => :fitness_strlength, 
-            :n_A => :i2_1, 
-            :n_i => :i2_2, 
-            :n_output => :output2, 
-            :n_outputtype => :n_outputtype, 
-            :n_datatype => :n_datatype, 
-            :count => :count, 
-        ),
-        "power_by_squaring" => Dict(
-            :x_ => :i1_1,
-            :p => :i1_2,
-            :output => :output1, 
-            :outputtype => :output_type, 
-            :datatype => :datatype, 
-            :metric => :fitness_strlength, 
-            :n_x_ => :i2_1, 
-            :n_p => :i2_2, 
-            :n_output => :output2, 
-            :n_outputtype => :n_outputtype, 
-            :n_datatype => :n_datatype, 
-            :count => :count, 
-        ),
-    )
-
-    col_dtypes = Dict(
-        "date" => Dict(
-            :year => String,
-            :month => String,
-            :day => String, 
-            :output => String, 
-            :outputtype => String, 
-            :datatype => String, 
-            :metric => Float64, 
-            :n_year => String, 
-            :n_month => String,
-            :n_day => String, 
-            :n_output => String, 
-            :n_outputtype => String, 
-            :n_datatype => String, 
-            :count => Int64, 
-        ),
-
-        "circle" => Dict(
-            :x => String,
-            :y => String,
-            :output => String, 
-            :outputtype => String,  
-            :datatype => String, 
-            :metric => Float64,
-            :n_x => String, 
-            :n_y => String,
-            :n_output => String, 
-            :n_outputtype => String,  
-            :n_datatype => String,  
-            :count => Int64 
-        ),
-
-        "bmi" => Dict(
-            :h => String,
-            :w => String,
-            :output => String, 
-            :outputtype => String, 
-            :datatype => String, 
-            :metric => Float64, 
-            :n_h => String,
-            :n_w => String,
-            :n_output => String, 
-            :n_outputtype => String, 
-            :n_datatype => String, 
-            :count => Int64, 
-        ),
-
-        "bytecount" => Dict(
-            :bytes => String,
-            :output => String, 
-            :outputtype => String,  
-            :datatype => String,  
-            :metric => Float64, 
-            :n_bytes => String, 
-            :n_output => String,  
-            :n_outputtype => String,  
-            :n_datatype => String,  
-            :count => Int64 
-        ),
-        "cld" => Dict(
-            :a => String,
-            :b => String,
-            :output => String, 
-            :outputtype => String, 
-            :datatype => String, 
-            :metric => Float64, 
-            :n_a => String, 
-            :n_b => String, 
-            :n_output => String, 
-            :n_outputtype => String, 
-            :n_datatype => String, 
-            :count => Int64, 
-        ),
-        "fld" => Dict(
-            :a => String,
-            :b => String,
-            :output => String, 
-            :outputtype => String, 
-            :datatype => String, 
-            :metric => Float64, 
-            :n_a => String, 
-            :n_b => String, 
-            :n_output => String, 
-            :n_outputtype => String, 
-            :n_datatype => String, 
-            :count => Int64, 
-        ),
-        "fldmod1" => Dict(
-            :x => String,
-            :y => String,
-            :output => String, 
-            :outputtype => String, 
-            :datatype => String, 
-            :metric => Float64, 
-            :n_x => String, 
-            :n_y => String, 
-            :n_output => String, 
-            :n_outputtype => String, 
-            :n_datatype => String, 
-            :count => Int64, 
-        ),
-        "max" => Dict(
-            :x => String,
-            :y => String,
-            :output => String, 
-            :outputtype => String, 
-            :datatype => String, 
-            :metric => Float64, 
-            :n_x => String, 
-            :n_y => String, 
-            :n_output => String, 
-            :n_outputtype => String, 
-            :n_datatype => String, 
-            :count => Int64, 
-        ),
-        "tailjoin" => Dict(
-            :A => String,
-            :i => String,
-            :output => String, 
-            :outputtype => String, 
-            :datatype => String, 
-            :metric => Float64, 
-            :n_A => String, 
-            :n_i => String, 
-            :n_output => String, 
-            :n_outputtype => String, 
-            :n_datatype => String, 
-            :count => Int64, 
-        ),
-        "power_by_squaring" => Dict(
-            :x_ => String,
-            :p => String,
-            :output => String, 
-            :outputtype => String, 
-            :datatype => String, 
-            :metric => Float64, 
-            :n_x_ => String, 
-            :n_p => String, 
-            :n_output => String, 
-            :n_outputtype => String, 
-            :n_datatype => String, 
-            :count => Int64, 
-        ),
-    )
+    new_column_names = Dict(name => make_arg_mapping(args) for (name, args) in functions)
+    col_dtypes = Dict(name => make_dtypes(args) for (name, args) in functions)
 
     for total_duration in list_run_duration
-        for i in 1:20
+        for i in 1:10
             input_filename = "$(path_archive)/AutoBVA/$(sut_name)/$(total_duration)/Archive$(sut_name)AutoBVA$(total_duration)_$i.csv"
             if sut_name == "circle"
                 df = CSV.read(input_filename, DataFrame, types=col_dtypes[sut_name])
@@ -526,7 +309,7 @@ function preprocess_autobva_df(sut_name::String)
             df.bd_in_length_total = [total_input_length(row) for row in eachrow(df)]
             df.bd_in_length_var = [var_input_length(row) for row in eachrow(df)]
 
-            if sut_name in ["date", "bytecount", "cld", "fld", "fldmod1", "max", "tailjoin", "power_by_squaring"]
+            if !(sut_name in ["bmi", "circle"])
                 df.bd_out_length_diff = [output_length_diff(row) for row in eachrow(df)]
             end
 

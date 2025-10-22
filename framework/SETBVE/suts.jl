@@ -1,4 +1,5 @@
-using Printf
+using Printf, Normalization
+
 function sut_circle(args_vec::AbstractVector{<:Any})
     x, y = Integer(args_vec[1]), Integer(args_vec[2])
 
@@ -121,7 +122,143 @@ function sut_fld(args_vec::AbstractVector{<:Any})
     return Base.fld(arg1, arg2)
 end
 
+function sut_factorial(args_vec::AbstractVector{<:Any})
+    arg1 = args_vec[1]
+    return Base.factorial(arg1)
+end
 
+function sut_float(args_vec::AbstractVector{<:Any})
+    arg1 = args_vec[1]
+    return Base.float(arg1)
+end
+
+function sut_isodd(args_vec::AbstractVector{<:Any})
+    arg1 = args_vec[1]
+    return Base.isodd(arg1)
+end
+
+function sut_count_zeros(args_vec::AbstractVector{<:Any})
+    arg1 = args_vec[1]
+    return Base.count_zeros(arg1)
+end
+
+function sut_digits(args_vec::AbstractVector{<:Any})
+    arg1 = args_vec[1]
+    return Base.digits(arg1)
+end
+
+function sut_hton(args_vec::AbstractVector{<:Any})
+    arg1 = args_vec[1]
+    return Base.hton(arg1)
+end
+
+function sut_div(args_vec::AbstractVector{<:Any})
+    arg1, arg2 = args_vec[1], args_vec[2]
+    return Base.div(arg1, arg2)
+end
+
+function sut_mul_prod(args_vec::AbstractVector{<:Any})
+    arg1, arg2 = args_vec[1], args_vec[2]
+    return Base.mul_prod(arg1, arg2)
+end
+
+function sut_rem(args_vec::AbstractVector{<:Any})
+    arg1, arg2 = args_vec[1], args_vec[2]
+    return Base.rem(arg1, arg2)
+end
+
+function sut_first(args_vec::AbstractVector{<:Any})
+    arg1, arg2 = args_vec[1], args_vec[2]
+    return Base.first(arg1, arg2)
+end
+
+function sut_copysign(args_vec::AbstractVector{<:Any})
+    arg1, arg2 = args_vec[1], args_vec[2]
+    return Base.copysign(arg1, arg2)
+end
+
+function sut_invmod(args_vec::AbstractVector{<:Any})
+    arg1, arg2 = args_vec[1], args_vec[2]
+    return Base.invmod(arg1, arg2)
+end
+
+function sut_minmax(args_vec::AbstractVector{<:Any})
+    arg1, arg2 = args_vec[1], args_vec[2]
+    return Base.minmax(arg1, arg2)
+end
+
+function sut_gcd(args_vec::AbstractVector{<:Any})
+    arg1, arg2 = args_vec[1], args_vec[2]
+    return Base.gcd(arg1, arg2)
+end
+
+function sut_range(args_vec::AbstractVector{<:Any})
+    arg1, arg2, arg3 = args_vec[1], args_vec[2], args_vec[3]
+    return Base.range(arg1, arg2, arg3)
+end
+
+function sut_fma(args_vec::AbstractVector{<:Any})
+    arg1, arg2, arg3 = args_vec[1], args_vec[2], args_vec[3]
+    return Base.fma(arg1, arg2, arg3)
+end
+
+function sut_muladd(args_vec::AbstractVector{<:Any})
+    arg1, arg2, arg3 = args_vec[1], args_vec[2], args_vec[3]
+    return Base.muladd(arg1, arg2, arg3)
+end
+
+function sut_xor(args_vec::AbstractVector{<:Any})
+    arg1, arg2, arg3 = args_vec[1], args_vec[2], args_vec[3]
+    return Base.xor(arg1, arg2, arg3)
+end
+
+function sut_promote(args_vec::AbstractVector{<:Any})
+    arg1, arg2, arg3 = args_vec[1], args_vec[2], args_vec[3]
+    return Base.promote(arg1, arg2, arg3)
+end
+
+function sut_powermod(args_vec::AbstractVector{<:Any})
+    arg1, arg2, arg3 = args_vec[1], args_vec[2], args_vec[3]
+    return Base.powermod(arg1, arg2, arg3)
+end
+
+function sut_element_at_position(args_vec::AbstractVector{<:Any})
+    arr, pos = args_vec[1], Integer(args_vec[2])
+    return arr[pos]
+end
+
+
+function sut_normalize(args_vec::AbstractVector{<:Any})
+    vec = args_vec[1]
+    normalizer = MinMax(vec)
+    return normalizer(Float64.(vec))
+end
+
+function sut_python_normalizer(args_vec::AbstractVector{<:Any})
+    # Step 1: Extract the input vector
+    vec = args_vec[1]
+    # Step 2: Load the Python file and function
+    py"""
+    import sys
+    sys.path.append(".")  # ensures current directory is in path
+    from process_array import normalize_array
+    """
+    # Step 3: Call the Python function
+    normalized_array = py"normalize_array"(vec)
+    return normalized_array
+end
+
+function sut_java_normalizer(args_vec::AbstractVector{<:Any})
+    vec = args_vec[1]
+    arr = Float64.(BigInt.(vec))
+    input_str = join(arr, " ")
+    cmd = `java Normalizer $input_str`
+    output = readchomp(cmd)
+    if startswith(output, "Error")
+        return output  # return the error message as-is
+    end
+    return parse.(Float64, split(output))
+end
 
 sut_functions_dic = Dict(
     "circle" => sut_circle,
@@ -135,5 +272,29 @@ sut_functions_dic = Dict(
     "cld" => sut_cld,
     "fldmod1" => sut_fldmod1,
     "fld" => sut_fld,
+    "factorial" => sut_factorial,
+    "float" => sut_float,
+    "isodd" => sut_isodd,
+    "count_zeros" => sut_count_zeros,
+    "digits" => sut_digits,
+    "hton" => sut_hton,
+    "div" => sut_div,
+    "mul_prod" => sut_mul_prod,
+    "rem" => sut_rem,
+    "first" => sut_first,
+    "copysign" => sut_copysign,
+    "invmod" => sut_invmod,
+    "minmax" => sut_minmax,
+    "gcd" => sut_gcd,
+    "range" => sut_range,
+    "fma" => sut_fma,
+    "muladd" => sut_muladd,
+    "xor" => sut_xor,
+    "promote" => sut_promote,
+    "powermod" => sut_powermod,
+    "element_at_position" => sut_element_at_position,
+    "normalize" => sut_normalize,
+    "python_normalize" => sut_python_normalizer,
+    "java_normalize" => sut_java_normalizer
 )
 
