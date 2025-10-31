@@ -29,27 +29,32 @@ function calculate_archive_coverage(sut_name::String, run_duration::Integer, emi
     input_directory = get_directory_path(path_archive, sut_name, run_duration, emitter, sampling_strategy, refine_budget)
     list_coverage_percentage = []
     
+    pattern = r"_(\d+)\.csv$"
     for file in Glob.glob("*.csv", input_directory)
+        m = match(pattern, basename(file))
+        if m !== nothing && parse(Int, m.captures[1]) in 1:NUMBER_OF_RUNS
 
-        df = CSV.read(file, DataFrame, types=String)
-        sorted_column_names = sort(names(df))
-        df = df[:, sorted_column_names] # sort column names to make sure that the order of bd columns is correct 
+            df = CSV.read(file, DataFrame, types=String)
+            sorted_column_names = sort(names(df))
+            df = df[:, sorted_column_names] # sort column names to make sure that the order of bd columns is correct 
 
-        if prefix == "NoPD0"
-            df = filter(row -> row[:boundary_rank] != "2", df)  # exclude rows with fitness=0
+            if prefix == "NoPD0"
+                df = filter(row -> row[:boundary_rank] != "2", df)  # exclude rows with fitness=0
+            end
+
+            intersect_count = nrow(DataFrame(intersect(collect(eachrow(df_all[:, cell_columns])), collect(eachrow(df[:, cell_columns])))))
+            coverage_percentage = 100 * intersect_count / nrow(df_all)
+
+            push!(list_coverage_percentage, coverage_percentage)
+            push!(run_duration_list, run_duration)
+            push!(emitter_list, emitter)
+            push!(sampling_strategy_list, sampling_strategy)
+            push!(refine_budget_list, refine_budget)
+            push!(run_number_list, parse(Int, split(split(file, "_")[end], ".")[1]))
+            push!(rac_list, coverage_percentage)
+        else
+            continue
         end
-
-        intersect_count = nrow(DataFrame(intersect(collect(eachrow(df_all[:, cell_columns])), collect(eachrow(df[:, cell_columns])))))
-        coverage_percentage = 100 * intersect_count / nrow(df_all)
-
-        push!(list_coverage_percentage, coverage_percentage)
-        push!(run_duration_list, run_duration)
-        push!(emitter_list, emitter)
-        push!(sampling_strategy_list, sampling_strategy)
-        push!(refine_budget_list, refine_budget)
-        push!(run_number_list, parse(Int, split(split(file, "_")[end], ".")[1]))
-        push!(rac_list, coverage_percentage)
-    
     end
 
     avg_cov = round(mean(list_coverage_percentage), digits=2)

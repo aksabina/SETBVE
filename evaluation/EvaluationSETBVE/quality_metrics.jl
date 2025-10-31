@@ -60,43 +60,45 @@ function calculate_pd_metrics(sut_name::String, run_duration::Integer, emitter::
         fitness_quantile = quantile(df_all[!, :fitness], top_rank_quantile)
     end
 
-
+    pattern = r"_(\d+)\.csv$"
     for file in Glob.glob("*.csv", input_directory)
+        m = match(pattern, basename(file))
+        if m !== nothing && parse(Int, m.captures[1]) in 1:NUMBER_OF_RUNS
+            df = CSV.read(file, DataFrame, types=String)
 
-        df = CSV.read(file, DataFrame, types=String)
+            if prefix == "NoPD0"
+                df = filter(row -> row[:boundary_rank] != "2", df)
+            elseif prefix == "TopRanked"
+                df.fitness = parse.(Float64, df.fitness)
+                df = filter(row -> row[:fitness] >= fitness_quantile, df)
+            end 
 
-        if prefix == "NoPD0"
-            df = filter(row -> row[:boundary_rank] != "2", df)
-        elseif prefix == "TopRanked"
-            df.fitness = parse.(Float64, df.fitness)
-            df = filter(row -> row[:fitness] >= fitness_quantile, df)
-        end 
+            df.fitness_ratio_max = parse.(Float64, df.fitness_ratio_max)
 
-        df.fitness_ratio_max = parse.(Float64, df.fitness_ratio_max)
+            # after phase2 there are multiple solutions per one archive cell, so we take the best one to assess the quality 
+            cell_column_names = filter(name -> startswith(name, "bd_"), names(df)) 
 
-        # after phase2 there are multiple solutions per one archive cell, so we take the best one to assess the quality 
-        cell_column_names = filter(name -> startswith(name, "bd_"), names(df)) 
+            if nrow(df) > 0 
+                # Group by specified columns and filter for the max fitness row in each group
+                df_filtered = combine(groupby(df, cell_column_names)) do group
+                    group[findmax(group[!, :fitness])[2], :]  # save max fitness per bd combination and drop everything else 
+                end
+            mean_pd = mean(df_filtered.:fitness_ratio_max) 
 
-        if nrow(df) > 0 
-            # Group by specified columns and filter for the max fitness row in each group
-            df_filtered = combine(groupby(df, cell_column_names)) do group
-                group[findmax(group[!, :fitness])[2], :]  # save max fitness per bd combination and drop everything else 
+            else
+                mean_pd = 0
             end
-        mean_pd = mean(df_filtered.:fitness_ratio_max) 
 
+            push!(list_mean_pd_ratio_per_run, mean_pd)
+            push!(run_duration_list, run_duration)
+            push!(emitter_list, emitter)
+            push!(sampling_strategy_list, sampling_strategy)
+            push!(refine_budget_list, refine_budget)
+            push!(run_number_list, parse(Int, split(split(file, "_")[end], ".")[1]))
+            push!(cnpd_list, mean_pd)
         else
-            mean_pd = 0
+            continue
         end
-
-        push!(list_mean_pd_ratio_per_run, mean_pd)
-        push!(run_duration_list, run_duration)
-        push!(emitter_list, emitter)
-        push!(sampling_strategy_list, sampling_strategy)
-        push!(refine_budget_list, refine_budget)
-        push!(run_number_list, parse(Int, split(split(file, "_")[end], ".")[1]))
-        push!(cnpd_list, mean_pd)
-        
-
     end
 
     avg_cnpd = round(mean(list_mean_pd_ratio_per_run), digits=2)

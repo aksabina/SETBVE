@@ -15,7 +15,7 @@ export
 
 # constants
 path_agg_archive, path_archive, path_stats, path_plots,
-list_run_duration,
+list_run_duration, NUMBER_OF_RUNS,
 purple_color_scheme, fig_size, dpi, blue_color_scheme, method_colors, path_autobva, top_rank_quantile,
 
 # utils

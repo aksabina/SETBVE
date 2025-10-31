@@ -8,6 +8,7 @@ path_plots = "Plots"
 # experimental setup
 list_run_duration = [30]
 top_rank_quantile = 0.99
+NUMBER_OF_RUNS = 10
 
 
 # Plots
