@@ -16,27 +16,33 @@ function assign_oan(sut_name::String, run_duration::Integer, emitter::String, sa
         exit()
     end
 
+    pattern = r"_(\d+)\.csv$"
     for file in Glob.glob("*.csv", input_dir)
-        df = CSV.read(file, DataFrame, types=String)
+        m = match(pattern, basename(file))
+        if m !== nothing && parse(Int, m.captures[1]) in 1:NUMBER_OF_RUNS
+            df = CSV.read(file, DataFrame, types=String)
 
-        bd_oan_values = Vector{Integer}(undef, nrow(df))
+            bd_oan_values = Vector{Integer}(undef, nrow(df))
 
-        output1_col = ("n_output" in names(df)) ? "output" : "output1"
-        output2_col = ("n_output" in names(df)) ? "n_output" : "output2"
+            output1_col = ("n_output" in names(df)) ? "output" : "output1"
+            output2_col = ("n_output" in names(df)) ? "n_output" : "output2"
 
-        for i in 1:nrow(df)
-            o1, o2 = df[i, Symbol(output1_col)], df[i, Symbol(output2_col)]
-            # extract error type if any 
-            o1_error = Base.match(r"^[\w]+Error", o1)  
-            o1 = (o1_error !== nothing) ? o1_error.match : o1  
-            o2_error = Base.match(r"^[\w]+Error", o2)
-            o2 = (o2_error !== nothing) ? o2_error.match : o2
-            bd_oan_values[i] = bd_oan_global_dic[sut_name]["$(o1)$(o2)"]
+            for i in 1:nrow(df)
+                o1, o2 = df[i, Symbol(output1_col)], df[i, Symbol(output2_col)]
+                # extract error type if any 
+                o1_error = Base.match(r"^[\w]+Error", o1)  
+                o1 = (o1_error !== nothing) ? o1_error.match : o1  
+                o2_error = Base.match(r"^[\w]+Error", o2)
+                o2 = (o2_error !== nothing) ? o2_error.match : o2
+                bd_oan_values[i] = bd_oan_global_dic[sut_name]["$(o1)$(o2)"]
+            end
+
+            df.bd_oan = bd_oan_values
+
+            CSV.write(file, df)
+        else
+            continue
         end
-
-        df.bd_oan = bd_oan_values
-
-        CSV.write(file, df)
     end
     
 end
@@ -51,16 +57,22 @@ function aggregate_archive(sut_name::String, run_duration::Integer, emitter::Str
     aggregated_df = DataFrame()
     
     # Use Glob.jl to match all CSV files in the input directory
+    pattern = r"_(\d+)\.csv$"
     for file in Glob.glob("*.csv", input_dir)
-        df = CSV.read(file, DataFrame, types=String)
+        m = match(pattern, basename(file))
+        if m !== nothing && parse(Int, m.captures[1]) in 1:NUMBER_OF_RUNS
+            df = CSV.read(file, DataFrame, types=String)
 
-        # Sort BD columns
-        bd_columns = filter(col -> startswith(col, "bd_"), names(df))
-        sorted_bd_columns = sort(bd_columns)
-        new_column_order = vcat(sorted_bd_columns, setdiff(names(df), bd_columns))  # keep bd columns first 
-        df = df[:, new_column_order]
-        
-        append!(aggregated_df, df, promote=true)
+            # Sort BD columns
+            bd_columns = filter(col -> startswith(col, "bd_"), names(df))
+            sorted_bd_columns = sort(bd_columns)
+            new_column_order = vcat(sorted_bd_columns, setdiff(names(df), bd_columns))  # keep bd columns first 
+            df = df[:, new_column_order]
+            
+            append!(aggregated_df, df, promote=true)
+        else
+            continue
+        end
     end
     
     CSV.write(output_filename, aggregated_df)
@@ -135,42 +147,48 @@ function add_max_fitness_column(sut_name::String, run_duration::Integer, emitter
     df_all_dict = Dict(row[cell_columns] => row[:fitness] for row in eachrow(df_all))
     input_dir = get_directory_path(path_archive, sut_name, run_duration, emitter, sampling_strategy, refine_budget)
 
+    pattern = r"_(\d+)\.csv$"
     for file in Glob.glob("*.csv", input_dir)
-        df = CSV.read(file, DataFrame, types=String)
-        df.fitness = parse.(Float64, df.fitness)
-        sorted_column_names = sort(names(df))
-        df = df[:, sorted_column_names]
-        
-        df.:fitness_max = [get(df_all_dict, row[cell_columns], missing) for row in eachrow(df)]  # assign max fitness found in the combined dataframe
-        fitness_ratio_max_values = Vector{Float64}(undef, nrow(df))
+        m = match(pattern, basename(file))
+        if m !== nothing && parse(Int, m.captures[1]) in 1:NUMBER_OF_RUNS
+            df = CSV.read(file, DataFrame, types=String)
+            df.fitness = parse.(Float64, df.fitness)
+            sorted_column_names = sort(names(df))
+            df = df[:, sorted_column_names]
+            
+            df.:fitness_max = [get(df_all_dict, row[cell_columns], missing) for row in eachrow(df)]  # assign max fitness found in the combined dataframe
+            fitness_ratio_max_values = Vector{Float64}(undef, nrow(df))
 
-        for i in 1:nrow(df)
-            if ismissing(df[i, :fitness_max])
-                fitness_ratio_max_values[i] = missing
-            else
-                if df[i, :fitness_max] == 0 && df[i, :fitness] == 0
-                    fitness_ratio_max_values[i] = 1 # if the max possible fitness is 0, it means we achieved max possible, so we assign the ratio to 1
+            for i in 1:nrow(df)
+                if ismissing(df[i, :fitness_max])
+                    fitness_ratio_max_values[i] = missing
                 else
-                    fitness_ratio_max_values[i] = df[i, :fitness] / df[i, :fitness_max]
+                    if df[i, :fitness_max] == 0 && df[i, :fitness] == 0
+                        fitness_ratio_max_values[i] = 1 # if the max possible fitness is 0, it means we achieved max possible, so we assign the ratio to 1
+                    else
+                        fitness_ratio_max_values[i] = df[i, :fitness] / df[i, :fitness_max]
+                    end
                 end
             end
-        end
 
-        df.fitness_ratio_max = fitness_ratio_max_values
-        
-        # Count rows with missing fitness_max and missing fitness_ratio_max
-        missing_fitness_max_count = count(ismissing, df.:fitness_max)
-        missing_fitness_ratio_count = count(ismissing, df.:fitness_ratio_max)
-        if missing_fitness_max_count>0 || missing_fitness_ratio_count>0
-            println("File: $(input_filename) -> Missing fitness_max: $(missing_fitness_max_count); Missing fitness_ratio_max: $(missing_fitness_ratio_count)")
-        end
+            df.fitness_ratio_max = fitness_ratio_max_values
+            
+            # Count rows with missing fitness_max and missing fitness_ratio_max
+            missing_fitness_max_count = count(ismissing, df.:fitness_max)
+            missing_fitness_ratio_count = count(ismissing, df.:fitness_ratio_max)
+            if missing_fitness_max_count>0 || missing_fitness_ratio_count>0
+                println("File: $(input_filename) -> Missing fitness_max: $(missing_fitness_max_count); Missing fitness_ratio_max: $(missing_fitness_ratio_count)")
+            end
 
-        # Drop the max_fitness column which is not related to this calculation to avoid confusion
-        if "max_fitness" in names(df)
-            select!(df, Not(:max_fitness))
-        end
+            # Drop the max_fitness column which is not related to this calculation to avoid confusion
+            if "max_fitness" in names(df)
+                select!(df, Not(:max_fitness))
+            end
 
-        CSV.write(file, df)
+            CSV.write(file, df)
+        else
+            continue
+        end
     end
 
 end
@@ -287,7 +305,7 @@ function preprocess_autobva_df(sut_name::String)
         "promote" => [:x, :y, :z],
         "range" => [:start, :stop, :length],
         "rem" => [:x, :y],
-        "xor" => [:x, :y, :z])
+        "xor" => [:a, :b, :c])
 
     new_column_names = Dict(name => make_arg_mapping(args) for (name, args) in functions)
     col_dtypes = Dict(name => make_dtypes(args) for (name, args) in functions)
@@ -327,7 +345,7 @@ end
 
 function calculate_fitness(row)
 
-    output_distance = StringDistances.Jaccard(2)(row.output1, row.output2)
+    output_distance = StringDistances.Jaccard(2)(string(row.output1), string(row.output2))
     if (:i1_3) in propertynames(row)
         input_distance = euclidean((parse_bigint_with_bool(row.i1_1), parse_bigint_with_bool(row.i1_2), parse_bigint_with_bool(row.i1_3)), (parse_bigint_with_bool(row.i2_1), parse_bigint_with_bool(row.i2_2), parse_bigint_with_bool(row.i2_3)))
     elseif (:i1_2) in propertynames(row)
@@ -339,7 +357,7 @@ function calculate_fitness(row)
 end
 
 function num_exceptions(row)
-    count_contains_error = sum(map(o -> occursin(r"(?i)error", o), [row.output1, row.output2]))
+    count_contains_error = sum(map(o -> occursin(r"(?i)error", o), [string(row.output1), string(row.output2)]))
     return count_contains_error
 end
 
@@ -404,13 +422,17 @@ function assign_boundary_candidate_rank(sut_name::String, run_duration::Integer,
 
     input_dir = get_directory_path(path_archive, sut_name, run_duration, emitter, sampling_strategy, refine_budget) 
     # Use Glob.jl to match all CSV files in the input directory
+    pattern = r"_(\d+)\.csv$"
     for file in Glob.glob("*.csv", input_dir)
-        df = CSV.read(file, DataFrame, types=String)
+        m = match(pattern, basename(file))
+        if m !== nothing && parse(Int, m.captures[1]) in 1:NUMBER_OF_RUNS
+            df = CSV.read(file, DataFrame, types=String)
 
-        df.fitness = parse.(Float64, df.fitness)
-        df.boundary_rank = map(f -> f == 1 ? 0 : f == 0 ? 2 : 1, df.fitness)
-        CSV.write(file, df)
+            df.fitness = parse.(Float64, df.fitness)
+            df.boundary_rank = map(f -> f == 1 ? 0 : f == 0 ? 2 : 1, df.fitness)
+            CSV.write(file, df)
+        else
+            continue
+        end
     end
-
-
 end
