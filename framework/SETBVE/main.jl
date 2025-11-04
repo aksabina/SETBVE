@@ -1,6 +1,6 @@
 using Pkg
-#Pkg.activate(@__DIR__)      # activates the folder where the file lives
-#Pkg.instantiate()  
+Pkg.activate(@__DIR__)      # activates the folder where the file lives
+Pkg.instantiate()  
 
 include("SETBVE.jl")
 using .SETBVE

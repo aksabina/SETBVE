@@ -27,10 +27,10 @@ To run the SETBVE framework, ensure the following:
 > Please ensure sufficient disk space is available before proceeding.
 
 > ⏱️ **Warning: Execution Time**    
-> These scripts run the SETBVE framework on 10 SUTs:  
-> - **4 SUTs** (bytecount, bmi, circle, date) with **9 SETBVE configurations** each  
+> These scripts run the SETBVE framework on 10 FUTs:  
+> - **4 FUTs** (bytecount, bmi, circle, date) with **9 SETBVE configurations** each  
 >   → Scripts: `run30sec4SUTs.sh`, `run600sec4SUTs.sh`  
-> - **6 SUTs** (cld, fld, fldmod1, max, power_by_squaring, tailjoin) with **2 SETBVE configurations** each  
+> - **6 FUTs** (cld, fld, fldmod1, max, power_by_squaring, tailjoin) with **2 SETBVE configurations** each  
 >   → Scripts: `run30sec6SUTs.sh`, `run600sec6SUTs.sh`  
 >
 > Each configuration is executed 20 times for either **30 seconds** or **600 seconds** per run.  
@@ -59,7 +59,7 @@ To run the SETBVE framework, ensure the following:
 ## Using the Framework (For Practitioners)
 
 > ⚠️ **Warning: Disk Space Usage**  
-> Each run may generate between **1MB and 100MB** of data, depending on the SUT, run duration, and configuration.  
+> Each run may generate between **1MB and 100MB** of data, depending on the FUT, run duration, and configuration.  
 > With the default **20 runs**, total storage requirements can become significant. Please ensure you have enough disk space before proceeding.
 
 > ⏱️ **Warning: Execution Time**  
@@ -81,14 +81,14 @@ These components can be enabled in various combinations.
 To execute the framework, 1) open a terminal in the project directory (e.i. `framework/SETBVE`) and 2) use the following command structure:
 
 ```bash
-julia main.jl [sut_name] [duration_in_sec] [emitter_type] [parent_selection] [tracer_budget]
+julia main.jl [fut_name] [duration_in_sec] [emitter_type] [parent_selection] [tracer_budget]
 ```
 
 ### Parameters
 
 | Parameter            | Description                                                                                       | Options                                                                                     |
 |----------------------|---------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------|
-| `sut_name`           | System Under Test                                                                                 | `circle`, `bytecount`, `bmi`, `date`, `cld`, `fld`, `fldmod1`, `max`, `power_by_squaring`, `tailjoin` |
+| `fut_name`           | Function Under Test                                                                               | `circle`, `bytecount`, `bmi`, `date`, `cld`, `fld`, `fldmod1`, `max`, `power_by_squaring`, `tailjoin` |
 | `duration_in_sec`    | Duration of the run (in seconds)                                                                  | `30` `600`                                                                                 |
 | `emitter_type`       | Method for generating inputs                                                                      | `Random`, `Bituniform`, `Mutation`                                                         |
 | `parent_selection`   | Strategy for selecting parents for mutation                                                       | `Uniform`, `Fitness`, `Curiosity`, `NoSelection`                                           |
@@ -128,4 +128,4 @@ number_of_runs = 20  # Change to your desired number
 After running the framework, the following directories and files will be generated automatically in the project folder:
 
 - **Archive/** – stores the results of each run in CSV format. Each file includes generated inputs, outputs and relevant metadata.
-- **Plots/** – created only for the `bmi` and `circle` SUTs. This folder contains visualizations of a subset of the boundary candidates discovered during the run.
+- **Plots/** – created only for the `bmi` and `circle` FUTs. This folder contains visualizations of a subset of the boundary candidates discovered during the run.
