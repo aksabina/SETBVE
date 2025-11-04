@@ -47,7 +47,7 @@ This folder contains results from all SETBVE configurations per FUT. Without it,
 ### How to Obtain the Archive Folder
 
 1. Go to [SETBVE dataset](https://doi.org/10.5281/zenodo.15364606).
-2. Download the file `Archive.zip` (9 GB compressed, 20 GB uncompressed).
+2. Download the file `Archive.zip` (11 GB compressed, 31 GB uncompressed).
 3. Extract `Archive.zip` and move the resulting `Archive` folder into the `evaluation/EvaluationSETBVE/` directory.
 
 Your directory structure should look like:
