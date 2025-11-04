@@ -6,9 +6,9 @@ path_stats = "Stats"
 path_plots = "Plots"
 
 # experimental setup
-list_run_duration = [30]
+list_run_duration = [30, 600]
 top_rank_quantile = 0.99
-NUMBER_OF_RUNS = 10
+NUMBER_OF_RUNS = 20
 
 
 # Plots

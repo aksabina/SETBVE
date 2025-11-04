@@ -5,6 +5,8 @@ Pkg.instantiate()
 include("EvaluationSETBVE.jl")
 using .EvaluationSETBVE
 
+# combination of parameters (Top ranked only, all groups): [true, false] - TopRanked; [false, false] - NoPD0; [false, true] - UniqueCells
+
 sut_name = ARGS[1] # bmi, circle, date, bytecount, bytecount, power_by_squaring, tailjoin, max, cld, fldmod1, fld, etc.
 
 
@@ -34,3 +36,7 @@ save_archive_coverage(sut_name; top_ranked_only=true, all_groups=false)
 # # Quality metrics
 println(sut_name, ": Calculating relative program derivative (RPD)")
 save_pd_metrics(sut_name; top_ranked_only=true, all_groups=false)  # Top ranked only
+
+## Additional metrics: Input feature coverage
+println(sut_name, ": Calculating additional input feature coverage metrics")
+#save_input_feature_metrics(sut_name; top_ranked_only=false, all_groups=false)  # Top ranked only
