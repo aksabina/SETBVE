@@ -1,6 +1,7 @@
 # Replication Package for SETBVE framework
 [![GitHub](https://img.shields.io/github/license/aksabina/SETBVE-1.0)](./LICENSE)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.15364606.svg)](https://doi.org/10.5281/zenodo.15364606)
+[![arXiv](https://img.shields.io/badge/arXiv-2401.12345-b31b1b.svg)](https://arxiv.org/abs/2505.19736)
 
 This repository contains the replication package for the paper (currently under submission):
 
