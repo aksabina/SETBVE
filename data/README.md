@@ -23,21 +23,21 @@ Each tracer folder contains one of the following strategies:
 - **`Uniform/`** – Uniform random selection from the archive.
 - **`NoSelection/`** – No archive selection; only the `Sampler` is active (Explorer disabled).
 
-### 🔹 Software Under Test (SUTs)
+### 🔹 Function Under Test (FUTs)
 
-Each strategy folder includes subfolders for SUTs:
+Each strategy folder includes subfolders for FUTs:
 
 - **Common to all strategies:** `bmi`, `bytecount`, `date`, `circle`
 - **Exclusive to `Uniform/`:** `cld`, `fld`, `fldmod1`, `max`, `power_by_squaring`, `tailjoin` (Julia Base functions)
 
 ### 🔹 Run Duration
 
-Each SUT folder contains:
+Each FUT folder contains:
 
 - **`30 seconds/`** – Short-run data
 - **`600 seconds/`** – Long-run data
 
-> **Note:** Only *one example run* per configuration, SUT, and duration is included due to space constraints. In the full study, each configuration was executed for *20 runs*. The complete dataset is available to download: [SETBVE dataset](https://doi.org/10.5281/zenodo.15364606) or can be regenerated using the [SETBVE framework](https://github.com/aksabina/SETBVE/tree/main/framework).
+> **Note:** Only *one example run* per configuration, FUT, and duration is included due to space constraints. In the full study, each configuration was executed for *20 runs*. The complete dataset is available to download: [SETBVE dataset](https://doi.org/10.5281/zenodo.15364606) or can be regenerated using the [SETBVE framework](https://github.com/aksabina/SETBVE/tree/main/framework).
 
 ---
 
@@ -54,7 +54,7 @@ Each CSV in `example_data` logs details of boundary candidates with the followin
 | `fitness_max` | Maximum fitness observed for the archive cell across all runs |
 | `fitness_ratio_max` | Relative Program Derivative (RPD) = fitness / fitness_max |
 | `i1_*`, `i2_*` | Input arguments (input pair) |
-| `output1`, `output2` | Outputs from executing SUT with the respective inputs |
+| `output1`, `output2` | Outputs from executing FUT with the respective inputs |
 
 ---
 
