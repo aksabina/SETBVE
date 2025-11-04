@@ -42,7 +42,7 @@ The evaluation scripts depend on a folder named `Archive`, which must be located
 evaluation/EvaluationSETBVE/Archive/
 ```
 
-This folder contains results from all SETBVE configurations per SUT. Without it, evaluation cannot proceed.
+This folder contains results from all SETBVE configurations per FUT. Without it, evaluation cannot proceed.
 
 ### How to Obtain the Archive Folder
 
@@ -67,10 +67,10 @@ evaluation/
 From the `evaluation/EvaluationSETBVE/` directory, run the evaluation using:
 
 ```bash
-julia main.jl [sut_name]
+julia main.jl [FUT_name]
 ```
 
-Where `[sut_name]` is one of the following options **(case-sensitive)**:
+Where `[FUT_name]` is one of the following options **(case-sensitive)**:
 
 ```
 bmi, bytecount, circle, date, cld, fld, fldmod1, max, power_by_squaring, tailjoin
@@ -88,5 +88,5 @@ julia main.jl bmi
 After running the evaluation, the following directories and files will be generated automatically in the project folder:
 
 - **AggregatedArchive/** – This folder contains processed Archive files.
-- **Plots/** – This folder contains visualizations of pairwise comparisons between methods of discovered archive cells per SUT.
-- **Stats/** – This folder contains the results of evaluations RAC and RPD.
+- **Plots/** – This folder contains visualizations of pairwise comparisons between methods of discovered archive cells per FUT.
+- **Stats/** – This folder contains the results of evaluations RAC and RPD. (InputFeatureCoverage.zip contains the evaluated input feature coverage for BMI, Circle, Date and Bytecount FUTs)
