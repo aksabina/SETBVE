@@ -22,6 +22,8 @@ Icon?
 # VS Code (common for Julia users)
 Archive/
 Plots/
+framework/SETBVE/lib/
+framework/SETBVE/MainSUTs/
 .vscode/
 *.code-workspace
 
