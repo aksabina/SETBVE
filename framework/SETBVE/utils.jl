@@ -569,6 +569,14 @@ function save_archive_to_csv(Archive::AbstractArchive, behavioural_descriptors::
         error("Unknown sut_name: $sut_name")
     end
 
+    # integer inputs mix types (Int8 to UInt128), which DataFrames can't always compare (unique throws on them),
+    # so store them as BigInt; the CSV file is unchanged
+    for col in vcat(i1_columns, i2_columns)
+        if all(x -> x isa Integer, df[!, col])
+            df[!, col] = BigInt.(df[!, col])
+        end
+    end
+
     df[!, :fitness] = [abs(t[1]) for t in fitness_values]  # later can be expanded to more than one fitness calculation
     df[!, :curiosity] = [t for t in curiosity_scores]
     df = DataFrames.sort(df, :fitness, rev=true)
