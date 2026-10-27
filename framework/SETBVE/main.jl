@@ -10,7 +10,8 @@ sut_name = ARGS[1] # bmi, circle, date, bytecount, two_circles, bytecount, power
 total_duration = parse(Int, ARGS[2])  # 30, 600 in seconds
 emitter_type = ARGS[3]  # Mutation, Bituniform, Random
 bias_column = ARGS[4]  # Fitness, Uniform, Curiosity, NoSelection (Random, Bituniform)
-local_search_budget_ratio = parse(Float64, ARGS[5])  # 0, 0.1, 0.5 
+local_search_budget_ratio = parse(Float64, ARGS[5])  # 0, 0.1, 0.5
+seed = length(ARGS) >= 6 ? parse(Int, ARGS[6]) : nothing  # optional: run k is seeded with seed + k - 1
 
 init_duration = (emitter_type!="Bituniform" && emitter_type!="Random") ? Integer(bituniform_init_budget_ratio * total_duration) : 0  
 local_search_duration = Integer(local_search_budget_ratio * total_duration) # n% of the total time
@@ -25,6 +26,9 @@ results_local_search_lock = ReentrantLock()
 for run_num in 1:number_of_runs
 
     printstyled("$(total_duration)-$(run_num)-$(sut_name): $(emitter_type)-$(local_search_budget_ratio), $(bias_column)\n", color=:blue)
+    if seed !== nothing
+        Random.seed!(seed + run_num - 1)
+    end
     archive, evaluator, emitter, optimizer, optimiserInit, emitterInit, df = nothing, nothing, nothing, nothing, nothing, nothing, nothing  # re-init to ensure everything is empty 
 
     # Re-Initializing variables 

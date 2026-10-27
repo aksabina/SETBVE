@@ -81,7 +81,7 @@ These components can be enabled in various combinations.
 To execute the framework, 1) open a terminal in the project directory (e.i. `framework/SETBVE`) and 2) use the following command structure:
 
 ```bash
-julia main.jl [fut_name] [duration_in_sec] [emitter_type] [parent_selection] [tracer_budget]
+julia main.jl [fut_name] [duration_in_sec] [emitter_type] [parent_selection] [tracer_budget] [seed]
 ```
 
 ### Parameters
@@ -93,8 +93,11 @@ julia main.jl [fut_name] [duration_in_sec] [emitter_type] [parent_selection] [tr
 | `emitter_type`       | Method for generating inputs                                                                      | `Random`, `Bituniform`, `Mutation`                                                         |
 | `parent_selection`   | Strategy for selecting parents for mutation                                                       | `Uniform`, `Fitness`, `Curiosity`, `NoSelection`                                           |
 | `tracer_budget`      | Proportion of total time budget used for the Tracer                               | `0`, `0.1`                                                                                  |
+| `seed` (optional)    | Seeds the random number generator; run *k* uses `seed + k - 1`. Without it, runs are unseeded as before | any integer, e.g. `42`                                                                      |
 
 > **Note:** All parameter values are **case sensitive**. Use them exactly as shown.
+
+> **Note:** Runs are limited by time, not by a number of evaluations, so a seeded run repeats exactly only if it completes the same number of evaluations in that time. The seed fixes the sequence of random choices, not how many of them fit into the budget.
 
 ### Examples
 
