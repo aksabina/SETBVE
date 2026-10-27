@@ -152,12 +152,21 @@ function max_distance_inside_search_area(ranges::Vector{Any})
 end
 
 
+# rand on a range wider than typemax(Int128) throws (its length overflows), so sample those through BigInt
+function rand_in_range(rng)
+    span = BigInt(last(rng)) - BigInt(first(rng))
+    if span < typemax(Int128)
+        return rand(rng)
+    end
+    return to_signed_unsigned_Int(BigInt(first(rng)) + rand(big(0):span))
+end
+
 function generate_solutions_within_ranges(ranges)
     solutions = Vector{Vector{Number}}()
 
     for _ in 1:local_search_neighbors_num
         # Generate one solution vector by randomly selecting a value within each range
-        solution = [rand(rng) for rng in ranges]
+        solution = [rand_in_range(rng) for rng in ranges]
         push!(solutions, solution)
     end
 
@@ -328,20 +337,12 @@ function calculate_localsearch_dims(df::DataFrame, start_row::Int, column_names:
         raw_lower = val - round(BigInt, median_val) - margin 
         raw_upper = val + round(BigInt, median_val) + margin
        
-        if raw_lower <= UInt128(typemax(Int128))
-            lower_bound = max(typemin(Int128) + 1, Int128(raw_lower))
-        else
-            lower_bound = typemax(Int128) - 1  # in case the value is too big
-        end
+        # keep both bounds inside Int128, in case the value is too big or too small
+        lower_bound = Int128(clamp(raw_lower, typemin(Int128) + 1, typemax(Int128) - 1))
+        upper_bound = Int128(clamp(raw_upper, typemin(Int128) + 1, typemax(Int128) - 1))
 
-        if raw_upper <= UInt128(typemax(Int128))
-            upper_bound = min(typemax(Int128) - 1, Int128(raw_upper))
-        else
-            upper_bound = typemax(Int128) - 1 # in case the value is too big
-        end
-
-        if upper_bound <= lower_bound  # can happen due to UInt128 conversion or overflow
-            upper_bound = lower_bound + margin
+        if upper_bound <= lower_bound  # can happen when both bounds are clamped
+            upper_bound = to_signed_unsigned_Int(BigInt(lower_bound) + margin)
         end
 
         push!(ranges, lower_bound:upper_bound)
