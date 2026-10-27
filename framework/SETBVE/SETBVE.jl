@@ -2,17 +2,27 @@ module SETBVE
 using StatsBase, Random, Base.Threads
 using Statistics
 using StringDistances, InformationDistances
-using Printf, Plots
+using Printf
 using Distances, Dates, CSV, DataFrames, ProgressMeter, Base
-using PyCall
 
+# Plots (for main.jl's figures) and PyCall (for the python_normalize SUT) are optional. Set the environment variable
+# SETBVE_PLOTS=false or SETBVE_PYTHON=false before loading SETBVE to leave them out, e.g. when they aren't installed.
+const WITH_PLOTS = !(get(ENV, "SETBVE_PLOTS", "true") in ("false", "0"))
+const WITH_PYTHON = !(get(ENV, "SETBVE_PYTHON", "true") in ("false", "0"))
+
+if WITH_PYTHON
+    using PyCall
+    include("python_suts.jl")
+end
 
 include("interfaces.jl")
 include("constants.jl")
 include("suts.jl")
 include("distances.jl")
 include("utils.jl")
-include("plots.jl")
+if WITH_PLOTS
+    include("plots.jl")
+end
 
 include("Optimiser.jl")
 include("Emitter.jl")

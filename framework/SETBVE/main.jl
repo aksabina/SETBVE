@@ -166,10 +166,11 @@ for run_num in 1:number_of_runs
     end
 end 
 
-# Plot results outside the @threads loop 
+# Plot results outside the @threads loop (unless SETBVE was loaded without Plots)
+plot_suts = SETBVE.WITH_PLOTS ? ["bmi", "circle", "two_circles"] : String[]
 println("Plotting results outside threads: without Tracer")
 for (run_num, df) in results_global_search
-    if sut_name == "bmi" || sut_name == "circle" || sut_name == "two_circles"
+    if sut_name in plot_suts
         printstyled("$(total_duration)-$(run_num)-$(sut_name): $(emitter_type), $(bias_column)\n", color=:orange)
         plot_zoomed_scatter(df, sut_name, emitter_type, bias_column, total_duration, false, "", run_num, local_search_budget_ratio)
     end
@@ -178,7 +179,7 @@ end
 if local_search_budget_ratio != 0
     println("Plotting results outside threads: with Tracer")
     for (run_num, df_all) in results_local_search
-        if sut_name == "bmi" || sut_name == "circle" || sut_name == "two_circles"
+        if sut_name in plot_suts
             printstyled("$(total_duration)-$(run_num)-$(sut_name): $(emitter_type), $(bias_column)\n", color=:orange)
             plot_zoomed_scatter(df_all, sut_name, emitter_type, bias_column, total_duration, false, "Tracer", run_num, local_search_budget_ratio)
         end

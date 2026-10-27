@@ -234,20 +234,6 @@ function sut_normalize(args_vec::AbstractVector{<:Any})
     return normalizer(Float64.(vec))
 end
 
-function sut_python_normalizer(args_vec::AbstractVector{<:Any})
-    # Step 1: Extract the input vector
-    vec = args_vec[1]
-    # Step 2: Load the Python file and function
-    py"""
-    import sys
-    sys.path.append(".")  # ensures current directory is in path
-    from process_array import normalize_array
-    """
-    # Step 3: Call the Python function
-    normalized_array = py"normalize_array"(vec)
-    return normalized_array
-end
-
 function sut_java_normalizer(args_vec::AbstractVector{<:Any})
     vec = args_vec[1]
     arr = Float64.(BigInt.(vec))
@@ -294,7 +280,10 @@ sut_functions_dic = Dict(
     "powermod" => sut_powermod,
     "element_at_position" => sut_element_at_position,
     "normalize" => sut_normalize,
-    "python_normalize" => sut_python_normalizer,
     "java_normalize" => sut_java_normalizer
 )
+
+if WITH_PYTHON
+    sut_functions_dic["python_normalize"] = sut_python_normalizer
+end
 

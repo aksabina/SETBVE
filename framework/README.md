@@ -121,6 +121,16 @@ To modify this, open the `runparameters.jl` file and change the value of the `nu
 ```julia
 number_of_runs = 20  # Change to your desired number
 ```
+
+### Optional Dependencies
+
+`Plots` (for the figures) and `PyCall` (for the `python_normalize` FUT) are loaded by default. To run SETBVE without them, for example when they aren't installed, set these environment variables before starting Julia:
+
+```bash
+SETBVE_PLOTS=false SETBVE_PYTHON=false julia main.jl bmi 30 Mutation Uniform 0.1
+```
+
+Without `Plots`, `main.jl` skips the figures; without `PyCall`, the `python_normalize` FUT is unavailable.
 ---
 
 ## Output Files
