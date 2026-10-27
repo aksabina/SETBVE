@@ -67,12 +67,14 @@ function var_input_length(args)
 end
 
 
-behav_desc_functions_dic = Dict(
-    "validity_group" => num_exceptions,
-    "oan" => output_abstraction_number,
-    "out_length_diff" => output_length_diff, 
-    "in_length_total" => total_input_length, 
-    "in_length_var" => var_input_length, 
-    "in_array_length_total" => total_array_length,
-    "in_array_length_var" => var_array_length
+# Every behavioural descriptor is called as f(i1, i2, output1, output2) for a pair of inputs and their outputs,
+# so new descriptors (including user-defined ones) can be added to this dict without changing the callers
+behav_desc_functions_dic = Dict{String,Function}(
+    "validity_group" => (i1, i2, o1, o2) -> num_exceptions(Any[o1, o2]),
+    "oan" => (i1, i2, o1, o2) -> output_abstraction_number(Any[o1, o2]),
+    "out_length_diff" => (i1, i2, o1, o2) -> output_length_diff(Any[o1, o2]),
+    "in_length_total" => (i1, i2, o1, o2) -> total_input_length(Any[i1, i2]),
+    "in_length_var" => (i1, i2, o1, o2) -> var_input_length(Any[i1, i2]),
+    "in_array_length_total" => (i1, i2, o1, o2) -> total_array_length(Any[i1, i2]),
+    "in_array_length_var" => (i1, i2, o1, o2) -> var_array_length(Any[i1, i2])
 )

@@ -597,20 +597,12 @@ function append_archive_with_local_search_sols(df::DataFrame, local_search_df::D
 
     # Preallocate columns (this minimizes DataFrame modifications during the loop)
     local_search_df[!, :fitness] = fill(0.0, n_rows)
-    local_search_df[!, :bd_validity_group] = fill(0, n_rows)
-    if "bd_out_length_diff" in names(df)
-        local_search_df[!, :bd_out_length_diff] = fill(0, n_rows)
-    elseif "bd_oan" in names(df)
-        local_search_df[!, :bd_oan] = fill(0, n_rows)
+    # one column per behavioural descriptor of the archive (columns bd_<name>)
+    bd_columns = filter(col -> startswith(col, "bd_"), names(df))
+    for col in bd_columns
+        local_search_df[!, col] = fill(0, n_rows)
     end
-    if "bd_in_length_total" in names(df)
-        local_search_df[!, :bd_in_length_total] = fill(0, n_rows)
-        local_search_df[!, :bd_in_length_var] = fill(0, n_rows)
-    elseif "bd_in_array_length_total" in names(df)
-        local_search_df[!, :bd_in_array_length_total] = fill(0, n_rows)
-        local_search_df[!, :bd_in_array_length_var] = fill(0, n_rows)
-    end
-    
+
     local_search_df[!, :output1] = fill("default_value", n_rows)
     local_search_df[!, :output2] = fill("default_value", n_rows)
     local_search_df[!, :curiosity] = fill(0.0, n_rows)
@@ -657,22 +649,11 @@ function append_archive_with_local_search_sols(df::DataFrame, local_search_df::D
 
         # Assign values to the preallocated columns
         local_search_df.fitness[row_idx] = abs(fitness)
-        local_search_df.bd_validity_group[row_idx] = num_exceptions([string(output1), string(output2)])
-        
-        if "bd_oan" in names(local_search_df)
-            local_search_df.bd_oan[row_idx] = output_abstraction_number([string(output1), string(output2)])
-        elseif "bd_out_length_diff" in names(local_search_df)
-            local_search_df.bd_out_length_diff[row_idx] = output_length_diff([string(output1), string(output2)])
+        for col in bd_columns
+            descriptor = behav_desc_functions_dic[col[4:end]]
+            local_search_df[row_idx, col] = descriptor(i1, i2, string(output1), string(output2))
         end
 
-        if "bd_in_array_length_total" in names(local_search_df)
-            local_search_df.bd_in_array_length_total[row_idx] = total_array_length([i1, i2])
-            local_search_df.bd_in_array_length_var[row_idx] = var_array_length([i1, i2])
-        elseif "bd_in_length_total" in names(local_search_df)
-            local_search_df.bd_in_length_total[row_idx] = total_input_length([i1, i2])
-            local_search_df.bd_in_length_var[row_idx] = var_input_length([i1, i2])
-        end
-    
         local_search_df.output1[row_idx] = string(output1)
         local_search_df.output2[row_idx] = string(output2)
         next!(p)
