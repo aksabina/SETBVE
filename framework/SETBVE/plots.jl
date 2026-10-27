@@ -39,9 +39,9 @@ function plot_circles!(sut_name::String, x_min::Integer, x_max::Integer, y_min::
 end
 
 function plot_zoomed_scatter(df::DataFrame, sut_name::String, emitter_type::String, bias_column::String, duration::Integer, vv_only::Bool, suffix::String, run_num::Integer, local_search_budget_ratio)
-    println("Total number of records $(nrow(df))")
+    verbose[] && println("Total number of records $(nrow(df))")
     df = filter(row -> row.fitness >= fitness_plot_threshold, df)
-    
+
     if vv_only
         suffix = "$(suffix)(VV)"
         df = filter(row -> row.bd_validity_group == 0, df)
@@ -54,6 +54,7 @@ function plot_zoomed_scatter(df::DataFrame, sut_name::String, emitter_type::Stri
     else
         output_filename = "$(dir_plots)$(round(Int,local_search_budget_ratio*100))%Tracer/$(bias_column)/$(sut_name)/$(emitter_type)/$(duration)/$(sut_name)$(emitter_type)$(bias_column)$(duration)$(suffix)-$(run_num).png"
     end
+    output_filename = joinpath(output_dir[], output_filename)
     
     xlabel, ylabel = get_xlabel_ylabel(sut_name)
 
@@ -71,7 +72,7 @@ function plot_zoomed_scatter(df::DataFrame, sut_name::String, emitter_type::Stri
 
     sampling = (bias_column!="NoSelection") ? "$(bias_column) sampling" : ""
     title = "$(sut_name) SUT ($(duration) seconds, run $(run_num)) $(sampling)\nn=$(nrow(df)), PD>0.1, $(emitter_type) $(suffix)"
-    println("Plotting zoomed in scatter with top $(nrow(df))")
+    verbose[] && println("Plotting zoomed in scatter with top $(nrow(df))")
 
 
     domain_error_pattern = r"DomainError"
@@ -183,7 +184,7 @@ function count_unique_bdoan(df::DataFrame)::Int
     if "bd_oan" in names(df)
         return length(unique(df.bd_oan))
     else
-        println("Bd_oan not found in column list")
+        verbose[] && println("Bd_oan not found in column list")
         return nothing
     end
 end

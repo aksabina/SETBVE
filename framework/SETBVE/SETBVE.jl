@@ -64,6 +64,7 @@ cellid, archivesize, cells, cellids,
 reportfeedback,
 
 # utils.jl
+set_output_dir!, set_verbose!,
 bitlogsample, sample,
 lexorderjoin,
 save_archive_to_csv, calculate_localsearch_dims,

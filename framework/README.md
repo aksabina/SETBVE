@@ -139,3 +139,5 @@ After running the framework, the following directories and files will be generat
 
 - **Archive/** – stores the results of each run in CSV format. Each file includes generated inputs, outputs and relevant metadata.
 - **Plots/** – created only for the `bmi` and `circle` FUTs. This folder contains visualizations of a subset of the boundary candidates discovered during the run.
+
+When SETBVE is used from other Julia code, `set_output_dir!(dir)` writes these folders under `dir` instead of the working directory, and `set_verbose!(false)` turns off its progress bars and messages.

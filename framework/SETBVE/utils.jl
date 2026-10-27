@@ -1,6 +1,11 @@
 using StatsBase, Random, Base.Threads
 
-# calculate the maximum number of bits of a datatype 
+# directory under which the Archive/ and Plots/ folders are written (default: the working directory)
+set_output_dir!(dir::AbstractString) = (output_dir[] = dir; nothing)
+# whether SETBVE prints progress bars and messages (default: true)
+set_verbose!(on::Bool) = (verbose[] = on; nothing)
+
+# calculate the maximum number of bits of a datatype
 maxbits(::Type{T}) where {T<:Unsigned} = sizeof(T) * 8  
 maxbits(::Type{T}) where {T<:Signed} = sizeof(T) * 8 - 1
 
@@ -260,7 +265,7 @@ function local_vector_search(duration_in_millis::Integer, sut_name::String, ncd_
     
     best_solutions_list = generate_solutions_within_ncd_range(current_solution, ncd_threshold)
     if isempty(best_solutions_list)
-        printstyled("Could not search locally around $current_solution\n"; color=:red, bold=true)
+        verbose[] && printstyled("Could not search locally around $current_solution\n"; color=:red, bold=true)
         return [current_solution] 
     end
 
@@ -506,7 +511,7 @@ end
 
 function save_archive_to_csv(Archive::AbstractArchive, behavioural_descriptors::Vector{String}, sut_name::String, emitter_type::String, bias_column::String, duration::Integer, run_num::Integer, local_search_budget_ratio)::DataFrame
 
-    output_filename = "$(dir_archive)$(round(Int,local_search_budget_ratio*100))%Tracer/$(bias_column)/$(sut_name)/$(emitter_type)/$(duration)/Archive$(sut_name)$(emitter_type)$(bias_column)$(duration)_$(run_num).csv"
+    output_filename = joinpath(output_dir[], "$(dir_archive)$(round(Int,local_search_budget_ratio*100))%Tracer/$(bias_column)/$(sut_name)/$(emitter_type)/$(duration)/Archive$(sut_name)$(emitter_type)$(bias_column)$(duration)_$(run_num).csv")
 
     sut_function = sut_functions_dic[sut_name]
 
@@ -592,7 +597,7 @@ end
 function append_archive_with_local_search_sols(df::DataFrame, local_search_df::DataFrame, sut_name::String, emitter_type::String, bias_column::String, duration::Integer, run_num::Integer, local_search_budget_ratio)
     sut_function = sut_functions_dic[sut_name]
     
-    output_filename = "$(dir_archive)$(round(Int,local_search_budget_ratio*100))%Tracer/$(bias_column)/$(sut_name)/$(emitter_type)/$(duration)/Archive$(sut_name)$(emitter_type)$(bias_column)$(duration)withTracer_$(run_num).csv"
+    output_filename = joinpath(output_dir[], "$(dir_archive)$(round(Int,local_search_budget_ratio*100))%Tracer/$(bias_column)/$(sut_name)/$(emitter_type)/$(duration)/Archive$(sut_name)$(emitter_type)$(bias_column)$(duration)withTracer_$(run_num).csv")
     n_rows = nrow(local_search_df)
 
     # Preallocate columns (this minimizes DataFrame modifications during the loop)
@@ -615,7 +620,7 @@ function append_archive_with_local_search_sols(df::DataFrame, local_search_df::D
         end
     end
 
-    p = Progress(n_rows)
+    p = Progress(n_rows; enabled=verbose[])
 
     #@threads for row_idx in 1:n_rows
     for row_idx in 1:n_rows

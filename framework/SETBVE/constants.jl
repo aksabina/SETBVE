@@ -58,9 +58,13 @@ local_search_vv_ratio = 0.5
 local_search_ve_ratio = 0.4
 local_search_ee_ratio = 0.1
 
-# filepaths
+# filepaths, relative to output_dir (the working directory unless changed with set_output_dir!)
+const output_dir = Ref(".")
 dir_archive = "Archive/"
 dir_plots = "Plots/Solutions/"
+
+# console output: progress bars and messages (switch off with set_verbose!(false))
+const verbose = Ref(true)
 
 # plots
 fig_size_dic = Dict(
