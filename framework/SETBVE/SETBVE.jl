@@ -101,6 +101,6 @@ behavioural_descriptors,
 number_of_runs,
 
 # search.jl
-run_search
+register_descriptor!, register_sut!, run_search
 
 end  # module

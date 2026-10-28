@@ -1,4 +1,35 @@
-# Running SETBVE from Julia code: one search on a SUT, as one run of main.jl does
+# Running SETBVE from Julia code: registering SUTs and behavioural descriptors, and one search on a SUT, as one run
+# of main.jl does
+
+"""
+    register_descriptor!(name, f)
+
+Add a behavioural descriptor called `name`. `f(i1, i2, output1, output2)` gets a pair's inputs (two vectors) and its
+outputs, and returns an integer bin; the archive keeps the best pair for each combination of bins. It is used both
+when solutions are evaluated and when the Tracer's solutions are added to the archive.
+"""
+function register_descriptor!(name::AbstractString, f)
+    behav_desc_functions_dic[String(name)] = f
+    return String(name)
+end
+
+"""
+    register_sut!(name, f, n_inputs; descriptors=["validity_group", "oan", "in_length_var", "in_length_total"])
+
+Add a SUT called `name`. `f(inputs)` gets a vector of `n_inputs` integers and returns the output; an error it throws
+counts as an invalid output. `descriptors` names the behavioural descriptors that spread the archive: built-in ones
+or ones added with `register_descriptor!`.
+"""
+function register_sut!(name::AbstractString, f, n_inputs::Integer;
+                       descriptors=["validity_group", "oan", "in_length_var", "in_length_total"])
+    unknown = filter(d -> !haskey(behav_desc_functions_dic, d), descriptors)
+    isempty(unknown) || error("Unknown behavioural descriptors: $(join(unknown, ", ")) (see register_descriptor!)")
+    name = String(name)
+    sut_functions_dic[name] = f
+    total_args_num[name] = 2 * n_inputs
+    behavioural_descriptors[name] = collect(String, descriptors)
+    return name
+end
 
 """
     run_search(sut_name, duration; emitter="Mutation", selection="Curiosity", tracer_budget=0.0,

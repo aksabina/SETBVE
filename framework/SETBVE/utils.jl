@@ -629,6 +629,8 @@ function append_archive_with_local_search_sols(df::DataFrame, local_search_df::D
     end
 
     p = Progress(n_rows; enabled=verbose[])
+    i1_columns = filter(col -> startswith(col, "i1_"), names(df))
+    i2_columns = filter(col -> startswith(col, "i2_"), names(df))
 
     #@threads for row_idx in 1:n_rows
     for row_idx in 1:n_rows
@@ -637,19 +639,17 @@ function append_archive_with_local_search_sols(df::DataFrame, local_search_df::D
         # helper: apply conversion only if sut_name ≠ "normalize"
         conv(x) = occursin("normalize", sut_name) ? x : to_signed_unsigned_Int(x)
 
-        if "i1_3" in names(df) 
-            i1 = Any[conv(row.i1_1), conv(row.i1_2), conv(row.i1_3)]
-            i2 = Any[conv(row.i2_1), conv(row.i2_2), conv(row.i2_3)]
-        elseif "i1_2" in names(df) 
-            i1 = Any[conv(row.i1_1), conv(row.i1_2)]
-            i2 = Any[conv(row.i2_1), conv(row.i2_2)]
-        else
-            i1 = Any[conv(row.i1_1)]
-            i2 = Any[conv(row.i2_1)]
-        end
+        i1 = Any[conv(row[col]) for col in i1_columns]
+        i2 = Any[conv(row[col]) for col in i2_columns]
 
         output1 = safe_sut_function(i1)
         output2 = safe_sut_function(i2)
+
+        # behavioural descriptors get the same arguments as in evaluate()
+        for col in bd_columns
+            descriptor = behav_desc_functions_dic[col[4:end]]
+            local_search_df[row_idx, col] = descriptor(i1, i2, output1, output2)
+        end
 
         # Compute distances and fitness
         convert_if_needed(x) = occursin("normalize", sut_name) ? x : map(BigInt, x)
@@ -662,10 +662,6 @@ function append_archive_with_local_search_sols(df::DataFrame, local_search_df::D
 
         # Assign values to the preallocated columns
         local_search_df.fitness[row_idx] = abs(fitness)
-        for col in bd_columns
-            descriptor = behav_desc_functions_dic[col[4:end]]
-            local_search_df[row_idx, col] = descriptor(i1, i2, string(output1), string(output2))
-        end
 
         local_search_df.output1[row_idx] = string(output1)
         local_search_df.output2[row_idx] = string(output2)

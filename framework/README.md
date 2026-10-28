@@ -134,6 +134,29 @@ SETBVE_PLOTS=false SETBVE_PYTHON=false julia main.jl bmi 30 Mutation Uniform 0.1
 ```
 
 Without `Plots`, `main.jl` skips the figures; without `PyCall`, the `python_normalize` FUT is unavailable.
+
+### Using SETBVE from Julia Code
+
+Your own FUTs and behavioural descriptors can be registered and searched without editing SETBVE's files:
+
+```julia
+include("SETBVE.jl")
+using .SETBVE
+
+# a descriptor gets a pair's inputs and outputs, (i1, i2, output1, output2), and returns an integer bin
+register_descriptor!("sum_bin", (i1, i2, o1, o2) -> ndigits(sum(BigInt, i1)))
+
+# a FUT gets a vector of integer inputs; an error it throws counts as an invalid output
+register_sut!("my_fut", x -> x[1] < x[2] ? "less" : "not less", 2;
+              descriptors=["validity_group", "oan", "sum_bin"])
+
+result = run_search("my_fut", 30; emitter="Mutation", selection="Curiosity", tracer_budget=0.1, seed=1)
+result.archive       # DataFrame: the Sampler's and Explorer's solutions
+result.with_tracer   # DataFrame: the same plus the Tracer's (nothing when tracer_budget is 0)
+```
+
+`run_search` performs one run as `main.jl` does, and writes the same CSV files.
+
 ---
 
 ## Output Files
