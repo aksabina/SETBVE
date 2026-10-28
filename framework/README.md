@@ -157,6 +157,12 @@ result.with_tracer   # DataFrame: the same plus the Tracer's (nothing when trace
 
 `run_search` performs one run as `main.jl` does, and writes the same CSV files.
 
+If a FUT's inputs only make sense in a range, give it bounds: one lower and one upper value per input. The Sampler, the Explorer's mutations and the Tracer then stay within them, instead of searching the whole integer range:
+
+```julia
+register_sut!("my_fut", x -> x[1] < x[2] ? "less" : "not less", 2; bounds=([0, 0], [100, 1000]))
+```
+
 ---
 
 ## Output Files

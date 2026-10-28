@@ -14,20 +14,34 @@ function register_descriptor!(name::AbstractString, f)
 end
 
 """
-    register_sut!(name, f, n_inputs; descriptors=["validity_group", "oan", "in_length_var", "in_length_total"])
+    register_sut!(name, f, n_inputs; descriptors=["validity_group", "oan", "in_length_var", "in_length_total"],
+                  bounds=nothing)
 
 Add a SUT called `name`. `f(inputs)` gets a vector of `n_inputs` integers and returns the output; an error it throws
 counts as an invalid output. `descriptors` names the behavioural descriptors that spread the archive: built-in ones
 or ones added with `register_descriptor!`.
+
+`bounds = (lower, upper)`, two vectors of `n_inputs` integers, limits input k to `lower[k]:upper[k]`: the Sampler,
+the Explorer's mutations and the Tracer then stay within them, instead of searching the whole integer range.
 """
 function register_sut!(name::AbstractString, f, n_inputs::Integer;
-                       descriptors=["validity_group", "oan", "in_length_var", "in_length_total"])
+                       descriptors=["validity_group", "oan", "in_length_var", "in_length_total"], bounds=nothing)
     unknown = filter(d -> !haskey(behav_desc_functions_dic, d), descriptors)
     isempty(unknown) || error("Unknown behavioural descriptors: $(join(unknown, ", ")) (see register_descriptor!)")
+    if bounds !== nothing
+        lower, upper = BigInt.(bounds[1]), BigInt.(bounds[2])
+        length(lower) == length(upper) == n_inputs || error("bounds need $n_inputs lower and $n_inputs upper values")
+        all(lower .<= upper) || error("each lower bound must be at most its upper bound")
+    end
     name = String(name)
     sut_functions_dic[name] = f
     total_args_num[name] = 2 * n_inputs
     behavioural_descriptors[name] = collect(String, descriptors)
+    if bounds === nothing
+        delete!(input_bounds, name)
+    else
+        input_bounds[name] = InputBounds(lower, upper)
+    end
     return name
 end
 
@@ -63,6 +77,12 @@ function run_search(sut_name::String, duration::Integer; emitter::String="Mutati
     init_duration = (emitter_type != "Bituniform" && emitter_type != "Random") ? bituniform_init_budget_ratio * duration : 0
     local_search_duration = local_search_budget_ratio * duration
 
+    bounds = get(input_bounds, sut_name, nothing)
+    vector_input = sut_name == "element_at_position" || occursin("normalize", sut_name)
+    if vector_input && bounds !== nothing
+        error("Input bounds are only supported for SUTs with integer inputs")
+    end
+
     archive = IntGridArchive{S,Evaluation}(Int8(1))
     evaluator = Evaluator()
     if emitter_type == "Mutation"
@@ -70,21 +90,21 @@ function run_search(sut_name::String, duration::Integer; emitter::String="Mutati
             # use the vector-specific emitter
             explorer = MutateVectorEmitter(archive, bias_column, default_parent_id, default_parent_id)
         else
-            explorer = MutateEmitter(archive, bias_column, default_parent_id, default_parent_id)
+            explorer = MutateEmitter(archive, bias_column, default_parent_id, default_parent_id, bounds)
         end
     elseif emitter_type == "Bituniform"
-        explorer = BitUniformRandomEmitter(args_num, default_parent_id, default_parent_id)
+        explorer = BitUniformRandomEmitter(args_num, default_parent_id, default_parent_id, bounds)
     elseif emitter_type == "Random"
-        explorer = RandomEmitter(args_num, default_parent_id, default_parent_id)
+        explorer = RandomEmitter(args_num, default_parent_id, default_parent_id, bounds)
     else
         error("Unknown emitter $emitter_type: use Mutation, Bituniform or Random")
     end
     optimizer = DefaultOptimizer(batch_size, archive, explorer, evaluator)
 
-    if sut_name == "element_at_position" || occursin("normalize", sut_name)
+    if vector_input
         sampler = BitUniformVectorRandomEmitter(args_num, default_parent_id, default_parent_id)
     else
-        sampler = BitUniformRandomEmitter(args_num, default_parent_id, default_parent_id)
+        sampler = BitUniformRandomEmitter(args_num, default_parent_id, default_parent_id, bounds)
     end
     optimiser_init = DefaultOptimizer(batch_size, archive, sampler, evaluator)
 

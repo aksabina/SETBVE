@@ -38,6 +38,9 @@ behavioural_descriptors = Dict(
 bituniform_init_budget_ratio = 0.1
 number_of_runs = 10
 
+# input bounds per SUT (see register_sut!); SUTs without an entry are searched over the whole integer range
+input_bounds = Dict{String,InputBounds}()
+
 
 
 

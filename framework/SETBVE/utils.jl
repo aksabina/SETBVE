@@ -157,6 +157,35 @@ function max_distance_inside_search_area(ranges::Vector{Any})
 end
 
 
+# Input bounds of a SUT: its k-th input lies in lower[k]:upper[k]. A solution holds a pair's inputs (i1..., i2...),
+# so its j-th entry is the SUT's input mod1(j, length(lower)).
+struct InputBounds
+    lower::Vector{BigInt}
+    upper::Vector{BigInt}
+end
+
+bounds_of(b::InputBounds, j) = (b.lower[mod1(j, length(b.lower))], b.upper[mod1(j, length(b.upper))])
+
+# Like bitlogsample within [lower, upper]: a random offset, shifted right by a random number of bits (so small offsets
+# are as likely as large ones on a log scale), measured from either end of the interval
+function bounded_bitlogsample(lower::BigInt, upper::BigInt)
+    span = upper - lower
+    offset = rand(big(0):span) >> rand(0:ndigits(span, base=2))
+    return to_signed_unsigned_Int(rand(Bool) ? lower + offset : upper - offset)
+end
+
+# Move each entry of a solution into its input's bounds; without bounds the solution is unchanged
+clamp_to_bounds(solution, ::Nothing) = solution
+function clamp_to_bounds(solution, b::InputBounds)
+    return Integer[to_signed_unsigned_Int(clamp(BigInt(x), bounds_of(b, j)...)) for (j, x) in enumerate(solution)]
+end
+
+# Narrow the Tracer's search ranges to the inputs' bounds; without bounds they are unchanged
+clamp_ranges_to_bounds(ranges, ::Nothing) = ranges
+function clamp_ranges_to_bounds(ranges, b::InputBounds)
+    return Any[clamp(BigInt(first(r)), bounds_of(b, j)...):clamp(BigInt(last(r)), bounds_of(b, j)...) for (j, r) in enumerate(ranges)]
+end
+
 # rand on a range wider than typemax(Int128) throws (its length overflows), so sample those through BigInt
 function rand_in_range(rng)
     span = BigInt(last(rng)) - BigInt(first(rng))
@@ -231,12 +260,12 @@ function local_search(duration_in_millis::Integer, sut_name::String, search_area
     start_time = time() * 1_000_000  # milliseconds
     while(time() * 1_000_000 - start_time) <= duration_in_millis  # run for n milliseconds
         old_solution = rand(best_solutions_list)
-        new_solution = shrink_move_mutation(old_solution)
-        sampled_solution = rand(best_solutions_list)  # random one to calculate the distance with 
+        new_solution = clamp_to_bounds(shrink_move_mutation(old_solution), get(input_bounds, sut_name, nothing))
+        sampled_solution = rand(best_solutions_list)  # random one to calculate the distance with
         if sampled_solution == old_solution
-            sampled_solution = rand(best_solutions_list)  # sample again because we need a different one 
+            sampled_solution = rand(best_solutions_list)  # sample again because we need a different one
         end
-        
+
         # Evaluate new solution
         old_objective = calculate_objective(old_solution, sampled_solution, max_distance, sut_name)
         new_objective = calculate_objective(new_solution, sampled_solution, max_distance, sut_name)
@@ -700,6 +729,7 @@ function local_search_iteration(group_name, first_row, rows_num_local_search, so
         if !occursin("normalize", sut_name)
             
             search_area_dims = calculate_localsearch_dims(sorted_df, row_num, i_columns, current_solution)
+            search_area_dims = clamp_ranges_to_bounds(search_area_dims, get(input_bounds, sut_name, nothing))
             max_distance = max_distance_inside_search_area(search_area_dims)
 
             emitter = LocalSearchEmitter(i_columns, round(Int, duration_ms_per_row), sut_name, search_area_dims, max_distance)

@@ -9,7 +9,9 @@ struct BitUniformRandomEmitter <: AbstractEmitter{S}
     arg_number::Int8
     parent1_idx::Int8
     parent2_idx::Int8
+    bounds::Union{Nothing,InputBounds}  # sample within the SUT's input bounds, if any
 end
+BitUniformRandomEmitter(arg_number, parent1_idx, parent2_idx) = BitUniformRandomEmitter(arg_number, parent1_idx, parent2_idx, nothing)
 
 struct BitUniformVectorRandomEmitter <: AbstractEmitter{S}
     arg_number::Int8
@@ -21,7 +23,9 @@ struct RandomEmitter <: AbstractEmitter{S}
     arg_number::Int8
     parent1_idx::Int8
     parent2_idx::Int8
+    bounds::Union{Nothing,InputBounds}  # sample within the SUT's input bounds, if any
 end
+RandomEmitter(arg_number, parent1_idx, parent2_idx) = RandomEmitter(arg_number, parent1_idx, parent2_idx, nothing)
 
 mutable struct CrossoverAndMutateEmitter <: AbstractEmitter{S}
     archive::AbstractArchive
@@ -36,7 +40,9 @@ mutable struct MutateEmitter <: AbstractEmitter{S}
     bias_column::String
     parent1_idx::Integer
     parent2_idx::Integer
+    bounds::Union{Nothing,InputBounds}  # keep mutated solutions within the SUT's input bounds, if any
 end
+MutateEmitter(archive, bias_column, parent1_idx, parent2_idx) = MutateEmitter(archive, bias_column, parent1_idx, parent2_idx, nothing)
 
 
 mutable struct MutateVectorEmitter <: AbstractEmitter{S}
@@ -67,9 +73,13 @@ end
 
 function ask(e::BitUniformRandomEmitter)
     solution_vector = Integer[]
-    for _ in 1:e.arg_number
-        datatype = rand(datatypes)
-        push!(solution_vector, bitlogsample(datatype))
+    for j in 1:e.arg_number
+        if e.bounds === nothing
+            datatype = rand(datatypes)
+            push!(solution_vector, bitlogsample(datatype))
+        else
+            push!(solution_vector, bounded_bitlogsample(bounds_of(e.bounds, j)...))
+        end
     end
     return Dict("solution" => solution_vector, "curiosity" => 0.0)
 end
@@ -100,8 +110,12 @@ end
 
 function ask(e::RandomEmitter)
     solution_vector = Integer[]
-    for _ in 1:e.arg_number
-        push!(solution_vector, (rand(Int64)))
+    for j in 1:e.arg_number
+        if e.bounds === nothing
+            push!(solution_vector, (rand(Int64)))
+        else
+            push!(solution_vector, to_signed_unsigned_Int(rand(range(bounds_of(e.bounds, j)...))))
+        end
     end
     return Dict("solution" => solution_vector, "curiosity" => 0.0)
 end
@@ -130,7 +144,7 @@ function ask(e::MutateEmitter)
     solution = Any[solution...]   
 
     # mutate one random position
-    solution = shrink_move_mutation(solution)
+    solution = clamp_to_bounds(shrink_move_mutation(solution), e.bounds)
 
     e.parent1_idx = parent_idx
     e.parent2_idx = 0  # this mutation uses one parent only
