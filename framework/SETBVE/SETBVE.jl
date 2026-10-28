@@ -31,6 +31,7 @@ include("BehavioralDescriptor.jl")
 include("Evaluator.jl")
 
 include("runparameters.jl")
+include("search.jl")
 
 
 export
@@ -97,6 +98,9 @@ isbetter,
 # runparameters.jl
 bituniform_init_budget_ratio, 
 behavioural_descriptors,
-number_of_runs
+number_of_runs,
+
+# search.jl
+run_search
 
 end  # module
