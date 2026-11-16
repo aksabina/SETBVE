@@ -130,6 +130,32 @@ function calculate_pd(i1::Vector{<:Any}, i2::Vector{<:Any}, output1, output2)
     return fitness
 end
 
+# A number from an output: the output itself, or its text read as a number (nothing if it isn't one)
+as_number(o) = o isa Real ? Float64(o) : tryparse(Float64, string(o))
+
+# The program derivative of a pair for a SUT: SETBVE's own (calculate_pd), unless the SUT was registered with its own
+# distances or with numeric outputs (see register_sut!). Then the output distance is the SUT's own, or the absolute
+# difference of numeric outputs, and the input distance is the SUT's own, or the Euclidean distance. A pair with an
+# error output, or a numeric output that isn't a finite number, is scored by SETBVE's own derivative.
+function program_derivative(sut_name::String, i1::Vector{<:Any}, i2::Vector{<:Any}, output1, output2)
+    d = get(sut_distances, sut_name, nothing)
+    if d === nothing || num_exceptions(Any[output1, output2]) > 0
+        return calculate_pd(i1, i2, output1, output2)
+    end
+    o1, o2 = output1, output2
+    if d.numeric_outputs
+        o1, o2 = as_number(output1), as_number(output2)
+        if o1 === nothing || o2 === nothing || !isfinite(o1) || !isfinite(o2)
+            return calculate_pd(i1, i2, output1, output2)
+        end
+    end
+    change = d.output_distance !== nothing ? Float64(d.output_distance(o1, o2)) :
+             d.numeric_outputs ? abs(o1 - o2) : distance_jaccard(o1, o2)
+    distance = d.input_distance !== nothing ? Float64(d.input_distance(i1, i2)) :
+               euclidean(map(BigInt, i1), map(BigInt, i2))
+    return distance != 0 ? change / distance : 0
+end
+
 function get_sut_output(i::Vector{<:Any}, sut_name::String)
     sut_function = sut_functions_dic[sut_name]
     
@@ -230,13 +256,13 @@ function calculate_objective(generated_solution, sampled_solution, max_distance,
     i1_gen, i2_gen = extract_i1_i2(preprocess(generated_solution))
     out1_gen = get_sut_output(i1_gen, sut_name)
     out2_gen = get_sut_output(i2_gen, sut_name)
-    fit_gen = calculate_pd(i1_gen, i2_gen, out1_gen, out2_gen)
+    fit_gen = program_derivative(sut_name, i1_gen, i2_gen, out1_gen, out2_gen)
 
     # --- Fitness for sampled_solution ---
     i1_sam, i2_sam = extract_i1_i2(preprocess(sampled_solution))
     out1_sam = get_sut_output(i1_sam, sut_name)
     out2_sam = get_sut_output(i2_sam, sut_name)
-    fit_sam = calculate_pd(i1_sam, i2_sam, out1_sam, out2_sam)
+    fit_sam = program_derivative(sut_name, i1_sam, i2_sam, out1_sam, out2_sam)
 
     # --- Distance between full solutions ---
     distance =
@@ -684,9 +710,13 @@ function append_archive_with_local_search_sols(df::DataFrame, local_search_df::D
         convert_if_needed(x) = occursin("normalize", sut_name) ? x : map(BigInt, x)
         i1 = convert_if_needed(i1)
         i2 = convert_if_needed(i2)
-        input_distance = occursin("normalize", sut_name) ? distance_ncd(i1, i2) : euclidean(i1, i2) 
-        output_distance = distance_jaccard(output1, output2)
-        fitness = input_distance != 0 ? output_distance / input_distance : 0
+        if haskey(sut_distances, sut_name)  # the SUT's own distances, as in evaluate()
+            fitness = program_derivative(sut_name, i1, i2, output1, output2)
+        else
+            input_distance = occursin("normalize", sut_name) ? distance_ncd(i1, i2) : euclidean(i1, i2) 
+            output_distance = distance_jaccard(output1, output2)
+            fitness = input_distance != 0 ? output_distance / input_distance : 0
+        end
 
 
         # Assign values to the preallocated columns

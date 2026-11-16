@@ -15,7 +15,7 @@ end
 
 """
     register_sut!(name, f, n_inputs; descriptors=["validity_group", "oan", "in_length_var", "in_length_total"],
-                  bounds=nothing)
+                  bounds=nothing, numeric_outputs=false, output_distance=nothing, input_distance=nothing)
 
 Add a SUT called `name`. `f(inputs)` gets a vector of `n_inputs` integers and returns the output; an error it throws
 counts as an invalid output. `descriptors` names the behavioural descriptors that spread the archive: built-in ones
@@ -23,9 +23,18 @@ or ones added with `register_descriptor!`.
 
 `bounds = (lower, upper)`, two vectors of `n_inputs` integers, limits input k to `lower[k]:upper[k]`: the Sampler,
 the Explorer's mutations and the Tracer then stay within them, instead of searching the whole integer range.
+
+A pair's score, its program derivative, is how far apart its outputs are divided by how far apart its inputs are. By
+default these are SETBVE's: a string distance between the outputs, and the Euclidean distance between the inputs.
+- `numeric_outputs=true`: `f` returns numbers (or their text), and the outputs' distance is their absolute difference.
+- `output_distance(o1, o2)`: your own distance between two outputs (numbers if `numeric_outputs`, else as `f` returns
+  them).
+- `input_distance(i1, i2)`: your own distance between the pair's two input vectors.
+A pair with an error output is always scored by SETBVE's own program derivative.
 """
 function register_sut!(name::AbstractString, f, n_inputs::Integer;
-                       descriptors=["validity_group", "oan", "in_length_var", "in_length_total"], bounds=nothing)
+                       descriptors=["validity_group", "oan", "in_length_var", "in_length_total"], bounds=nothing,
+                       numeric_outputs::Bool=false, output_distance=nothing, input_distance=nothing)
     unknown = filter(d -> !haskey(behav_desc_functions_dic, d), descriptors)
     isempty(unknown) || error("Unknown behavioural descriptors: $(join(unknown, ", ")) (see register_descriptor!)")
     if bounds !== nothing
@@ -41,6 +50,12 @@ function register_sut!(name::AbstractString, f, n_inputs::Integer;
         delete!(input_bounds, name)
     else
         input_bounds[name] = InputBounds(lower, upper)
+    end
+    if numeric_outputs || output_distance !== nothing || input_distance !== nothing
+        sut_distances[name] = (numeric_outputs=numeric_outputs, output_distance=output_distance,
+                               input_distance=input_distance)
+    else
+        delete!(sut_distances, name)
     end
     return name
 end

@@ -41,6 +41,10 @@ number_of_runs = 10
 # input bounds per SUT (see register_sut!); SUTs without an entry are searched over the whole integer range
 input_bounds = Dict{String,InputBounds}()
 
+# distances per SUT (see register_sut!): (numeric_outputs, output_distance, input_distance); SUTs without an entry use
+# SETBVE's own program derivative
+sut_distances = Dict{String,NamedTuple}()
+
 
 
 
