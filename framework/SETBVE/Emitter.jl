@@ -59,6 +59,31 @@ mutable struct LocalSearchEmitter <: AbstractEmitter{S}
     sut_name::String
     search_area_dims::Vector{StepRange}
     max_distance::Number
+    vary::Union{Nothing,Vector{Int}}  # keep a pair's inputs equal except these, if given (see run_search)
+end
+LocalSearchEmitter(i_column_names, duration_per_row_ms, sut_name, search_area_dims, max_distance) =
+    LocalSearchEmitter(i_column_names, duration_per_row_ms, sut_name, search_area_dims, max_distance, nothing)
+
+
+# Pairs that vary only some inputs: a pair's two inputs are equal except in the inputs `vary` (indices into an
+# input), so each pair shows what changing those inputs alone does. They need the SUT's input bounds.
+# VaryUniformEmitter draws such pairs at random; VaryMutateEmitter mutates archive pairs into new ones (see
+# vary_pair_mutation), moving the inputs in `categorical`, whose values have no order, to any value.
+mutable struct VaryMutateEmitter <: AbstractEmitter{S}
+    archive::AbstractArchive
+    bias_column::String
+    bounds::InputBounds
+    vary::Vector{Int}
+    categorical::Vector{Int}
+    parent1_idx::Integer
+    parent2_idx::Integer
+end
+
+struct VaryUniformEmitter <: AbstractEmitter{S}
+    bounds::InputBounds
+    vary::Vector{Int}
+    parent1_idx::Int8
+    parent2_idx::Int8
 end
 
 
@@ -168,8 +193,30 @@ function ask(e::MutateVectorEmitter)
 end
 
 
+function ask(e::VaryUniformEmitter)
+    n = length(e.bounds.lower)
+    x = [rand(e.bounds.lower[k]:e.bounds.upper[k]) for k in 1:n]
+    y = copy(x)
+    for c in e.vary
+        lower, upper = e.bounds.lower[c], e.bounds.upper[c]
+        if upper > lower  # any other value in the range
+            r = rand(lower:(upper - 1))
+            y[c] = r >= x[c] ? r + 1 : r
+        end
+    end
+    return Dict("solution" => Integer[to_signed_unsigned_Int.(x)..., to_signed_unsigned_Int.(y)...], "curiosity" => 0.0)
+end
+
+function ask(e::VaryMutateEmitter)
+    parent_idx = sample(e.archive, 1, e.bias_column)[1]
+    solution = deepcopy(e.archive.cells[parent_idx][1]["solution"])
+    e.parent1_idx = parent_idx
+    e.parent2_idx = 0  # this mutation uses one parent only
+    return Dict("solution" => vary_pair_mutation(solution, e.bounds, e.vary, e.categorical), "curiosity" => 0.0)
+end
+
 function ask(e::LocalSearchEmitter)
-    neighbor_solutions = local_search(e.duration_per_row_ms, e.sut_name, e.search_area_dims, e.max_distance)
+    neighbor_solutions = local_search(e.duration_per_row_ms, e.sut_name, e.search_area_dims, e.max_distance; vary=e.vary)
     neighbors_df = DataFrame([Symbol(col) => [] for col in e.i_column_names])
 
     for neighbor in neighbor_solutions
@@ -213,6 +260,8 @@ tell!(e::MutateEmitter) = nothing
 tell!(e::MutateVectorEmitter) = nothing
 tell!(e::LocalSearchEmitter) = nothing
 tell!(e::LocalSearchVectorEmitter) = nothing
+tell!(e::VaryMutateEmitter) = nothing
+tell!(e::VaryUniformEmitter) = nothing
 
 
 

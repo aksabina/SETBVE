@@ -62,7 +62,8 @@ end
 
 """
     run_search(sut_name, duration=0; max_evaluations=0, emitter="Mutation", selection="Curiosity",
-               tracer_budget=0.0, seed=nothing, run_num=1) -> (archive=DataFrame, with_tracer=DataFrame or nothing)
+               tracer_budget=0.0, vary=nothing, categorical=Int[], seed=nothing, run_num=1)
+        -> (archive=DataFrame, with_tracer=DataFrame or nothing)
 
 Run one SETBVE search on the SUT `sut_name`, for `duration` seconds or for `max_evaluations` evaluations:
 
@@ -77,6 +78,13 @@ Give either a `duration` or `max_evaluations`. One evaluation is one pair of inp
 `max_evaluations`, the search stops after exactly that many evaluations, whatever the machine's speed, and with a
 `seed` it is repeatable; the Tracer's budget is in seconds, so it must then be off.
 
+`vary`, a list of input indices (1-based), makes every pair vary only those inputs: the pair's two inputs are equal in
+all the others, in the Sampler's, the Explorer's and the Tracer's pairs alike. A pair then shows what changing those
+inputs alone does, and its program derivative is their local effect. It needs the SUT's input bounds. With `vary`,
+the "Mutation" emitter moves a pair either along an input it holds equal or along a varied input, and the
+"Bituniform" and "Random" emitters draw such pairs uniformly. `categorical` lists inputs whose values have no order
+(codes for categories): the mutation moves them to any value rather than nearby.
+
 `seed`, if given, seeds Julia's random number generator first. `run_num` only numbers the output files.
 
 The archive is written as CSV under the output directory (see `set_output_dir!`), as main.jl writes it, and returned
@@ -84,7 +92,8 @@ as DataFrames: `archive` holds the Sampler's and Explorer's solutions, `with_tra
 `tracer_budget` is 0).
 """
 function run_search(sut_name::String, duration::Integer=0; max_evaluations::Integer=0, emitter::String="Mutation",
-                    selection::String="Curiosity", tracer_budget::Real=0.0, seed::Union{Nothing,Integer}=nothing,
+                    selection::String="Curiosity", tracer_budget::Real=0.0, vary=nothing,
+                    categorical::AbstractVector{<:Integer}=Int[], seed::Union{Nothing,Integer}=nothing,
                     run_num::Integer=1)
     haskey(sut_functions_dic, sut_name) || error("Unknown SUT $sut_name: register it first (see register_sut!)")
     (duration > 0) != (max_evaluations > 0) || error("give either a duration in seconds or max_evaluations")
@@ -106,10 +115,22 @@ function run_search(sut_name::String, duration::Integer=0; max_evaluations::Inte
     if vector_input && bounds !== nothing
         error("Input bounds are only supported for SUTs with integer inputs")
     end
+    n_inputs = args_num ÷ 2
+    if vary !== nothing
+        vary = collect(Int, vary)
+        bounds === nothing && error("`vary` needs the SUT's input bounds (see register_sut!)")
+        !isempty(vary) && all(k -> 1 <= k <= n_inputs, vary) || error("`vary` needs input indices from 1 to $n_inputs")
+    end
+    categorical = collect(Int, categorical)
+    isempty(categorical) || vary !== nothing || error("`categorical` only applies with `vary`")
 
     archive = IntGridArchive{S,Evaluation}(Int8(1))
     evaluator = Evaluator()
-    if emitter_type == "Mutation"
+    if vary !== nothing && emitter_type == "Mutation"
+        explorer = VaryMutateEmitter(archive, bias_column, bounds, vary, categorical, default_parent_id, default_parent_id)
+    elseif vary !== nothing && emitter_type in ("Bituniform", "Random")
+        explorer = VaryUniformEmitter(bounds, vary, default_parent_id, default_parent_id)
+    elseif emitter_type == "Mutation"
         if occursin("normalize", sut_name)
             # use the vector-specific emitter
             explorer = MutateVectorEmitter(archive, bias_column, default_parent_id, default_parent_id)
@@ -125,7 +146,9 @@ function run_search(sut_name::String, duration::Integer=0; max_evaluations::Inte
     end
     optimizer = DefaultOptimizer(batch_size, archive, explorer, evaluator)
 
-    if vector_input
+    if vary !== nothing
+        sampler = VaryUniformEmitter(bounds, vary, default_parent_id, default_parent_id)
+    elseif vector_input
         sampler = BitUniformVectorRandomEmitter(args_num, default_parent_id, default_parent_id)
     else
         sampler = BitUniformRandomEmitter(args_num, default_parent_id, default_parent_id, bounds)
@@ -187,7 +210,7 @@ function run_search(sut_name::String, duration::Integer=0; max_evaluations::Inte
         start_time = time() * 1_000_000
         while (time() * 1_000_000 - start_time) < local_search_duration * 1_000_000
             for group in ("VV", "VE", "EE")
-                _, local_search_dataframe = local_search_iteration(group, first_rows[group], rows_num[group], sorted_df, i_columns, duration_ms_per_row, sut_name, local_search_dataframe)
+                _, local_search_dataframe = local_search_iteration(group, first_rows[group], rows_num[group], sorted_df, i_columns, duration_ms_per_row, sut_name, local_search_dataframe; vary=vary)
                 if group != "EE" && (time() * 1_000_000 - start_time) > local_search_duration * 1_000_000
                     break
                 end

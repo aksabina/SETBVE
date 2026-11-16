@@ -212,6 +212,59 @@ function clamp_ranges_to_bounds(ranges, b::InputBounds)
     return Any[clamp(BigInt(first(r)), bounds_of(b, j)...):clamp(BigInt(last(r)), bounds_of(b, j)...) for (j, r) in enumerate(ranges)]
 end
 
+# A pair whose inputs differ only in `vary`: the second input takes the first's value everywhere else, and a varied
+# input equal in both moves one step apart within the bounds `b`, since the pair would test nothing (no change without
+# `vary`)
+hold_unvaried(solution, ::Nothing, b=nothing) = solution
+function hold_unvaried(solution, vary::Vector{Int}, b::InputBounds)
+    n = length(solution) ÷ 2
+    held = copy(solution)
+    for k in 1:n
+        if !(k in vary)
+            held[n + k] = held[k]
+        elseif held[n + k] == held[k] && b.upper[k] > b.lower[k]
+            held[n + k] = to_signed_unsigned_Int(held[k] < b.upper[k] ? BigInt(held[k]) + 1 : BigInt(held[k]) - 1)
+        end
+    end
+    return held
+end
+
+# A child of a pair (i1 then i2) whose inputs differ only in `vary`, inside the bounds `b`:
+# - inputs outside the bounds are redrawn uniformly within them, and i2 takes i1's value outside `vary`;
+# - half the time, the whole pair moves along one input it holds equal, by up to a quarter of that input's range, or
+#   to any value if the input is in `categorical`;
+# - otherwise SETBVE's shrink and move along one varied input: one end moves to a random point between the two, then
+#   one end moves by up to the pair's length.
+# A varied input that ends up equal in both is moved one step apart, since the pair would test nothing.
+function vary_pair_mutation(solution, b::InputBounds, vary::Vector{Int}, categorical::Vector{Int}=Int[])
+    n = length(b.lower)
+    lower, upper = b.lower, b.upper
+    inside(k, v) = lower[k] <= v <= upper[k]
+    x = [inside(k, BigInt(solution[k])) ? BigInt(solution[k]) : rand(lower[k]:upper[k]) for k in 1:n]
+    y = [k in vary && inside(k, BigInt(solution[n + k])) ? BigInt(solution[n + k]) : x[k] for k in 1:n]
+    held = filter(k -> !(k in vary) && upper[k] > lower[k], 1:n)
+    if rand() < 0.5 && !isempty(held)
+        k = rand(held)
+        reach = max(1, (upper[k] - lower[k]) ÷ 4)
+        x[k] = y[k] = k in categorical ? rand(lower[k]:upper[k]) : clamp(x[k] + rand(-reach:reach), lower[k], upper[k])
+    else
+        c = rand(vary)
+        between = rand(min(x[c], y[c]):max(x[c], y[c]))
+        p, q = rand() < 0.5 ? (x[c], between) : (between, y[c])
+        reach = max(1, abs(p - q))
+        if rand() < 0.5
+            p = clamp(p + rand(-reach:reach), lower[c], upper[c])
+        else
+            q = clamp(q + rand(-reach:reach), lower[c], upper[c])
+        end
+        x[c], y[c] = p, q
+    end
+    for c in vary
+        x[c] == y[c] && upper[c] > lower[c] && (y[c] = x[c] < upper[c] ? x[c] + 1 : x[c] - 1)
+    end
+    return Integer[to_signed_unsigned_Int.(x)..., to_signed_unsigned_Int.(y)...]
+end
+
 # rand on a range wider than typemax(Int128) throws (its length overflows), so sample those through BigInt
 function rand_in_range(rng)
     span = BigInt(last(rng)) - BigInt(first(rng))
@@ -277,16 +330,22 @@ function calculate_objective(generated_solution, sampled_solution, max_distance,
 end
 
 
-function local_search(duration_in_millis::Integer, sut_name::String, search_area_dims, max_distance)
+function local_search(duration_in_millis::Integer, sut_name::String, search_area_dims, max_distance; vary=nothing)
+    # keep solutions within the SUT's bounds and, with `vary`, equal in both inputs except the varied ones
+    bounds = get(input_bounds, sut_name, nothing)
+    constrain(solution) = hold_unvaried(clamp_to_bounds(solution, bounds), vary, bounds)
 
     #init random solutions within the search area 
     best_solutions_list = generate_solutions_within_ranges(search_area_dims)
+    if vary !== nothing
+        best_solutions_list = [constrain(s) for s in best_solutions_list]
+    end
     
     # Hill Climber on total fitness and total distance between points 
     start_time = time() * 1_000_000  # milliseconds
     while(time() * 1_000_000 - start_time) <= duration_in_millis  # run for n milliseconds
         old_solution = rand(best_solutions_list)
-        new_solution = clamp_to_bounds(shrink_move_mutation(old_solution), get(input_bounds, sut_name, nothing))
+        new_solution = constrain(shrink_move_mutation(old_solution))
         sampled_solution = rand(best_solutions_list)  # random one to calculate the distance with
         if sampled_solution == old_solution
             sampled_solution = rand(best_solutions_list)  # sample again because we need a different one
@@ -746,7 +805,7 @@ function append_archive_with_local_search_sols(df::DataFrame, local_search_df::D
     return df
 end
 
-function local_search_iteration(group_name, first_row, rows_num_local_search, sorted_df, i_columns, duration_ms_per_row, sut_name, local_search_dataframe)
+function local_search_iteration(group_name, first_row, rows_num_local_search, sorted_df, i_columns, duration_ms_per_row, sut_name, local_search_dataframe; vary=nothing)
     total_rows = 0
 
     if first_row === nothing
@@ -762,7 +821,7 @@ function local_search_iteration(group_name, first_row, rows_num_local_search, so
             search_area_dims = clamp_ranges_to_bounds(search_area_dims, get(input_bounds, sut_name, nothing))
             max_distance = max_distance_inside_search_area(search_area_dims)
 
-            emitter = LocalSearchEmitter(i_columns, round(Int, duration_ms_per_row), sut_name, search_area_dims, max_distance)
+            emitter = LocalSearchEmitter(i_columns, round(Int, duration_ms_per_row), sut_name, search_area_dims, max_distance, vary)
             append!(local_search_dataframe, ask(emitter))
 
             total_rows += 1
