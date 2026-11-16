@@ -46,17 +46,21 @@ function register_sut!(name::AbstractString, f, n_inputs::Integer;
 end
 
 """
-    run_search(sut_name, duration; emitter="Mutation", selection="Curiosity", tracer_budget=0.0,
-               seed=nothing, run_num=1) -> (archive=DataFrame, with_tracer=DataFrame or nothing)
+    run_search(sut_name, duration=0; max_evaluations=0, emitter="Mutation", selection="Curiosity",
+               tracer_budget=0.0, seed=nothing, run_num=1) -> (archive=DataFrame, with_tracer=DataFrame or nothing)
 
-Run one SETBVE search on the SUT `sut_name` for `duration` seconds:
+Run one SETBVE search on the SUT `sut_name`, for `duration` seconds or for `max_evaluations` evaluations:
 
-- the Sampler fills the archive with random solutions for a share `bituniform_init_budget_ratio` of the time
+- the Sampler fills the archive with random solutions for a share `bituniform_init_budget_ratio` of the budget
   (skipped for the Bituniform and Random emitters);
 - the Explorer generates new solutions with `emitter` ("Mutation", "Bituniform" or "Random"); for "Mutation",
   `selection` ("Uniform", "Fitness" or "Curiosity") chooses the parents, otherwise it is "NoSelection";
 - the Tracer, given a share `tracer_budget` of the time (0 disables it), searches locally around the best
   boundary candidates.
+
+Give either a `duration` or `max_evaluations`. One evaluation is one pair of inputs, so it runs the SUT twice. With
+`max_evaluations`, the search stops after exactly that many evaluations, whatever the machine's speed, and with a
+`seed` it is repeatable; the Tracer's budget is in seconds, so it must then be off.
 
 `seed`, if given, seeds Julia's random number generator first. `run_num` only numbers the output files.
 
@@ -64,9 +68,13 @@ The archive is written as CSV under the output directory (see `set_output_dir!`)
 as DataFrames: `archive` holds the Sampler's and Explorer's solutions, `with_tracer` adds the Tracer's (`nothing` when
 `tracer_budget` is 0).
 """
-function run_search(sut_name::String, duration::Integer; emitter::String="Mutation", selection::String="Curiosity",
-                    tracer_budget::Real=0.0, seed::Union{Nothing,Integer}=nothing, run_num::Integer=1)
+function run_search(sut_name::String, duration::Integer=0; max_evaluations::Integer=0, emitter::String="Mutation",
+                    selection::String="Curiosity", tracer_budget::Real=0.0, seed::Union{Nothing,Integer}=nothing,
+                    run_num::Integer=1)
     haskey(sut_functions_dic, sut_name) || error("Unknown SUT $sut_name: register it first (see register_sut!)")
+    (duration > 0) != (max_evaluations > 0) || error("give either a duration in seconds or max_evaluations")
+    max_evaluations > 0 && tracer_budget > 0 &&
+        error("with max_evaluations, the Tracer (whose budget is in seconds) must be off: set tracer_budget=0")
     if seed !== nothing
         Random.seed!(seed)
     end
@@ -74,7 +82,8 @@ function run_search(sut_name::String, duration::Integer; emitter::String="Mutati
     descriptors = behavioural_descriptors[sut_name]
     args_num = total_args_num[sut_name]
 
-    init_duration = (emitter_type != "Bituniform" && emitter_type != "Random") ? bituniform_init_budget_ratio * duration : 0
+    sampler_phase = emitter_type != "Bituniform" && emitter_type != "Random"  # those emitters already sample at random
+    init_duration = sampler_phase ? bituniform_init_budget_ratio * duration : 0
     local_search_duration = local_search_budget_ratio * duration
 
     bounds = get(input_bounds, sut_name, nothing)
@@ -108,20 +117,33 @@ function run_search(sut_name::String, duration::Integer; emitter::String="Mutati
     end
     optimiser_init = DefaultOptimizer(batch_size, archive, sampler, evaluator)
 
-    # Sampler: init archive with random solutions for the specified time (skipped for Bituniform and Random emitters)
-    start_time = time() * 1_000_000  # microseconds
-    while (time() * 1_000_000 - start_time) < init_duration * 1_000_000
-        emit_solutions(optimiser_init, sut_name, descriptors)
+    if max_evaluations > 0
+        # The same phases, budgeted in evaluations (SETBVE's batch size is 1): the Sampler gets its usual share
+        n_init = sampler_phase ? round(Int, bituniform_init_budget_ratio * max_evaluations) : 0
+        for _ in 1:n_init
+            emit_solutions(optimiser_init, sut_name, descriptors)
+        end
+        for _ in 1:(max_evaluations - n_init)
+            emit_solutions(optimizer, sut_name, descriptors)
+        end
+    else
+        # Sampler: init archive with random solutions for the specified time (skipped for Bituniform and Random emitters)
+        start_time = time() * 1_000_000  # microseconds
+        while (time() * 1_000_000 - start_time) < init_duration * 1_000_000
+            emit_solutions(optimiser_init, sut_name, descriptors)
+        end
+
+        # Explorer
+        emit_solutions_dur = (duration - init_duration - local_search_duration) * 1_000_000
+        start_time = time() * 1_000_000
+        while (time() * 1_000_000 - start_time) < emit_solutions_dur
+            emit_solutions(optimizer, sut_name, descriptors)
+        end
     end
 
-    # Explorer
-    emit_solutions_dur = (duration - init_duration - local_search_duration) * 1_000_000
-    start_time = time() * 1_000_000
-    while (time() * 1_000_000 - start_time) < emit_solutions_dur
-        emit_solutions(optimizer, sut_name, descriptors)
-    end
-
-    df = save_archive_to_csv(archive, descriptors, sut_name, emitter_type, bias_column, duration, run_num, local_search_budget_ratio)
+    # output files are named by the budget: the duration, or the evaluations (e.g. "1000evals")
+    budget = max_evaluations > 0 ? "$(max_evaluations)evals" : duration
+    df = save_archive_to_csv(archive, descriptors, sut_name, emitter_type, bias_column, budget, run_num, local_search_budget_ratio)
     if local_search_budget_ratio == 0
         return (archive=df, with_tracer=nothing)
     end

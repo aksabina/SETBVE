@@ -538,7 +538,7 @@ function save_large_df_in_chunks(df::DataFrame, file_path::String, chunk_size::I
     end
 end
 
-function save_archive_to_csv(Archive::AbstractArchive, behavioural_descriptors::Vector{String}, sut_name::String, emitter_type::String, bias_column::String, duration::Integer, run_num::Integer, local_search_budget_ratio)::DataFrame
+function save_archive_to_csv(Archive::AbstractArchive, behavioural_descriptors::Vector{String}, sut_name::String, emitter_type::String, bias_column::String, duration::Union{Integer,AbstractString}, run_num::Integer, local_search_budget_ratio)::DataFrame
 
     output_filename = joinpath(output_dir[], "$(dir_archive)$(round(Int,local_search_budget_ratio*100))%Tracer/$(bias_column)/$(sut_name)/$(emitter_type)/$(duration)/Archive$(sut_name)$(emitter_type)$(bias_column)$(duration)_$(run_num).csv")
 
