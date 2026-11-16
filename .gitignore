@@ -29,3 +29,5 @@ framework/SETBVE/MainSUTs/
 
 # Misc
 *.log
+# main.jl environment: resolved locally by setup.jl
+framework/SETBVE/env/Manifest.toml

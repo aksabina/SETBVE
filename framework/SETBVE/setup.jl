@@ -1,17 +1,4 @@
 using Pkg
-Pkg.activate(@__DIR__)      # activates the folder where the file lives
-Pkg.instantiate()           # downloads the exact versions in Manifest.toml
-Pkg.add("StatsBase")
-Pkg.add("Random")
-Pkg.add("Statistics")   
-Pkg.add("StringDistances")  
-Pkg.add("Printf")   
-Pkg.add("Plots")
-Pkg.add("Distances")
-Pkg.add("Dates")
-Pkg.add("CSV")
-Pkg.add("DataFrames")
-Pkg.add("ProgressMeter")
-Pkg.add("InformationDistances")
-Pkg.add("PyCall")
-Pkg.add("Normalization")
+Pkg.activate(joinpath(@__DIR__, "env"))  # main.jl's environment
+Pkg.develop(path=@__DIR__)                # SETBVE itself, from this folder (also for Julia before 1.11)
+Pkg.instantiate()                         # Plots, PyCall and the other packages main.jl uses

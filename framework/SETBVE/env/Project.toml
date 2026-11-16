@@ -1,0 +1,12 @@
+# The environment main.jl runs in: SETBVE from this repository, with Plots and PyCall so that its figures and the
+# python_normalize SUT are available. `julia setup.jl` installs it.
+[deps]
+CSV = "336ed68f-0bac-5ca0-87d4-7b16caf5d00b"
+DataFrames = "a93c6f00-e57d-5684-b7b6-d8193f3e46c0"
+Plots = "91a5bcdd-55d7-5caf-9e0b-520d859cae80"
+PyCall = "438e738f-606a-5dbb-bf0a-cddfbfd45ab0"
+Random = "9a3f8284-a2c9-5f02-9a11-845980a1fd5c"
+SETBVE = "f9945a49-23eb-469b-9069-9180fb1661e2"
+
+[sources]
+SETBVE = {path = ".."}

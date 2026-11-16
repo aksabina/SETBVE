@@ -1,4 +1,8 @@
-# SUTs written in Python. Loaded only when PyCall is enabled (see WITH_PYTHON in SETBVE.jl).
+# SETBVE's SUTs written in Python: a package extension, loaded when the code using SETBVE loads PyCall (`using PyCall`).
+# It registers the python_normalize SUT.
+module SETBVEPyCallExt
+
+using SETBVE, PyCall
 
 function sut_python_normalizer(args_vec::AbstractVector{<:Any})
     # Step 1: Extract the input vector
@@ -13,3 +17,9 @@ function sut_python_normalizer(args_vec::AbstractVector{<:Any})
     normalized_array = py"normalize_array"(vec)
     return normalized_array
 end
+
+function __init__()
+    SETBVE.sut_functions_dic["python_normalize"] = sut_python_normalizer
+end
+
+end  # module

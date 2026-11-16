@@ -1,10 +1,15 @@
 using Pkg
-Pkg.activate(@__DIR__)      # activates the folder where the file lives
-Pkg.instantiate()  
+Pkg.activate(joinpath(@__DIR__, "env"))  # main.jl's environment: SETBVE from this folder, with Plots and PyCall
+Pkg.instantiate()
 
-include("SETBVE.jl")
-using .SETBVE
+using SETBVE
 using Random, CSV, DataFrames, Base.Threads
+
+# Plots (for the figures) and PyCall (for the python_normalize SUT) are optional: set SETBVE_PLOTS=false or
+# SETBVE_PYTHON=false to leave them out. Loading them switches on SETBVE's extensions for them.
+const WITH_PLOTS = !(get(ENV, "SETBVE_PLOTS", "true") in ("false", "0"))
+WITH_PLOTS && @eval using Plots
+!(get(ENV, "SETBVE_PYTHON", "true") in ("false", "0")) && @eval using PyCall
 
 sut_name = ARGS[1] # bmi, circle, date, bytecount, two_circles, bytecount, power_by_squaring, tailjoin, max, cld, fldmod1, fld
 total_duration = parse(Int, ARGS[2])  # 30, 600 in seconds
@@ -29,7 +34,7 @@ for run_num in 1:number_of_runs
 end
 
 # Plot results outside the @threads loop (unless SETBVE was loaded without Plots)
-plot_suts = SETBVE.WITH_PLOTS ? ["bmi", "circle", "two_circles"] : String[]
+plot_suts = WITH_PLOTS ? ["bmi", "circle", "two_circles"] : String[]
 println("Plotting results outside threads: without Tracer")
 for (run_num, df) in results_global_search
     if sut_name in plot_suts

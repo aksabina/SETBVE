@@ -283,7 +283,3 @@ sut_functions_dic = Dict(
     "java_normalize" => sut_java_normalizer
 )
 
-if WITH_PYTHON
-    sut_functions_dic["python_normalize"] = sut_python_normalizer
-end
-
