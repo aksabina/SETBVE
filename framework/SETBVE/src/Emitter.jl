@@ -194,13 +194,12 @@ end
 
 
 function ask(e::VaryUniformEmitter)
-    n = length(e.bounds.lower)
-    x = [rand(e.bounds.lower[k]:e.bounds.upper[k]) for k in 1:n]
+    lower, upper = bound_vectors(e.bounds)
+    x = [rand(lower[k]:upper[k]) for k in eachindex(lower)]
     y = copy(x)
     for c in e.vary
-        lower, upper = e.bounds.lower[c], e.bounds.upper[c]
-        if upper > lower  # any other value in the range
-            r = rand(lower:(upper - 1))
+        if upper[c] > lower[c]  # any other value in the range
+            r = rand(lower[c]:(upper[c] - 1))
             y[c] = r >= x[c] ? r + 1 : r
         end
     end

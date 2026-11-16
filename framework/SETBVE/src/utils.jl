@@ -169,7 +169,8 @@ as_number(o) = o isa Real ? Float64(o) : tryparse(Float64, string(o))
 # The program derivative of a pair for a SUT: SETBVE's own (calculate_pd), unless the SUT was registered with its own
 # distances or with numeric outputs (see register_sut!). Then the output distance is the SUT's own, or the absolute
 # difference of numeric outputs, and the input distance is the SUT's own, or the Euclidean distance. A pair with an
-# error output, or a numeric output that isn't a finite number, is scored by SETBVE's own derivative.
+# error output, a numeric output that isn't a finite number, or outputs or inputs the SUT's own distance throws an
+# error on, is scored by SETBVE's own derivative.
 function program_derivative(sut_name::String, i1::Vector{<:Any}, i2::Vector{<:Any}, output1, output2)
     d = get(sut_distances, sut_name, nothing)
     if d === nothing || num_exceptions(Any[output1, output2]) > 0
@@ -182,11 +183,16 @@ function program_derivative(sut_name::String, i1::Vector{<:Any}, i2::Vector{<:An
             return calculate_pd(i1, i2, output1, output2)
         end
     end
-    change = d.output_distance !== nothing ? Float64(d.output_distance(o1, o2)) :
-             d.numeric_outputs ? abs(o1 - o2) : distance_jaccard(o1, o2)
-    distance = d.input_distance !== nothing ? Float64(d.input_distance(i1, i2)) :
-               euclidean(map(BigInt, i1), map(BigInt, i2))
-    return distance != 0 ? change / distance : 0
+    distance, change = try
+        (d.input_distance !== nothing ? Float64(d.input_distance(i1, i2)) :
+         sqrt(Float64(sum((BigInt.(i1) .- BigInt.(i2)) .^ 2))),
+         d.output_distance !== nothing ? Float64(d.output_distance(o1, o2)) :
+         d.numeric_outputs ? abs(o1 - o2) : distance_jaccard(o1, o2))
+    catch err
+        err isa InterruptException && rethrow()
+        return calculate_pd(i1, i2, output1, output2)  # the SUT's own distance can't score this pair
+    end
+    return distance != 0 ? change / distance : 0.0
 end
 
 function get_sut_output(i::Vector{<:Any}, sut_name::String)
@@ -233,6 +239,12 @@ function bounded_bitlogsample(lower::BigInt, upper::BigInt)
     return to_signed_unsigned_Int(rand(Bool) ? lower + offset : upper - offset)
 end
 
+# The bounds as vectors to draw from: Ints when they fit, which draws exactly as Julia's ranges of Ints do, else BigInts
+function bound_vectors(b::InputBounds)
+    fits = all(v -> typemin(Int) <= v <= typemax(Int), vcat(b.lower, b.upper))
+    return fits ? (Int.(b.lower), Int.(b.upper)) : (b.lower, b.upper)
+end
+
 # Move each entry of a solution into its input's bounds; without bounds the solution is unchanged
 clamp_to_bounds(solution, ::Nothing) = solution
 function clamp_to_bounds(solution, b::InputBounds)
@@ -271,10 +283,11 @@ end
 # A varied input that ends up equal in both is moved one step apart, since the pair would test nothing.
 function vary_pair_mutation(solution, b::InputBounds, vary::Vector{Int}, categorical::Vector{Int}=Int[])
     n = length(b.lower)
-    lower, upper = b.lower, b.upper
+    lower, upper = bound_vectors(b)
+    T = eltype(lower)
     inside(k, v) = lower[k] <= v <= upper[k]
-    x = [inside(k, BigInt(solution[k])) ? BigInt(solution[k]) : rand(lower[k]:upper[k]) for k in 1:n]
-    y = [k in vary && inside(k, BigInt(solution[n + k])) ? BigInt(solution[n + k]) : x[k] for k in 1:n]
+    x = [inside(k, solution[k]) ? T(solution[k]) : rand(lower[k]:upper[k]) for k in 1:n]
+    y = [k in vary && inside(k, solution[n + k]) ? T(solution[n + k]) : x[k] for k in 1:n]
     held = filter(k -> !(k in vary) && upper[k] > lower[k], 1:n)
     if rand() < 0.5 && !isempty(held)
         k = rand(held)
