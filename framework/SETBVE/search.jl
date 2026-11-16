@@ -62,8 +62,8 @@ end
 
 """
     run_search(sut_name, duration=0; max_evaluations=0, emitter="Mutation", selection="Curiosity",
-               tracer_budget=0.0, vary=nothing, categorical=Int[], seed=nothing, run_num=1)
-        -> (archive=DataFrame, with_tracer=DataFrame or nothing)
+               tracer_budget=0.0, vary=nothing, categorical=Int[], log_evaluations=false, seed=nothing, run_num=1)
+        -> (archive=DataFrame, with_tracer=DataFrame or nothing, evaluations=DataFrame or nothing)
 
 Run one SETBVE search on the SUT `sut_name`, for `duration` seconds or for `max_evaluations` evaluations:
 
@@ -90,11 +90,16 @@ the "Mutation" emitter moves a pair either along an input it holds equal or alon
 The archive is written as CSV under the output directory (see `set_output_dir!`), as main.jl writes it, and returned
 as DataFrames: `archive` holds the Sampler's and Explorer's solutions, `with_tracer` adds the Tracer's (`nothing` when
 `tracer_budget` is 0).
+
+With `log_evaluations=true`, `evaluations` is every pair the Sampler and the Explorer evaluated, in order: its number,
+the phase ("sampler" or "explorer"), its inputs (`i1_k`, `i2_k`), outputs, fitness, and what it did to the archive
+("new cell", "better" or "no update"). Unlike the archive, it keeps the pairs that the archive later replaced or never
+took. The Tracer's own trials aren't logged.
 """
 function run_search(sut_name::String, duration::Integer=0; max_evaluations::Integer=0, emitter::String="Mutation",
                     selection::String="Curiosity", tracer_budget::Real=0.0, vary=nothing,
-                    categorical::AbstractVector{<:Integer}=Int[], seed::Union{Nothing,Integer}=nothing,
-                    run_num::Integer=1)
+                    categorical::AbstractVector{<:Integer}=Int[], log_evaluations::Bool=false,
+                    seed::Union{Nothing,Integer}=nothing, run_num::Integer=1)
     haskey(sut_functions_dic, sut_name) || error("Unknown SUT $sut_name: register it first (see register_sut!)")
     (duration > 0) != (max_evaluations > 0) || error("give either a duration in seconds or max_evaluations")
     max_evaluations > 0 && tracer_budget > 0 &&
@@ -155,35 +160,47 @@ function run_search(sut_name::String, duration::Integer=0; max_evaluations::Inte
     end
     optimiser_init = DefaultOptimizer(batch_size, archive, sampler, evaluator)
 
-    if max_evaluations > 0
-        # The same phases, budgeted in evaluations (SETBVE's batch size is 1): the Sampler gets its usual share
-        n_init = sampler_phase ? round(Int, bituniform_init_budget_ratio * max_evaluations) : 0
-        for _ in 1:n_init
-            emit_solutions(optimiser_init, sut_name, descriptors)
-        end
-        for _ in 1:(max_evaluations - n_init)
-            emit_solutions(optimizer, sut_name, descriptors)
-        end
-    else
-        # Sampler: init archive with random solutions for the specified time (skipped for Bituniform and Random emitters)
-        start_time = time() * 1_000_000  # microseconds
-        while (time() * 1_000_000 - start_time) < init_duration * 1_000_000
-            emit_solutions(optimiser_init, sut_name, descriptors)
+    evaluation_log[] = log_evaluations ? Dict{String,Any}[] : nothing
+    evaluations = nothing
+    try
+        if max_evaluations > 0
+            # The same phases, budgeted in evaluations (SETBVE's batch size is 1): the Sampler gets its usual share
+            n_init = sampler_phase ? round(Int, bituniform_init_budget_ratio * max_evaluations) : 0
+            for _ in 1:n_init
+                evaluation_phase[] = "sampler"
+                emit_solutions(optimiser_init, sut_name, descriptors)
+            end
+            for _ in 1:(max_evaluations - n_init)
+                evaluation_phase[] = "explorer"
+                emit_solutions(optimizer, sut_name, descriptors)
+            end
+        else
+            # Sampler: init archive with random solutions for the specified time (skipped for Bituniform and Random emitters)
+            start_time = time() * 1_000_000  # microseconds
+            while (time() * 1_000_000 - start_time) < init_duration * 1_000_000
+                evaluation_phase[] = "sampler"
+                emit_solutions(optimiser_init, sut_name, descriptors)
+            end
+
+            # Explorer
+            emit_solutions_dur = (duration - init_duration - local_search_duration) * 1_000_000
+            start_time = time() * 1_000_000
+            while (time() * 1_000_000 - start_time) < emit_solutions_dur
+                evaluation_phase[] = "explorer"
+                emit_solutions(optimizer, sut_name, descriptors)
+            end
         end
 
-        # Explorer
-        emit_solutions_dur = (duration - init_duration - local_search_duration) * 1_000_000
-        start_time = time() * 1_000_000
-        while (time() * 1_000_000 - start_time) < emit_solutions_dur
-            emit_solutions(optimizer, sut_name, descriptors)
-        end
+        evaluations = log_evaluations ? evaluation_table(evaluation_log[]) : nothing
+    finally
+        evaluation_log[] = nothing
     end
 
     # output files are named by the budget: the duration, or the evaluations (e.g. "1000evals")
     budget = max_evaluations > 0 ? "$(max_evaluations)evals" : duration
     df = save_archive_to_csv(archive, descriptors, sut_name, emitter_type, bias_column, budget, run_num, local_search_budget_ratio)
     if local_search_budget_ratio == 0
-        return (archive=df, with_tracer=nothing)
+        return (archive=df, with_tracer=nothing, evaluations=evaluations)
     end
 
     # Tracer: local search around the best boundary candidates of each validity group
@@ -221,5 +238,5 @@ function run_search(sut_name::String, duration::Integer=0; max_evaluations::Inte
 
     local_search_dataframe = unique(local_search_dataframe, i_columns)  # drop duplicates
     df_all = append_archive_with_local_search_sols(df, local_search_dataframe, sut_name, emitter_type, bias_column, duration, run_num, local_search_budget_ratio)
-    return (archive=df, with_tracer=df_all)
+    return (archive=df, with_tracer=df_all, evaluations=evaluations)
 end

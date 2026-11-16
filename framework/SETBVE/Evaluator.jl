@@ -18,6 +18,7 @@ function evaluate(e::Evaluator, sut_name::String, solution::Dict{String,Any}, be
     output2 = get_sut_output(i2, sut_name) 
 
     fitness = program_derivative(sut_name, i1, i2, output1, output2)
+    record_evaluation!(i1, i2, output1, output2, fitness)
 
     fs = Float64[-fitness]  # invert the fitnesses so we can minimize => maximize PD
     bd_values = []

@@ -279,6 +279,7 @@ function emit_solutions(o::DefaultOptimizer, sut_name, behav_descriptors)
         evaluations[i] = Evaluation(fitnesses[i], bd_values[i])
         
         f = feedbacks[i] = add!(o.archive, candidates[i], evaluations[i])
+        record_archive_status!(f)
         reportfeedback(o, f)
         tell!(o.emitter)
     end

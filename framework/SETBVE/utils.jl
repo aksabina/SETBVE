@@ -1,5 +1,38 @@
 using StatsBase, Random, Base.Threads
 
+# The log of a search's evaluations (see run_search's `log_evaluations`): nothing when not logging, else one entry per
+# evaluated pair, in order, with the search phase that made it
+const evaluation_log = Ref{Union{Nothing,Vector{Dict{String,Any}}}}(nothing)
+const evaluation_phase = Ref("")
+
+function record_evaluation!(i1, i2, output1, output2, fitness)
+    evaluation_log[] === nothing && return
+    push!(evaluation_log[], Dict{String,Any}("phase" => evaluation_phase[], "i1" => i1, "i2" => i2,
+                                              "output1" => string(output1), "output2" => string(output2),
+                                              "fitness" => abs(fitness)))
+end
+
+# what adding the last evaluated pair did to the archive
+function record_archive_status!(status)
+    (evaluation_log[] === nothing || isempty(evaluation_log[])) && return
+    evaluation_log[][end]["archive"] = status isa NewCellStatus ? "new cell" :
+                                       status isa BetterEvaluationStatus ? "better" : "no update"
+end
+
+# The log as a table: evaluation number, phase, the pair's inputs (i1_k, i2_k), outputs, fitness and archive status
+function evaluation_table(entries)
+    n = isempty(entries) ? 0 : length(entries[1]["i1"])
+    as_value(v) = v isa Integer ? BigInt(v) : v
+    table = DataFrame(evaluation=1:length(entries), phase=[e["phase"] for e in entries])
+    for side in (1, 2), k in 1:n
+        table[!, "i$(side)_$k"] = [as_value(e["i$side"][k]) for e in entries]
+    end
+    for col in ("output1", "output2", "fitness", "archive")
+        table[!, col] = [get(e, col, missing) for e in entries]
+    end
+    return table
+end
+
 # directory under which the Archive/ and Plots/ folders are written (default: the working directory)
 set_output_dir!(dir::AbstractString) = (output_dir[] = dir; nothing)
 # whether SETBVE prints progress bars and messages (default: true)
